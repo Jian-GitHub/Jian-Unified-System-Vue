@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/side/LoginSide.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/side/LoginSide.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en-US/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh-CN/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh-CN/login/container/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/login/container/strings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh-CN/login/side/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/login/side/strings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/main.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +38,12 @@
     &quot;assignee&quot;: &quot;Jian-GitHub&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Jian-GitHub/Jian-Unified-System--Vue.git&quot;,
-    &quot;accountId&quot;: &quot;f2dd212d-f972-495f-bb16-f1f6d5540321&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Jian-GitHub/Jian-Unified-System-Vue.git",
+    "accountId": "f2dd212d-f972-495f-bb16-f1f6d5540321"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -115,7 +126,7 @@
       <workItem from="1756949291610" duration="44000" />
       <workItem from="1757056224220" duration="7857000" />
       <workItem from="1757064132970" duration="3998000" />
-      <workItem from="1757072388930" duration="86000" />
+      <workItem from="1757072388930" duration="1142000" />
     </task>
     <servers />
   </component>

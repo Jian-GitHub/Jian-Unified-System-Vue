@@ -12,10 +12,10 @@ function setIsLogin() {
   // console.log(isLogin)
 
   if (isLogin.value) {
-    switchLanguage('en-US')
+    switchLanguage('en')
     setTheme('dark')
   } else {
-    switchLanguage('zh-CN')
+    switchLanguage('zh')
     setTheme('light')
   }
 }
@@ -25,7 +25,10 @@ import { useI18n } from 'vue-i18n'
 const { t, locale } = useI18n()
 
 import { computed } from 'vue'
-const msg = computed(() => t('side.login.SIDE_TEXT_1'))
+const loginSideText1 = computed(() => t('side.login.SIDE_TEXT_1'))
+const loginSideText2 = computed(() => t('side.login.SIDE_TEXT_2'))
+const RegisterSideText1 = computed(() => t('side.registration.SIDE_TEXT_1'))
+const RegisterSideText2 = computed(() => t('side.registration.SIDE_TEXT_2'))
 
 function setTheme(theme: 'light' | 'dark') {
   document.documentElement.setAttribute('data-theme', theme)
@@ -42,8 +45,8 @@ const switchLanguage = (lang: string) => {
     <img class="circle circle--top" :src="CIRCLE_TOP" alt="" />
     <img class="circle circle--bottom" :src="CIRCLE_BOTTOM" alt="" />
 
-    <div class="brand">Jian Unified System</div>
-    <div class="promo">{{ msg }}<br/>{{$t('side.login.SIDE_TEXT_2')}}</div>
+    <div class="title">Jian Unified System</div>
+    <div class="text">{{ loginSideText1 }}<br/>{{ loginSideText2 }}</div>
 
     <button class="btn" type="button" @click="setIsLogin">
       前往注册
@@ -54,8 +57,8 @@ const switchLanguage = (lang: string) => {
     <img class="circle circle--top" :src="CIRCLE_TOP" alt="" />
     <img class="circle circle--bottom" :src="CIRCLE_BOTTOM" alt="" />
 
-    <div class="brand">Jian Unified System</div>
-    <div class="promo">{{ msg }}<br/>{{$t('side.registration.SIDE_TEXT_2')}}</div>
+    <div class="title">Jian Unified System</div>
+    <div class="text">{{ RegisterSideText1 }}<br/>{{ RegisterSideText2 }}</div>
 
     <button class="btn" type="button" @click="setIsLogin">
       前往登入
@@ -72,7 +75,7 @@ const switchLanguage = (lang: string) => {
   position: relative;
   width: 400px;
   height: 700px;
-  background: var(--jus-color-doraemon-primary-200);
+  background: var(--jus-color-icarus-primary-200);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -101,17 +104,22 @@ const switchLanguage = (lang: string) => {
   transform: translate(-50%, -50%);
 }
 
-.brand {
+.title {
+  color: var(--jus-color-global-neutrals-text-primary);
+  font-size: 2.00938rem;
+  font-style: normal;
   font-weight: 600;
-  font-size: 32px;
-  color: #212121;
+  line-height: 2.5rem; /* 124.417% */
+  letter-spacing: 0.04019rem;
 }
 
-.promo {
-  color: #212121;
-  font-size: 16px;
+.text {
+  color: var(--jus-color-global-neutrals-text-primary);
   text-align: center;
-  line-height: 30px;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem; /* 187.5% */
 }
 
 .btn {

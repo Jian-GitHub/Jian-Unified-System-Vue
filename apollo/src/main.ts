@@ -1,11 +1,7 @@
 import './assets/main.css'
-
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createI18n } from 'vue-i18n'
-// import en from './locales/en.json'
-// import zh from './locales/zh.json'
-
 
 function loadLocaleMessages() {
     const locales = import.meta.glob('./locales/*/*.json', { eager: true })
@@ -14,7 +10,7 @@ function loadLocaleMessages() {
     for (const path in locales) {
         const matched = path.match(/locales\/([^\/]+)\/(.+)\.json$/)
         if (matched && matched.length === 3) {
-            const lang = matched[1] // 语言代码，如 zh-CN// 文件名（作为命名空间）
+            const lang = matched[1] // 语言代码，如 zh// 文件名（作为命名空间）
 
             // 初始化语言对象
             if (!messages[lang]) {
@@ -30,8 +26,8 @@ function loadLocaleMessages() {
 }
 
 const i18n = createI18n({
-    locale: 'zh-CN',   // 默认语言
-    fallbackLocale: 'zh-CN',
+    locale: 'zh',   // 默认语言
+    fallbackLocale: 'zh',
     globalInjection: true, // 全局注入 $t 方法
     messages: loadLocaleMessages()
 })
