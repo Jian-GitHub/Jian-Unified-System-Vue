@@ -1,0 +1,34 @@
+:global([data-theme="light"]) {
+
+    --jus-color-global-functional-success: #4CAF50;
+    --jus-color-global-functional-warning: #FFC107;
+    --jus-color-global-functional-error: #F44336;
+    --jus-color-global-functional-info: #2196F3;
+    --jus-color-global-neutrals-pure-white: #FFFFFF;
+    --jus-color-global-neutrals-pure-black: #000000;
+    --jus-color-global-neutrals-text-primary: #212121;
+    --jus-color-global-neutrals-text-secondary: #757575;
+    --jus-color-global-neutrals-text-disabled: #BDBDBD;
+    --jus-color-global-neutrals-text-placeholder: #A9A9A9;
+    --jus-color-global-neutrals-text-dividers: #E0E0E0;
+    --jus-color-global-shadow-top-left: #D1D9E6;
+    --jus-color-global-shadow-bottom-right: #F9F9F9;
+
+    --jus-color-doraemon-background: #FFFFFF;
+    --jus-color-doraemon-surface: #F5F5F5;
+    --jus-color-doraemon-primary-500: #416AAB;
+    --jus-color-doraemon-primary-400: #68A0F7;
+    --jus-color-doraemon-primary-300: #8ABCFA;
+    --jus-color-doraemon-primary-200: #E3F2FD;
+    --jus-color-doraemon-accent-500: #F3B869;
+    --jus-color-doraemon-accent-400: #A8732F;
+
+    --jus-color-icarus-background: #FFFFFF;
+    --jus-color-icarus-surface: #FAFAFA;
+    --jus-color-icarus-primary-500: #A99399;
+    --jus-color-icarus-primary-400: #CFA9AC;
+    --jus-color-icarus-primary-300: #F4BEBD;
+    --jus-color-icarus-primary-200: #F9E8E7;
+    --jus-color-icarus-secondary-500: #616977;
+    --jus-color-icarus-secondary-300: #867E88;
+}
