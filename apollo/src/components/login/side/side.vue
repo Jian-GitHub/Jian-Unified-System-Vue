@@ -68,8 +68,7 @@ const switchLanguage = (lang: string) => {
 </template>
 
 <style scoped>
-@import "@/assets/colors/themes/light.css";
-@import "@/assets/colors/themes/dark.css";
+@import "@/assets/main.css";
 
 .jus-apollo-side {
   position: relative;
