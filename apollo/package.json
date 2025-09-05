@@ -7,12 +7,13 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "dev": "vite --port 9090 --host",
+    "dev": "vite --port 20550 --host",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "element-plus": "^2.11.1",
+    "vite-svg-loader": "^5.1.0",
     "vue": "^3.5.18",
     "vue-i18n": "^11.1.12"
   },

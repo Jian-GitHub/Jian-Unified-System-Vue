@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Config i18n; Color css variables">
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Optimize code structure;&#10;Add animation">
+      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/input.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/container/container.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/side/LoginSide.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/side/side.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/login/circle_bottom.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/login/circle_bottom.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/login/circle_top.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/login/circle_top.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/side/side.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/side/side.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Composition API Component" />
         <option value="TypeScript File" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -35,9 +40,12 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Jian-GitHub/Jian-Unified-System-Vue.git",
-    "accountId": "f2dd212d-f972-495f-bb16-f1f6d5540321"
+    "accountId": "5b3bfe61-352f-420e-b215-f193cc5581d6"
   }
 }]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -53,19 +61,22 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/jian/code/WebstormProjects/jian-unified-system-vue",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
     "npm.dev.executor": "Run",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/PlugIns/javascript-plugin/jsLanguageServicesImpl/external",
+    "ts.external.directory.path": "/home/jian/.cache/JetBrains/RemoteDev/dist/1daa27e768ec0_WebStorm-2025.1.3/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -74,11 +85,42 @@
     ]
   }
 }]]></component>
+  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
+    <layout>
+      <window_info id="Bookmarks" side_tool="true" />
+      <window_info id="Merge Requests" />
+      <window_info id="Backup and Sync History" />
+      <window_info id="Commit_Guest" show_stripe_button="false" />
+      <window_info id="Pull Requests" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.22464284" />
+      <window_info active="true" id="Commit" order="1" visible="true" weight="0.22464284" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="File Transfer" />
+      <window_info anchor="bottom" id="Find" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info active="true" anchor="bottom" id="Problems View" order="2" visible="true" weight="0.3305" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.3305" />
+      <window_info anchor="bottom" id="Services" order="4" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.3305" />
+      <window_info anchor="right" id="Endpoints" />
+      <window_info anchor="right" id="Coverage" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="AIAssistant" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="2" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
+    </layout>
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apollo/src/locales/en-US" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apollo/src/components/login" />
       <recent name="$PROJECT_DIR$/apollo/src" />
       <recent name="$PROJECT_DIR$/apollo" />
       <recent name="$PROJECT_DIR$/apollo/src/assets/logo" />
@@ -105,7 +147,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-WS-251.23774.424" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.26927.40" />
       </set>
     </attachedChunks>
   </component>
@@ -121,6 +163,7 @@
       <workItem from="1757056224220" duration="7857000" />
       <workItem from="1757064132970" duration="3998000" />
       <workItem from="1757072388930" duration="1599000" />
+      <workItem from="1757075058130" duration="9039000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -138,6 +181,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Config i18n; Color css variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="Config i18n; Color css variables" />
+    <MESSAGE value="Optimize code structure;&#10;Add animation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize code structure;&#10;Add animation" />
   </component>
 </project>
