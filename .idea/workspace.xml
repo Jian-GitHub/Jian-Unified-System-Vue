@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Optimize code structure;&#10;Add animation">
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/circleBottom.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/circleTop.vue" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="SVG -&gt; Div&#10;Add Circle Shadow Color">
+      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/button.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/circle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/text.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/colors/themes/dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/colors/themes/dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/colors/themes/light.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/colors/themes/light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/login/circle_bottom.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/login/circle_bottom.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/login/circle_top.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/login/circle_top.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/login/side/side.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/side/side.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +103,7 @@
       <window_info anchor="bottom" id="Problems View" order="2" weight="0.3305" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.3305" />
       <window_info anchor="bottom" id="Services" order="4" />
-      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.3305" />
       <window_info anchor="right" id="Endpoints" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
@@ -166,7 +162,7 @@
       <workItem from="1757064132970" duration="3998000" />
       <workItem from="1757072388930" duration="1599000" />
       <workItem from="1757075058130" duration="13097000" />
-      <workItem from="1757127444560" duration="2133000" />
+      <workItem from="1757127444560" duration="5911000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -184,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757086194189</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="SVG -&gt; Div&#10;Add Circle Shadow Color">
+      <option name="closed" value="true" />
+      <created>1757129663020</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1757129663020</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +197,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Config i18n; Color css variables" />
     <MESSAGE value="Optimize code structure;&#10;Add animation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize code structure;&#10;Add animation" />
+    <MESSAGE value="SVG -&gt; Div&#10;Add Circle Shadow Color" />
+    <option name="LAST_COMMIT_MESSAGE" value="SVG -&gt; Div&#10;Add Circle Shadow Color" />
   </component>
 </project>

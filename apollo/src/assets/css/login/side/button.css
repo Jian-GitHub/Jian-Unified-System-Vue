@@ -1,0 +1,18 @@
+.btn {
+    width: 11.25rem;
+    height: 3.125rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
+
+    text-align: center;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem; /* 120% */
+    transition: 0s;
+}
+.btn-zh-spacing {
+    letter-spacing: 0.1875rem;
+}

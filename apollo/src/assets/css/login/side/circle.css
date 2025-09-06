@@ -1,0 +1,37 @@
+.circle {
+    position: absolute;
+    pointer-events: none;
+    transition: all 1s ease-in-out; /* 平滑动画 */
+}
+
+.circle--top-right {
+    width: 18.75rem;
+    height: 18.75rem;
+    left: calc(50% + 13.375rem);
+    top: calc(50% - 25.625rem);
+    transform: translate(-50%, -50%);
+}
+
+.circle--top-left {
+    width: 18.75rem;
+    height: 18.75rem;
+    left: calc(50% - 13.375rem);
+    top: calc(50% - 25.625rem);
+    transform: translate(-50%, -50%);
+}
+
+.circle--bottom-left {
+    width: 31.25rem;
+    height: 31.25rem;
+    left: calc(50% - 12rem);
+    top: calc(50% + 28.25rem);
+    transform: translate(-50%, -50%);
+}
+
+.circle--bottom-right {
+    width: 31.25rem;
+    height: 31.25rem;
+    left: calc(50% + 12rem);
+    top: calc(50% + 28.25rem);
+    transform: translate(-50%, -50%);
+}
