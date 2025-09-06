@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
 // Figma assets
-import CIRCLE_BOTTOM from '@/assets/login/circle_bottom.svg'
-import CIRCLE_TOP from "@/assets/login/circle_top.svg"
 import {ComputedRef, ref} from "vue";
+import CircleTop from "@/components/login/basic/circleTop.vue";
+import CircleBottom from "@/components/login/basic/circleBottom.vue";
 
 let isLogin = ref(true);
 
@@ -12,11 +12,11 @@ function setIsLogin() {
   // console.log(isLogin)
 
   if (isLogin.value) {
-    switchLanguage('en')
     setTheme('dark')
+    switchLanguage('en')
   } else {
-    switchLanguage('zh')
     setTheme('light')
+    switchLanguage('zh')
   }
 }
 
@@ -51,8 +51,8 @@ const switchLanguage = (lang: string) => {
 <template>
   <div class="jus-apollo-side">
     <div class="jus-apollo-side-background">
-      <CIRCLE_BOTTOM :class="['circle', { 'circle--bottom-left' : isLogin }, { 'circle--bottom-right' : !isLogin }]"/>
-      <CIRCLE_TOP :class="['circle', { 'circle--top-right' : isLogin }, { 'circle--top-left' : !isLogin }]"/>
+      <CircleTop :class="[{ 'circle--top-right' : isLogin }, { 'circle--top-left' : !isLogin }]"/>
+      <CircleBottom :class="[ { 'circle--bottom-left' : isLogin }, { 'circle--bottom-right' : !isLogin }]"/>
     </div>
 
     <div class="jus-apollo-side-content">
@@ -87,7 +87,7 @@ const switchLanguage = (lang: string) => {
   align-items: center;
   justify-content: center;
   font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  transition: all 1s ease-out; /* 平滑动画 */
+  transition: all 1s ease-in-out; /* 平滑动画 */
 }
 
 .jus-apollo-side-content {
@@ -97,11 +97,11 @@ const switchLanguage = (lang: string) => {
   justify-content: center;
   gap: 0.75rem;
 }
-
+/*noinspection CssUnusedSymbol*/
 .circle {
   position: absolute;
   pointer-events: none;
-  transition: all 1s ease-out; /* 平滑动画 */
+  transition: all 1s ease-in-out; /* 平滑动画 */
 }
 /*noinspection CssUnusedSymbol*/
 .circle--top-right {
@@ -167,6 +167,7 @@ const switchLanguage = (lang: string) => {
   font-style: normal;
   font-weight: 600;
   line-height: 1.5rem; /* 120% */
+  transition: 0s;
 }
 /*noinspection CssUnusedSymbol*/
 .btn-zh-spacing {

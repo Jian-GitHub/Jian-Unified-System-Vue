@@ -9,7 +9,7 @@ function loadLocaleMessages() {
 
     for (const path in locales) {
         const matched = path.match(/locales\/([^\/]+)\/(.+)\.json$/)
-        if (matched && matched.length === 3) {
+        if (matched) {
             const lang = matched[1] // 语言代码，如 zh// 文件名（作为命名空间）
 
             // 初始化语言对象
