@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="LoginPage">
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/setting/Setting.vue" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Change LoginPage">
+      <change afterPath="$PROJECT_DIR$/apollo/src/components/dayNightToggleButton/DayNightToggleButton.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/App.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +86,7 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23244642" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21544716" />
       <window_info id="Commit" order="1" weight="0.23244642" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -159,7 +158,8 @@
       <workItem from="1757064132970" duration="3998000" />
       <workItem from="1757072388930" duration="1599000" />
       <workItem from="1757075058130" duration="13097000" />
-      <workItem from="1757127444560" duration="50158000" />
+      <workItem from="1757127444560" duration="50790000" />
+      <workItem from="1757282346743" duration="243000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -209,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757250169329</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Change LoginPage">
+      <option name="closed" value="true" />
+      <created>1757252713733</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1757252713733</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +229,7 @@
     <MESSAGE value="SVG -&gt; Div&#10;Add Circle Shadow Color" />
     <MESSAGE value="Optimize code structure" />
     <MESSAGE value="LoginPage" />
-    <option name="LAST_COMMIT_MESSAGE" value="LoginPage" />
+    <MESSAGE value="Change LoginPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change LoginPage" />
   </component>
 </project>

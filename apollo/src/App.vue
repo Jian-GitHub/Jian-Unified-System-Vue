@@ -5,6 +5,7 @@ import TheWelcome from './components/TheWelcome.vue'
 import Side from './components/login/side/Side.vue'
 import Container from './components/login/container/Container.vue'
 import LoginPage from '@/components/login/LoginPage.vue'
+import DayNightToggleButton from "@/components/dayNightToggleButton/DayNightToggleButton.vue";
 
 function setTheme(theme: 'light' | 'dark') {
   document.documentElement.setAttribute('data-theme', theme)
@@ -27,7 +28,8 @@ setTheme(savedTheme || 'light')
   <main>
 <!--    <Side/>-->
 <!--    <Container/>-->
-    <LoginPage/>
+<!--    <LoginPage/>-->
+    <DayNightToggleButton/>
 <!--    <TheWelcome />-->
   </main>
 </template>
