@@ -5,47 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="LoginPage">
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/container/button.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/container/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/container/input.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/container/thirdPartyButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/icons/SuccessIcon.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/CloudflareChecker.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/Input.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/ShellButton.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/ThirdPartyButton.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/divider.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/setting/Setting.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/colors/themes/dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/colors/themes/dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/colors/themes/light.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/colors/themes/light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/login/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/login/side/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/login/side/circle.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/circle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/login/side/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/login/side/text.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/text.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logo/apple_fill_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logo/apple_fill_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logo/apple_line_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logo/apple_line_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logo/cloudflare_logo_text.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logo/cloudflare_logo_text.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logo/github_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logo/github_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logo/passkeys_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logo/passkeys_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logo/passkeys_outline_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logo/passkeys_outline_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/LoginSide.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/LoginSide.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/basic/circleBottom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/CircleBottom.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/basic/circleTop.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/CircleTop.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/basic/input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/icons/CloudflareLogoText.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/side/side.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/side/Side.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/i18n.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/i18n.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/login.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/login.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/login/container/strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/login/container/strings.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/shims-vue.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/shims-vue.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,8 +87,8 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.23244642" />
-      <window_info active="true" id="Commit" order="1" visible="true" weight="0.23244642" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23244642" />
+      <window_info id="Commit" order="1" weight="0.23244642" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -196,7 +159,7 @@
       <workItem from="1757064132970" duration="3998000" />
       <workItem from="1757072388930" duration="1599000" />
       <workItem from="1757075058130" duration="13097000" />
-      <workItem from="1757127444560" duration="48291000" />
+      <workItem from="1757127444560" duration="50158000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -238,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757250164022</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="LoginPage">
+      <option name="closed" value="true" />
+      <created>1757250169329</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1757250169329</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

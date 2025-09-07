@@ -242,8 +242,12 @@ const cf_token = ref('');
   gap: 1.875rem;
   flex-shrink: 0;
   font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-
+  background-color: transparent;
+/*
   background: linear-gradient(148deg, var(--jus-color-icarus-primary-200, #F9E8E7) 31.82%, var(--jus-color-icarus-primary-300, #F4BEBD) 106.82%);
+ */
+  transition: all 5s ease-in-out 0s;
+  background: linear-gradient(91deg, rgba(255, 255, 255, 0.30) 0%, rgba(191, 184, 184, 0.09) 100%);
 }
 
 
