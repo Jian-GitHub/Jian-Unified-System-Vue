@@ -12,7 +12,7 @@ export const container = {
         REGISTER_BUTTON: '注册',
     },
     THIRD_PARTY: {
-        THIRD_PARTY_CONTINUE: '使用第三方继续',
+        THIRD_PARTY_CONTINUE: '或',
         PASSKEYS: '使用通行密钥继续',
         GOOGLE: '使用Google继续',
         GITHUB: '使用GitHub继续'

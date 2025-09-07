@@ -40,5 +40,13 @@ declare module 'vue-i18n' {
                 TO_LOGIN: string
             }
         }
+        cloudflareChecker: {
+            status: {
+                success: string
+                failed: string
+            }
+            privacy: string
+            terms: string
+        }
     }
 }

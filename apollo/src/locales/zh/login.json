@@ -13,7 +13,7 @@
       "REGISTER_BUTTON": "注册"
     },
     "THIRD_PARTY": {
-      "THIRD_PARTY_CONTINUE": "使用第三方继续",
+      "THIRD_PARTY_CONTINUE": "或",
       "PASSKEYS": "使用通行密钥继续",
       "GOOGLE": "使用Google继续",
       "GITHUB": "使用GitHub继续"
@@ -31,5 +31,13 @@
       "SIDE_TEXT_2": "现在登入，畅通无阻！",
       "TO_LOGIN": "前往登入"
     }
+  },
+  "cloudflareChecker": {
+    "status": {
+      "success": "成功",
+      "failed": "失败"
+    },
+    "privacy": "隐私",
+    "terms": "条款"
   }
 }

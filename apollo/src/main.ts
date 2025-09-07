@@ -26,9 +26,9 @@ function loadLocaleMessages() {
 }
 
 const i18n = createI18n({
+    legacy: false,
     locale: 'zh',   // 默认语言
     fallbackLocale: 'zh',
-    globalInjection: true, // 全局注入 $t 方法
     messages: loadLocaleMessages()
 })
 

@@ -32,4 +32,7 @@
     --jus-color-icarus-primary-200: #F9E8E7;
     --jus-color-icarus-secondary-500: #616977;
     --jus-color-icarus-secondary-300: #867E88;
+
+
+    --jus-color-login-container-action-button-background: var(--jus-color-doraemon-primary-200);
 }

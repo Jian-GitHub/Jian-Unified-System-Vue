@@ -1,10 +1,10 @@
-.circle {
+.jus-apollo-side-circle {
     position: absolute;
     pointer-events: none;
     transition: all 1s ease-in-out; /* 平滑动画 */
 }
 
-.circle--top-right {
+.jus-apollo-side-circle--top-right {
     width: 18.75rem;
     height: 18.75rem;
     left: calc(50% + 13.375rem);
@@ -12,7 +12,7 @@
     transform: translate(-50%, -50%);
 }
 
-.circle--top-left {
+.jus-apollo-side-circle--top-left {
     width: 18.75rem;
     height: 18.75rem;
     left: calc(50% - 13.375rem);
@@ -20,7 +20,7 @@
     transform: translate(-50%, -50%);
 }
 
-.circle--bottom-left {
+.jus-apollo-side-circle--bottom-left {
     width: 31.25rem;
     height: 31.25rem;
     left: calc(50% - 12rem);
@@ -28,7 +28,7 @@
     transform: translate(-50%, -50%);
 }
 
-.circle--bottom-right {
+.jus-apollo-side-circle--bottom-right {
     width: 31.25rem;
     height: 31.25rem;
     left: calc(50% + 12rem);

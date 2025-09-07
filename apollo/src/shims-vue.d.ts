@@ -5,10 +5,10 @@ declare module '*.vue' {
     export default component
 }
 
-declare module '*.svg' {
-    const content: string
-    export default content
-}
+// declare module '*.svg' {
+//     const content: string
+//     export default content
+// }
 
 declare module '*.svg?component' {
     import type { DefineComponent } from 'vue'
@@ -44,4 +44,10 @@ declare module '*.webp' {
 declare module '*.ico' {
     const src: string
     export default src
+}
+
+declare module '*.svg' {
+    import type { DefineComponent } from 'vue'
+    const component: DefineComponent<{}, {}, any>
+    export default component
 }

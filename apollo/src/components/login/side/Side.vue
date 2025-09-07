@@ -2,14 +2,15 @@
 import {useI18n} from 'vue-i18n'
 import {computed} from 'vue'
 import {ElButton} from "element-plus";
+import {store} from "@/store";
+const {isLogin} = store()
 // Figma assets
 import {h, ComputedRef, Ref, ref, VNode, RendererNode, RendererElement} from "vue";
-import CircleTop from "@/components/login/basic/circleTop.vue";
-import CircleBottom from "@/components/login/basic/circleBottom.vue";
+import CircleTop from "@/components/login/basic/CircleTop.vue";
+import CircleBottom from "@/components/login/basic/CircleBottom.vue";
 
 const {t, locale} = useI18n()
 
-let isLogin: Ref<boolean, boolean> = ref(true);
 const title: ComputedRef<string> = computed(() => t('side.SIDE_TITLE'))
 const loginSideText1: ComputedRef<string> = computed(() => t('side.login.SIDE_TEXT_1'))
 const loginSideText2: ComputedRef<string> = computed(() => t('side.login.SIDE_TEXT_2'))
@@ -17,10 +18,12 @@ const registerSideText1: ComputedRef<string> = computed(() => t('side.registrati
 const registerSideText2: ComputedRef<string> = computed(() => t('side.registration.SIDE_TEXT_2'))
 const loginButtonText: ComputedRef<string> = computed(() => t('side.login.TO_REGISTER'))
 const registerButtonText: ComputedRef<string> = computed(() => t('side.registration.TO_LOGIN'))
+const sideTextLine1: ComputedRef<string> = computed(() => isLogin.value ? loginSideText1.value : registerSideText1.value)
+const sideTextLine2: ComputedRef<string> = computed(() => isLogin.value ? loginSideText2.value : registerSideText2.value)
 
 function setIsLogin(): void {
   isLogin.value = !isLogin.value
-  // console.log(isLogin)
+  // console.log(isLogin.value)
 
   if (isLogin.value) {
     setTheme('dark')
@@ -41,7 +44,7 @@ const switchLanguage = (lang: string): void => {
   locale.value = lang
 }
 
-const toButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: string]: any }>> = computed(() => {
+const sideToButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: string]: any }>> = computed(() => {
   return h(
       ElButton,
       {
@@ -50,30 +53,43 @@ const toButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: string]: 
         },
         onClick: setIsLogin,
       },
-      isLogin.value ? loginButtonText.value : registerButtonText.value
+      () => isLogin.value ? loginButtonText.value : registerButtonText.value
   );
 });
+
+function sideCircleClass(position: 'top' | 'bottom'): string {
+  if (position === 'top') {
+    return isLogin.value ? 'jus-apollo-side-circle--top-right' : 'jus-apollo-side-circle--top-left'
+  } else {
+    return isLogin.value ? 'jus-apollo-side-circle--bottom-left' : 'jus-apollo-side-circle--bottom-right'
+  }
+}
+
+function sideToButtonClass() {
+  if (locale.value === 'zh') {
+    return 'sideToButton-zh-spacing'
+  }
+}
 </script>
 
 <template>
   <div class="jus-apollo-side">
     <div class="jus-apollo-side-background">
-      <CircleTop :class="[{ 'circle--top-right' : isLogin }, { 'circle--top-left' : !isLogin }]"/>
-      <CircleBottom :class="[ { 'circle--bottom-left' : isLogin }, { 'circle--bottom-right' : !isLogin }]"/>
+      <CircleTop :class="sideCircleClass('top')"/>
+      <CircleBottom :class="sideCircleClass('bottom')"/>
     </div>
-
     <div class="jus-apollo-side-content">
-      <div class="title">{{ title }}</div>
-      <div class="text">
-        {{ isLogin ? loginSideText1 : registerSideText1 }}
+      <div class="jus-apollo-side-title">{{ title }}</div>
+      <div class="jus-apollo-side-text">
+        {{ sideTextLine1 }}
         <br/>
-        {{ isLogin ? loginSideText2 : registerSideText2 }}
+        {{ sideTextLine2 }}
       </div>
-      <component :is="toButton" :class="['btn', { 'btn-zh-spacing': locale === 'zh' }]"/>
+      <component :is="sideToButton" :class="['sideToButton', sideToButtonClass()]"/>
     </div>
   </div>
 </template>
 
 <style scoped>
-@import "@/assets/css/login/index.css";
+@import "@/assets/css/login/side/index.css";
 </style>

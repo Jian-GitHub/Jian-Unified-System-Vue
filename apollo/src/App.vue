@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import LoginPage from './components/LoginPage.vue'
-import Side from './components/login/side/side.vue'
+// import LoginPage from './components/LoginPage.vue'
+import Side from './components/login/side/Side.vue'
+import Container from './components/login/container/Container.vue'
+import LoginPage from '@/components/login/LoginPage.vue'
 
 function setTheme(theme: 'light' | 'dark') {
   document.documentElement.setAttribute('data-theme', theme)
@@ -23,7 +25,9 @@ setTheme(savedTheme || 'light')
 <!--  </header>-->
 
   <main>
-    <Side/>
+<!--    <Side/>-->
+<!--    <Container/>-->
+    <LoginPage/>
 <!--    <TheWelcome />-->
   </main>
 </template>

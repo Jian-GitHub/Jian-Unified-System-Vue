@@ -1,0 +1,52 @@
+.container-action-button {
+    cursor: pointer;
+
+    display: flex;
+    width: 11.25rem;
+    height: 3.125rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600 !important;
+    line-height: 1.5rem; /* 120% */
+    transition: 0s;
+
+    border-radius: 0.5rem;
+    background: var(--jus-color-icarus-primary-300);
+    border: 1px solid transparent;
+    /* Default Shadow */
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    color: var(--jus-color-global-neutrals-pure-black, #000);
+    letter-spacing: 0.1875rem;
+}
+
+:deep(span) {
+    font-weight: 600;
+}
+
+.container-action-button:hover,
+.container-action-button:focus {
+    cursor: pointer;
+    border-radius: 0.5rem;
+    border: 1px solid var(--jus-color-icarus-primary-500);
+    background: var(--jus-color-icarus-primary-400);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.50);
+}
+/*.container-action-button-zh-spacing {*/
+/*    letter-spacing: 0.1875rem;*/
+/*}*/
+
+/* 英文状态 */
+.container-action-button .container-action-button-text {
+    letter-spacing: normal !important;
+}
+
+/* 中文状态 */
+.container-action-button-zh .container-action-button-text {
+    letter-spacing: 0.1875rem !important;
+}

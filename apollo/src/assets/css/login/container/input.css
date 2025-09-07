@@ -1,0 +1,19 @@
+:deep(.el-input__wrapper){
+    display: flex;
+    width: 21.875rem;
+    height: 2.5rem;
+    padding: 0.75rem 1.25rem;
+    align-items: center;
+    gap: 0.625rem;
+    align-self: stretch;
+    flex-shrink: 0;
+
+    border-radius: 0.5rem;
+    background: var(--jus-color-doraemon-surface, #F5F5F5);
+    box-shadow: -2px -2px 4px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9) inset, 2px 2px 4px 0 var(--jus-color-global-shadow-top-left, #D1D9E6) inset;
+}
+:deep(.el-input__wrapper.is-focus),
+:deep(.el-input__wrapper:hover) {
+    box-shadow: -4px -4px 4px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9) inset, 4px 4px 4px 0 var(--jus-color-global-shadow-top-left, #D1D9E6) inset;
+    transition: 0.2s;
+}

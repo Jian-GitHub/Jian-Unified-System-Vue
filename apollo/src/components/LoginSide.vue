@@ -18,7 +18,7 @@ function handleClick() {
     <div class="brand">Jian Unified System</div>
     <div class="promo">还没有账号吗？<br/>现在注册，即刻启程！</div>
 
-    <button class="btn" type="button" @click="handleClick">
+    <button class="sideToButton" type="button" @click="handleClick">
       前往注册
     </button>
   </div>
@@ -73,7 +73,7 @@ function handleClick() {
   line-height: 30px;
 }
 
-.btn {
+.sideToButton {
   width: 180px;
   height: 50px;
   border-radius: 8px;

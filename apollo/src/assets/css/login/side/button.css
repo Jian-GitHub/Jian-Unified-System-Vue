@@ -1,4 +1,4 @@
-.btn {
+.sideToButton {
     width: 11.25rem;
     height: 3.125rem;
     border-radius: 0.5rem;
@@ -13,6 +13,6 @@
     line-height: 1.5rem; /* 120% */
     transition: 0s;
 }
-.btn-zh-spacing {
+.sideToButton-zh-spacing {
     letter-spacing: 0.1875rem;
 }

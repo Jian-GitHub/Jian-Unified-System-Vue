@@ -5,8 +5,8 @@
 
 .jus-apollo-side {
     position: relative;
-    width: 400px;
-    height: 700px;
+    width: 25rem;
+    height: 43.75rem;
     background: var(--jus-color-icarus-primary-200);
     overflow: hidden;
     display: flex;

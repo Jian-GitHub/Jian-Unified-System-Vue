@@ -13,7 +13,7 @@
       "REGISTER_BUTTON": "Register"
     },
     "THIRD_PARTY": {
-      "THIRD_PARTY_CONTINUE": "Continue with third party",
+      "THIRD_PARTY_CONTINUE": "or",
       "PASSKEYS": "Continue with Passkeys",
       "GOOGLE": "Continue with Google",
       "GITHUB": "Continue with GitHub"
@@ -31,5 +31,13 @@
       "SIDE_TEXT_2": "Login now for seamless access!",
       "TO_LOGIN": "Go to Login"
     }
+  },
+  "cloudflareChecker": {
+    "status": {
+      "success": "Success",
+      "failed": "Failed"
+    },
+    "privacy": "Privacy",
+    "terms": "Terms"
   }
 }

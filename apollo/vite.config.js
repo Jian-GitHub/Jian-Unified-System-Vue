@@ -13,7 +13,10 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
-    svgLoader(),
+    svgLoader({
+      svgo: false, // 可选，防止优化破坏图标
+      defaultImport: 'component' // 确保导出的是 Vue 组件
+    }),
     AutoImport({
       resolvers: [ElementPlusResolver()],
     }),
@@ -26,4 +29,9 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    allowedHosts: [
+        'dev.jian.nz'
+    ]
+  }
 })

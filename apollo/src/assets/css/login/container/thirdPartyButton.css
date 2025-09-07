@@ -1,0 +1,11 @@
+@import "../../../main.css";
+
+.third-party-button:hover,
+.third-party-button:focus {
+    border-radius: 0.625rem;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid var(--jus-color-icarus-primary-500);
+    background: var(--jus-color-icarus-primary-200);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.50);
+}
