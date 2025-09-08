@@ -4,27 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Change LoginPage">
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/dayNightToggleButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/typescript/day-night-toggle-button.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/Settings.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/en/languages.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ja/languages.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ja/login.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/zh/languages.json" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: Switch languages; Light &amp; Dark Mode.">
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ko/languages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ko/login.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/login/container/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/container/input.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/login/side/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/login/side/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/side/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/arrow_drop_down_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/arrow_drop_down_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/translate_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/translate_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/dayNightToggleButton/DayNightToggleButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/dayNightToggleButton/DayNightToggleButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/basic/CloudflareChecker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/CloudflareChecker.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/side/Side.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/side/Side.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/languages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ja/languages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/languages.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/store/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -244,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757252713733</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Feature: Switch languages; Light &amp; Dark Mode.">
+      <option name="closed" value="true" />
+      <created>1757337530598</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1757337530598</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +262,7 @@
     <MESSAGE value="Optimize code structure" />
     <MESSAGE value="LoginPage" />
     <MESSAGE value="Change LoginPage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change LoginPage" />
+    <MESSAGE value="Feature: Switch languages; Light &amp; Dark Mode." />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature: Switch languages; Light &amp; Dark Mode." />
   </component>
 </project>
