@@ -23,25 +23,6 @@ const sideTextLine2: ComputedRef<string> = computed(() => isLogin.value ? loginS
 
 function setIsLogin(): void {
   isLogin.value = !isLogin.value
-  // console.log(isLogin.value)
-
-  if (isLogin.value) {
-    setTheme('dark')
-    switchLanguage('en')
-  } else {
-    setTheme('light')
-    switchLanguage('zh')
-  }
-}
-
-function setTheme(theme: 'light' | 'dark'): void {
-  document.documentElement.setAttribute('data-theme', theme)
-  localStorage.setItem('theme', theme)
-}
-
-// 切换语言
-const switchLanguage = (lang: string): void => {
-  locale.value = lang
 }
 
 const sideToButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: string]: any }>> = computed(() => {
@@ -51,6 +32,7 @@ const sideToButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: strin
         style: {
           backgroundColor: '#E3F2FD', //'var(--jus-color-doraemon-primary-200)'
         },
+        color: '#E3F2FD',
         onClick: setIsLogin,
       },
       () => isLogin.value ? loginButtonText.value : registerButtonText.value

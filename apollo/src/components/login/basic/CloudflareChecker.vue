@@ -104,7 +104,6 @@ const regulationText: ComputedRef<string> = computed(() => t('cloudflareChecker.
 .cloudflare-checker-logo {
   padding-top: 2px;
   padding-bottom: 2px;
-  width: 4.5625rem;
   height: 2.3125rem;
   flex-shrink: 0;
 
@@ -130,7 +129,8 @@ const regulationText: ComputedRef<string> = computed(() => t('cloudflareChecker.
 .cloudflare-checker-privacy {
   height: 0.6875rem;
   display: flex;
-  align-items: flex-end;    /* 子元素靠右对齐 */
+  align-items: baseline;    /* 子元素靠右对齐 */
+  justify-content: center;
 }
 .cloudflare-checker-privacy-text {
   color: var(--jus-color-global-neutrals-text-primary, #212121);

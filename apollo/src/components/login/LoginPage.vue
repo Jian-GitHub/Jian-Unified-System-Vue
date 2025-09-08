@@ -1,34 +1,47 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import {computed} from 'vue'
 import Side from "@/components/login/side/Side.vue";
 import Container from "@/components/login/container/Container.vue";
+import Settings from '@/components/login/basic/Settings.vue'
 import {store} from "@/store";
-const {isLogin} = store()
+import {useI18n} from "vue-i18n";
 
-const className = computed(() => {
-  // console.log("状态", isLogin.value)
-  return isLogin.value ? '' : 'jus-apollo-login-register'
-})
+const {isLogin} = store()
 
 </script>
 
 <template>
-  <div class="jus-apollo-login-panel">
-    <div class="jus-apollo-login">
-      <Side :class="['jus-apollo-login-side',{ 'move-right': !isLogin }]"/>
-      <Container :class="['jus-apollo-login-container', { 'move-left': !isLogin }]"/>
+  <div class="jus-apollo-login-page">
+    <div class="jus-apollo-login-panel">
+      <div class="jus-apollo-login">
+        <Side :class="['jus-apollo-login-side',{ 'move-right': !isLogin }]"/>
+        <Container :class="['jus-apollo-login-container', { 'move-left': !isLogin }]"/>
+      </div>
+      <Settings/>
     </div>
+
   </div>
 </template>
 
 <style scoped>
-.jus-apollo-login-panel {
+.jus-apollo-login-page {
+  display: flex;
   width: 100vw;
   height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(115deg, var(--jus-color-doraemon-surface, #F5F5F5) 21.73%, var(--jus-color-doraemon-primary-200, #E3F2FD) 116.53%);
+}
+
+
+.jus-apollo-login-panel {
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .jus-apollo-login {
   overflow: hidden;
   display: flex;

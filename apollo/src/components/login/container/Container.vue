@@ -11,7 +11,7 @@ import Divider from "../basic/divider.vue";
 import CloudflareChecker from '../basic/CloudflareChecker.vue'
 import {ElButton} from "element-plus";
 import ThirdPartyButton from "@/components/login/basic/ThirdPartyButton.vue";
-import VueTurnstile from 'vue-turnstile';
+// import VueTurnstile from 'vue-turnstile';
 
 
 import {useI18n} from 'vue-i18n'
@@ -27,6 +27,7 @@ function sideToButtonClass(id: number) {
   }
 }
 
+const forgetPassword: ComputedRef<string> = computed(() => t('container.login.FORGET_PASSWORD'))
 const passkeysText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.PASSKEYS'))
 const googleText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.GOOGLE'))
 const githubText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.GITHUB'))
@@ -134,7 +135,7 @@ const cf_token = ref('');
 
 <template>
   <div class="jus-apollo-container">
-    <!-- 顶部表单区域 -->
+    <!-- Register -->
     <div class="jus-apollo-container-top-section" v-if="!isLogin">
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
@@ -173,6 +174,7 @@ const cf_token = ref('');
       </div>
     </div>
 
+    <!-- Login   -->
     <div class="jus-apollo-container-top-section" v-if="isLogin">
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
@@ -201,7 +203,7 @@ const cf_token = ref('');
       <!--      </div>-->
       <CloudflareChecker/>
       <div class="jus-apollo-container-action-section">
-        <span class="jus-apollo-container-action-section-text">忘记密码?</span>
+        <span class="jus-apollo-container-action-section-text">{{ forgetPassword }}</span>
         <component :is="containerActionButton" :class="['container-action-button', sideToButtonClass(2)]"/>
       </div>
     </div>
@@ -247,7 +249,9 @@ const cf_token = ref('');
   background: linear-gradient(148deg, var(--jus-color-icarus-primary-200, #F9E8E7) 31.82%, var(--jus-color-icarus-primary-300, #F4BEBD) 106.82%);
  */
   transition: all 5s ease-in-out 0s;
+  /*
   background: linear-gradient(91deg, rgba(255, 255, 255, 0.30) 0%, rgba(191, 184, 184, 0.09) 100%);
+  */
 }
 
 
@@ -285,7 +289,10 @@ const cf_token = ref('');
 
 .jus-apollo-container-action-section-text {
   display: flex;
+  /*
   width: 4.375rem;
+
+   */
   height: 1.5rem;
   justify-content: center;
   align-items: center;
