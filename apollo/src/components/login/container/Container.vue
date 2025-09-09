@@ -53,10 +53,10 @@ const containerActionButton: ComputedRef<VNode<RendererNode, RendererElement, { 
   return h(
       ElButton,
       {
-        color: 'red',
         style: {
           backgroundColor: 'var(--jus-color-login-container-action-button-background)',
           letterSpacing: locale.value === 'zh' ? '0.1875rem' : 'normal',
+          color: 'var(--jus-color-global-neutrals-pure-black)'
         },
         onClick: handleRegister,
       },
@@ -151,14 +151,16 @@ const cf_token = ref('');
           v-model="formData.password"
           placeholder="Password"
           type="password"
+          show-password
       />
       <CustomInput
           class="jus-apollo-container-input"
           v-model="formData.confirmPassword"
           placeholder="ConfirmPassword"
           type="password"
+          show-password
       />
-      <!-- Cloudflare 验证器 -->
+      <!-- Cloudflare Check -->
       <!--        <div class="cloudflare-checker-container" data-name="Cloudflare Checker" data-node-id="89:314">-->
       <!--          <CloudflareChecker />-->
       <!--        </div>-->
@@ -184,14 +186,16 @@ const cf_token = ref('');
           v-model="formData.email"
           placeholder="Email"
           type="email"
+          show-password
       />
       <CustomInput
           class="jus-apollo-container-input"
           v-model="formData.password"
           placeholder="Password"
           type="password"
+          show-password
       />
-      <!-- Cloudflare 验证器 -->
+      <!-- Cloudflare Checker -->
       <!--        <div class="cloudflare-checker-container" data-name="Cloudflare Checker" data-node-id="89:314">-->
       <!--          <CloudflareChecker />-->
       <!--        </div>-->

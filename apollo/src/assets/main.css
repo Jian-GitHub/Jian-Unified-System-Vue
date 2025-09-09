@@ -13,6 +13,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: black;
+
+  font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
 #app {

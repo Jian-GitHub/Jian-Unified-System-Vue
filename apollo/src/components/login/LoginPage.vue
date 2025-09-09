@@ -2,9 +2,8 @@
 import {computed} from 'vue'
 import Side from "@/components/login/side/Side.vue";
 import Container from "@/components/login/container/Container.vue";
-import Settings from '@/components/login/basic/Settings.vue'
+import Settings from '@/components/login/setting/Settings.vue'
 import {store} from "@/store";
-import {useI18n} from "vue-i18n";
 
 const {isLogin} = store()
 

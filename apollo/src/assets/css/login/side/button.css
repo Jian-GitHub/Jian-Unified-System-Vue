@@ -17,3 +17,7 @@
 .sideToButton-zh-spacing {
     letter-spacing: 0.1875rem;
 }
+
+:deep(.sideToButton span){
+    font-weight: 600;
+}

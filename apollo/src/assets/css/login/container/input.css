@@ -20,4 +20,5 @@
 
 :deep(.el-input__inner) {
     font-size: 0.9rem;
+    color: var(--jus-color-global-neutrals-text-primary);
 }
