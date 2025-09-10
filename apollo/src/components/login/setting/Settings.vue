@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {computed} from 'vue'
-import ArrowDown from "@assets/icon/arrow_drop_down_20x20.svg";
+import ArrowDown from "@/assets/icon/arrow_drop_down_20x20.svg";
 import DayNightToggleButton from "@/components/dayNightToggleButton/DayNightToggleButton.vue";
-import Translate from "@assets/icon/translate_20x20.svg";
+import Translate from "@/assets/icon/translate_20x20.svg";
 import {store} from "@/store";
 import {useI18n} from "vue-i18n";
 

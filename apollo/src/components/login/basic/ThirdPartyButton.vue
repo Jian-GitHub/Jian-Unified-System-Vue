@@ -7,7 +7,7 @@ const {locale} = useI18n()
 
 function setThirdPartyContinueButtonClass(type: boolean): string {
   if (locale.value === 'zh') {
-    return type ? 'third-party-button-content-zh' : 'third-party-button-content-zh-spacing'
+    return type ? 'third-party-button-userContainer-zh' : 'third-party-button-userContainer-zh-spacing'
   }
 }
 

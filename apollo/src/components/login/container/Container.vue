@@ -165,7 +165,7 @@ const cf_token = ref('');
       <!--          <CloudflareChecker />-->
       <!--        </div>-->
       <!--      <div-->
-      <!--          style="width: 375px;height: 65px;background-color: #fafafa;border-radius: 8px;align-items: center;justify-content: center;display: flex;overflow: hidden;">-->
+      <!--          style="width: 375px;height: 65px;background-color: #fafafa;border-radius: 8px;align-items: center;justify-container: center;display: flex;overflow: hidden;">-->
       <!--        <p style="z-index: 0;position: absolute;width: 375px;">等待验证</p>-->
       <!--        <vue-turnstile style="width: 375px;z-index: 1;position: absolute" id="cf"-->
       <!--                       site-key="0x4AAAAAAANVWc7MkXgqcP22" v-model="cf_token" theme="light"/>-->
@@ -200,7 +200,7 @@ const cf_token = ref('');
       <!--          <CloudflareChecker />-->
       <!--        </div>-->
       <!--      <div-->
-      <!--          style="width: 375px;height: 65px;background-color: #fafafa;border-radius: 8px;align-items: center;justify-content: center;display: flex;overflow: hidden;">-->
+      <!--          style="width: 375px;height: 65px;background-color: #fafafa;border-radius: 8px;align-items: center;justify-container: center;display: flex;overflow: hidden;">-->
       <!--        <p style="z-index: 0;position: absolute;width: 375px;">等待验证</p>-->
       <!--        <vue-turnstile style="width: 375px;z-index: 1;position: absolute" id="cf"-->
       <!--                       site-key="0x4AAAAAAANVWc7MkXgqcP22" v-model="cf_token" theme="light"/>-->

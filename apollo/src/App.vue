@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {ref, onMounted, onBeforeUnmount} from 'vue';
 import LoginPage from '@/components/login/LoginPage.vue'
+import SecurityPage from "@/components/user/security/SecurityPage.vue";
 
 import {useI18n} from "vue-i18n";
 
@@ -77,14 +78,30 @@ onBeforeUnmount(() => {
   <!--  </header>-->
 
   <!--  <main>-->
-  <!--    <Side/>-->
-  <!--    <Container/>-->
-  <LoginPage/>
-  <!--    <TheWelcome />-->
+
+<!--  <LoginPage/>-->
+
+  <div class="jus-apollo-page">
+    <SecurityPage/>
+  </div>
+
+
   <!--  </main>-->
 </template>
 
 <style scoped>
+.jus-apollo-page {
+  width: 100vw;
+  height: 100vh;
+  background: var(--jus-color-doraemon-surface);
+
+  /* 内部填充的半透明背景色 */
+  background: rgba(255, 255, 255, 0.06) linear-gradient(
+      120deg,
+      var(--jus-color-global-shadow-top-left) 30%,
+      var(--jus-color-global-shadow-bottom-right) 60%
+  );
+}
 /*
 header {
   line-height: 1.5;

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import {computed} from 'vue'
 import Side from "@/components/login/side/Side.vue";
 import Container from "@/components/login/container/Container.vue";
 import Settings from '@/components/login/setting/Settings.vue'
@@ -73,7 +72,7 @@ const {isLogin} = store()
   transition: all 1.5s ease;
 }
 
-/* 默认布局：Side 左，Container 右 */
+/* 默认布局：LeftSide 左，UserContainer 右 */
 .move-left {
   transform: translateX(0);
 }
@@ -84,10 +83,10 @@ const {isLogin} = store()
 
 /* 切换状态时平移动画 */
 .jus-apollo-login > .move-right {
-  transform: translateX(37.5rem); /* Side 向右移动 Container 宽度 */
+  transform: translateX(37.5rem); /* LeftSide 向右移动 UserContainer 宽度 */
 }
 
 .jus-apollo-login > .move-left {
-  transform: translateX(-25rem); /* Container 向左移动 Side 宽度 */
+  transform: translateX(-25rem); /* UserContainer 向左移动 LeftSide 宽度 */
 }
 </style>

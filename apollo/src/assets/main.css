@@ -4,7 +4,7 @@
 @import "@/assets/colors/themes/dark.css";
 
 html {
-  font-size: calc(100vw / 105);
+  font-size: clamp(12px, calc(100vw / 100), 20px);
 } /* 因为1680 ÷ 16 = 105 */
 
 body {
@@ -13,8 +13,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
-
   font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 

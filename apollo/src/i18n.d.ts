@@ -4,7 +4,7 @@ import { DefineLocaleMessage } from 'vue-i18n'
 // 定义你的语言包类型
 declare module 'vue-i18n' {
     export interface DefineLocaleMessage {
-        // container 部分
+        // userContainer 部分
         container: {
             login: {
                 CONTAINER_TITLE: string
@@ -26,7 +26,7 @@ declare module 'vue-i18n' {
             }
         }
 
-        // side 部分
+        // leftSide 部分
         side: {
             SIDE_TITLE: string
             login: {

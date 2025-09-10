@@ -6,8 +6,8 @@ declare module '*.vue' {
 }
 
 // declare module '*.svg' {
-//     const content: string
-//     export default content
+//     const userContainer: string
+//     export default userContainer
 // }
 
 declare module '*.svg?component' {
@@ -22,6 +22,11 @@ declare module '*.png' {
 }
 
 declare module '*.jpg' {
+    const src: string
+    export default src
+}
+
+declare module '*.JPG' {
     const src: string
     export default src
 }
