@@ -3,12 +3,12 @@ import {computed} from 'vue'
 import ArrowDown from "@/assets/icon/arrow_drop_down_20x20.svg";
 import DayNightToggleButton from "@/components/dayNightToggleButton/DayNightToggleButton.vue";
 import Translate from "@/assets/icon/translate_20x20.svg";
-import {store} from "@/store";
+import {useGlobalStore} from "@/store";
 import {useI18n} from "vue-i18n";
 
 const {t, locale} = useI18n()
-const { languages } = store()
-// 切换语言
+const globalStore = useGlobalStore()
+
 const switchLanguage = (lang: string): void => {
   locale.value = lang
   localStorage.setItem('language', lang)
@@ -18,7 +18,7 @@ const queryLanguageText = (langCode: string): string => {
   return t('languages.' + langCode);
 };
 const nowLanguage = computed(()=> locale.value);
-const nowLangIndex = languages.value.indexOf(nowLanguage.value);
+
 </script>
 
 <template>
@@ -33,7 +33,7 @@ const nowLangIndex = languages.value.indexOf(nowLanguage.value);
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item
-                v-for="(value, index) in languages"
+                v-for="(value, index) in globalStore.languages"
                 :key="index"
                 :disabled="nowLanguage == value"
                 :command="value">

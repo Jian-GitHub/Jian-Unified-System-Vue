@@ -1,5 +1,10 @@
 :global([data-theme="light"]) {
 
+    --jus-color-global-cn: #EE1C25;
+    --jus-color-global-jp: #BC002D;
+
+    --jus-color-global-icon-blue: #4070D4;
+
     --jus-color-global-functional-success: #4CAF50;
     --jus-color-global-functional-warning: #FFC107;
     --jus-color-global-functional-error: #F44336;

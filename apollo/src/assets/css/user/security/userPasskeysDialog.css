@@ -1,0 +1,57 @@
+.jus-apollo-user-passkeys-dialog {
+    width: 43.125rem;
+    height: 39.375rem;
+    flex-shrink: 0;
+
+    border-radius: 0.75rem;
+    background: var(--jus-color-icarus-surface);
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.25);
+
+    padding: 0 5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 2.87rem;
+
+}
+
+.jus-apollo-user-passkeys-dialog-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+.jus-apollo-user-passkeys-dialog .el-dialog__headerbtn {
+    left: 0;
+}
+.jus-apollo-user-passkeys-dialog .el-dialog__header {
+    left: 0;
+    padding: 0;
+}
+
+.jus-apollo-user-passkeys-dialog-header {
+    margin-top: 4.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: var(--jus-color-global-neutrals-text-primary);
+}
+
+.jus-apollo-user-passkeys-dialog-header .icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    flex-shrink: 0;
+    color: var(--jus-color-global-icon-blue)
+}
+
+
+.jus-apollo-user-passkeys-dialog .el-dialog__headerbtn svg {
+    color: var(--jus-color-global-neutrals-text-secondary);
+}
+.jus-apollo-user-passkeys-dialog .el-dialog__headerbtn:hover svg {
+    color: var(--jus-color-global-neutrals-text-primary);
+}

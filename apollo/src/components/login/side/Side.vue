@@ -2,10 +2,10 @@
 import {useI18n} from 'vue-i18n'
 import {computed} from 'vue'
 import {ElButton} from "element-plus";
-import {store} from "@/store";
-const {isLogin} = store()
+import {useGlobalStore} from "@/store";
+const globalStore = useGlobalStore()
 // Figma assets
-import {h, ComputedRef, Ref, ref, VNode, RendererNode, RendererElement} from "vue";
+import {h, ComputedRef, VNode, RendererNode, RendererElement} from "vue";
 import CircleTop from "@/components/login/basic/CircleTop.vue";
 import CircleBottom from "@/components/login/basic/CircleBottom.vue";
 
@@ -18,11 +18,11 @@ const registerSideText1: ComputedRef<string> = computed(() => t('side.registrati
 const registerSideText2: ComputedRef<string> = computed(() => t('side.registration.SIDE_TEXT_2'))
 const loginButtonText: ComputedRef<string> = computed(() => t('side.login.TO_REGISTER'))
 const registerButtonText: ComputedRef<string> = computed(() => t('side.registration.TO_LOGIN'))
-const sideTextLine1: ComputedRef<string> = computed(() => isLogin.value ? loginSideText1.value : registerSideText1.value)
-const sideTextLine2: ComputedRef<string> = computed(() => isLogin.value ? loginSideText2.value : registerSideText2.value)
+const sideTextLine1: ComputedRef<string> = computed(() => globalStore.isLogin ? loginSideText1.value : registerSideText1.value)
+const sideTextLine2: ComputedRef<string> = computed(() => globalStore.isLogin ? loginSideText2.value : registerSideText2.value)
 
 function setIsLogin(): void {
-  isLogin.value = !isLogin.value
+  globalStore.isLogin = !globalStore.isLogin
 }
 
 const sideToButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: string]: any }>> = computed(() => {
@@ -35,15 +35,15 @@ const sideToButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: strin
         color: '#E3F2FD',
         onClick: setIsLogin,
       },
-      () => isLogin.value ? loginButtonText.value : registerButtonText.value
+      () => globalStore.isLogin ? loginButtonText.value : registerButtonText.value
   );
 });
 
 function sideCircleClass(position: 'top' | 'bottom'): string {
   if (position === 'top') {
-    return isLogin.value ? 'jus-apollo-side-circle--top-right' : 'jus-apollo-side-circle--top-left'
+    return globalStore.isLogin ? 'jus-apollo-side-circle--top-right' : 'jus-apollo-side-circle--top-left'
   } else {
-    return isLogin.value ? 'jus-apollo-side-circle--bottom-left' : 'jus-apollo-side-circle--bottom-right'
+    return globalStore.isLogin ? 'jus-apollo-side-circle--bottom-left' : 'jus-apollo-side-circle--bottom-right'
   }
 }
 

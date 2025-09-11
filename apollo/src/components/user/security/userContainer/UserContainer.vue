@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import LeftSide from "@/components/user/security/userContainer/leftSide/LeftSide.vue"
 import RightContent from "@/components/user/security/userContainer/rightContent/RightContent.vue";
+
+import {useGlobalStore} from "@/store"
+
+const globalStore = useGlobalStore()
 </script>
 
 <template>
@@ -9,7 +13,8 @@ import RightContent from "@/components/user/security/userContainer/rightContent/
     <LeftSide class="jus-apollo-user-container-leftSide"/>
 
     <!-- 右侧内容区域 -->
-    <RightContent class="jus-apollo-user-container-content"/>
+    <div class="jus-apollo-user-container-content" v-if="globalStore.userPageItemIndex === 0" style="color: var(--jus-color-global-neutrals-text-primary)">Hello, World!</div>
+    <RightContent class="jus-apollo-user-container-content" v-else-if="globalStore.userPageItemIndex === 1"/>
 
   </div>
 </template>

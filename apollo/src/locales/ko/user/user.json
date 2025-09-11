@@ -1,0 +1,56 @@
+{
+  "head": {
+    "menu": {
+      "alfheim": "Alfheim",
+      "argus": "Argus",
+      "hermes": "Hermes"
+    },
+    "title": "Apollo 계정",
+    "logout": "로그아웃"
+  },
+  "user_container": {
+    "left_side": {
+      "username": "사용자 이름",
+      "email": "default@JianUnifiedSystem.com",
+      "menu": {
+        "user_info": "개인 정보",
+        "security": "로그인 및 보안"
+      }
+    },
+    "right_content": {
+      "title": "로그인 및 보안",
+      "description": "계정 로그인, 계정 보안 및 로그인할 수 없는 경우 데이터 복구와 관련된 설정을 관리합니다.",
+      "actions": {
+        "email_mobile": {
+          "title": "이메일 및 전화번호",
+          "text_line3": "기타 {num} 개의 연락 방법"
+        },
+        "password":{
+          "title": "비밀번호",
+          "text_line1": "마지막 업데이트: {year}년{month}월{day}일"
+        },
+        "security": {
+          "title": "계정 보안",
+          "text_line1": "토큰",
+          "text_line2": "{num} 개의 신뢰된 토큰"
+        },
+        "notification_email": {
+          "title": "알림 이메일"
+        },
+        "passkeys": {
+          "title": "패스키",
+          "text_line1": "{num} 개"
+        },
+        "third_party_account": {
+          "title": "제3자 계정",
+          "bound": "연결됨",
+          "not_bound": "연결되지 않음"
+        },
+        "delete_account": {
+          "title": "계정 삭제",
+          "text_line1": "삭제 후에는 복구할 수 없습니다."
+        }
+      }
+    }
+  }
+}

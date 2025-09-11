@@ -2,22 +2,25 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createI18n } from 'vue-i18n'
+import { createPinia } from 'pinia';
+import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
+import router from "./router"
 
 function loadLocaleMessages() {
-    const locales = import.meta.glob('./locales/*/*.json', { eager: true })
+    const locales = import.meta.glob('./locales/*/*/*.json', { eager: true })
     const messages: Record<string, any> = {}
 
     for (const path in locales) {
         const matched = path.match(/locales\/([^\/]+)\/(.+)\.json$/)
         if (matched) {
-            const lang = matched[1] // 语言代码，如 zh// 文件名（作为命名空间）
+            const lang = matched[1]
 
-            // 初始化语言对象
+            // init lang object
             if (!messages[lang]) {
                 messages[lang] = {}
             }
 
-            // 合并文件内容到对应的语言
+            // *.json -> lang
             const content = (locales[path] as any).default || locales[path]
             messages[lang] = { ...messages[lang], ...content }
         }
@@ -27,9 +30,16 @@ function loadLocaleMessages() {
 
 const i18n = createI18n({
     legacy: false,
-    locale: 'zh',   // 默认语言
+    locale: 'zh',
     fallbackLocale: 'zh',
     messages: loadLocaleMessages()
 })
 
-createApp(App).use(i18n).mount('#app')
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedState);
+
+createApp(App)
+    .use(pinia)
+    .use(i18n)
+    .use(router)
+    .mount('#app')

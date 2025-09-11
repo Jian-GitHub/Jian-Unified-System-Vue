@@ -1,0 +1,15 @@
+{
+  "user_dialog": {
+    "user_passkeys": {
+      "title": "パスキー",
+      "line1": "{num} 個のパスキー",
+      "line2": "パスキーはJian Unified Systemにサインインするためのパスワードなし認証情報として利用できます。",
+      "content": {
+        "header": "{num} 個のパスキー",
+        "row": {
+          "date": "{year}-{month}-{day}日"
+        }
+      }
+    }
+  }
+}

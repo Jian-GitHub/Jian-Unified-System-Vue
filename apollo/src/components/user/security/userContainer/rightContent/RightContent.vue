@@ -1,88 +1,198 @@
 <script setup lang="ts">
-import AppleLineLogo from "@/assets/logo/apple_line_20x20.svg";
+import ApolloLogoBlue from "@/components/user/basic/ApolloLogoBlue.vue";
 import PasswordIcon from "@/assets/icon/password_input_20x20.svg";
 import SecurityIcon from "@/assets/icon/token_20x20.svg";
 import EmailIcon from "@/assets/icon/email_20x20.svg";
 import PasskeysIcon from "@/assets/logo/passkeys_outline_20x20.svg";
 import ThirdPartyIcon from "@/assets/logo/github_20x20.svg";
-import RemoveAccountIcon from "@/assets/icon/passkey_20x20.svg";
-import type {Component} from "vue"
+import DeleteAccountIcon from "@/assets/icon/delete_account.svg"
+import {computed, ComputedRef} from "vue"
+import type {UserSecurityAction} from "@/store";
 
-type UserSecurityAction = {
-  title: string,
-  icon: Component,
-  text_line1: string,
-  text_line2: string,
-  text_line3: string,
+import {useI18n} from "vue-i18n";
+
+const {t, locale} = useI18n()
+
+import {useGlobalStore} from "@/store";
+
+const globalStore = useGlobalStore()
+
+const isUserNull = computed(() => globalStore.user == null || globalStore.user.security == null)
+
+const contactsInfo = computed(() => {
+  if (isUserNull.value || globalStore.user.security.contacts == null) return {line1: '', line2: '', line3: ''};
+  const contactsNum = globalStore.user.security.contacts.length;
+  switch (contactsNum) {
+    case 0:
+      return {line1: '', line2: '', line3: ''};
+    case 1:
+      return {line1: globalStore.user.security.contacts[0], line2: '', line3: ''};
+    case 2:
+      return {
+        line1: globalStore.user.security.contacts[0],
+        line2: globalStore.user.security.contacts[1],
+        line3: ''
+      };
+    default:
+      return {
+        line1: globalStore.user.security.contacts[0],
+        line2: globalStore.user.security.contacts[1],
+        line3: t('user_container.right_content.actions.email_mobile.text_line3', {num: (contactsNum - 2)})
+      };
+  }
+})
+
+const passwordUpdatedInfo = computed(() => {
+  if (isUserNull.value || !globalStore.user.security.passwordUpdatedDate) return '';
+  return t('user_container.right_content.actions.password.text_line1', {
+    year: globalStore.user.security.passwordUpdatedDate.year,
+    month: globalStore.user.security.passwordUpdatedDate.month,
+    day: globalStore.user.security.passwordUpdatedDate.day
+  })
+})
+
+const tokenInfo = computed(() => {
+  if (isUserNull.value || !globalStore.user.security.accountSecurityTokenNum) return '';
+  return t('user_container.right_content.actions.security.text_line2', {num: globalStore.user.security.accountSecurityTokenNum})
+})
+
+const notificationEmail = computed(() => {
+  if (isUserNull.value || !globalStore.user.security.notificationEmail) return '';
+  return globalStore.user.security.notificationEmail;
+})
+
+const passkeysInfo = computed(() => {
+  if (isUserNull.value || !globalStore.user.security.passkeysNum) return '';
+  return t('user_container.right_content.actions.passkeys.text_line1', {num: globalStore.user.security.passkeysNum});
+})
+
+const thirdPartyAccountsInfo = computed(() => {
+  if (isUserNull.value) return {line1: '', line2: ''};
+  const boundText = t('user_container.right_content.actions.third_party_account.bound');
+  const notBoundText = t('user_container.right_content.actions.third_party_account.not_bound');
+  let line1Text = 'GitHub: '
+  if (globalStore.user.security.thirdPartyAccounts.github)
+    line1Text += globalStore.user.security.thirdPartyAccounts.github ? boundText : notBoundText;
+  else
+    line1Text += notBoundText;
+
+  let line2Text = 'Google: '
+  if (globalStore.user.security.thirdPartyAccounts.google)
+    line2Text += globalStore.user.security.thirdPartyAccounts.google ? boundText : notBoundText;
+  else
+    line2Text += notBoundText;
+  return {line1: line1Text, line2: line2Text};
+})
+
+const actionCards: ComputedRef<UserSecurityAction[]> = computed(() => [
+  {
+    id: 0,
+    title: t('user_container.right_content.actions.email_mobile.title'),
+    // icon: AppleLineLogo,
+    icon: ApolloLogoBlue,
+    text_line1: contactsInfo.value.line1,//'201824101323@hainnu.edu.cn',
+    text_line2: contactsInfo.value.line2,
+    text_line3: contactsInfo.value.line3
+  },
+  {
+    id: 1,
+    title: t('user_container.right_content.actions.password.title'),
+    icon: PasswordIcon,
+    text_line1: passwordUpdatedInfo.value
+  },
+  {
+    id: 2,
+    title: t('user_container.right_content.actions.security.title'),
+    icon: SecurityIcon,
+    text_line1: t('user_container.right_content.actions.security.text_line1'),
+    text_line2: tokenInfo.value
+  },
+  {
+    id: 3,
+    title: t('user_container.right_content.actions.notification_email.title'),
+    icon: EmailIcon,
+    text_line1: notificationEmail.value,
+  },
+  {
+    id: 4,
+    title: t('user_container.right_content.actions.passkeys.title'),
+    icon: PasskeysIcon,
+    text_line1: passkeysInfo.value
+  },
+  {
+    id: 5,
+    title: t('user_container.right_content.actions.third_party_account.title'),
+    icon: ThirdPartyIcon,
+    text_line1: thirdPartyAccountsInfo.value.line1,
+    text_line2: thirdPartyAccountsInfo.value.line2
+  },
+  {
+    id: 6,
+    title: t('user_container.right_content.actions.delete_account.title'),
+    icon: DeleteAccountIcon,
+    text_line1: t('user_container.right_content.actions.delete_account.text_line1')
+  },
+])
+
+const contentTitle: ComputedRef<string> = computed(() => t('user_container.right_content.title'))
+const contentDescription: ComputedRef<string> = computed(() => t('user_container.right_content.description'))
+
+const cardIconColorClass = (cardId: number) => {
+  if (cardId != 6) return '';
+  switch (locale.value) {
+    case 'zh':
+      return 'cn';
+    case 'ja':
+      return 'jp';
+    default:
+      return 'defaultRedIcon';
+  }
 }
-
-const actionCards: UserSecurityAction[] = [
-  {title: '电子邮件和电话号码', icon: AppleLineLogo, text_line1: '201824101323@hainnu.edu.cn', text_line2: 'jq71@students.waikato.ac.nz', text_line3: '和其他 2 个联系方式'},
-  {title: '密码', icon: PasskeysIcon, text_line1: '上次更新: 2023年6月2日', text_line2: '', text_line3: ''},
-  {title: '账户安全', icon: SecurityIcon, text_line1: '令牌', text_line2: '2 个受信任令牌', text_line3: ''},
-  {title: '通知电子邮件', icon: EmailIcon, text_line1: 'e.jianqi@gmail.com', text_line2: '', text_line3: ''},
-  {title: '通行密钥', icon: PasskeysIcon, text_line1: '1 个', text_line2: '', text_line3: ''},
-  {title: '第三方账号', icon: ThirdPartyIcon, text_line1: 'GitHub: 已绑定', text_line2: 'Google: 未绑定', text_line3: ''},
-  {title: '注销账号', icon: RemoveAccountIcon, text_line1: '注销后无法恢复', text_line2: '', text_line3: ''},
-]
 </script>
 
 <template>
   <div class="right-content">
-    <!-- 页面标题和描述 -->
+    <!-- Title -->
     <div class="page-header">
-      <h1 class="main-title">登录和安全</h1>
-      <p class="page-description">管理与登录账户、账户安全以及无法登录时进行数据恢复有关的设置。</p>
+      <h1 class="main-title">{{ contentTitle }}</h1>
+      <p class="page-description">{{ contentDescription }}</p>
     </div>
 
-    <!-- 安全设置卡片 -->
+    <!-- Security Cards -->
     <div class="cards-container">
-      <!-- 电子邮件和电话号码卡片 -->
-      <button class="security-card" v-for="(card, index) in actionCards" :key="index">
+      <div class="security-card"
+           role="button"
+           tabindex="0"
+           :class="[{'danger': card.id === 6}]"
+           v-for="(card, index) in actionCards"
+           :key="index"
+           @click="globalStore.userPasskeysDialogVisible = true"
+           @keydown.enter="globalStore.userPasskeysDialogVisible = true"
+           @keydown.space.prevent="globalStore.userPasskeysDialogVisible = true">
         <div class="card-header">
-          <h3 class="card-title">{{card.title}}</h3>
-          <div class="card-icon">
+          <h3 class="card-title">{{ card.title }}</h3>
+          <div class="card-icon" :class="cardIconColorClass(card.id)">
             <Component :is="card.icon"/>
           </div>
         </div>
         <div class="card-content">
-          <p>{{card.text_line1}}</p>
-          <p>{{card.text_line2}}</p>
-          <p>{{card.text_line3}}</p>
+          <p>{{ card.text_line1 }}</p>
+          <p>{{ card.text_line2 }}</p>
+          <p>{{ card.text_line3 }}</p>
         </div>
-      </button>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* 右侧内容区域 */
+/* Right Content */
 .right-content {
-  /*
-  display: grid;
-  grid-template-columns: max-content;
-  grid-template-rows: max-content;
-  place-items: start;
-  position: relative;
-
-  flex-shrink: 0;
-   */
-
   width: 41.875rem;
   display: flex;
   flex-direction: column;
   min-height: 0;
 }
-
-/*
-.page-header {
-  position: absolute;
-  top: 3.8125rem;
-  left: 0;
-  transform: translateY(-50%);
-}
-
- */
 
 .main-title {
   font-weight: 600;
@@ -98,7 +208,7 @@ const actionCards: UserSecurityAction[] = [
 .page-description {
   font-weight: 400;
   font-size: 0.875rem;
-  white-space: nowrap;
+  white-space: wrap;
 
   color: var(--jus-color-global-neutrals-text-primary);
   font-style: normal;
@@ -109,26 +219,16 @@ const actionCards: UserSecurityAction[] = [
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  width: 41.875rem;
   gap: 1.25rem;
 
   margin-top: 2.69rem;
-  flex: 1;
-}
-:deep(.el-scrollbar__view) {
-  height: 100%;
-  padding-bottom: 0.5rem;
-  display: flex;
-  width: 41.875rem;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 1.25rem;
-  flex-shrink: 0;
-  flex-wrap: wrap;
+  padding-bottom: 1rem;
+
 }
 
 .security-card {
   cursor: pointer;
-
   display: flex;
   width: 19.6875rem;
   height: 8.125rem;
@@ -139,19 +239,53 @@ const actionCards: UserSecurityAction[] = [
   aspect-ratio: 63/26;
 
   border-radius: 0.75rem;
-  border: 0.05rem solid var(--jus-color-global-neutrals-text-secondary, #757575);
+  border: 0.05rem solid var(--jus-color-global-neutrals-text-secondary);
 
   /* Default Shadow */
   box-shadow: 0 2px 6px 0 var(--jus-color-global-neutrals-text-primary);
+}
 
+[data-theme="light"] .security-card.danger {
+  border: 0.1rem solid #DB3832;
+
+  background: linear-gradient(
+      99deg,
+      rgba(216, 30, 6, 0.18) 1.55%, rgba(216, 30, 6, 0.05) 97.74%
+  ),
+  linear-gradient(99deg, rgba(255, 255, 255, 0.45) 1.55%, #F5F5F5 97.74%);
+  box-shadow: 0 2px 6px 0 #FA4A33;
+}
+
+.defaultRedIcon svg {
+  color: #C92000;
+}
+
+.cn svg {
+  color: var(--jus-color-global-cn);
+}
+
+.jp svg {
+  color: var(--jus-color-global-jp);
+}
+
+[data-theme="dark"] .security-card.danger {
+  border: 0.1rem solid #D81E06;
+  background: linear-gradient(
+      99deg,
+      rgba(216, 30, 6, 0.18) 1.55%, rgba(216, 30, 6, 0.05) 97.74%
+  ),
+  linear-gradient(99deg, #F5F5F5 1.55%, rgba(255, 255, 255, 0.45) 97.74%);
+  box-shadow: 0 2px 6px 0 #FA4A33;
 }
 
 [data-theme="light"] .security-card {
   background: linear-gradient(99deg, rgba(255, 255, 255, 0.45) 1.55%, #F5F5F5 97.74%);
 }
+
 [data-theme="dark"] .security-card {
   background: linear-gradient(99deg, #F5F5F5 1.55%, rgba(255, 255, 255, 0.45) 97.74%);
 }
+
 
 .card-header {
   display: flex;
@@ -182,7 +316,7 @@ const actionCards: UserSecurityAction[] = [
   align-items: flex-end;
   aspect-ratio: 1/1;
 
-  color: #4070D4;
+  color: var(--jus-color-global-icon-blue);
 }
 
 .card-icon svg {
@@ -190,10 +324,14 @@ const actionCards: UserSecurityAction[] = [
   height: 1.25rem;
 }
 
-.card-content {
+.card-icon img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
 
+.card-content {
   display: flex;
-  width: 13.4375rem;
+  width: 100%;
   height: 3.875rem;
   flex-direction: column;
   justify-content: center;
@@ -202,12 +340,6 @@ const actionCards: UserSecurityAction[] = [
 }
 
 .card-content p {
-  font-family: 'PingFang SC', sans-serif;
-  /*
-  align-items: center;
-
-   */
-
   display: flex;
   flex-direction: column;
   justify-content: start;

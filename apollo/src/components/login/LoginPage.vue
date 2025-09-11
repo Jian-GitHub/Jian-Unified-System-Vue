@@ -2,9 +2,9 @@
 import Side from "@/components/login/side/Side.vue";
 import Container from "@/components/login/container/Container.vue";
 import Settings from '@/components/login/setting/Settings.vue'
-import {store} from "@/store";
+import {useGlobalStore} from "@/store";
 
-const {isLogin} = store()
+const globalStore = useGlobalStore()
 
 </script>
 
@@ -12,8 +12,8 @@ const {isLogin} = store()
   <div class="jus-apollo-login-page">
     <div class="jus-apollo-login-panel">
       <div class="jus-apollo-login">
-        <Side :class="['jus-apollo-login-side',{ 'move-right': !isLogin }]"/>
-        <Container :class="['jus-apollo-login-container', { 'move-left': !isLogin }]"/>
+        <Side :class="['jus-apollo-login-side',{ 'move-right': !globalStore.isLogin }]"/>
+        <Container :class="['jus-apollo-login-container', { 'move-left': !globalStore.isLogin }]"/>
       </div>
       <Settings/>
     </div>
@@ -29,7 +29,10 @@ const {isLogin} = store()
   justify-content: center;
   align-items: center;
 
+  /*
   background: linear-gradient(115deg, var(--jus-color-doraemon-surface, #F5F5F5) 21.73%, var(--jus-color-doraemon-primary-200, #E3F2FD) 116.53%);
+
+   */
 }
 
 

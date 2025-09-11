@@ -1,17 +1,36 @@
 <script setup lang="ts">
+import {computed, ComputedRef} from "vue";
+import {useI18n} from "vue-i18n";
+import {useGlobalStore} from "@/store"
 
+const globalStore = useGlobalStore()
+const {t} = useI18n()
+const menu_user_info: ComputedRef<string> = computed(() => t('user_container.left_side.menu.user_info'))
+const menu_security: ComputedRef<string> = computed(() => t('user_container.left_side.menu.security'))
+
+const menuItems = [
+  menu_user_info,
+  menu_security
+]
+const clickMenuItem = (index: number) => {
+  globalStore.userPageItemIndex = index;
+}
 </script>
 
 <template>
   <div class="side-menu">
-    <div class="menu-item">个人信息</div>
-    <div class="menu-item active">登录和安全</div>
+    <div v-for="(item, index) in menuItems"
+         :key="index"
+         :class="['menu-item', {'active': index === globalStore.userPageItemIndex}]"
+         @click="clickMenuItem(index)">
+      {{ item }}
+    </div>
   </div>
 </template>
 
 <style scoped>
 .side-menu {
-  margin-top:  2.44rem;
+  margin-top: 2.44rem;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -33,8 +52,7 @@
 }
 
 .menu-item.active {
-  color: #4070d4;
-
+  color: var(--jus-color-global-icon-blue);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 600;

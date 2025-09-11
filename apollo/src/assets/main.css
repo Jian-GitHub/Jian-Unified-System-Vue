@@ -8,11 +8,31 @@ html {
 } /* 因为1680 ÷ 16 = 105 */
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /*
+  background:
+          linear-gradient(
+                  115deg,
+                  var(--jus-color-doraemon-surface, #F5F5F5) 21.73%,
+                  var(--jus-color-doraemon-primary-200, #E3F2FD) 116.53%
+          ) fixed;
+
+   */
+
+  /* 内部填充的半透明背景色 */
+
+  background: linear-gradient(
+          120deg,
+          var(--jus-color-global-shadow-top-left) 35%,
+          var(--jus-color-global-shadow-bottom-right) 65%
+  ) fixed;
+
+
   font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 

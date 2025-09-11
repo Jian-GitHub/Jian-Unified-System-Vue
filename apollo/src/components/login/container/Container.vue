@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import {ref, computed, ComputedRef, VNode, RendererNode, RendererElement, h, Ref} from 'vue'
+import {ref, computed, ComputedRef, VNode, RendererNode, RendererElement, h} from 'vue'
 import type {Component} from "vue"
 import CustomInput from '../basic/Input.vue'
-
-
 import passkeys from "@/assets/logo/passkeys_20x20.svg"
 import google from "@/assets/logo/google_20x20.svg"
 import gitHub from "@/assets/logo/github_20x20.svg"
@@ -12,7 +10,6 @@ import CloudflareChecker from '../basic/CloudflareChecker.vue'
 import {ElButton} from "element-plus";
 import ThirdPartyButton from "@/components/login/basic/ThirdPartyButton.vue";
 // import VueTurnstile from 'vue-turnstile';
-
 
 import {useI18n} from 'vue-i18n'
 
@@ -42,13 +39,13 @@ const thirdPartyProviders: ThirdPartyProvider[] = [
   {icon: google, text: googleText},
   {icon: gitHub, text: githubText}
 ]
-import {store} from "@/store";
-let {isLogin} = store()
+import {useGlobalStore} from "@/store";
+const globalStore = useGlobalStore();
 
-const containerTitle: ComputedRef<string> = computed(() => isLogin.value ? t('container.login.CONTAINER_TITLE') : t('container.registration.CONTAINER_TITLE'))
-const containerText: ComputedRef<string> = computed(() => isLogin.value ? t('container.login.CONTAINER_TEXT') : t('container.registration.CONTAINER_TEXT'))
+const containerTitle: ComputedRef<string> = computed(() => globalStore.isLogin ? t('container.login.CONTAINER_TITLE') : t('container.registration.CONTAINER_TITLE'))
+const containerText: ComputedRef<string> = computed(() => globalStore.isLogin ? t('container.login.CONTAINER_TEXT') : t('container.registration.CONTAINER_TEXT'))
 const dividerText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.THIRD_PARTY_CONTINUE'))
-const containerActionButtonText: ComputedRef<string> = computed(() => isLogin.value ? t('container.login.LOGIN_BUTTON') : t('container.registration.REGISTER_BUTTON'))
+const containerActionButtonText: ComputedRef<string> = computed(() => globalStore.isLogin ? t('container.login.LOGIN_BUTTON') : t('container.registration.REGISTER_BUTTON'))
 const containerActionButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: string]: any }>> = computed(() => {
   return h(
       ElButton,
@@ -68,10 +65,10 @@ const containerActionButton: ComputedRef<VNode<RendererNode, RendererElement, { 
 // let isLogin = true;
 
 function setIsLogin(): void {
-  isLogin.value = !isLogin
+  globalStore.isLogin = !globalStore.isLogin
   // console.log(isLogin)
 
-  if (isLogin.value) {
+  if (globalStore.isLogin) {
     setTheme('dark')
     switchLanguage('en')
   } else {
@@ -136,7 +133,7 @@ const cf_token = ref('');
 <template>
   <div class="jus-apollo-container">
     <!-- Register -->
-    <div class="jus-apollo-container-top-section" v-if="!isLogin">
+    <div class="jus-apollo-container-top-section" v-if="!globalStore.isLogin">
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
       <div :class="['jus-apollo-container-text', sideToButtonClass(1)]">{{ containerText }}</div>
@@ -177,7 +174,7 @@ const cf_token = ref('');
     </div>
 
     <!-- Login   -->
-    <div class="jus-apollo-container-top-section" v-if="isLogin">
+    <div class="jus-apollo-container-top-section" v-if="globalStore.isLogin">
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
       <div :class="['jus-apollo-container-text', sideToButtonClass(1)]">{{ containerText }}</div>
@@ -258,7 +255,6 @@ const cf_token = ref('');
   */
 }
 
-
 .jus-apollo-container-top-section {
   display: flex;
   height: 22.5rem;
@@ -273,30 +269,25 @@ const cf_token = ref('');
   display: flex;
   justify-content: center;
   align-items: center;
-
   color: var(--jus-color-global-neutrals-text-primary);
   text-overflow: ellipsis;
   font-size: 2rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 2.25rem; /* 112.5% */
-  white-space: nowrap; /* 单行显示 */
-
+  line-height: 2.25rem;
+  white-space: nowrap;
 }
 
 .jus-apollo-container-title-spacing{
   letter-spacing: 0.6rem;
 }
+
 .jus-apollo-container-text-spacing{
   letter-spacing: -0.07rem;
 }
 
 .jus-apollo-container-action-section-text {
   display: flex;
-  /*
-  width: 4.375rem;
-
-   */
   height: 1.5rem;
   justify-content: center;
   align-items: center;
@@ -369,17 +360,13 @@ const cf_token = ref('');
   width: 21rem;
   height: 11.3125rem;
   flex-shrink: 0;
-
-
   display: flex;
-  flex-direction: column; /* 垂直排列子元素 */
-  gap: 0.6rem; /* 子元素间垂直间距 */
+  flex-direction: column;
+  gap: 0.6rem;
 }
-
 
 .cloudflare-checker-container {
   width: 100%;
   height: 40px;
 }
-
 </style>

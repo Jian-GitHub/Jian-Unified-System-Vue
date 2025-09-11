@@ -1,11 +1,11 @@
 <template>
   <div class="jus-apollo-user-security-page">
     <!-- 主容器 -->
-      <!-- 头部区域 -->
-      <UserHead/>
+    <!-- 头部区域 -->
+    <UserHead/>
 
-      <!-- 内容区域 -->
-      <UserContainer class="jus-apollo-user-page-container-component"/>
+    <!-- 内容区域 -->
+    <UserContainer class="jus-apollo-user-page-container-component"/>
   </div>
 </template>
 

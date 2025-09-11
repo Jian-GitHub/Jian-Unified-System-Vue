@@ -1,20 +1,24 @@
 <script setup lang="ts">
 import {ref, onMounted, onBeforeUnmount} from 'vue';
-import LoginPage from '@/components/login/LoginPage.vue'
-import SecurityPage from "@/components/user/security/SecurityPage.vue";
+// import LoginPage from '@/components/login/LoginPage.vue'
+// import SecurityPage from "@/components/user/security/SecurityPage.vue";
+import {useGlobalStore} from "@/store";
+import type {Theme} from "@/store"
+
+const globalStore = useGlobalStore()
 
 import {useI18n} from "vue-i18n";
 
 const {locale} = useI18n()
 
-// Theme mode type
-type Theme = 'light' | 'dark';
+
 
 // listener
 let mediaQuery: MediaQueryList | null = null;
 
 const setTheme = (mode: Theme) => {
   document.documentElement.setAttribute('data-theme', mode);
+  globalStore.theme = mode;
 };
 
 // default language: en
@@ -30,6 +34,7 @@ const updateSystemLanguage = (customizedLanguage: string | null) => {
 };
 
 onMounted(() => {
+  console.log("进入onMounted")
   // Check System Language
   const savedLanguage: string | null = localStorage.getItem('language');
   if (savedLanguage === null) {
@@ -65,9 +70,16 @@ onBeforeUnmount(() => {
   window.removeEventListener('languagechange', () => updateSystemLanguage(null));
 });
 
+import UserPasskeysDialog from "@/components/user/security/dialog/UserPasskeysDialog.vue";
+import Settings from "@/components/login/setting/Settings.vue";
 </script>
 
 <template>
+  <router-view class="jus-apollo-page"></router-view>
+  <Settings/>
+
+
+  <UserPasskeysDialog/>
   <!--  <header>-->
   <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />-->
 
@@ -81,27 +93,28 @@ onBeforeUnmount(() => {
 
 <!--  <LoginPage/>-->
 
-  <div class="jus-apollo-page">
-    <SecurityPage/>
-  </div>
+<!--  <div class="jus-apollo-page">-->
+<!--    <SecurityPage/>-->
+<!--  </div>-->
 
 
   <!--  </main>-->
 </template>
 
 <style scoped>
+@import "assets/main.css";
+
 .jus-apollo-page {
   width: 100vw;
   height: 100vh;
+  /*
   background: var(--jus-color-doraemon-surface);
 
-  /* 内部填充的半透明背景色 */
-  background: rgba(255, 255, 255, 0.06) linear-gradient(
-      120deg,
-      var(--jus-color-global-shadow-top-left) 30%,
-      var(--jus-color-global-shadow-bottom-right) 60%
-  );
+   */
+
 }
+
+
 /*
 header {
   line-height: 1.5;
