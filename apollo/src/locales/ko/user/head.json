@@ -1,0 +1,10 @@
+{
+  "head": {
+    "menu": {
+      "alfheim": "Alfheim",
+      "argus": "Argus",
+      "hermes": "Hermes"
+    },
+    "title": "Apollo 계정",
+"logout": "로그아웃"
+}}

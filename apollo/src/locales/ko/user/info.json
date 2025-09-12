@@ -1,0 +1,24 @@
+{
+  "info_page": {
+    "title": "개인 정보",
+    "description": "생년월일과 선호하는 언어를 포함한 개인 정보를 관리합니다.",
+    "actions": {
+      "name": {
+          "title": "이름",
+          "text_line1": "{name}"
+        },
+        "birthday": {
+          "title": "생년월일",
+          "text_line1": "{year}년{month}월{day}일"
+        },
+        "country_region": {
+          "title": "국가 또는 지역",
+          "text_line1": "{country_region}"
+        },
+        "language": {
+          "title": "언어",
+          "text_line1": "{language_original} - {language_text}"
+        }
+      }
+  }
+}

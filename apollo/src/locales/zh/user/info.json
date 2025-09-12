@@ -1,0 +1,24 @@
+{
+  "info_page": {
+    "title": "个人信息",
+    "description": "管理你的个人信息，其中包括你的出生日期和偏好语言。",
+    "actions": {
+      "name": {
+        "title": "姓名",
+        "text_line1": "{name}"
+      },
+      "birthday": {
+        "title": "出生日期",
+        "text_line1": "{year}年{month}月{day}日"
+      },
+      "country_region": {
+        "title": "国家或地区",
+        "text_line1": "{country_region}"
+      },
+      "language": {
+        "title": "语言",
+        "text_line1": "{language_original} - {language_text}"
+      }
+    }
+  }
+}

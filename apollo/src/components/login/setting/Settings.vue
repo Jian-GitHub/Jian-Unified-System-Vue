@@ -15,7 +15,7 @@ const switchLanguage = (lang: string): void => {
 }
 
 const queryLanguageText = (langCode: string): string => {
-  return t('languages.' + langCode);
+  return t('languages.' + langCode + '.original') + ' - ' + t('languages.' + langCode + '.text');
 };
 const nowLanguage = computed(()=> locale.value);
 
@@ -51,7 +51,7 @@ const nowLanguage = computed(()=> locale.value);
 .jus-apollo-login-settings {
   top: 0;
   right: 0;
-  position: absolute;
+  position: sticky;
   z-index: 1;
   color: var(--jus-color-global-neutrals-text-primary);
   display: flex;

@@ -1,0 +1,24 @@
+{
+  "info_page": {
+    "title": "個人情報",
+    "description": "生年月日や希望する言語を含む、あなたの個人情報を管理します。",
+    "actions": {
+      "name": {
+          "title": "名前",
+          "text_line1": "{name}"
+        },
+        "birthday": {
+          "title": "生年月日",
+          "text_line1": "{year}年{month}月{day}日"
+        },
+        "country_region": {
+          "title": "国または地域",
+          "text_line1": "{country_region}"
+        },
+        "language": {
+          "title": "言語",
+          "text_line1": "{language_original} - {language_text}"
+        }
+      }
+  }
+}

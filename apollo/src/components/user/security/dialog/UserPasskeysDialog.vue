@@ -7,16 +7,16 @@ import PasskeyAddIcon from "@/assets/icon/plus_20x20.svg"
 import PasskeyIcon from "@/assets/icon/passkey_20x20.svg"
 import PasskeyDeleteIcon from "@/assets/icon/remove_20x20.svg"
 
-const globalStore = useGlobalStore()
+const store = useGlobalStore()
 
 import {useI18n} from "vue-i18n";
 
 const {t} = useI18n()
 
 const titleText = computed(() => t('user_dialog.user_passkeys.title'))
-const line1Text = computed(() => t('user_dialog.user_passkeys.line1', {num: globalStore.user.security.passkeysNum}))
+const line1Text = computed(() => t('user_dialog.user_passkeys.line1', {num: store.user.security.passkeysNum}))
 const line2Text = computed(() => t('user_dialog.user_passkeys.line2'))
-const contentHeaderText = computed(() => t('user_dialog.user_passkeys.content.header', {num: globalStore.user.security.passkeysNum}))
+const contentHeaderText = computed(() => t('user_dialog.user_passkeys.content.header', {num: store.user.security.passkeysNum}))
 
 const contentRowText = (data: PasskeysDialogRowData) => computed(() => t('user_dialog.user_passkeys.content.row.date', {year: data.date.year, month: data.date.month, day: data.date.day}))
 
@@ -56,7 +56,7 @@ const datas: PasskeysDialogRowData[] = [
 <template>
   <el-dialog
       class="jus-apollo-user-passkeys-dialog"
-      v-model="globalStore.userPasskeysDialogVisible"
+      v-model="store.userPasskeysDialogVisible"
       destroy-on-close
       center
       lock-scroll

@@ -1,7 +1,10 @@
+:root,
 :global([data-theme="light"]) {
 
-    --jus-color-global-cn: #EE1C25;
-    --jus-color-global-jp: #BC002D;
+    --jus-color-global-cn-red: #EE1C25;
+    --jus-color-global-jp-red: #BC002D;
+    --jus-color-global-kr-red: #CD2E3A;
+    --jus-color-global-us-red: #B31942;
 
     --jus-color-global-icon-blue: #4070D4;
 

@@ -1,0 +1,10 @@
+{
+  "user_container": {
+    "left_side": {
+      "username": "ユーザー名",
+      "email": "default@JianUnifiedSystem.com",
+      "menu": {
+        "user_info": "個人情報",
+        "security": "ログインとセキュリティ"
+      }
+  }}}

@@ -2,14 +2,31 @@
 // import DefaultAvatar from "@/assets/img/default_avatar.svg"
 import DefaultAvatar from "@/assets/img/doraemon.JPG"
 import LeftSideMenu from "@/components/user/basic/LeftSideMenu.vue";
-import {computed, ComputedRef} from "vue"
+import {computed, ComputedRef, Ref} from "vue"
+import { inject } from 'vue'
 import {useI18n} from "vue-i18n";
+import {AccountInfoShort} from "@/types/user";
+import {useGlobalStore} from "@/store";
+
+const globalStore = useGlobalStore()
 
 const {t} = useI18n()
-const username_data = "祁剑";
-const email_data = "e.jianqi@gmail.com";
-const username: ComputedRef<string> = computed(() => username_data ? username_data : t('user_container.left_side.username'))
-const email: ComputedRef<string> = computed(() => email_data ? email_data : t('user_container.left_side.email'))
+
+// const username_data = "祁剑";
+// const email_data = "e.jianqi@gmail.com";
+const id: ComputedRef<string> = computed(() => {
+  if (!globalStore.accountInfoShort) return '';
+  return globalStore.accountInfoShort.id ? globalStore.accountInfoShort.id : '';
+})
+const name: ComputedRef<string> = computed(() => {
+  const defaultName = t('user_container.left_side.username');
+  if (!globalStore.accountInfoShort) return defaultName
+  return globalStore.accountInfoShort.name
+})
+const email: ComputedRef<string> = computed(() => {
+  if (!globalStore.accountInfoShort) return '';
+  return globalStore.accountInfoShort.email ? globalStore.accountInfoShort.email : '';
+})
 </script>
 
 <template>
@@ -24,8 +41,9 @@ const email: ComputedRef<string> = computed(() => email_data ? email_data : t('u
 
     <!-- 用户信息 -->
     <div class="user-info">
-      <div class="user-name">{{ username }}</div>
+      <div class="user-name">{{ name }}</div>
       <div class="user-email">{{ email }}</div>
+      <div class="user-email">{{ id }}</div>
     </div>
 
     <!-- 侧边菜单 -->
@@ -49,6 +67,7 @@ const email: ComputedRef<string> = computed(() => email_data ? email_data : t('u
   flex-direction: column;
   width: 7.8125rem;
   flex-shrink: 0;
+  margin-bottom: 3rem;
 }
 
 .avatar-section {

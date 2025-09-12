@@ -1,7 +1,7 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 // import App from "@/App.vue";
 import Login from "@/components/login/LoginPage.vue";
-import User from "@/components/user/security/SecurityPage.vue"
+import UserPage from "@/components/user/security/UserPage.vue"
 
 // 定义路由记录类型
 const routes: Array<RouteRecordRaw> = [
@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/user',
         name: 'User',
-        component: User
+        component: UserPage
     },
     // default
     {

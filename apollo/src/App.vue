@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref, onMounted, onBeforeUnmount} from 'vue';
 // import LoginPage from '@/components/login/LoginPage.vue'
-// import SecurityPage from "@/components/user/security/SecurityPage.vue";
+// import SecurityPage from "@/components/user/security/UserPage.vue";
 import {useGlobalStore} from "@/store";
 import type {Theme} from "@/store"
 
@@ -10,7 +10,6 @@ const globalStore = useGlobalStore()
 import {useI18n} from "vue-i18n";
 
 const {locale} = useI18n()
-
 
 
 // listener
@@ -75,11 +74,17 @@ import Settings from "@/components/login/setting/Settings.vue";
 </script>
 
 <template>
-  <router-view class="jus-apollo-page"></router-view>
-  <Settings/>
+<!--    <router-view class="jus-apollo-page"></router-view>-->
+<!--    <Settings class="jus-apollo-page-settings"/>-->
 
 
-  <UserPasskeysDialog/>
+<!--    <UserPasskeysDialog/>-->
+
+  <div class="jus-apollo-page">
+    <router-view class="jus-apollo-page-content"/>
+    <Settings class="jus-apollo-page-settings"/>
+    <UserPasskeysDialog/>
+  </div>
   <!--  <header>-->
   <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />-->
 
@@ -91,11 +96,11 @@ import Settings from "@/components/login/setting/Settings.vue";
 
   <!--  <main>-->
 
-<!--  <LoginPage/>-->
+  <!--  <LoginPage/>-->
 
-<!--  <div class="jus-apollo-page">-->
-<!--    <SecurityPage/>-->
-<!--  </div>-->
+  <!--  <div class="jus-apollo-page">-->
+  <!--    <SecurityPage/>-->
+  <!--  </div>-->
 
 
   <!--  </main>-->
@@ -105,15 +110,31 @@ import Settings from "@/components/login/setting/Settings.vue";
 @import "assets/main.css";
 
 .jus-apollo-page {
+  min-width: 980px;
   width: 100vw;
   height: 100vh;
+  overflow: auto;
+  position: relative;
+}
+.jus-apollo-page-content {
   /*
-  background: var(--jus-color-doraemon-surface);
-
+  min-width: 980px;
    */
-
+  width: 100vw;
+  height: 100vh;
+  min-width: 980px;
+  min-height: 330px;
+  overflow: auto;
+  position: relative;
 }
 
+.jus-apollo-page-settings {
+  position: fixed;
+  right: 0;
+  left: auto;
+  top: 0;
+  bottom: auto;
+}
 
 /*
 header {

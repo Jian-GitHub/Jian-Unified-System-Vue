@@ -15,7 +15,7 @@ const globalStore = useGlobalStore()
         <Side :class="['jus-apollo-login-side',{ 'move-right': !globalStore.isLogin }]"/>
         <Container :class="['jus-apollo-login-container', { 'move-left': !globalStore.isLogin }]"/>
       </div>
-      <Settings/>
+<!--      <Settings/>-->
     </div>
 
   </div>
@@ -28,6 +28,9 @@ const globalStore = useGlobalStore()
   height: 100vh;
   justify-content: center;
   align-items: center;
+  min-width: 980px;
+  min-height: 625px;
+  overflow: auto;
 
   /*
   background: linear-gradient(115deg, var(--jus-color-doraemon-surface, #F5F5F5) 21.73%, var(--jus-color-doraemon-primary-200, #E3F2FD) 116.53%);

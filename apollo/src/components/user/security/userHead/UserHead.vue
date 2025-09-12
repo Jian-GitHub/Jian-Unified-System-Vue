@@ -21,8 +21,21 @@ const menu_hermes: ComputedRef<string> = computed(() => t('head.menu.hermes'))
 
 const user1: User = {
   id: '123',
-  displayName: '祁剑',
   email: 'e.jianqi@gmail.com',
+  info: {
+    name: {
+      givenName: '剑',
+      middleName: '',
+      familyName: '祁'
+    },
+    birthday: {
+      year: '1999',
+      month: '11',
+      day: '06',
+    },
+    countryRegion: 'JP',
+    language: 'ja',
+  },
   security: {
     contacts: [
       '201824101323@hainnu.edu.cn',
@@ -47,7 +60,7 @@ const user1: User = {
 
 function newUser() {
   user1.id = Math.random().toString()
-  user1.security.contacts.push(" ")
+  user1.security.contacts.push("A")
   return user1
 }
 
@@ -92,8 +105,12 @@ function setUser() {
 <style scoped>
 /* Head */
 .jus-apollo-head {
+  z-index: 1;
+  top: 0;
+  margin: 0 auto;
   display: flex;
   width: 62.5rem;
+  height: 6.125rem;
   padding: 0 0.625rem;
   flex-direction: column;
   align-items: center;

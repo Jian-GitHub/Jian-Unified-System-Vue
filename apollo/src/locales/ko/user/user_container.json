@@ -1,0 +1,10 @@
+{
+  "user_container": {
+    "left_side": {
+      "username": "사용자 이름",
+      "email": "default@JianUnifiedSystem.com",
+      "menu": {
+      "user_info": "개인 정보",
+      "security": "로그인 및 보안"
+    }
+  }}}

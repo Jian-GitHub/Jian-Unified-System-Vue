@@ -1,0 +1,24 @@
+{
+  "info_page": {
+    "title": "Personal Information",
+    "description": "Manage your personal information, including your date of birth and preferred language.",
+    "actions": {
+      "name": {
+        "title": "Name",
+        "text_line1": "{name}"
+      },
+      "birthday": {
+        "title": "Date of Birth",
+        "text_line1": "{year}-{month}-{day}"
+      },
+      "country_region": {
+        "title": "Country or Region",
+        "text_line1": "{country_region}"
+      },
+      "language": {
+        "title": "Language",
+        "text_line1": "{language_original} - {language_text}"
+      }
+    }
+  }
+}

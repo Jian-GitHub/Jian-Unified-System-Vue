@@ -5,59 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: User Passkeys Dialog UI">
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/icon/delete_account.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/logo/apollo_blue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/logo/apollo_dark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/logo/apollo_light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/PngIcon.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/ApolloLogoBlue.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/ApolloLogoNormal.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/security/dialog/UserPasskeysDialog.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/en/dialogs/user_passkeys_dialog.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/en/user/user.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ja/dialogs/user_passkeys_dialog.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ja/user/user.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ko/dialogs/user_passkeys_dialog.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ko/user/user.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/zh/dialogs/user_passkeys_dialog.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/zh/user/user.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/router/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/types/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/en/country_region/country_region.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/en/user/head.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/en/user/info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/en/user/security.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/en/user/user_container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ja/country_region/country_region.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ja/user/head.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ja/user/info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ja/user/security.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ja/user/user_container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ko/country_region/country_region.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ko/user/head.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ko/user/info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ko/user/security.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/ko/user/user_container.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/zh/country_region/country_region.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/zh/user/head.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/zh/user/info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/locales/zh/user/user_container.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/assets/colors/themes/dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/colors/themes/dark.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/assets/colors/themes/light.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/colors/themes/light.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/close_bold_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/close_bold_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/passkey_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/passkey_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/password_input_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/password_input_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/plus_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/plus_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/remove_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/remove_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logo/passkeys_outline_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logo/passkeys_outline_20x20.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/date_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/date_20x20.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/earth_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/earth_20x20.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/language_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/language_20x20.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/token_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/token_20x20.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/user_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/user_20x20.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/typescript/day-night-toggle-button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/typescript/day-night-toggle-button.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/login/setting/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/setting/Settings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/side/Side.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/side/Side.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/LeftSideMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/LeftSideMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/SecurityPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/SecurityPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/SecurityPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/UserPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/dialog/UserPasskeysDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/dialog/UserPasskeysDialog.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/leftSide/LeftSide.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/leftSide/LeftSide.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/rightContent/RightContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/rightContent/RightContent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/languages/languages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/login/login.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ja/languages/languages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ja/login/login.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ko/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ko/languages/languages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ko/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ko/login/login.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/languages/languages.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/login.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/login/login.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/languages/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/languages/languages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/user/user.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/languages/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ja/languages/languages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/user/user.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ko/languages/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ko/languages/languages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ko/user/user.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/languages/languages.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/languages/languages.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/user/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/user/security.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/router/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/types/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/types/user.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,34 +106,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/jian/code/webstorm/Jian-Unified-System-Vue/apollo/src/assets/icon",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "ts.external.directory.path": "/home/jian/.cache/JetBrains/RemoteDev/dist/1daa27e768ec0_WebStorm-2025.1.3/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/apollo/src/assets/icon&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/jian/.cache/JetBrains/RemoteDev/dist/1daa27e768ec0_WebStorm-2025.1.3/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info id="Bookmarks" side_tool="true" />
@@ -145,20 +141,20 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.19978401" />
-      <window_info active="true" id="Commit" order="1" visible="true" weight="0.19978401" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19006848" />
+      <window_info id="Commit" order="1" weight="0.19978401" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.19978401" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="TODO" />
       <window_info anchor="bottom" id="File Transfer" />
-      <window_info anchor="bottom" id="Version Control" order="0" weight="0.20493686" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.30450734" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info active="true" anchor="bottom" id="Problems View" order="2" visible="true" weight="0.35779294" />
+      <window_info anchor="bottom" id="Problems View" order="2" weight="0.315418" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.24971558" />
-      <window_info anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="4" weight="0.22354949" />
+      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="4" visible="true" weight="0.22601919" />
       <window_info anchor="bottom" id="Services" order="5" weight="0.24971558" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.33008036" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.41306955" />
       <window_info anchor="right" id="Endpoints" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
@@ -224,7 +220,8 @@
       <workItem from="1757127444560" duration="50790000" />
       <workItem from="1757282346743" duration="243000" />
       <workItem from="1757498026280" duration="42390000" />
-      <workItem from="1757592425470" duration="8309000" />
+      <workItem from="1757592425470" duration="9854000" />
+      <workItem from="1757632062362" duration="36491000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -314,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757498003826</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Feature: User Passkeys Dialog UI">
+      <option name="closed" value="true" />
+      <created>1757600838168</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1757600838168</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
