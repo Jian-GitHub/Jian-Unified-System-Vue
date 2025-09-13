@@ -7,7 +7,7 @@
       "content": {
         "header": "{num} 個のパスキー",
         "row": {
-          "date": "{year}-{month}-{day}日"
+          "date": "{year}-{month}-{day}"
         }
       }
     }

@@ -46,13 +46,14 @@ export const useGlobalStore = defineStore('store', () => {
 
     const user: Ref<User | null> = ref({} as User);
 
-    // const userPasskeysDialogVisible: Ref<boolean, boolean> = ref(false);
+    // const userActionDialogVisible: Ref<boolean, boolean> = ref(false);
 
     const isLogin: Ref<boolean, boolean> = ref(true);
 
     // const userPageItemIndex: Ref<number> = ref(0);
 
-    const userPasskeysDialogVisible: Ref<boolean> = ref(false);
+    const userActionDialogVisible: Ref<boolean> = ref(false);
+    const userActionDialogLoading: Ref<boolean> = ref(true);
 
     const {t, locale} = useI18n()
 
@@ -297,10 +298,11 @@ export const useGlobalStore = defineStore('store', () => {
         isLogin,
         languages, /*userPageItemIndex,*/
         securityPageContent,
-        userPasskeysDialogVisible,
+        userActionDialogVisible,
         infoPageContent,
         accountInfoShort,
-        actionsIds
+        actionsIds,
+        userActionDialogLoading
     }
 }, {
     persist: {

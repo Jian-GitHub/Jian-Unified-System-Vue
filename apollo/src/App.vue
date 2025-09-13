@@ -69,7 +69,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('languagechange', () => updateSystemLanguage(null));
 });
 
-import UserPasskeysDialog from "@/components/user/security/dialog/UserPasskeysDialog.vue";
+import UserActionDialog from "@/components/user/basic/UserActionDialog.vue";
 import Settings from "@/components/login/setting/Settings.vue";
 </script>
 
@@ -78,12 +78,12 @@ import Settings from "@/components/login/setting/Settings.vue";
 <!--    <Settings class="jus-apollo-page-settings"/>-->
 
 
-<!--    <UserPasskeysDialog/>-->
+<!--    <UserActionDialog/>-->
 
   <div class="jus-apollo-page">
-    <router-view class="jus-apollo-page-content"/>
+    <router-view/>
     <Settings class="jus-apollo-page-settings"/>
-    <UserPasskeysDialog/>
+    <UserActionDialog/>
   </div>
   <!--  <header>-->
   <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />-->

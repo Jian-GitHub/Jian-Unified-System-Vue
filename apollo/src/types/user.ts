@@ -6,6 +6,11 @@ export type AccountInfoShort = {
     email: string;
 }
 
+export type PasskeysDialogRowData = {
+    displayName: string,
+    date: Date
+}
+
 export type ActionsIds = {
     infoActions: number[],
     securityActions: number[],

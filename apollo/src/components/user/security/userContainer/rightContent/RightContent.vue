@@ -6,6 +6,7 @@ import {useI18n} from "vue-i18n";
 const {locale} = useI18n()
 
 import {useGlobalStore} from "@/store";
+import {ElLoading} from "element-plus";
 
 const globalStore = useGlobalStore();
 
@@ -29,6 +30,17 @@ defineProps<{
   pageContent: UserPageContent
 }>()
 
+
+function openActionDialog() {
+  globalStore.userActionDialogVisible = true
+  globalStore.userActionDialogLoading = true
+
+  setTimeout(()=>{
+    globalStore.userActionDialogLoading = false
+  }, 1500)
+}
+
+
 </script>
 
 <template>
@@ -47,9 +59,9 @@ defineProps<{
            :class="[{'danger': card.isDanger === true}, cardIconColorClass(card.isDanger === true)]"
            v-for="(card, index) in pageContent.actions"
            :key="index"
-           @click="globalStore.userPasskeysDialogVisible = true"
-           @keydown.enter="globalStore.userPasskeysDialogVisible = true"
-           @keydown.space.prevent="globalStore.userPasskeysDialogVisible = true">
+           @click="openActionDialog"
+           @keydown.enter="openActionDialog"
+           @keydown.space.prevent="openActionDialog">
         <div class="card-header">
           <h3 class="card-title">{{ card.title }}</h3>
           <div class="card-icon">
