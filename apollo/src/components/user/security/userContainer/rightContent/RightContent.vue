@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import type {UserPageContent} from "@/types/user";
-
 import {useI18n} from "vue-i18n";
 
 const {locale} = useI18n()
 
 import {useGlobalStore} from "@/store";
-import {ElLoading} from "element-plus";
+import {UserPageContent} from "@/types/UserPage";
 
 const globalStore = useGlobalStore();
 
@@ -30,14 +28,15 @@ defineProps<{
   pageContent: UserPageContent
 }>()
 
-
-function openActionDialog() {
+function openActionDialog(id: number) {
   globalStore.userActionDialogVisible = true
   globalStore.userActionDialogLoading = true
+  globalStore.userActionDialogId = id
 
-  setTimeout(()=>{
+  // CLose loading
+  setTimeout(() => {
     globalStore.userActionDialogLoading = false
-  }, 1500)
+  }, 1250)
 }
 
 
@@ -47,8 +46,8 @@ function openActionDialog() {
   <div class="right-content">
     <!-- Title -->
     <div class="page-header">
-      <h1 class="main-title">{{  pageContent.title }}</h1>
-      <p class="page-description">{{  pageContent.description }}</p>
+      <h1 class="main-title">{{ pageContent.title }}</h1>
+      <p class="page-description">{{ pageContent.description }}</p>
     </div>
 
     <!-- User Action Cards -->
@@ -58,10 +57,10 @@ function openActionDialog() {
            tabindex="0"
            :class="[{'danger': card.isDanger === true}, cardIconColorClass(card.isDanger === true)]"
            v-for="(card, index) in pageContent.actions"
-           :key="index"
-           @click="openActionDialog"
-           @keydown.enter="openActionDialog"
-           @keydown.space.prevent="openActionDialog">
+           :key="card.id"
+           @click="openActionDialog(card.id)"
+           @keydown.enter="openActionDialog(card.id)"
+           @keydown.space.prevent="openActionDialog(card.id)">
         <div class="card-header">
           <h3 class="card-title">{{ card.title }}</h3>
           <div class="card-icon">

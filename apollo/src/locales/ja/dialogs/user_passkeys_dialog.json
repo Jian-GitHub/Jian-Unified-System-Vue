@@ -1,11 +1,22 @@
 {
-  "user_dialog": {
-    "user_passkeys": {
+  "user_action_dialog": {
+    "passkeys": {
       "title": "パスキー",
       "line1": "{num} 個のパスキー",
       "line2": "パスキーはJian Unified Systemにサインインするためのパスワードなし認証情報として利用できます。",
       "content": {
         "header": "{num} 個のパスキー",
+        "row": {
+          "date": "{year}-{month}-{day}"
+        }
+      }
+    },
+    "account_security": {
+      "title": "アカウントの安全性",
+      "line1": "{num} 個の信頼済みトークン",
+      "line2": "これらの信頼済みトークンは、Jian Unified System にアクセスするための資格情報として使用できます。",
+      "content": {
+        "header": "{num} 個の信頼済みトークン",
         "row": {
           "date": "{year}-{month}-{day}"
         }

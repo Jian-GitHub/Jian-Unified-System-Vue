@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {User} from "@/types/user"
+import type {User} from "@/types/User"
 import SearchIcon from "@/assets/icon/search_20x20.svg"
 import HeadDivider from "@/assets/svg/head_divider.svg"
 import {computed, ComputedRef} from "vue";

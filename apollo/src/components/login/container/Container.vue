@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref, computed, ComputedRef, VNode, RendererNode, RendererElement, h} from 'vue'
 import type {Component} from "vue"
-import CustomInput from '../basic/Input.vue'
+import CustomInputLong from '../basic/InputLong.vue'
 import passkeys from "@/assets/logo/passkeys_20x20.svg"
 import google from "@/assets/logo/google_20x20.svg"
 import gitHub from "@/assets/logo/github_20x20.svg"
@@ -137,20 +137,20 @@ const cf_token = ref('');
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
       <div :class="['jus-apollo-container-text', sideToButtonClass(1)]">{{ containerText }}</div>
-      <CustomInput
+      <CustomInputLong
           class="jus-apollo-container-input"
           v-model="formData.email"
           placeholder="Email"
           type="email"
       />
-      <CustomInput
+      <CustomInputLong
           class="jus-apollo-container-input"
           v-model="formData.password"
           placeholder="Password"
           type="password"
           show-password
       />
-      <CustomInput
+      <CustomInputLong
           class="jus-apollo-container-input"
           v-model="formData.confirmPassword"
           placeholder="ConfirmPassword"
@@ -178,14 +178,14 @@ const cf_token = ref('');
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
       <div :class="['jus-apollo-container-text', sideToButtonClass(1)]">{{ containerText }}</div>
-      <CustomInput
+      <CustomInputLong
           class="jus-apollo-container-input"
           v-model="formData.email"
           placeholder="Email"
           type="email"
           show-password
       />
-      <CustomInput
+      <CustomInputLong
           class="jus-apollo-container-input"
           v-model="formData.password"
           placeholder="Password"

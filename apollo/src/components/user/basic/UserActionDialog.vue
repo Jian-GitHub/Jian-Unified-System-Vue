@@ -2,27 +2,27 @@
 import {computed, ref} from 'vue';
 import {useGlobalStore} from "@/store";
 import CloseIcon from "@/assets/icon/close_bold_20x20.svg"
-import PasskeysIcon from "@/assets/logo/passkeys_outline_20x20.svg"
-import PasskeyAddIcon from "@/assets/icon/plus_20x20.svg"
-import PasskeyIcon from "@/assets/icon/passkey_20x20.svg"
-import PasskeyDeleteIcon from "@/assets/icon/remove_20x20.svg"
 
 const store = useGlobalStore()
 
 import {useI18n} from "vue-i18n";
-import {PasskeysDialogRowData} from "@/types/user";
 
 const {t} = useI18n()
 
 
-import UserPasskeysActionDialogBody from "@/components/user/basic/dialog/UserPasskeysActionDialogBody.vue";
-import UserPasskeysActionDialogHeader from "@/components/user/basic/dialog/UserPasskeysActionDialogHeader.vue";
+import UserPasskeysActionDialogBody from "@/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue";
+import UserPasskeysActionDialogHeader from "@/components/user/basic/dialog/passkeys/UserPasskeysActionDialogHeader.vue";
+import UserAccountSecurityActionDialogHeader
+  from "@/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogHeader.vue";
+import UserAccountSecurityActionDialogBody
+  from "@/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue";
+import {UserActionDialogData} from "@/types/dialog/UserAction";
 
 const actions: Record<number, number> = {
   100: 2,
 }
-actions[200] = 5
-console.log(actions['200'])
+// actions[200] = 5
+// console.log(actions['200'])
 
 /*
 
@@ -39,32 +39,71 @@ body
 footer
   component
  */
+const dialogs: Record<number, UserActionDialogData> = {
+  202: {
+    className: {
+      class: 'jus-apollo-user-passkeys-dialog',
+      header: 'jus-apollo-user-passkeys-dialog-header',
+      body: 'jus-apollo-user-passkeys-dialog-body',
+      footer: 'jus-apollo-user-passkeys-dialog-footer'
+    },
+    component: {
+      header: UserAccountSecurityActionDialogHeader,
+      body: UserAccountSecurityActionDialogBody,
+      footer: null
+    }
+  },
+  204: {
+    className: {
+      class: 'jus-apollo-user-passkeys-dialog',
+      header: 'jus-apollo-user-passkeys-dialog-header',
+      body: 'jus-apollo-user-passkeys-dialog-body',
+      footer: 'jus-apollo-user-passkeys-dialog-footer'
+    },
+    component: {
+      header: UserPasskeysActionDialogHeader,
+      body: UserPasskeysActionDialogBody,
+      footer: null
+    }
+  }
+}
 
+const dialogData = computed(() => {
+  if (!store.actionsIds.infoActions.includes(store.userActionDialogId) && !store.actionsIds.securityActions.includes(store.userActionDialogId)) {
+    return {} as UserActionDialogData
+  }
+  store.userActionDialogId
+  // TODO: Fetch data
 
+  // CLose loading
+  // setTimeout(() => {
+  //   store.userActionDialogLoading = false
+  // }, 1250)
+
+  return dialogs[store.userActionDialogId]
+})
 </script>
 
 <template>
   <el-dialog
-      class="jus-apollo-user-passkeys-dialog"
+      :class="dialogData.className.class"
       v-model="store.userActionDialogVisible"
+      v-if="store.userActionDialogVisible"
       destroy-on-close
       center
       lock-scroll
       :close-icon="CloseIcon"
-      header-class="jus-apollo-user-passkeys-dialog-header"
-      body-class="jus-apollo-user-passkeys-dialog-body"
-      footer-class="jus-apollo-user-passkeys-dialog-footer"
+      :header-class="dialogData.className.header"
+      :body-class="dialogData.className.body"
+      :footer-class="dialogData.className.footer"
+      @open="console.log('open')"
   >
     <template #header>
-      <component :is="UserPasskeysActionDialogHeader"/>
+      <component :is="dialogData.component.header"/>
     </template>
-    <div v-loading="store.userActionDialogLoading" element-loading-background="var(--jus-color-icarus-surface)"
-         style="height: 18rem">
-      <div v-show="!store.userActionDialogLoading" class="jus-apollo-user-passkeys-dialog-body">
-        <component :is="UserPasskeysActionDialogBody"/>
-      </div>
-    </div>
+    <component :is="dialogData.component.body"/>
     <template #footer>
+      <component :is="dialogData.component.footer"/>
     </template>
   </el-dialog>
 </template>
@@ -76,17 +115,5 @@ footer
 <style>
 @import "@/assets/css/user/security/userPasskeysDialog.css";
 
-.el-loading-spinner .path {
-  stroke: #F4BEBD;
-  stroke-width: 3.5;
-}
 
-.el-loading-spinner {
-  top: 35%;
-}
-
-.el-loading-spinner .circular {
-  width: 5rem;
-  height: 5rem;
-}
 </style>

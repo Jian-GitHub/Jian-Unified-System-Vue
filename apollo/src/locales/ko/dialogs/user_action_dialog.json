@@ -1,0 +1,26 @@
+{
+  "user_action_dialog": {
+    "passkeys": {
+      "title": "패스키",
+      "line1": "{num} 개 패스키",
+      "line2": "패스키는 Jian Unified System 로그인 시 사용할 수 있는 비밀번호 없는 인증 정보입니다.",
+      "content": {
+        "header": "{num} 개 패스키",
+        "row": {
+          "date": "{year}-{month}-{day}"
+        }
+      }
+    },
+    "account_security": {
+      "title": "계정 보안",
+      "line1": "{num} 개의 신뢰된 토큰",
+      "line2": "이 신뢰된 토큰들은 Jian Unified System에 접근할 수 있는 권한 증명으로 사용될 수 있습니다.",
+      "content": {
+        "header": "{num} 개의 신뢰된 토큰",
+        "row": {
+          "date": "{year}-{month}-{day}"
+        }
+      }
+    }
+  }
+}

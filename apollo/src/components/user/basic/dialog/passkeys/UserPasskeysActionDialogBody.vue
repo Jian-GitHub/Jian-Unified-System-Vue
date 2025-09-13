@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import PasskeyIcon from "@/assets/icon/passkey_20x20.svg";
-import PasskeyAddIcon from "@/assets/icon/plus_20x20.svg";
-import PasskeyDeleteIcon from "@/assets/icon/remove_20x20.svg";
+import AddIcon from "@/assets/icon/plus_20x20.svg";
+import DeleteIcon from "@/assets/icon/remove_20x20.svg";
 import {computed} from "vue";
-import {PasskeysDialogRowData} from "@/types/user";
 import {useI18n} from "vue-i18n";
 import {useGlobalStore} from "@/store";
+import {PasskeysDialogRowData} from "@/types/dialog/security/Passkeys";
+
 const {t} = useI18n()
 const store = useGlobalStore()
 
-const contentHeaderText = computed(() => t('user_dialog.user_passkeys.content.header', {num: store.user.security.passkeysNum}))
+const contentHeaderText = computed(() => t('user_action_dialog.passkeys.content.header', {num: store.user.security.passkeysNum}))
 
-const createdDateText = (passkey: PasskeysDialogRowData) => computed(() => t('user_dialog.user_passkeys.content.row.date', {year: passkey.date.year, month: passkey.date.month, day: passkey.date.day}))
+const createdDateText = (passkey: PasskeysDialogRowData) => computed(() => t('user_action_dialog.passkeys.content.row.date', {
+  year: passkey.date.year,
+  month: passkey.date.month,
+  day: passkey.date.day
+}))
 
 const passkeys: PasskeysDialogRowData[] = [
   {
@@ -88,26 +93,33 @@ const passkeys: PasskeysDialogRowData[] = [
 </script>
 
 <template>
-  <div class="jus-apollo-user-passkeys-dialog-body-content-header">
-    <span class="jus-apollo-user-passkeys-dialog-body-content-header-text">{{ contentHeaderText }}</span>
-    <PasskeyAddIcon class="jus-apollo-user-passkeys-dialog-body-content-header-icon"/>
-  </div>
-  <div class="jus-apollo-user-passkeys-dialog-body-content-rows">
-    <div
-        v-for="(passkey, index) in passkeys"
-        :key="index"
-        class="jus-apollo-user-passkeys-dialog-body-content-row">
-      <div class="left">
-        <PasskeyIcon class="jus-apollo-user-passkeys-dialog-body-content-passkey-icon"/>
-        <span class="jus-apollo-user-passkeys-dialog-body-content-passkey-name">{{ passkey.displayName }}</span>
-        <span class="jus-apollo-user-passkeys-dialog-body-content-passkey-date">{{ createdDateText(passkey) }}</span>
+  <div v-loading="store.userActionDialogLoading" element-loading-background="var(--jus-color-icarus-surface)">
+    <div v-show="!store.userActionDialogLoading" class="jus-apollo-user-passkeys-dialog-body">
+      <div class="jus-apollo-user-passkeys-dialog-body-content-header">
+        <span class="jus-apollo-user-passkeys-dialog-body-content-header-text">{{ contentHeaderText }}</span>
+        <AddIcon class="jus-apollo-user-passkeys-dialog-body-content-header-icon"/>
       </div>
-      <PasskeyDeleteIcon class="jus-apollo-user-passkeys-dialog-body-content-passkey-delete-icon right"/>
+      <div class="jus-apollo-user-passkeys-dialog-body-content-rows">
+        <div
+            v-for="(passkey, index) in passkeys"
+            :key="index"
+            class="jus-apollo-user-passkeys-dialog-body-content-row">
+          <div class="left">
+            <PasskeyIcon class="jus-apollo-user-passkeys-dialog-body-content-passkey-icon"/>
+            <span class="jus-apollo-user-passkeys-dialog-body-content-passkey-name">{{ passkey.displayName }}</span>
+            <span class="jus-apollo-user-passkeys-dialog-body-content-passkey-date">{{
+                createdDateText(passkey)
+              }}</span>
+          </div>
+          <DeleteIcon class="jus-apollo-user-passkeys-dialog-body-content-passkey-delete-icon right"/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+@import "@/assets/css/user/security/userPasskeysDialog.css";
 .jus-apollo-user-passkeys-dialog-body-content-header {
   display: flex;
   flex-direction: row;

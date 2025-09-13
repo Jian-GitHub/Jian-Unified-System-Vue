@@ -5,7 +5,6 @@ import LeftSideMenu from "@/components/user/basic/LeftSideMenu.vue";
 import {computed, ComputedRef, Ref} from "vue"
 import { inject } from 'vue'
 import {useI18n} from "vue-i18n";
-import {AccountInfoShort} from "@/types/user";
 import {useGlobalStore} from "@/store";
 
 const globalStore = useGlobalStore()

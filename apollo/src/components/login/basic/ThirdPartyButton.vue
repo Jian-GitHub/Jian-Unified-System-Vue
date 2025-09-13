@@ -20,10 +20,10 @@ defineProps<{
 
 <template>
   <button class="third-party-button">
-    <div :class="['third-party-button-content', setThirdPartyContinueButtonClass(true)]">
+    <template :class="['third-party-button-content', setThirdPartyContinueButtonClass(true)]">
       <component :is="icon" class="third-party-button-content-icon"/>
       <span :class="[ 'third-party-button-content-text', setThirdPartyContinueButtonClass(false)]">{{ text }}</span>
-    </div>
+    </template>
   </button>
 </template>
 
@@ -43,7 +43,7 @@ defineProps<{
   background: var(--jus-color-global-shadow-bottom-right);
 
   /* Default Shadow */
-  box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.3);
   cursor: pointer;
 
   color: var(--jus-color-global-neutrals-text-primary);

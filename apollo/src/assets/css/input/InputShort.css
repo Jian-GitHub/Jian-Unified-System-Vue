@@ -1,0 +1,53 @@
+.input-short {
+    width: 17.5rem;
+    height: 3.5rem;
+    flex-shrink: 0;
+}
+
+:deep(.el-input__count .el-input__count-inner) {
+    margin: 0 0.5rem 0 0;
+    text-align: right;
+    width: 3.5rem;
+    background: transparent;
+}
+:deep(.el-input__wrapper){
+    /*display: flex;*/
+    padding: 1rem 0 1rem 1rem;
+    /*align-items: center;*/
+    /*gap: 0.625rem;*/
+    /*align-self: stretch;*/
+
+    box-shadow: -2px -2px 4px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9) inset, 2px 2px 4px 0 var(--jus-color-global-shadow-top-left, #D1D9E6) inset;
+
+
+    border-radius: 0.75rem;
+
+    border: 1px solid var(--jus-color-global-neutrals-text-placeholder);
+    background: var(--jus-color-icarus-surface);
+}
+
+:deep(.el-input__wrapper:hover) {
+    box-shadow: -4px -4px 4px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9) inset, 4px 4px 4px 0 var(--jus-color-global-shadow-top-left, #D1D9E6) inset;
+    transition: 0.2s;
+
+    border: 1px solid #4070D4;
+}
+:deep(.el-input__wrapper.is-focus) {
+    transition: 0.2s;
+
+    border: 1px solid #4070D4;
+    box-shadow:
+            -4px -4px 4px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9) inset,
+            4px 4px 4px 0 var(--jus-color-global-shadow-top-left, #D1D9E6) inset,
+            0 0 0 1px #4070D4;
+}
+
+:deep(.el-input__inner) {
+    color: var(--jus-color-global-neutrals-text-primary);
+
+    font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 1.0625rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

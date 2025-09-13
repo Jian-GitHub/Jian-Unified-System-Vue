@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    height: 18rem;
 }
 .jus-apollo-user-passkeys-dialog .el-dialog__headerbtn {
     left: 0;
@@ -54,4 +55,18 @@
 }
 .jus-apollo-user-passkeys-dialog .el-dialog__headerbtn:hover svg {
     color: var(--jus-color-global-neutrals-text-primary);
+}
+
+.jus-apollo-user-passkeys-dialog .el-loading-spinner .path {
+    stroke: #F4BEBD;
+    stroke-width: 3.5;
+}
+
+.jus-apollo-user-passkeys-dialog .el-loading-spinner {
+    top: 5.25rem;
+}
+
+.jus-apollo-user-passkeys-dialog .el-loading-spinner .circular {
+    width: 5rem;
+    height: 5rem;
 }

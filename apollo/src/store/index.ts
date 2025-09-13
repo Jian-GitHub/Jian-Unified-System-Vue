@@ -1,5 +1,5 @@
 import {computed, ComputedRef, ref, Ref} from "vue";
-import {User, UserAction, UserPageContent, AccountInfoShort, ActionsIds} from "@/types/user";
+import {User, UserAction, UserPageContent, AccountInfoShort, ActionsIds} from "@/types/User";
 import {defineStore} from 'pinia';
 import ApolloLogoBlue from "@/components/user/basic/ApolloLogoBlue.vue";
 import PasswordIcon from "@/assets/icon/password_input_20x20.svg";
@@ -54,6 +54,7 @@ export const useGlobalStore = defineStore('store', () => {
 
     const userActionDialogVisible: Ref<boolean> = ref(false);
     const userActionDialogLoading: Ref<boolean> = ref(true);
+    const userActionDialogId: Ref<number> = ref(-1);
 
     const {t, locale} = useI18n()
 
@@ -302,7 +303,8 @@ export const useGlobalStore = defineStore('store', () => {
         infoPageContent,
         accountInfoShort,
         actionsIds,
-        userActionDialogLoading
+        userActionDialogLoading,
+        userActionDialogId
     }
 }, {
     persist: {

@@ -4,7 +4,7 @@ import RightContent from "@/components/user/security/userContainer/rightContent/
 
 import {useGlobalStore} from "@/store"
 import {computed, ComputedRef, onBeforeUnmount, onMounted, ref, Ref} from "vue";
-import type {UserPageContent} from "@/types/user";
+import type {UserPageContent} from "@/types/User";
 import { provide } from "vue";
 
 const globalStore = useGlobalStore()

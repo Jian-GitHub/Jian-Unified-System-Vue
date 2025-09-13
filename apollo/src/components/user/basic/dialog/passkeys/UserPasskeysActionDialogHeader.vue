@@ -7,9 +7,9 @@ import {useI18n} from "vue-i18n";
 const store = useGlobalStore()
 const {t} = useI18n()
 
-const titleText = computed(() => t('user_dialog.user_passkeys.title'))
-const line1Text = computed(() => t('user_dialog.user_passkeys.line1', {num: store.user.security.passkeysNum}))
-const line2Text = computed(() => t('user_dialog.user_passkeys.line2'))
+const titleText = computed(() => t('user_action_dialog.passkeys.title'))
+const line1Text = computed(() => t('user_action_dialog.passkeys.line1', {num: store.user.security.passkeysNum}))
+const line2Text = computed(() => t('user_action_dialog.passkeys.line2'))
 </script>
 
 <template>
