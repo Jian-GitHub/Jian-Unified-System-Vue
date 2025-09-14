@@ -33,7 +33,7 @@ const updateSystemLanguage = (customizedLanguage: string | null) => {
 };
 
 onMounted(() => {
-  console.log("进入onMounted")
+  console.log("进入onMounted - Cloudflare")
   // Check System Language
   const savedLanguage: string | null = localStorage.getItem('language');
   if (savedLanguage === null) {

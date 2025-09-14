@@ -5,14 +5,14 @@
     "moduleResolution": "node",
     "allowJs": true,
     "checkJs": false,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "esnext", "webworker"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
 
     // 新增以下关键配置
-    "types": ["vite/client"], // 添加 Vite 客户端类型
+    "types": ["vite/client", "@cloudflare/workers-types"], // 添加 Vite 客户端类型
     "baseUrl": ".",           // 设置基础路径
     "paths": {                // 配置路径别名（如果使用）
       "@/*": ["src/*"],
@@ -30,7 +30,8 @@
     "src/**/*.d.ts",         // 包含类型声明文件
     "src/shims-vue.d.ts",    // 明确包含 Vue 声明文件
     "src/env.d.ts",           // 包含环境变量声明
-    "src/i18n.d.ts"
+    "src/i18n.d.ts",
+    "worker.ts"
   ],
   "exclude": [
     "node_modules",
