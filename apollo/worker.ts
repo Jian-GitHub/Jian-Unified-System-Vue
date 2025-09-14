@@ -5,6 +5,7 @@ export default {
 
         // ---------- 新增：处理 OPTIONS 预检请求，避免 405 ----------
         if (request.method === "OPTIONS") {
+            console.log(`[OPTIONS] ${request.url}`); // ---------- 新增日志 ----------
             return new Response(null, {
                 status: 204,
                 headers: {
@@ -23,9 +24,9 @@ export default {
             const target = new URL(request.url);
 
             // ---------- 修改：目标协议/主机/端口 ----------
-            target.protocol = "http";               // 原来有，但保留
+            target.protocol = "http";               // 或 https
             target.hostname = "dev.jian.nz";       // Istio Gateway 域名
-            target.port = "20550";                  // 非标准端口标注修改
+            target.port = "20550";                  // 非标准端口
             target.pathname = target.pathname.replace(/^\/api/, "");
 
             // ---------- 新增：Headers 保留 CF-Connecting-IP ----------
@@ -35,9 +36,11 @@ export default {
                 headers.set("X-Forwarded-For", cfIP);
                 headers.set("X-Real-IP", cfIP);
             }
-            // 可选：headers.set("Host", target.hostname);
 
-            // ---------- 修改：确保 body 只有非 GET/HEAD 请求才传递 ----------
+            // ---------- 新增日志 ----------
+            console.log(`[API Proxy] Method: ${request.method}, Path: ${url.pathname}, User IP: ${cfIP || "unknown"}`);
+
+            // ---------- 确保 body 只有非 GET/HEAD 请求才传递 ----------
             const body = request.method !== "GET" && request.method !== "HEAD" ? request.body : undefined;
 
             const newRequest = new Request(target.toString(), {
@@ -51,6 +54,7 @@ export default {
         }
 
         // ---------- 静态文件 ----------
+        console.log(`[STATIC] ${url.pathname}`); // ---------- 新增日志 ----------
         return env.ASSETS.fetch(request);
     }
 };
