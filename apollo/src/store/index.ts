@@ -1,5 +1,5 @@
 import {computed, ComputedRef, ref, Ref} from "vue";
-import {User, UserAction, UserPageContent, AccountInfoShort, ActionsIds} from "@/types/User";
+import {User} from "@/types/User";
 import {defineStore} from 'pinia';
 import ApolloLogoBlue from "@/components/user/basic/ApolloLogoBlue.vue";
 import PasswordIcon from "@/assets/icon/password_input_20x20.svg";
@@ -15,6 +15,8 @@ import EarthIcon from "@/assets/icon/earth_20x20.svg";
 import LanguageIcon from "@/assets/icon/language_20x20.svg";
 
 import {useI18n} from "vue-i18n";
+import {ActionsIds, UserAction} from "@/types/dialog/UserAction";
+import {AccountInfoShort, UserPageContent} from "@/types/UserPage";
 
 
 // Theme mode type

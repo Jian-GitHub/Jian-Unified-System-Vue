@@ -4,36 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Update: PasskeysDialog Content UI">
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/css/input/InputShort.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/Input/InputShort.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogHeader.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/locales/en/dialogs/user_action_dialog.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/types/UserPage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/types/dialog/UserAction.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/types/dialog/security/AccountSecurityToken.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/types/dialog/security/Passkeys.ts" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: Account Security Token Generation UI">
+      <change afterPath="$PROJECT_DIR$/apollo/src/assets/logo/quantum_20x20.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/TokenScopeSelecter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/icon/token_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/icon/token_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/basic/Input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/InputLong.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/basic/ThirdPartyButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/basic/ThirdPartyButton.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/UserActionDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/UserActionDialog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/UserPasskeysActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/UserPasskeysActionDialogHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/leftSide/LeftSide.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/leftSide/LeftSide.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/rightContent/RightContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/rightContent/RightContent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/dialogs/user_passkeys_dialog.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/dialogs/user_passkeys_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ja/dialogs/user_passkeys_dialog.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ko/dialogs/user_passkeys_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ko/dialogs/user_action_dialog.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/dialogs/user_passkeys_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/dialogs/user_action_dialog.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/types/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/types/User.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,8 +98,8 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2071918" />
-      <window_info id="Commit" order="1" weight="0.19006848" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2071918" />
+      <window_info active="true" id="Commit" order="1" visible="true" weight="0.2071918" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.19978401" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -202,7 +178,7 @@
       <workItem from="1757282346743" duration="243000" />
       <workItem from="1757498026280" duration="42390000" />
       <workItem from="1757592425470" duration="9854000" />
-      <workItem from="1757632062362" duration="74098000" />
+      <workItem from="1757632062362" duration="78348000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -316,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757743926715</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Feature: Account Security Token Generation UI">
+      <option name="closed" value="true" />
+      <created>1757780911254</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1757780911254</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,6 +330,7 @@
     <MESSAGE value="Feature: User Passkeys Dialog UI" />
     <MESSAGE value="Feature: User Basic UI" />
     <MESSAGE value="Update: PasskeysDialog Content UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update: PasskeysDialog Content UI" />
+    <MESSAGE value="Feature: Account Security Token Generation UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature: Account Security Token Generation UI" />
   </component>
 </project>

@@ -9,6 +9,8 @@ import {useGlobalStore} from "@/store";
 import {AccountSecurityTokenDialogRowData} from "@/types/dialog/security/AccountSecurityToken";
 import {ElMessage} from "element-plus";
 import InputShort from "@/components/Input/InputShort.vue";
+import QuantumLogo from "@/assets/logo/quantum_20x20.svg";
+import TokenScopeSelecter from "@/components/user/basic/dialog/accountSecurity/TokenScopeSelecter.vue";
 
 const {t} = useI18n()
 const store = useGlobalStore()
@@ -86,6 +88,19 @@ const innerVisible = ref(false)
 const tokenAlias = ref('')
 const tokenAliasButton = ref(null)
 
+const options = [
+  {
+    id: 0,
+    icon: QuantumLogo,
+    label: "JQuantum",
+  },
+  {
+    id: 1,
+    icon: QuantumLogo,
+    label: "Argus",
+  }
+]
+
 function tokenAliasDialogOpened() {
   nextTick(() => {
     tokenAliasButton.value?.$el?.focus()
@@ -93,10 +108,11 @@ function tokenAliasDialogOpened() {
 }
 
 function beforeTokenAliasDialogOpened() {
-  colors.forEach((color) => {
-    value.value.push(color.value)
+  options.forEach((option) => {
+    value.value.push(option.id)
   })
 }
+
 function closeTokenAliasDialog() {
   console.log("a")
   tokenAlias.value = '';
@@ -108,6 +124,7 @@ function submitTokenAlias() {
   tokenAlias.value = '';
 
   console.log(value.value.length)
+  console.log(value.value)
   /**
    TODO: submitTokenAlias
    alias -> Server
@@ -117,48 +134,53 @@ function submitTokenAlias() {
    */
 }
 
-const value = ref<string[]>([])
-const colors = [
-  {
-    value: '#E63415',
-    label: 'red',
-  },
-  {
-    value: '#FF6600',
-    label: 'orange',
-  },
-  {
-    value: '#FFDE0A',
-    label: 'yellow',
-  },
-  {
-    value: '#1EC79D',
-    label: 'green',
-  },
-  {
-    value: '#14CCCC',
-    label: 'cyan',
-  },
-  {
-    value: '#4167F0',
-    label: 'blue',
-  },
-  {
-    value: '#6222C9',
-    label: 'purple',
-  },
-]
+const value = ref<number[]>([])
+
+// const colors = [
+//   {
+//     value: '#4070D4',
+//     label: 'JQuantum',
+//   },
+//   {
+//     value: '#E63415',
+//     label: 'red',
+//   },
+//   {
+//     value: '#FF6600',
+//     label: 'orange',
+//   },
+//   {
+//     value: '#FFDE0A',
+//     label: 'yellow',
+//   },
+//   {
+//     value: '#1EC79D',
+//     label: 'green',
+//   },
+//   {
+//     value: '#14CCCC',
+//     label: 'cyan',
+//   },
+//   {
+//     value: '#4167F0',
+//     label: 'blue',
+//   },
+//   {
+//     value: '#6222C9',
+//     label: 'purple',
+//   },
+// ]
 
 
 
-function getLabel(colorValue) {
-  const item = colors.find(c => c.value === colorValue)
-  return item?.label ?? colorValue
-}
-function remove(color) {
-  const idx = value.value.indexOf(color)
-  if (idx !== -1) value.value.splice(idx, 1)
-}
+// function getLabel(colorValue) {
+//   const item = colors.find(c => c.value === colorValue)
+//   return item?.label ?? colorValue
+// }
+// function remove(color) {
+//   const idx = value.value.indexOf(color)
+//   if (idx !== -1) value.value.splice(idx, 1)
+// }
 </script>
 
 <template>
@@ -179,25 +201,7 @@ function remove(color) {
                   maxlength="16" show-word-limit clearable placeholder="别名 (可选)"
                   @keydown.enter="submitTokenAlias"/>
 
-      <el-select v-model="value"
-                 class="select-scope"
-                 multiple
-                 placeholder="作用域"
-                 collapse-tags
-                 collapse-tags-tooltip
-                 clearable
-                 style="width: 10rem;max-height: 3.5rem">
-        <el-option
-            v-for="item in colors"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
-          <div class="flex items-center">
-            <el-tag :color="item.value" style="margin-right: 8px" size="small"/>
-            <span :style="{ color: item.value }">{{ item.label }}</span>
-          </div>
-        </el-option>
-      </el-select>
+      <TokenScopeSelecter v-model="value" :options="options"/>
 
     </div>
     <template #footer>
@@ -205,7 +209,7 @@ function remove(color) {
       <el-button type="primary"
                  autofocus
                  ref="tokenAliasButton"
-
+                 :disabled="value.length === 0"
                  @click="submitTokenAlias">
         {{ '确定' }}
       </el-button>
@@ -245,44 +249,7 @@ function remove(color) {
   </div>
 </template>
 
-<style>
-.jus-apollo-user-account-security-dialog-token-alias {
-  width:  33.125rem;
-  margin-top: 20.5rem;
-  border-radius: 0.75rem;
-}
-.el-select__wrapper{
-  width: 17rem;
-  height: 3.5rem;
-  margin-left: 0;
-  border-radius: 0.75rem;
-  box-shadow: -2px -2px 4px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9) inset, 2px 2px 4px 0 var(--jus-color-global-shadow-top-left, #D1D9E6) inset;
-  border: 1px solid var(--jus-color-global-neutrals-text-placeholder);
-  background: var(--jus-color-icarus-surface);
-}
 
-.el-select__wrapper.is-hovering:not(.is-focused) {
-  box-shadow: -4px -4px 4px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9) inset, 4px 4px 4px 0 var(--jus-color-global-shadow-top-left, #D1D9E6) inset;
-  transition: 0.2s;
-
-  border: 1px solid #4070D4;
-}
-
-.el-select__wrapper.is-focused.el-tooltip__trigger {
-  transition: 0.2s;
-
-  border: 1px solid #4070D4;
-  box-shadow:
-      -4px -4px 4px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9) inset,
-      4px 4px 4px 0 var(--jus-color-global-shadow-top-left, #D1D9E6) inset,
-      0 0 0 1px #4070D4;
-}
-.el-select__wrapper.is-hovering.el-tooltip__trigger:not(.is-focused) {
-  background: var(--jus-color-icarus-surface) ;
-  box-shadow: -4px -4px 4px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9) inset, 4px 4px 4px 0 var(--jus-color-global-shadow-top-left, #D1D9E6) inset ;
-
-}
-</style>
 <style scoped>
 @import "@/assets/css/user/security/userPasskeysDialog.css";
 
