@@ -7,9 +7,9 @@ import {useGlobalStore} from "@/store";
 const globalStore = useGlobalStore();
 
 import { cf_token } from "@/assets/logic/GlobalTurnstile";
-import {ref, watch} from "vue";
+import {ref} from "vue";
 
-const props = defineProps<{
+defineProps<{
   show: boolean;
   action: string;
 }>()
