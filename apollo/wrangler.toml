@@ -7,7 +7,7 @@ cwd = "."                       # 项目根目录
 watch_dir = "src"               # dev 本地监控
 
 [build.upload]
-main = "worker.ts"              # Worker 入口脚本
+main = "worker.js"              # Worker 入口脚本
 dir = "dist"                    # Vue 构建输出目录
 
 [site]

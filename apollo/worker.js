@@ -1,7 +1,5 @@
-import type { ExecutionContext } from '@cloudflare/workers-types';
-
 export default {
-    async fetch(request: Request, env: any, ctx: ExecutionContext): Promise<Response> {
+    async fetch(request, env, ctx) {
 
         // ---------- 新增：处理 OPTIONS 预检请求，避免 405 ----------
         if (request.method === "OPTIONS") {
