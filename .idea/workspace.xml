@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Decoupling Token Generation Scope Selector">
-      <change afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/api/axiosInstance.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/assets/logic/GlobalTurnstile.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/GlobalTurnstile.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: Cloudflare Turnstile &amp; Login Axios Request &amp; Loading Mask">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/login/container/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/login/container/button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/GlobalTurnstile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/GlobalTurnstile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/LoginPage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/LoginSide.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/TheWelcome.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/WelcomeItem.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/side/Side.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/side/Side.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +181,7 @@
       <workItem from="1757282346743" duration="243000" />
       <workItem from="1757498026280" duration="42390000" />
       <workItem from="1757592425470" duration="9854000" />
-      <workItem from="1757632062362" duration="101790000" />
+      <workItem from="1757632062362" duration="103256000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -316,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757821723205</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Feature: Cloudflare Turnstile &amp; Login Axios Request &amp; Loading Mask">
+      <option name="closed" value="true" />
+      <created>1757858947582</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1757858947582</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,6 +351,7 @@
     <MESSAGE value="Update: PasskeysDialog Content UI" />
     <MESSAGE value="Feature: Account Security Token Generation UI" />
     <MESSAGE value="Decoupling Token Generation Scope Selector" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decoupling Token Generation Scope Selector" />
+    <MESSAGE value="Feature: Cloudflare Turnstile &amp; Login Axios Request &amp; Loading Mask" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature: Cloudflare Turnstile &amp; Login Axios Request &amp; Loading Mask" />
   </component>
 </project>

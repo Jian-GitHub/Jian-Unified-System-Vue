@@ -7,12 +7,23 @@ import {useGlobalStore} from "@/store";
 const globalStore = useGlobalStore();
 
 import { cf_token } from "@/assets/logic/GlobalTurnstile";
+import {ref, watch} from "vue";
 
-defineProps<{
+const props = defineProps<{
   show: boolean;
   action: string;
 }>()
 //0x4AAAAAAANVWc7MkXgqcP22
+const turnstile = ref(null)
+// watch(props, ()=>{
+//   if(props.show) {
+//     console.log(props.action + "显示")
+//     setTimeout(() => (turnstile.value?.render()), 2000)
+//   }else {
+//     console.log(props.action + "消失")
+//     turnstile.value?.reset()
+//   }
+// })
 </script>
 
 <template>
@@ -20,8 +31,8 @@ defineProps<{
       <div v-loading="true" element-loading-background="transparent" class="cloudflare-checker-loading">
         <span class="cloudflare-checker-loading-text">等待 Cloudflare 验证</span>
       </div>
-      <vue-turnstile id="cf"
-                     :v-if="show"
+      <vue-turnstile class="cf"
+                     v-if="show"
                      site-key="3x00000000000000000000FF"
                      v-model="cf_token"
                      ref="turnstile"
@@ -64,7 +75,7 @@ defineProps<{
 }
 
 
-#cf {
+.cf {
   z-index: 1;
   width: calc(21.875rem + 20px);
   height: 3.5rem;
