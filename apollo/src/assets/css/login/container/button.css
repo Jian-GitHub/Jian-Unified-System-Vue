@@ -29,8 +29,15 @@
     font-weight: 600;
 }
 
-.container-action-button:hover,
-.container-action-button:focus {
+.container-action-button:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.9); /* 让按钮变暗 */
+    opacity: 0.8; /* 稍微透明，看起来不可点击 */
+    pointer-events: none; /* 确保不能点击 */
+}
+
+.container-action-button:not(:disabled):hover,
+.container-action-button:not(:disabled):focus {
     cursor: pointer;
     border-radius: 0.5rem;
     border: 1px solid var(--jus-color-icarus-primary-500);

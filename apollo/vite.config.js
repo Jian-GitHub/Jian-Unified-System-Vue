@@ -32,6 +32,13 @@ export default defineConfig({
   server: {
     allowedHosts: [
         'dev.jian.nz'
-    ]
+    ],
+    proxy: {
+      '/api': {
+        target: 'http://192.168.20.72:9090',
+        changeOrigin: true, // 启用跨域
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   }
 })

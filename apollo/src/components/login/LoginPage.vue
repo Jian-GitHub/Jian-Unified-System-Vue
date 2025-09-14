@@ -1,26 +1,41 @@
 <script setup lang="ts">
 import Side from "@/components/login/side/Side.vue";
 import Container from "@/components/login/container/Container.vue";
-import Settings from '@/components/login/setting/Settings.vue'
-import {useGlobalStore} from "@/store";
+import {ref} from "vue";
 
-const globalStore = useGlobalStore()
-
+const isLogin = ref(true)
+const isWaitingForServer = ref(false)
 </script>
 
 <template>
   <div class="jus-apollo-login-page">
     <div class="jus-apollo-login-panel">
-      <div class="jus-apollo-login">
-        <Side :class="['jus-apollo-login-side',{ 'move-right': !globalStore.isLogin }]"/>
-        <Container :class="['jus-apollo-login-container', { 'move-left': !globalStore.isLogin }]"/>
+      <div class="jus-apollo-login" v-loading="isWaitingForServer" element-loading-background="var(--jus-color-icarus-primary-200)">
+        <Side v-model:is-login="isLogin" :class="['jus-apollo-login-side',{ 'move-right': !isLogin }]"/>
+        <Container v-model:is-waiting-for-server="isWaitingForServer" :class="['jus-apollo-login-container', { 'move-left': !isLogin }]"/>
       </div>
-<!--      <Settings/>-->
     </div>
 
   </div>
 </template>
 
+<style>
+.jus-apollo-login .el-loading-mask:not(.cloudflare-checker-loading) {
+  opacity: 0.7;
+}
+.jus-apollo-login .el-loading-spinner:not(.cloudflare-checker-loading) .path {
+  stroke: #F4BEBD;
+  stroke-width: 3;
+}
+.jus-apollo-login .el-loading-spinner:not(.cloudflare-checker-loading) svg {
+  stroke: #F4BEBD;
+  stroke-width: 5;
+  width: 10rem;
+  height: 10rem;
+  filter: drop-shadow(0 0px 6px var(--jus-color-global-neutrals-text-primary));
+}
+
+</style>
 <style scoped>
 .jus-apollo-login-page {
   display: flex;

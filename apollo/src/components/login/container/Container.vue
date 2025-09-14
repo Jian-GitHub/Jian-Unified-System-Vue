@@ -6,11 +6,13 @@ import passkeys from "@/assets/logo/passkeys_20x20.svg"
 import google from "@/assets/logo/google_20x20.svg"
 import gitHub from "@/assets/logo/github_20x20.svg"
 import Divider from "../basic/divider.vue";
-import CloudflareChecker from '../basic/CloudflareChecker.vue'
+// import CloudflareChecker from '../basic/CloudflareChecker.vue'
 import {ElButton} from "element-plus";
 import ThirdPartyButton from "@/components/login/basic/ThirdPartyButton.vue";
-// import VueTurnstile from 'vue-turnstile';
-
+import {cf_token} from '@/assets/logic/GlobalTurnstile';
+import CloudflareTurnstile from "@/components/GlobalTurnstile.vue";
+import {LoginFormData} from "@/api/AccountActions";
+import {Login} from "@/api/AccountActions"
 import {useI18n} from 'vue-i18n'
 
 const {t, locale} = useI18n()
@@ -40,6 +42,7 @@ const thirdPartyProviders: ThirdPartyProvider[] = [
   {icon: gitHub, text: githubText}
 ]
 import {useGlobalStore} from "@/store";
+
 const globalStore = useGlobalStore();
 
 const containerTitle: ComputedRef<string> = computed(() => globalStore.isLogin ? t('container.login.CONTAINER_TITLE') : t('container.registration.CONTAINER_TITLE'))
@@ -55,13 +58,30 @@ const containerActionButton: ComputedRef<VNode<RendererNode, RendererElement, { 
           letterSpacing: locale.value === 'zh' ? '0.1875rem' : 'normal',
           color: 'var(--jus-color-global-neutrals-pure-black)'
         },
-        onClick: handleRegister,
+        disabled: isButtonDisabled.value,
+        onClick: globalStore.isLogin ? handleLogin : handleRegister,
       },
       () => containerActionButtonText.value
   );
 });
 
+const isButtonDisabled = computed(() => {
+  if (globalStore.isLogin) {
+    return !loginData.value.email || !loginData.value.password || !cf_token.value;
+  } else {
+    return !registerData.value.email ||
+        !registerData.value.password ||
+        !registerData.value.confirmPassword ||
+        registerData.value.password != registerData.value.confirmPassword ||
+        !cf_token.value;
+  }
+})
 
+// function isButtonDisabled(type: boolean) {
+//   return computed(() => {
+//     return type ? true : false
+//   })
+// }
 // let isLogin = true;
 
 function setIsLogin(): void {
@@ -87,132 +107,141 @@ const switchLanguage = (lang: string): void => {
   locale.value = lang
 }
 
-function triggerTurnstile() {
-  // 调用 Turnstile 的执行方法
-  // vue-turnstile 暂时没有官方 execute 接口，但可以用 ref 触发
-  if (this.$refs.turnstileRef) {
-    this.$refs.turnstileRef.reset(); // 重置，确保可触发
-  }
-}
-
-// 验证回调
-function onVerify(token) {
-  cf_token.value = token;
-  console.log('Turnstile token:', token);
-
-  // 在这里调用你的后端接口验证 token
-  // axios.post('/api/verify-token', { token }).then(...)
-}
-
 // 表单数据
-const formData = ref({
+const registerData = ref({
   email: '',
   password: '',
   confirmPassword: ''
 })
+// 配置每个字段的类型和 placeholder
+const registerFields = {
+  email: {type: 'email', placeholder: 'Email'},
+  password: {type: 'password', placeholder: 'Password'},
+  confirmPassword: {type: 'password', placeholder: 'ConfirmPassword'}
+}
+
+const loginData = ref({
+  email: '',
+  password: '',
+})
+const loginFields = {
+  email: {type: 'email', placeholder: 'Email'},
+  password: {type: 'password', placeholder: 'Password'},
+}
 
 // 表单验证
 const isFormValid = computed(() => {
-  return formData.value.email &&
-      formData.value.password &&
-      formData.value.confirmPassword &&
-      formData.value.password === formData.value.confirmPassword
+  return registerData.value.email &&
+      registerData.value.password &&
+      registerData.value.confirmPassword &&
+      registerData.value.password === registerData.value.confirmPassword
 })
 
-// 注册处理
 const handleRegister = () => {
   if (isFormValid.value) {
-    console.log('注册数据:', formData.value)
+    console.log('注册数据:', registerData.value)
     // 这里添加注册逻辑
   }
 }
 
-const cf_token = ref('');
+const showLoginTurnstile = ref(false)
+const showRegisterTurnstile = ref(false)
+watch(
+    () => globalStore.isLogin,
+    (isLogin) => {
+      if (isLogin) {
+        showRegisterTurnstile.value = false
+        setTimeout(() => (showLoginTurnstile.value = true), 2000) // 延迟200ms渲染
+      } else {
+        showLoginTurnstile.value = false
+        setTimeout(() => (showRegisterTurnstile.value = true), 2000)
+      }
+    },
+    {immediate: true}
+)
+
+import {watch} from 'vue'
+
+const handleLogin = async () => {
+  if (isFormValid.value) {
+    console.log('登录数据:', registerData.value)
+    // 这里添加注册逻辑
+  }
+
+  if (loginData.value.email && loginData.value.password && cf_token.value) {
+    emit('update:isWaitingForServer', true);
+    const data: LoginFormData = {
+      email: loginData.value.email,
+      password: loginData.value.password,
+      cloudflareToken: cf_token.value,
+    }
+    try {
+      const response = await Login(data)
+      if (response.status === 200) {
+        console.log(response.data);
+        console.log(response.data.data.token);
+      } else {
+
+      }
+    } catch (error) {
+      console.log('failed')
+    }
+
+    emit('update:isWaitingForServer', false);
+  } else {
+    console.log('nothing')
+  }
+}
+
+defineProps<{
+  isWaitingForServer: boolean;
+}>()
+
+const emit = defineEmits<{
+  (e: 'update:isWaitingForServer', value: boolean): void
+}>()
 </script>
 
 <template>
   <div class="jus-apollo-container">
     <!-- Register -->
-    <div class="jus-apollo-container-top-section" v-if="!globalStore.isLogin">
+    <div class="jus-apollo-container-top-section" v-show="!globalStore.isLogin">
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
       <div :class="['jus-apollo-container-text', sideToButtonClass(1)]">{{ containerText }}</div>
       <CustomInputLong
+          v-for="(field, key) in registerFields"
+          :key="key"
           class="jus-apollo-container-input"
-          v-model="formData.email"
-          placeholder="Email"
-          type="email"
+          v-model="registerData[key]"
+          :placeholder="field.placeholder"
+          :type="field.type"
       />
-      <CustomInputLong
-          class="jus-apollo-container-input"
-          v-model="formData.password"
-          placeholder="Password"
-          type="password"
-          show-password
-      />
-      <CustomInputLong
-          class="jus-apollo-container-input"
-          v-model="formData.confirmPassword"
-          placeholder="ConfirmPassword"
-          type="password"
-          show-password
-      />
-      <!-- Cloudflare Check -->
-      <!--        <div class="cloudflare-checker-container" data-name="Cloudflare Checker" data-node-id="89:314">-->
-      <!--          <CloudflareChecker />-->
-      <!--        </div>-->
-      <!--      <div-->
-      <!--          style="width: 375px;height: 65px;background-color: #fafafa;border-radius: 8px;align-items: center;justify-container: center;display: flex;overflow: hidden;">-->
-      <!--        <p style="z-index: 0;position: absolute;width: 375px;">等待验证</p>-->
-      <!--        <vue-turnstile style="width: 375px;z-index: 1;position: absolute" id="cf"-->
-      <!--                       site-key="0x4AAAAAAANVWc7MkXgqcP22" v-model="cf_token" theme="light"/>-->
-      <!--      </div>-->
-      <CloudflareChecker/>
-      <div>
+      <CloudflareTurnstile :show="showRegisterTurnstile" action="register"/>
+      <div class="jus-apollo-container-action-section register">
         <component :is="containerActionButton" :class="['container-action-button', sideToButtonClass(2)]"/>
       </div>
     </div>
 
     <!-- Login   -->
-    <div class="jus-apollo-container-top-section" v-if="globalStore.isLogin">
+    <div class="jus-apollo-container-top-section" v-show="globalStore.isLogin">
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
       <div :class="['jus-apollo-container-text', sideToButtonClass(1)]">{{ containerText }}</div>
       <CustomInputLong
+          v-for="(field, key) in loginFields"
+          :key="key"
           class="jus-apollo-container-input"
-          v-model="formData.email"
-          placeholder="Email"
-          type="email"
-          show-password
+          v-model="loginData[key]"
+          :placeholder="field.placeholder"
+          :type="field.type"
       />
-      <CustomInputLong
-          class="jus-apollo-container-input"
-          v-model="formData.password"
-          placeholder="Password"
-          type="password"
-          show-password
-      />
-      <!-- Cloudflare Checker -->
-      <!--        <div class="cloudflare-checker-container" data-name="Cloudflare Checker" data-node-id="89:314">-->
-      <!--          <CloudflareChecker />-->
-      <!--        </div>-->
-      <!--      <div-->
-      <!--          style="width: 375px;height: 65px;background-color: #fafafa;border-radius: 8px;align-items: center;justify-container: center;display: flex;overflow: hidden;">-->
-      <!--        <p style="z-index: 0;position: absolute;width: 375px;">等待验证</p>-->
-      <!--        <vue-turnstile style="width: 375px;z-index: 1;position: absolute" id="cf"-->
-      <!--                       site-key="0x4AAAAAAANVWc7MkXgqcP22" v-model="cf_token" theme="light"/>-->
-      <!--      </div>-->
-      <CloudflareChecker/>
+      <CloudflareTurnstile :show="showLoginTurnstile" action="login"/>
       <div class="jus-apollo-container-action-section">
         <span class="jus-apollo-container-action-section-text">{{ forgetPassword }}</span>
         <component :is="containerActionButton" :class="['container-action-button', sideToButtonClass(2)]"/>
       </div>
     </div>
-
-
-
-
-
 
 
     <!-- 底部第三方登录区域 -->
@@ -230,9 +259,29 @@ const cf_token = ref('');
   </div>
 </template>
 
-
 <style scoped>
 @import "@/assets/css/login/container/index.css";
+
+.cloudflare-turnstile-container {
+  width: 21.875rem;
+  height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0.2rem;
+  display: flex;
+  overflow: hidden;
+
+  flex-shrink: 0;
+
+  border-radius: 0.5rem;
+  background: var(--jus-color-doraemon-surface);
+
+  /* Input/Inner Default */
+  /*box-shadow: -2px -2px 4px 0 var(--jus-color-global-shadow-bottom-right) inset, 2px 2px 4px 0 var(--jus-color-global-shadow-top-left) inset;
+
+   */
+  box-shadow: 0 1px inset var(--jus-color-icarus-surface);
+}
 
 .jus-apollo-container {
   display: flex;
@@ -246,9 +295,9 @@ const cf_token = ref('');
   flex-shrink: 0;
   font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background-color: transparent;
-/*
-  background: linear-gradient(148deg, var(--jus-color-icarus-primary-200, #F9E8E7) 31.82%, var(--jus-color-icarus-primary-300, #F4BEBD) 106.82%);
- */
+  /*
+    background: linear-gradient(148deg, var(--jus-color-icarus-primary-200, #F9E8E7) 31.82%, var(--jus-color-icarus-primary-300, #F4BEBD) 106.82%);
+   */
   transition: all 5s ease-in-out 0s;
   /*
   background: linear-gradient(91deg, rgba(255, 255, 255, 0.30) 0%, rgba(191, 184, 184, 0.09) 100%);
@@ -269,6 +318,7 @@ const cf_token = ref('');
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: var(--jus-color-global-neutrals-text-primary);
   text-overflow: ellipsis;
   font-size: 2rem;
@@ -278,11 +328,11 @@ const cf_token = ref('');
   white-space: nowrap;
 }
 
-.jus-apollo-container-title-spacing{
+.jus-apollo-container-title-spacing {
   letter-spacing: 0.6rem;
 }
 
-.jus-apollo-container-text-spacing{
+.jus-apollo-container-text-spacing {
   letter-spacing: -0.07rem;
 }
 
@@ -308,9 +358,13 @@ const cf_token = ref('');
 
   cursor: pointer;
 }
+
+.jus-apollo-container-action-section.register {
+  margin-top: -0.5rem;
+}
+
 .jus-apollo-container-action-section {
   display: flex;
-  padding: 1.5rem 0.625rem 0 0.625rem;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
@@ -345,9 +399,9 @@ const cf_token = ref('');
   align-self: stretch;
 
   display: flex;
-  flex-direction: column; /* 垂直排列子元素 */
-  align-items: center; /* 水平居中所有子元素 */
-  gap: 0.6rem; /* 子元素间垂直间距 */
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .jus-apollo-container-bottom-section-divider {

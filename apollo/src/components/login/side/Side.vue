@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useI18n} from 'vue-i18n'
-import {computed} from 'vue'
+import {computed, Ref, ref} from 'vue'
 import {ElButton} from "element-plus";
 import {useGlobalStore} from "@/store";
 const globalStore = useGlobalStore()
@@ -20,9 +20,36 @@ const loginButtonText: ComputedRef<string> = computed(() => t('side.login.TO_REG
 const registerButtonText: ComputedRef<string> = computed(() => t('side.registration.TO_LOGIN'))
 const sideTextLine1: ComputedRef<string> = computed(() => globalStore.isLogin ? loginSideText1.value : registerSideText1.value)
 const sideTextLine2: ComputedRef<string> = computed(() => globalStore.isLogin ? loginSideText2.value : registerSideText2.value)
+import { cf_token } from "@/assets/logic/GlobalTurnstile";
 
+const props = defineProps<{
+  isLogin: boolean;
+}>()
+
+const isSwitching: Ref<boolean> = ref(false);
+const emit = defineEmits<{
+  (e: 'update:isLogin', value: boolean): void
+}>()
+
+import { toRefs, watch } from 'vue'
+const { isLogin } = toRefs(props)
+
+let timerId = null;
 function setIsLogin(): void {
-  globalStore.isLogin = !globalStore.isLogin
+  if (isSwitching.value) return
+  if (timerId) clearTimeout(timerId)
+
+  cf_token.value = '';
+  isSwitching.value = true;
+  emit('update:isLogin', !props.isLogin)
+
+  timerId = setTimeout(() => {
+    isSwitching.value = false;
+  }, 1200);
+
+  setTimeout(() => {
+    globalStore.isLogin = !globalStore.isLogin
+  }, 400);
 }
 
 const sideToButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: string]: any }>> = computed(() => {
@@ -41,9 +68,9 @@ const sideToButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: strin
 
 function sideCircleClass(position: 'top' | 'bottom'): string {
   if (position === 'top') {
-    return globalStore.isLogin ? 'jus-apollo-side-circle--top-right' : 'jus-apollo-side-circle--top-left'
+    return isLogin.value ? 'jus-apollo-side-circle--top-right' : 'jus-apollo-side-circle--top-left'
   } else {
-    return globalStore.isLogin ? 'jus-apollo-side-circle--bottom-left' : 'jus-apollo-side-circle--bottom-right'
+    return isLogin.value ? 'jus-apollo-side-circle--bottom-left' : 'jus-apollo-side-circle--bottom-right'
   }
 }
 
