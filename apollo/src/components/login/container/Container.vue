@@ -150,12 +150,10 @@ watch(
     () => globalStore.isLogin,
     (isLogin) => {
       if (isLogin) {
-        console.log("是login")
         showRegisterTurnstile.value = false
         // showLoginTurnstile.value = true
-        setTimeout(() => (showLoginTurnstile.value = true), 2000) // 延迟200ms渲染
+        setTimeout(() => (showLoginTurnstile.value = true), 2000)
       } else {
-        console.log("不是login")
         showLoginTurnstile.value = false
         // showRegisterTurnstile.value = true
         setTimeout(() => (showRegisterTurnstile.value = true), 2000)

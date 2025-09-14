@@ -17,10 +17,8 @@ const props = defineProps<{
 const turnstile = ref(null)
 // watch(props, ()=>{
 //   if(props.show) {
-//     console.log(props.action + "显示")
 //     setTimeout(() => (turnstile.value?.render()), 2000)
 //   }else {
-//     console.log(props.action + "消失")
 //     turnstile.value?.reset()
 //   }
 // })
