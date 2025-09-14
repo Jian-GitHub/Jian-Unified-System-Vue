@@ -2,17 +2,33 @@ import type { ExecutionContext } from '@cloudflare/workers-types';
 
 export default {
     async fetch(request: Request, env: any, ctx: ExecutionContext): Promise<Response> {
+
+        // ---------- 新增：处理 OPTIONS 预检请求，避免 405 ----------
+        if (request.method === "OPTIONS") {
+            return new Response(null, {
+                status: 204,
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+                },
+            });
+        }
+
         const url = new URL(request.url);
 
+        // ---------- 代理 /api 请求 ----------
         if (url.pathname.startsWith("/api")) {
-            // 新建 URL 避免 TypeScript readonly 报错
+            // ---------- 修改：新建 URL 避免 TS readonly 报错 ----------
             const target = new URL(request.url);
-            target.protocol = "http";         // 或 https
-            target.hostname = "dev.jian.nz"; // Istio Gateway 域名
-            target.port = "20550";
-            target.pathname = target.pathname.replace(/^\/api/, "");
-            // 如果有非标准端口，可以加 target.port = "9090";
 
+            // ---------- 修改：目标协议/主机/端口 ----------
+            target.protocol = "http";               // 原来有，但保留
+            target.hostname = "dev.jian.nz";       // Istio Gateway 域名
+            target.port = "20550";                  // 非标准端口标注修改
+            target.pathname = target.pathname.replace(/^\/api/, "");
+
+            // ---------- 新增：Headers 保留 CF-Connecting-IP ----------
             const headers = new Headers(request.headers);
             const cfIP = request.headers.get("CF-Connecting-IP");
             if (cfIP) {
@@ -21,17 +37,20 @@ export default {
             }
             // 可选：headers.set("Host", target.hostname);
 
+            // ---------- 修改：确保 body 只有非 GET/HEAD 请求才传递 ----------
+            const body = request.method !== "GET" && request.method !== "HEAD" ? request.body : undefined;
+
             const newRequest = new Request(target.toString(), {
                 method: request.method,
                 headers,
-                body: request.method !== "GET" && request.method !== "HEAD" ? request.body : undefined,
+                body,
                 redirect: "follow",
             });
 
             return fetch(newRequest);
         }
 
-        // Vue 静态文件
+        // ---------- 静态文件 ----------
         return env.ASSETS.fetch(request);
     }
 };
