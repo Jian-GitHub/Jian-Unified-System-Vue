@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix CORS bug">
-      <change beforePath="$PROJECT_DIR$/apollo/worker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/worker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/_routes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,8 +95,8 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.32979453" />
-      <window_info active="true" id="Commit" order="1" visible="true" weight="0.21130136" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21130136" />
+      <window_info id="Commit" order="1" weight="0.21130136" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.19978401" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -175,7 +176,7 @@
       <workItem from="1757498026280" duration="42390000" />
       <workItem from="1757592425470" duration="9854000" />
       <workItem from="1757632062362" duration="105596000" />
-      <workItem from="1757889533463" duration="1023000" />
+      <workItem from="1757889533463" duration="1717000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -361,7 +362,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757889927452</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fix CORS bug">
+      <option name="closed" value="true" />
+      <created>1757890790996</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1757890790996</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
