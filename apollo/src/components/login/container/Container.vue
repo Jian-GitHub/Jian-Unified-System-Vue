@@ -9,7 +9,7 @@ import Divider from "../basic/Divider.vue";
 // import CloudflareChecker from '../basic/CloudflareChecker.vue'
 import {ElButton} from "element-plus";
 import ThirdPartyButton from "@/components/login/basic/ThirdPartyButton.vue";
-import {cf_token} from '@assets/logic/cloudflareTurnstile';
+import {cf_token} from '@/assets/logic/cloudflareTurnstile';
 import CloudflareTurnstile from "@/components/GlobalTurnstile.vue";
 import {LoginFormData} from "@/api/AccountActions";
 import {Login} from "@/api/AccountActions"
