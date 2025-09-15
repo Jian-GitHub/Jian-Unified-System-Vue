@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: center;
     font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    transition: all 1s ease-in-out; /* 平滑动画 */
+    /*transition: all 1s ease-in-out; !* 平滑动画 *!*/
 }
 
 .jus-apollo-side-content {

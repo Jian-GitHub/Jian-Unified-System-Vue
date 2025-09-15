@@ -80,12 +80,10 @@ const isWaitingForServer = ref(false)
 
 .jus-apollo-login-side {
   z-index: 1;
-  transition: all 10s ease-in-out;
 }
 
 .jus-apollo-login-container {
   z-index: 0;
-  transition: all 10s ease-in-out 1s;
 }
 
 /* 子元素宽度固定 */

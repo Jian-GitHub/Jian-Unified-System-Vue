@@ -1,7 +1,7 @@
 .jus-apollo-side-circle {
     position: absolute;
     pointer-events: none;
-    transition: all 1s ease-in-out; /* 平滑动画 */
+    transition: all 1.5s ease-out; /* 平滑动画 */
 }
 
 .jus-apollo-side-circle--top-right {
