@@ -35,7 +35,7 @@ export default defineConfig({
     ],
     proxy: {
       '/api': {
-        target: 'http://192.168.20.72:9090',
+        target: 'http://192.168.20.72:20550',
         changeOrigin: true, // 启用跨域
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

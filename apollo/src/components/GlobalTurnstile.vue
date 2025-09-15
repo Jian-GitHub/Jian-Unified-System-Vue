@@ -31,7 +31,7 @@ const turnstile = ref(null)
       </div>
       <vue-turnstile class="cf"
                      v-if="show"
-                     site-key="3x00000000000000000000FF"
+                     site-key="0x4AAAAAAANVWc7MkXgqcP22"
                      v-model="cf_token"
                      ref="turnstile"
                      size="flexible"
