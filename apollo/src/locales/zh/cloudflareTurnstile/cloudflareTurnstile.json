@@ -1,0 +1,7 @@
+{
+  "cloudflare":{
+    "turnstile": {
+      "loadingText": "等待 Cloudflare 验证"
+    }
+  }
+}

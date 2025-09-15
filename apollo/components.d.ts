@@ -16,7 +16,7 @@ declare module 'vue' {
     CloudflareLogoText: typeof import('./src/components/icons/CloudflareLogoText.vue')['default']
     Container: typeof import('./src/components/login/container/Container.vue')['default']
     DayNightToggleButton: typeof import('./src/components/dayNightToggleButton/DayNightToggleButton.vue')['default']
-    Divider: typeof import('./src/components/login/basic/divider.vue')['default']
+    Divider: typeof import('@/components/login/basic/Divider.vue')['default']
     ElAffix: typeof import('element-plus/es')['ElAffix']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElDialog: typeof import('element-plus/es')['ElDialog']

@@ -5,11 +5,11 @@ import CustomInputLong from '../basic/InputLong.vue'
 import passkeys from "@/assets/logo/passkeys_20x20.svg"
 import google from "@/assets/logo/google_20x20.svg"
 import gitHub from "@/assets/logo/github_20x20.svg"
-import Divider from "../basic/divider.vue";
+import Divider from "../basic/Divider.vue";
 // import CloudflareChecker from '../basic/CloudflareChecker.vue'
 import {ElButton} from "element-plus";
 import ThirdPartyButton from "@/components/login/basic/ThirdPartyButton.vue";
-import {cf_token} from '@/assets/logic/GlobalTurnstile';
+import {cf_token} from '@assets/logic/cloudflareTurnstile';
 import CloudflareTurnstile from "@/components/GlobalTurnstile.vue";
 import {LoginFormData} from "@/api/AccountActions";
 import {Login} from "@/api/AccountActions"

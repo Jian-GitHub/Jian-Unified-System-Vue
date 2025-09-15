@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {logic} from "@/assets/typescript/day-night-toggle-button";
+import {logic} from "@assets/logic/day-night-toggle-button";
 
 const {toggle, clouds, stars} = logic();
 </script>

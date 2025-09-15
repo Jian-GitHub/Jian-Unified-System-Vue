@@ -6,28 +6,29 @@ import {useGlobalStore} from "@/store";
 
 const globalStore = useGlobalStore();
 
-import { cf_token } from "@/assets/logic/GlobalTurnstile";
-import {ref} from "vue";
+import { cf_token } from "@assets/logic/cloudflareTurnstile";
+import {computed, ComputedRef, ref} from "vue";
 
 defineProps<{
   show: boolean;
   action: string;
 }>()
-//0x4AAAAAAANVWc7MkXgqcP22
+
 const turnstile = ref(null)
-// watch(props, ()=>{
-//   if(props.show) {
-//     setTimeout(() => (turnstile.value?.render()), 2000)
-//   }else {
-//     turnstile.value?.reset()
-//   }
-// })
+const loadingText: ComputedRef<string> = computed(() => t('cloudflare.turnstile.loadingText'))
+/*
+1x00000000000000000000AA	Always passes                   visible
+2x00000000000000000000AB	Always blocks                   visible
+1x00000000000000000000BB	Always passes                   invisible
+2x00000000000000000000BB	Always blocks                   invisible
+3x00000000000000000000FF	Forces an interactive challenge visible
+*/
 </script>
 
 <template>
     <div class="cloudflare-checker-box">
       <div v-loading="true" element-loading-background="transparent" class="cloudflare-checker-loading">
-        <span class="cloudflare-checker-loading-text">等待 Cloudflare 验证</span>
+        <span class="cloudflare-checker-loading-text">{{ loadingText }}</span>
       </div>
       <vue-turnstile class="cf"
                      v-if="show"
