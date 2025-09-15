@@ -1,8 +1,0 @@
-[
-  {
-    "pattern": "/api/*",
-    "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    "type": "function",
-    "function": "worker"
-  }
-]

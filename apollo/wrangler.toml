@@ -1,14 +1,10 @@
 name = "jian-unified-system-Vue-worker"
-compatibility_date = "2025-09-15"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
 
-[build]
-command = "npm run build"      # Vue 构建命令
-cwd = "."                       # 项目根目录
-watch_dir = "src"               # dev 本地监控
+[env.production]
+pages_build_output_dir = "dist"
 
-[build.upload]
-main = "worker.js"              # Worker 入口脚本
-dir = "dist"                    # Vue 构建输出目录
-
-[site]
-bucket = "./dist"               # Pages 托管静态文件
+[[routes]]
+route = "/api/*"
+type = "forward"

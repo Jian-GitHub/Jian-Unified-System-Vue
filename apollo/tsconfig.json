@@ -31,7 +31,7 @@
     "src/shims-vue.d.ts",    // 明确包含 Vue 声明文件
     "src/env.d.ts",           // 包含环境变量声明
     "src/i18n.d.ts",
-    "worker.js"
+    "functions/**/*.ts"
   ],
   "exclude": [
     "node_modules",
