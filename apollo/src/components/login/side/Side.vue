@@ -20,7 +20,7 @@ const loginButtonText: ComputedRef<string> = computed(() => t('side.login.TO_REG
 const registerButtonText: ComputedRef<string> = computed(() => t('side.registration.TO_LOGIN'))
 const sideTextLine1: ComputedRef<string> = computed(() => globalStore.isLogin ? loginSideText1.value : registerSideText1.value)
 const sideTextLine2: ComputedRef<string> = computed(() => globalStore.isLogin ? loginSideText2.value : registerSideText2.value)
-import { cf_token } from "@assets/logic/cloudflareTurnstile";
+import { cf_token } from "@/assets/logic/cloudflareTurnstile";
 
 const props = defineProps<{
   isLogin: boolean;

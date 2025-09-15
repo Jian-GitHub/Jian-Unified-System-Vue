@@ -1,6 +1,6 @@
 import axiosInstance from "@/api/axiosInstance";
 import {AxiosResponse} from "axios";
-import {Server} from "@/config/index"
+import {Server} from "@/config"
 
 export type LoginFormData = {
     email: string;
