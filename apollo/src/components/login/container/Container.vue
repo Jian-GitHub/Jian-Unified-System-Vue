@@ -10,7 +10,7 @@ import Divider from "../basic/Divider.vue";
 import {ElButton} from "element-plus";
 import ThirdPartyButton from "@/components/login/basic/ThirdPartyButton.vue";
 import {cf_token} from '@/assets/logic/cloudflareTurnstile';
-import CloudflareTurnstile from "@/components/GlobalTurnstile.vue";
+import CloudflareTurnstile from "@/components/CloudflareTurnstile.vue";
 import {LoginFormData} from "@/api/AccountActions";
 import {Login} from "@/api/AccountActions"
 import {useI18n} from 'vue-i18n'

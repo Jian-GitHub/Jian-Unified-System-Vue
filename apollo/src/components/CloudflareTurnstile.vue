@@ -6,7 +6,7 @@ import {useGlobalStore} from "@/store";
 
 const globalStore = useGlobalStore();
 
-import { cf_token } from "@assets/logic/cloudflareTurnstile";
+import { cf_token } from "@/assets/logic/cloudflareTurnstile";
 import {computed, ComputedRef, ref} from "vue";
 
 defineProps<{
