@@ -13,6 +13,8 @@ import {cf_token} from '@/assets/logic/cloudflareTurnstile';
 import CloudflareTurnstile from "@/components/CloudflareTurnstile.vue";
 import {LoginFormData} from "@/api/AccountActions";
 import {Login} from "@/api/AccountActions"
+import { useRouter } from 'vue-router';
+const router = useRouter();
 import {useI18n} from 'vue-i18n'
 
 const {t, locale} = useI18n()
@@ -77,17 +79,8 @@ const isButtonDisabled = computed(() => {
   }
 })
 
-// function isButtonDisabled(type: boolean) {
-//   return computed(() => {
-//     return type ? true : false
-//   })
-// }
-// let isLogin = true;
-
-function setIsLogin(): void {
+function switchPanel(): void {
   globalStore.isLogin = !globalStore.isLogin
-  // console.log(isLogin)
-
   if (globalStore.isLogin) {
     setTheme('dark')
     switchLanguage('en')
@@ -165,34 +158,31 @@ watch(
 import {watch} from 'vue'
 
 const handleLogin = async () => {
-  if (isFormValid.value) {
-    console.log('登录数据:', registerData.value)
-    // 这里添加注册逻辑
-  }
-
-  if (loginData.value.email && loginData.value.password && cf_token.value) {
-    emit('update:isWaitingForServer', true);
-    const data: LoginFormData = {
-      email: loginData.value.email,
-      password: loginData.value.password,
-      cloudflareToken: cf_token.value,
-    }
-    try {
-      const response = await Login(data)
-      if (response.status === 200) {
-        console.log(response.data);
-        console.log(response.data.data.token);
-      } else {
-
-      }
-    } catch (error) {
-      console.log('failed')
-    }
-
-    emit('update:isWaitingForServer', false);
-  } else {
+  if (!loginData.value.email || !loginData.value.password || !cf_token.value) {
     console.log('nothing')
+    return
   }
+  emit('update:isWaitingForServer', true);
+  const data: LoginFormData = {
+    email: loginData.value.email,
+    password: loginData.value.password,
+    cloudflareToken: cf_token.value,
+  }
+  try {
+    const response = await Login(data)
+    if (response.status === 200) {
+      // console.log(response.data);
+      // console.log(response.data.data.token);
+      if (response.data && response.data.code === 200) {
+        globalStore.token = response.data.data.token;
+        await router.push({name: 'User'});
+      }
+    }
+  } catch (error) {
+    console.log('failed')
+  }
+
+  emit('update:isWaitingForServer', false);
 }
 
 defineProps<{
@@ -255,7 +245,7 @@ const emit = defineEmits<{
             :key="index"
             :icon="provider.icon"
             :text="provider.text"
-            @click="setIsLogin"/>
+            @click="switchPanel"/>
       </div>
     </div>
   </div>

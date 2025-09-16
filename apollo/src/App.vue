@@ -33,14 +33,13 @@ const updateSystemLanguage = (customizedLanguage: string | null) => {
 };
 
 onMounted(() => {
-  console.log("进入onMounted - Cloudflare")
   // Check System Language
-  const savedLanguage: string | null = localStorage.getItem('language');
-  if (savedLanguage === null) {
+  // const savedLanguage: string | null = localStorage.getItem('language');
+  if (!globalStore.language) {
     // init system language
     updateSystemLanguage(null);
   } else {
-    updateSystemLanguage(savedLanguage);
+    updateSystemLanguage(globalStore.language);
   }
   // watch system language changes
   window.addEventListener('languagechange', () => updateSystemLanguage(null));
@@ -49,9 +48,12 @@ onMounted(() => {
   if (window.matchMedia) {
     mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     let initTheme: Theme = mediaQuery.matches ? 'dark' : 'light';
-    const savedTheme: string | null = localStorage.getItem('theme');
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      initTheme = savedTheme as Theme;
+    // const savedTheme: string | null = localStorage.getItem('theme');
+
+    // if (savedTheme === 'light' || savedTheme === 'dark') {
+    if (globalStore.preferredTheme) {
+      // initTheme = savedTheme as Theme;
+      initTheme = globalStore.preferredTheme as Theme;
     }
     setTheme(initTheme);
 
@@ -60,7 +62,8 @@ onMounted(() => {
 });
 
 const themeListener = (e: MediaQueryListEvent) => {
-  if (localStorage.getItem('theme')) return;
+  // if (localStorage.getItem('theme')) return;
+  if (globalStore.preferredTheme) return;
   setTheme(e.matches ? 'dark' : 'light');
 }
 

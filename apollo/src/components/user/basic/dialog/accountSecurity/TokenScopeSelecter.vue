@@ -44,31 +44,47 @@ const handleUpdate = (value: string[]): void => {
 </template>
 
 <style>
-.el-select-dropdown__item.is-hovering {
+.el-dialog .el-select-dropdown__item.is-hovering {
   background-color: var(--jus-color-global-neutrals-text-secondary);
 }
-.jus-apollo-user-account-security-dialog-token-alias {
+.el-dialog .el-input .el-input__count .el-input__count-inner {
+  background: transparent;
+  color: var(--jus-color-global-neutrals-text-secondary);
+}
+.el-tag {
+  background-color: var(--jus-color-icarus-surface) !important;
+  border-color: var(--jus-color-global-neutrals-text-primary) !important;
+  color: var(--jus-color-global-neutrals-text-primary) !important;
+}
+.el-dialog.jus-apollo-user-account-security-dialog-token-alias {
   width: 33.125rem;
   margin-top: 20.5rem;
   border-radius: 0.75rem;
   background: var(--jus-color-icarus-surface);
 }
 
-.el-dialog__title {
+.el-dialog .el-dialog__title {
   color: var(--jus-color-global-neutrals-text-primary);
 }
 
-.el-select__selection .el-tag {
+.el-dialog .el-select__selection .el-tag {
   color: var(--jus-color-global-neutrals-text-primary);
   background: var(--jus-color-icarus-surface);
   border: 1px solid var(--jus-color-global-neutrals-text-secondary);
 }
 
-.el-popper.is-light, .el-popper.is-light > .el-popper__arrow:before {
+.el-select-dropdown__list {
   background: var(--jus-color-icarus-surface);
 }
+.el-popper.is-light, .el-popper.is-light > .el-popper__arrow::before {
+  background: var(--jus-color-icarus-surface) !important;
+}
 
-.el-select__wrapper {
+.el-select-dropdown__item.is-hovering  {
+  background-color: var(--jus-color-global-neutrals-text-secondary) !important;
+}
+
+.el-dialog .el-select__wrapper {
   width: 17rem;
   height: 3.5rem;
   margin-left: 0;
@@ -78,14 +94,14 @@ const handleUpdate = (value: string[]): void => {
   background: var(--jus-color-icarus-surface);
 }
 
-.el-select__wrapper.is-hovering:not(.is-focused) {
+.el-dialog .el-select__wrapper.is-hovering:not(.is-focused) {
   box-shadow: -4px -4px 4px 0 var(--jus-color-global-shadow-bottom-right) inset, 4px 4px 4px 0 var(--jus-color-global-shadow-top-left) inset;
   transition: 0.2s;
 
   border: 1px solid #4070D4;
 }
 
-.el-select__wrapper.is-focused.el-tooltip__trigger {
+.el-dialog .el-select__wrapper.is-focused.el-tooltip__trigger {
   transition: 0.2s;
 
   border: 1px solid #4070D4;
@@ -94,7 +110,7 @@ const handleUpdate = (value: string[]): void => {
   0 0 0 1px #4070D4;
 }
 
-.el-select__wrapper.is-hovering.el-tooltip__trigger:not(.is-focused) {
+.el-dialog .el-select__wrapper.is-hovering.el-tooltip__trigger:not(.is-focused) {
   background: var(--jus-color-icarus-surface);
   box-shadow: -4px -4px 4px 0 var(--jus-color-global-shadow-bottom-right) inset, 4px 4px 4px 0 var(--jus-color-global-shadow-top-left) inset;
 

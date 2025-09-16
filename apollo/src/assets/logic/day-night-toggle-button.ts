@@ -9,8 +9,11 @@ export function logic() {
     const toggle = () => {
         const willChangeMode = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", willChangeMode);
-        localStorage.setItem('theme', willChangeMode);
+        // localStorage.setItem('theme', willChangeMode);
         globalStore.theme = willChangeMode;
+        globalStore.preferredTheme = willChangeMode;
+        // console.log(globalStore.theme)
+        // console.log(globalStore.preferredTheme)
     };
     return {toggle, clouds, stars}
 }

@@ -17,6 +17,7 @@ defineProps<{
 const turnstile = ref(null)
 const loadingText: ComputedRef<string> = computed(() => t('cloudflare.turnstile.loadingText'))
 /*
+0x4AAAAAAANVWc7MkXgqcP22
 1x00000000000000000000AA	Always passes                   visible
 2x00000000000000000000AB	Always blocks                   visible
 1x00000000000000000000BB	Always passes                   invisible
@@ -32,7 +33,7 @@ const loadingText: ComputedRef<string> = computed(() => t('cloudflare.turnstile.
       </div>
       <vue-turnstile class="cf"
                      v-if="show"
-                     site-key="0x4AAAAAAANVWc7MkXgqcP22"
+                     site-key="1x00000000000000000000AA"
                      v-model="cf_token"
                      ref="turnstile"
                      size="flexible"

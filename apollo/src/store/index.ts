@@ -24,6 +24,8 @@ export type Theme = 'light' | 'dark';
 
 export const useGlobalStore = defineStore('store', () => {
 
+    const token: Ref<string> = ref('');
+
     const languages: Ref<string[], string[]> = ref(['zh', 'ja', 'ko', 'en']);
 
     const actionsIds: Ref<ActionsIds> = ref({
@@ -44,7 +46,11 @@ export const useGlobalStore = defineStore('store', () => {
         ]
     });
 
-    const theme: Ref<string, Theme> = ref('light');
+    const theme: Ref<string> = ref('');
+
+    const preferredTheme: Ref<string> = ref('');
+
+    const language: Ref<string> = ref('');
 
     const user: Ref<User | null> = ref({} as User);
 
@@ -65,7 +71,7 @@ export const useGlobalStore = defineStore('store', () => {
             return {
                 id: user.value.id,
                 name: nameInfo.value,
-                email: user.value.email
+                // email: user.value.email
             }
         })
     }
@@ -295,9 +301,21 @@ export const useGlobalStore = defineStore('store', () => {
     const infoPageContent: ComputedRef<UserPageContent> = createInfoPageContent()
     const securityPageContent: ComputedRef<UserPageContent> = createSecurityPageContent()
 
+
+    const clear = ()=> {
+        token.value = '';
+        theme.value = '';
+        language.value = '';
+        user.value = {} as User;
+        localStorage.removeItem('store')
+    }
     return {
+        clear,
+        token,
         user,
         theme,
+        preferredTheme,
+        language,
         isLogin,
         languages, /*userPageItemIndex,*/
         securityPageContent,
@@ -311,7 +329,7 @@ export const useGlobalStore = defineStore('store', () => {
 }, {
     persist: {
         storage: sessionStorage,
-        pick: ['user', 'accountInfoShort', 'theme', 'isLogin', 'languages', 'actionsIds'],
+        pick: ['token', 'preferredTheme', 'user', 'accountInfoShort', /*'theme',*/ 'language', 'isLogin'/*, 'languages', 'actionsIds'*/],
         serializer: {
             serialize: (value) => {
                 try {

@@ -11,7 +11,8 @@ const globalStore = useGlobalStore()
 
 const switchLanguage = (lang: string): void => {
   locale.value = lang
-  localStorage.setItem('language', lang)
+  globalStore.language = lang
+  // localStorage.setItem('language', lang)
 }
 
 const queryLanguageText = (langCode: string): string => {

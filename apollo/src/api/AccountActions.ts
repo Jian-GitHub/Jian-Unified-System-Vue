@@ -24,7 +24,7 @@ export type RegisterFormData = {
 }
 
 // Login
-export const Login = async (data: LoginFormData): Promise<AxiosResponse<LoginResponseData>> => {
+export async function Login(data: LoginFormData): Promise<AxiosResponse<LoginResponseData>> {
     return axiosInstance.post(Server.service.account.login, {
         email: data.email,
         password: data.password,
@@ -33,7 +33,7 @@ export const Login = async (data: LoginFormData): Promise<AxiosResponse<LoginRes
 }
 
 // Register
-export const Register = (data: RegisterFormData) => {
+export function Register(data: RegisterFormData): Promise<AxiosResponse> {
     return axiosInstance.post(Server.service.account.register, {
         email: data.email,
         password: data.password,
@@ -41,4 +41,14 @@ export const Register = (data: RegisterFormData) => {
         language: data.language,
         cloudflareToken: data.cloudflareToken
     })
+}
+
+// VerifyToken
+export async function VerifyToken(): Promise<boolean> {
+    const response = await axiosInstance.post(Server.service.account.verifyToken)
+    if (response.status === 200) {
+        if (response.data.code === 200) {
+            return response.data.data.ok
+        }
+    }
 }

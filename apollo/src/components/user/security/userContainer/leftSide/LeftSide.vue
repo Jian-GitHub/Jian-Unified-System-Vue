@@ -3,7 +3,7 @@
 import DefaultAvatar from "@/assets/img/doraemon.JPG"
 import LeftSideMenu from "@/components/user/basic/LeftSideMenu.vue";
 import {computed, ComputedRef, Ref} from "vue"
-import { inject } from 'vue'
+import {inject} from 'vue'
 import {useI18n} from "vue-i18n";
 import {useGlobalStore} from "@/store";
 
@@ -22,28 +22,47 @@ const name: ComputedRef<string> = computed(() => {
   if (!globalStore.accountInfoShort) return defaultName
   return globalStore.accountInfoShort.name
 })
-const email: ComputedRef<string> = computed(() => {
-  if (!globalStore.accountInfoShort) return '';
-  return globalStore.accountInfoShort.email ? globalStore.accountInfoShort.email : '';
-})
+// const email: ComputedRef<string> = computed(() => {
+//   if (!globalStore.accountInfoShort) return '';
+//   return globalStore.accountInfoShort.email ? globalStore.accountInfoShort.email : '';
+// })
+
+const loading: ComputedRef<boolean> = computed(() => !(globalStore.accountInfoShort && globalStore.accountInfoShort.id))
 </script>
 
 <template>
   <div class="left-side">
-    <!-- 用户头像 -->
-    <div class="avatar-section">
-      <div class="avatar">
-        <img :src="DefaultAvatar" alt="default avatar">/>
-<!--        <DefaultAvatar/>-->
-      </div>
-    </div>
 
     <!-- 用户信息 -->
-    <div class="user-info">
-      <div class="user-name">{{ name }}</div>
-      <div class="user-email">{{ email }}</div>
-      <div class="user-email">{{ id }}</div>
-    </div>
+    <el-skeleton :loading="loading" animated
+                 :throttle="{ leading: 500, trailing: 500, initVal: true }">
+      <template #template>
+        <!-- 用户头像 -->
+        <div class="avatar-section">
+          <div class="avatar">
+            <el-skeleton-item variant="image" style="width: 100%; height: 100%"/>
+          </div>
+        </div>
+        <div class="user-info">
+          <el-skeleton-item class="skeleton-user-name" variant="h3"/>
+          <el-skeleton-item class="skeleton-user-email" variant="h3"/>
+        </div>
+      </template>
+      <template #default>
+        <!-- 用户头像 -->
+        <div class="avatar-section">
+          <div class="avatar">
+            <img :src="DefaultAvatar" alt="default avatar">/>
+            <!--        <DefaultAvatar/>-->
+          </div>
+        </div>
+        <div class="user-info">
+          <div class="user-name">{{ name }}</div>
+          <!--          <div class="user-email">{{ email }}</div>-->
+          <div class="user-email">{{ id }}</div>
+        </div>
+      </template>
+    </el-skeleton>
 
     <!-- 侧边菜单 -->
     <LeftSideMenu/>
@@ -53,20 +72,20 @@ const email: ComputedRef<string> = computed(() => {
 <style scoped>
 /* 左侧边栏 */
 .left-side {
-  /*
-  display: grid;
-  grid-template-columns: max-content;
-  grid-template-rows: max-content;
-  place-items: start;
-  position: relative;
-
-   */
-
   display: flex;
   flex-direction: column;
   width: 7.8125rem;
   flex-shrink: 0;
   margin-bottom: 3rem;
+}
+.skeleton-user-name {
+  margin-top: 0.2rem;
+  width: 50%;
+  height: 1.45rem;
+}
+.skeleton-user-email {
+  margin-top: 0.13rem;
+  height: 1.2rem;
 }
 
 .avatar-section {
@@ -80,10 +99,12 @@ const email: ComputedRef<string> = computed(() => {
   border-radius: 50%;
   overflow: hidden;
 }
-.avatar img{
+
+.avatar img {
   width: 5rem;
   height: 5rem;
 }
+
 [data-theme="dark"] .avatar {
   box-shadow: 0 2px 6px 0 whitesmoke;
 }
@@ -96,7 +117,6 @@ const email: ComputedRef<string> = computed(() => {
   display: flex;
   flex-direction: column;
   width: 7.8125rem;
-  height: 3.125rem;
   flex-shrink: 0;
   gap: 0.13rem;
 }
