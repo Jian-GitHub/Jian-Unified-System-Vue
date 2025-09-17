@@ -7,7 +7,7 @@ defineProps<{
     id: number;
     icon: Component;
     label: string;
-  }[]
+  }[],
 }>()
 
 const emit = defineEmits<{
@@ -31,7 +31,7 @@ const handleUpdate = (value: string[]): void => {
       clearable
       style="width: 10rem;max-height: 3.5rem">
     <el-option
-        v-for="(option, index) in options"
+        v-for="option in options"
         :key="option.id"
         :label="option.label"
         :value="option.id">

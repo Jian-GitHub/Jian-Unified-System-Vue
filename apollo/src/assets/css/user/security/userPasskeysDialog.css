@@ -18,6 +18,10 @@
 
 }
 
+.el-dialog__header.jus-apollo-user-passkeys-dialog-header.show-close {
+    padding-right: 0;
+}
+
 .jus-apollo-user-passkeys-dialog-body {
     width: 100%;
     display: flex;

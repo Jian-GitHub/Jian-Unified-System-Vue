@@ -5,9 +5,16 @@ import { createI18n } from 'vue-i18n'
 import { createPinia } from 'pinia';
 import piniaPluginPersistedState from 'pinia-plugin-persistedstate';
 import router from "./router"
-import "element-plus/dist/index.css"
-import "element-plus/theme-chalk/src/skeleton.scss"
-import "element-plus/theme-chalk/src/skeleton-item.scss"
+import "element-plus/theme-chalk/el-message.css";
+import "element-plus/theme-chalk/el-message-box.css";
+import "element-plus/theme-chalk/el-badge.css";
+import "element-plus/theme-chalk/el-skeleton.css";
+import "element-plus/theme-chalk/el-skeleton-item.css";
+// import "element-plus/theme-chalk/index.css";
+// import "element-plus/theme-chalk/el-anchor.css";
+// import "element-plus/dist/index.css"
+// import "element-plus/theme-chalk/src/skeleton.scss"
+// import "element-plus/theme-chalk/src/skeleton-item.scss"
 
 function loadLocaleMessages() {
     const locales = import.meta.glob('./locales/*/*/*.json', { eager: true })

@@ -1,10 +1,12 @@
 {
   "user_container": {
     "left_side": {
-      "username": "ユーザー名",
-      "email": "default@JianUnifiedSystem.com",
+      "username": "ユーザーさん、こんにちは 👋",
+      "id": "1999201820222025023",
       "menu": {
         "user_info": "個人情報",
         "security": "ログインとセキュリティ"
       }
-  }}}
+    }
+  }
+}

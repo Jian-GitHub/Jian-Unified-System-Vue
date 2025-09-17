@@ -170,15 +170,50 @@ const handleLogin = async () => {
   }
   try {
     const response = await Login(data)
+    console.log(response)
     if (response.status === 200) {
       // console.log(response.data);
       // console.log(response.data.data.token);
       if (response.data && response.data.code === 200) {
+        // save token
         globalStore.token = response.data.data.token;
+        // set language
+        if (response.data.data.language) {
+          let lang = response.data.data.language.split('-')[0]
+          globalStore.user.info.language = lang;
+          globalStore.language = lang;
+          switchLanguage(lang)
+          globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[3], false);
+        }
+        // short info
+        globalStore.user.id = response.data.data.id;
+        globalStore.user.info.name.givenName = response.data.data.name.givenName;
+        globalStore.user.info.name.middleName = response.data.data.name.middleName;
+        globalStore.user.info.name.familyName = response.data.data.name.familyName;
+        globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[0], false);
+        globalStore.user.avatar = response.data.data.avatar;
+
+        // info
+        if (response.data.data.birthday.year === 0) {
+          globalStore.user.info.birthday.year = null
+          globalStore.user.info.birthday.month = null
+          globalStore.user.info.birthday.day = null
+        } else {
+          globalStore.user.info.birthday.year = response.data.data.birthday.year
+          globalStore.user.info.birthday.month = response.data.data.birthday.month
+          globalStore.user.info.birthday.day = response.data.data.birthday.day
+        }
+        globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[1], false);
+
+        globalStore.user.info.locale = response.data.data.locale;
+        globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[2], false);
+
+        console.log(globalStore.user)
         await router.push({name: 'User'});
       }
     }
   } catch (error) {
+    console.log(error)
     console.log('failed')
   }
 

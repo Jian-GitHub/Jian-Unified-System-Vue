@@ -21,7 +21,7 @@ const menu_hermes: ComputedRef<string> = computed(() => t('head.menu.hermes'))
 
 const user1: User = {
   id: '123',
-  email: 'e.jianqi@gmail.com',
+  avatar: '',
   info: {
     name: {
       givenName: '剑',
@@ -29,24 +29,40 @@ const user1: User = {
       familyName: '祁'
     },
     birthday: {
-      year: '1999',
-      month: '11',
-      day: '06',
+      year: 1999,
+      month: 11,
+      day: 6,
     },
-    countryRegion: 'JP',
+    locale: 'JP',
     language: 'ja',
   },
   security: {
     contacts: [
-      '201824101323@hainnu.edu.cn',
-      'jq71@students.waikato.ac.nz',
-      'e.jianqi@gmail.com',
-      'e_qijian@icloud.com',
+      {
+        id: '123',
+        value: '201824101323@hainnu.edu.cn',
+        type: 1,
+      },
+      {
+        id: '213',
+        value: 'jq71@students.waikato.ac.nz',
+        type: 1,
+      },
+      {
+        id: '5463',
+        value: 'e.jianqi@gmail.com',
+        type: 1,
+      },
+      {
+        id: '4533',
+        value: 'e_qijian@icloud.com',
+        type: 1,
+      },
     ],
     passwordUpdatedDate: {
-      year: '2023',
-      month: '06',
-      day: '02',
+      year: 2023,
+      month: 6,
+      day: 2,
     },
     accountSecurityTokenNum: 2,
     notificationEmail: 'e.jianqi@gmail.com',
@@ -60,7 +76,11 @@ const user1: User = {
 
 function newUser() {
   user1.id = Math.random().toString()
-  user1.security.contacts.push("A")
+  user1.security.contacts.push({
+    id: 'a',
+    value: 'a',
+    type: 1,
+  })
   return user1
 }
 

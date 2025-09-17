@@ -10,7 +10,7 @@ import {AccountSecurityTokenDialogRowData} from "@/types/dialog/security/Account
 import {ElMessage} from "element-plus";
 import InputShort from "@/components/Input/InputShort.vue";
 import QuantumLogo from "@/assets/logo/quantum_20x20.svg";
-import TokenScopeSelecter from "@/components/user/basic/dialog/accountSecurity/TokenScopeSelecter.vue";
+import TokenScopeSelector from "@/components/user/basic/dialog/accountSecurity/TokenScopeSelector.vue";
 
 const {t} = useI18n()
 const store = useGlobalStore()
@@ -28,18 +28,18 @@ const tokens: AccountSecurityTokenDialogRowData[] = [
     name: "Chaos",
     value: "esdckjznouierljfdknvkl;lafnjkvdfjnjbkrrfda",
     date: {
-      year: '2023',
-      month: '11',
-      day: '01'
+      year: 2023,
+      month: 11,
+      day: 1,
     }
   },
   {
     name: "Chaos aksdlanl saflmkdvkl",
     value: "esdckjznouierljfdknvkl;lafnjkvdfjnjbkrrfda",
     date: {
-      year: '2023',
-      month: '11',
-      day: '01'
+      year: 2023,
+      month: 11,
+      day: 9,
     }
   },
 ]
@@ -198,10 +198,10 @@ const value = ref<number[]>([])
   >
     <div class="jus-apollo-user-account-security-dialog-token-alias-body">
       <InputShort class="jus-apollo-user-account-security-dialog-token-alias-input" v-model="tokenAlias"
-                  maxlength="16" show-word-limit clearable placeholder="别名 (可选)"
-                  @keydown.enter="submitTokenAlias"/>
+                  maxlength="16" show-word-limit clearable placeholder="别名 (可选)"/>
+<!--                  @keydown.enter="submitTokenAlias"/>-->
 
-      <TokenScopeSelecter v-model="value" :options="options"/>
+      <TokenScopeSelector v-model="value" :options="options"/>
 
     </div>
     <template #footer>

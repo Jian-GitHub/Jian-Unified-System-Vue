@@ -35,8 +35,8 @@ export default defineConfig({
     ],
     proxy: {
       '/api': {
-        target: 'http://192.168.20.72:20550',
-        changeOrigin: true, // 启用跨域
+        target: 'http://dev.jian.nz:20550',
+        changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },

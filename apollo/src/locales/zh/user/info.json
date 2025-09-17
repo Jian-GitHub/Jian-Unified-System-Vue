@@ -5,18 +5,22 @@
     "actions": {
       "name": {
         "title": "姓名",
+        "empty": "未设定",
         "text_line1": "{name}"
       },
       "birthday": {
         "title": "出生日期",
+        "empty": "未设定",
         "text_line1": "{year}年{month}月{day}日"
       },
       "country_region": {
         "title": "国家或地区",
+        "empty": "未知",
         "text_line1": "{country_region}"
       },
       "language": {
         "title": "语言",
+        "empty": "未设定",
         "text_line1": "{language_original} - {language_text}"
       }
     }

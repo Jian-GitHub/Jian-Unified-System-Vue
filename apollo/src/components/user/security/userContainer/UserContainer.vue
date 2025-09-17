@@ -3,8 +3,8 @@ import LeftSide from "@/components/user/security/userContainer/leftSide/LeftSide
 import RightContent from "@/components/user/security/userContainer/rightContent/RightContent.vue";
 
 import {useGlobalStore} from "@/store"
-import {computed, ComputedRef, onBeforeUnmount, onMounted, ref, Ref} from "vue";
-import type {UserPageContent} from "@/types/User";
+import {computed, ComputedRef, ref, Ref} from "vue";
+import {UserPageContent} from "@/types/UserPage";
 import { provide } from "vue";
 
 const globalStore = useGlobalStore()

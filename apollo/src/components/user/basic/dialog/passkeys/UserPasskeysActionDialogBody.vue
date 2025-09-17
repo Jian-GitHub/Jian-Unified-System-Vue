@@ -21,72 +21,72 @@ const createdDateText = (passkey: PasskeysDialogRowData) => computed(() => t('us
 const passkeys: PasskeysDialogRowData[] = [
   {
     displayName: "Chaos", date: {
-      year: '2023',
-      month: '11',
-      day: '01'
+      year: 2023,
+      month: 11,
+      day: 1
     }
   },
   {
     displayName: "Apollo", date: {
-      year: '2024',
-      month: '12',
-      day: '03'
+      year: 2024,
+      month: 12,
+      day: 3
     }
   },
   {
     displayName: "Apollo", date: {
-      year: '2024',
-      month: '12',
-      day: '03'
+      year: 2024,
+      month: 12,
+      day: 3
     }
   },
   {
     displayName: "Apollo", date: {
-      year: '2024',
-      month: '12',
-      day: '03'
+      year: 2024,
+      month: 12,
+      day: 3
     }
   },
   {
     displayName: "Apollo", date: {
-      year: '2024',
-      month: '12',
-      day: '03'
+      year: 2024,
+      month: 12,
+      day: 3
     }
   },
   {
     displayName: "Apollo", date: {
-      year: '2024',
-      month: '12',
-      day: '03'
+      year: 2024,
+      month: 12,
+      day: 3
     }
   },
   {
     displayName: "Apollo", date: {
-      year: '2024',
-      month: '12',
-      day: '03'
+      year: 2024,
+      month: 12,
+      day: 3
     }
   },
   {
     displayName: "Apollo", date: {
-      year: '2024',
-      month: '12',
-      day: '03'
+      year: 2024,
+      month: 12,
+      day: 3
     }
   },
   {
     displayName: "Apollo", date: {
-      year: '2024',
-      month: '12',
-      day: '03'
+      year: 2024,
+      month: 12,
+      day: 3
     }
   },
   {
     displayName: "Argus Created at 2025-09-12 12:55:04", date: {
-      year: '2024',
-      month: '05',
-      day: '22'
+      year: 2024,
+      month: 5,
+      day: 22
     }
   }
 ]

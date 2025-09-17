@@ -1,44 +1,110 @@
 <script setup lang="ts">
+import UserActionCard from "@/components/user/security/userContainer/rightContent/UserActionCard.vue";
+import { useRouter } from 'vue-router';
+const router = useRouter();
 import {useI18n} from "vue-i18n";
-
 const {locale} = useI18n()
 
 import {useGlobalStore} from "@/store";
 import {UserPageContent} from "@/types/UserPage";
+import {onMounted} from "vue";
+import {GetUserInfo, GetUserSecurityInfo, UserInfoResponseData, UserSecurityInfoResponseData} from "@/api/AccountActions";
+import {AxiosResponse} from "axios";
 
-const globalStore = useGlobalStore();
-
-const cardIconColorClass = (cardIsDanger: boolean) => {
-  if (cardIsDanger == null || cardIsDanger === false) return '';
-  switch (locale.value) {
-    case 'zh':
-      return 'cn';
-    case 'ja':
-      return 'jp';
-    case 'ko':
-      return 'kr';
-    case 'en':
-      return 'us';
-    default:
-      return 'defaultRed';
-  }
-}
+const store = useGlobalStore();
 
 defineProps<{
   pageContent: UserPageContent
 }>()
 
-function openActionDialog(id: number) {
-  globalStore.userActionDialogVisible = true
-  globalStore.userActionDialogLoading = true
-  globalStore.userActionDialogId = id
-
-  // CLose loading
-  setTimeout(() => {
-    globalStore.userActionDialogLoading = false
-  }, 1250)
+function loadUserSecurityInfo(resp: AxiosResponse<UserSecurityInfoResponseData>) {
+  if (resp.status != 200 || resp.data.code != 200) return;
+  const securityInfo = resp.data.data;
+  // Security
+  let i = 0;
+  // Contacts
+  store.user.security.contacts = securityInfo.contacts;
+  store.setActionCardStatus(1, store.actionsIds.securityActions[i++], false);
+  // Password
+  if (securityInfo.passwordUpdatedDate.year != 0) {
+    store.user.security.passwordUpdatedDate.year = securityInfo.passwordUpdatedDate.year;
+    store.user.security.passwordUpdatedDate.month = securityInfo.passwordUpdatedDate.month;
+    store.user.security.passwordUpdatedDate.day = securityInfo.passwordUpdatedDate.day;
+  }
+  store.setActionCardStatus(1, store.actionsIds.securityActions[i++], false);
+  // Account Security
+  store.user.security.accountSecurityTokenNum = securityInfo.accountSecurityTokenNum;
+  store.setActionCardStatus(1, store.actionsIds.securityActions[i++], false);
+  // Skip Notification Email
+  i++;
+  // Passkeys
+  store.user.security.passkeysNum = securityInfo.passkeysNum;
+  store.setActionCardStatus(1, store.actionsIds.securityActions[i++], false);
+  // Third-party Accounts
+  store.user.security.thirdPartyAccounts = securityInfo.thirdPartyAccounts;
+  store.setActionCardStatus(1, store.actionsIds.securityActions[i++], false);
 }
 
+function loadUserInfo(resp: AxiosResponse<UserInfoResponseData>) {
+  if (resp.status != 200 || resp.data.code != 200) return;
+  const userInfo = resp.data.data;
+  store.user.id = userInfo.id;
+  store.user.avatar = userInfo.avatar;
+
+  // Info
+  let i = 0;
+  // name
+  store.user.info.name.givenName = userInfo.given_name
+  store.user.info.name.middleName = userInfo.middle_name
+  store.user.info.name.familyName = userInfo.family_name
+  store.setActionCardStatus(0, store.actionsIds.infoActions[i++], false)
+
+  // birthday
+  store.user.info.birthday.year = userInfo.birthday_year === 0 ? null : userInfo.birthday_year;
+  store.user.info.birthday.month = userInfo.birthday_month === 0 ? null : userInfo.birthday_month;
+  store.user.info.birthday.day = userInfo.birthday_day === 0 ? null : userInfo.birthday_day;
+  store.setActionCardStatus(0, store.actionsIds.infoActions[i++], false)
+
+  // country or region
+  store.user.info.locale = userInfo.locate;
+  store.setActionCardStatus(0, store.actionsIds.infoActions[i++], false)
+
+  // language
+  if (userInfo.language) {
+    store.user.info.language = userInfo.language.split('-')[0];
+    store.language = store.user.info.language
+    locale.value = store.user.info.language
+  } else store.user.info.language = '';
+  store.setActionCardStatus(0, store.actionsIds.infoActions[i++], false)
+
+  // Security
+  // notification email
+  store.user.security.notificationEmail = userInfo.notification_email;
+  store.setActionCardStatus(1, store.actionsIds.securityActions[3], false)
+}
+
+onMounted(async () => {
+  store.actionsIds.infoActions.forEach(id => {
+    store.setActionCardStatus(0, id, true)
+  })
+  store.actionsIds.securityActions.forEach(id => {
+    if (id === 206) return
+    store.setActionCardStatus(1, id, true)
+  })
+
+  const [userInfo, securityInfo] = await Promise.allSettled([
+    GetUserInfo(),
+    GetUserSecurityInfo(),
+  ])
+
+  if (userInfo.status === 'fulfilled') {
+    loadUserInfo(userInfo.value)
+  }
+  if (securityInfo.status === 'fulfilled') {
+    loadUserSecurityInfo(securityInfo.value)
+  }
+
+})
 
 </script>
 
@@ -52,27 +118,10 @@ function openActionDialog(id: number) {
 
     <!-- User Action Cards -->
     <div class="cards-container">
-      <div class="user-action-card"
-           role="button"
-           tabindex="0"
-           :class="[{'danger': card.isDanger === true}, cardIconColorClass(card.isDanger === true)]"
-           v-for="(card, index) in pageContent.actions"
-           :key="card.id"
-           @click="openActionDialog(card.id)"
-           @keydown.enter="openActionDialog(card.id)"
-           @keydown.space.prevent="openActionDialog(card.id)">
-        <div class="card-header">
-          <h3 class="card-title">{{ card.title }}</h3>
-          <div class="card-icon">
-            <Component :is="card.icon"/>
-          </div>
-        </div>
-        <div class="card-content">
-          <p>{{ card.text_line1 }}</p>
-          <p>{{ card.text_line2 }}</p>
-          <p>{{ card.text_line3 }}</p>
-        </div>
-      </div>
+      <UserActionCard
+          v-for="cardAction in pageContent.actions"
+          :card="cardAction"
+          :loading="cardAction.isFetching"/>
     </div>
   </div>
 </template>
@@ -119,157 +168,5 @@ function openActionDialog(id: number) {
 
 }
 
-.user-action-card {
-  cursor: pointer;
-  display: flex;
-  width: 19.6875rem;
-  height: 8.125rem;
-  padding: 0.625rem 1.25rem;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-shrink: 0;
-  aspect-ratio: 63/26;
 
-  border-radius: 0.75rem;
-  border: 0.05rem solid var(--jus-color-global-neutrals-text-secondary);
-
-  /* Default Shadow */
-  box-shadow: 0 2px 6px 0 var(--jus-color-global-neutrals-text-primary);
-}
-
-[data-theme="light"] .user-action-card.danger {
-
-  background: linear-gradient(
-      99deg,
-      rgba(216, 30, 6, 0.18) 1.55%, rgba(216, 30, 6, 0.05) 97.74%
-  ),
-  linear-gradient(99deg, rgba(255, 255, 255, 0.45) 1.55%, #F5F5F5 97.74%);
-  box-shadow: 0 2px 6px 0 #FA4A33;
-}
-
-.user-action-card.danger {
-  border: 0.1rem solid #C91900; /*#DB3832;*/
-}
-
-.user-action-card.danger.cn {
-  border: 0.1rem solid var(--jus-color-global-cn-red);
-}
-
-.user-action-card.danger.jp {
-  border: 0.1rem solid var(--jus-color-global-jp-red);
-}
-
-.user-action-card.danger.kr {
-  border: 0.1rem solid var(--jus-color-global-kr-red);
-}
-
-.user-action-card.danger.us {
-  border: 0.1rem solid var(--jus-color-global-us-red);
-}
-
-.defaultRed svg {
-  color: #C92000;
-}
-
-.cn svg {
-  color: var(--jus-color-global-cn-red);
-}
-
-.jp svg {
-  color: var(--jus-color-global-jp-red);
-}
-
-.kr svg {
-  color: var(--jus-color-global-kr-red);
-}
-
-.us svg {
-  color: var(--jus-color-global-us-red);
-}
-
-[data-theme="dark"] .user-action-card.danger {
-  border: 0.1rem solid #D81E06;
-  background: linear-gradient(
-      99deg,
-      rgba(216, 30, 6, 0.18) 1.55%, rgba(216, 30, 6, 0.05) 97.74%
-  ),
-  linear-gradient(99deg, #F5F5F5 1.55%, rgba(255, 255, 255, 0.45) 97.74%);
-  box-shadow: 0 2px 6px 0 #FA4A33;
-}
-
-[data-theme="light"] .user-action-card {
-  background: linear-gradient(99deg, rgba(255, 255, 255, 0.45) 1.55%, #F5F5F5 97.74%);
-}
-
-[data-theme="dark"] .user-action-card {
-  background: linear-gradient(99deg, #F5F5F5 1.55%, rgba(255, 255, 255, 0.45) 97.74%);
-}
-
-.card-header {
-  display: flex;
-  height: 2.5rem;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
-  align-self: stretch;
-}
-
-.card-title {
-  font-family: 'PingFang SC', sans-serif;
-  color: #212121;;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 2.5rem; /* 200% */
-  letter-spacing: -0.05rem;
-}
-
-.card-icon {
-  display: flex;
-  width: 2.5rem;
-  height: 2.5rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  aspect-ratio: 1/1;
-
-  color: var(--jus-color-global-icon-blue);
-}
-
-.card-icon svg {
-  width: 1.35rem;
-  height: 1.35rem;
-}
-
-.card-icon img {
-  width: 1.35rem;
-  height: 1.35rem;
-}
-
-.card-content {
-  display: flex;
-  width: 100%;
-  height: 3.875rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.card-content p {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  flex: 1 0 0;
-  align-self: stretch;
-
-  color: #212121;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-
-  /* 控制文本靠左 */
-  text-align: left;
-}
 </style>

@@ -22,6 +22,11 @@ const name: ComputedRef<string> = computed(() => {
   if (!globalStore.accountInfoShort) return defaultName
   return globalStore.accountInfoShort.name
 })
+
+const avatar: ComputedRef<string> = computed(() => {
+  if (globalStore.user.avatar) return globalStore.user.avatar;
+  return DefaultAvatar;
+})
 // const email: ComputedRef<string> = computed(() => {
 //   if (!globalStore.accountInfoShort) return '';
 //   return globalStore.accountInfoShort.email ? globalStore.accountInfoShort.email : '';
@@ -34,7 +39,8 @@ const loading: ComputedRef<boolean> = computed(() => !(globalStore.accountInfoSh
   <div class="left-side">
 
     <!-- 用户信息 -->
-    <el-skeleton :loading="loading" animated
+    <el-skeleton :loading="loading"
+                 animated
                  :throttle="{ leading: 500, trailing: 500, initVal: true }">
       <template #template>
         <!-- 用户头像 -->
@@ -52,13 +58,11 @@ const loading: ComputedRef<boolean> = computed(() => !(globalStore.accountInfoSh
         <!-- 用户头像 -->
         <div class="avatar-section">
           <div class="avatar">
-            <img :src="DefaultAvatar" alt="default avatar">/>
-            <!--        <DefaultAvatar/>-->
+            <img :src="avatar" alt="default avatar">/>
           </div>
         </div>
         <div class="user-info">
           <div class="user-name">{{ name }}</div>
-          <!--          <div class="user-email">{{ email }}</div>-->
           <div class="user-email">{{ id }}</div>
         </div>
       </template>

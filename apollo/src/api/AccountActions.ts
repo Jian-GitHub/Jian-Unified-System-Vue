@@ -12,6 +12,20 @@ export type LoginResponseData = {
     message: string;
     data: {
         token: string;
+        id: string;
+        name: {
+            givenName: string;
+            middleName: string;
+            familyName: string;
+        };
+        avatar: string;
+        locale: string;
+        language: string;
+        birthday: {
+            year: number;
+            month: number;
+            day: number;
+        }
     }
 }
 
@@ -45,10 +59,68 @@ export function Register(data: RegisterFormData): Promise<AxiosResponse> {
 
 // VerifyToken
 export async function VerifyToken(): Promise<boolean> {
+    try {
+        const response = await axiosInstance.post(Server.service.account.verifyToken)
+        if (response.status === 200) {
+            if (response.data.code === 200) {
+                return response.data.data.ok
+            }
+        }
+        return false;
+    } catch (error) {
+        return false;
+    }
+}
+
+// GetUserInfoShort
+export async function GetUserInfoShort(): Promise<boolean> {
     const response = await axiosInstance.post(Server.service.account.verifyToken)
     if (response.status === 200) {
         if (response.data.code === 200) {
             return response.data.data.ok
         }
     }
+}
+
+export type UserInfoResponseData = {
+    code: number;
+    message: string;
+    data: {
+        id: string,
+        given_name: string;
+        middle_name: string;
+        family_name: string;
+        avatar: string;
+        birthday_year: 0,
+        birthday_month: 0,
+        birthday_day: 0,
+        notification_email: string;
+        locate: string;
+        language: string;
+        create_time: string;
+        last_login_time: string;
+    }
+}
+// GetUserInfo
+export async function GetUserInfo(): Promise<AxiosResponse<UserInfoResponseData>> {
+    return axiosInstance.post(Server.service.account.getUserInfo)
+}
+
+import {Date, Contact, ThirdPartyAccount} from "@/types/User";
+
+export type UserSecurityInfoResponseData = {
+    code: number;
+    message: string;
+    data: {
+        contacts: Contact[];
+
+        passwordUpdatedDate: Date;
+        accountSecurityTokenNum: number;
+        passkeysNum: number;
+        thirdPartyAccounts: ThirdPartyAccount;
+    }
+}
+// GetUserSecurityInfo
+export async function GetUserSecurityInfo(): Promise<AxiosResponse<UserSecurityInfoResponseData>> {
+    return axiosInstance.post(Server.service.account.getUserSecurity)
 }

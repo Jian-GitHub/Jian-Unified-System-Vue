@@ -22,6 +22,7 @@ export type ActionsIds = {
 export type UserAction = {
     id: number;
     isDanger?: boolean;
+    isFetching: boolean;
     title: string;
     icon: Component;
     text_line1?: string;

@@ -1,23 +1,29 @@
 export type User = {
     id: string;
-    email: string;
+    avatar: string;
     info: InfoOptions;
     security: SecurityOptions
 }
 
 export type Date = {
-    year: string;
-    month: string;
-    day: string;
+    year: number;
+    month: number;
+    day: number;
 }
 
-type ThirdPartyAccount = {
+export type ThirdPartyAccount = {
     github: boolean;
     google: boolean;
 }
 
+export type Contact = {
+    id: string;
+    value: string;
+    type: number;
+    phone_region?: string;
+}
 type SecurityOptions = {
-    contacts: string[];
+    contacts: Contact[];
     passwordUpdatedDate: Date
     accountSecurityTokenNum: number;
     notificationEmail: string;
@@ -34,6 +40,6 @@ type Name = {
 type InfoOptions = {
     name: Name;
     birthday: Date
-    countryRegion: string;
+    locale: string;
     language: string;
 }

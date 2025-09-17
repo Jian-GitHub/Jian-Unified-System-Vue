@@ -21,6 +21,7 @@ const line2Text = computed(() => t('user_action_dialog.passkeys.line2'))
 
 <style scoped>
 .jus-apollo-user-passkeys-dialog-header .title {
+  width: 100%;
   margin-top: 0.75rem;
   font-size: 1.5rem;
   font-style: normal;

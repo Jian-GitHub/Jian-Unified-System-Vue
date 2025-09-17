@@ -4,26 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix bug">
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Remove Localstorage usage&#10;Add Skeleton">
+      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/rightContent/UserActionCard.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/components.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/api/axiosInstance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/axiosInstance.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logic/day-night-toggle-button.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logic/day-night-toggle-button.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/CloudflareTurnstile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/CloudflareTurnstile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/setting/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/setting/Settings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/TokenScopeSelecter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/TokenScopeSelecter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/TokenScopeSelecter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/TokenScopeSelector.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/leftSide/LeftSide.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/leftSide/LeftSide.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/rightContent/RightContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/rightContent/RightContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/user/info.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/user/info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/user/user_container.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/user/user_container.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/user/info.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ja/user/info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/user/user_container.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ja/user/user_container.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ko/user/info.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ko/user/info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ko/user/user_container.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ko/user/user_container.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/user/info.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/user/info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/user/user_container.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/user/user_container.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/router/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/types/UserPage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/types/UserPage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/types/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/types/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/types/dialog/UserAction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/types/dialog/UserAction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +45,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Composition API Component" />
         <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -115,17 +127,17 @@
       <window_info id="Pull Requests" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21746576" />
       <window_info id="Commit" order="1" weight="0.21746576" />
-      <window_info active="true" id="Structure" order="2" side_tool="true" visible="true" weight="0.21746576" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="File Transfer" />
-      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="0" sideWeight="0.49963716" side_tool="true" visible="true" weight="0.26678658" />
+      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="0" sideWeight="0.49963716" side_tool="true" visible="true" weight="0.21005291" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.30450734" />
       <window_info anchor="bottom" id="Problems" order="2" />
-      <window_info anchor="bottom" id="Problems View" order="3" weight="0.315418" />
-      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.5003629" weight="0.2643885" />
-      <window_info anchor="bottom" id="Services" order="5" weight="0.24971558" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.35311753" />
+      <window_info anchor="bottom" id="Problems View" order="3" sideWeight="0.5003629" weight="0.21005291" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.5003629" weight="0.35291004" />
+      <window_info anchor="bottom" id="Services" order="5" weight="0.35291004" />
+      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.5003629" weight="0.25026456" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.35311753" />
       <window_info anchor="right" id="Endpoints" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
@@ -196,7 +208,7 @@
       <workItem from="1757632062362" duration="105596000" />
       <workItem from="1757889533463" duration="7151000" />
       <workItem from="1757913996678" duration="1746000" />
-      <workItem from="1757931760048" duration="13847000" />
+      <workItem from="1757931760048" duration="44527000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -478,7 +490,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757938123129</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Remove Localstorage usage&#10;Add Skeleton">
+      <option name="closed" value="true" />
+      <created>1758033925549</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1758033925549</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Optimize code structure;&#10;Add animation" />
     <MESSAGE value="SVG -&gt; Div&#10;Add Circle Shadow Color" />
     <MESSAGE value="Optimize code structure" />
     <MESSAGE value="LoginPage" />
@@ -521,6 +540,7 @@
     <MESSAGE value="Change animation" />
     <MESSAGE value="Cloudflare component: Multiple languages" />
     <MESSAGE value="Fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug" />
+    <MESSAGE value="Remove Localstorage usage&#10;Add Skeleton" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove Localstorage usage&#10;Add Skeleton" />
   </component>
 </project>

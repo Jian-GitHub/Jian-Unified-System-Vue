@@ -4,45 +4,65 @@
 @import "@/assets/colors/themes/dark.css";
 
 html {
-  font-size: clamp(12px, calc(100vw / 100), 20px);
-} /* 因为1680 ÷ 16 = 105 */
+    font-size: clamp(12px, calc(100vw / 100), 20px);
+}
+
+/* 因为1680 ÷ 16 = 105 */
 
 body {
-  height: 100vh;
-  width: 100vw;
-  min-width: 980px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
+    height: 100vh;
+    width: 100vw;
+    min-width: 980px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
 
-  /*
-  background:
-          linear-gradient(
-                  115deg,
-                  var(--jus-color-doraemon-surface, #F5F5F5) 21.73%,
-                  var(--jus-color-doraemon-primary-200, #E3F2FD) 116.53%
-          ) fixed;
+    /*
+    background:
+            linear-gradient(
+                    115deg,
+                    var(--jus-color-doraemon-surface, #F5F5F5) 21.73%,
+                    var(--jus-color-doraemon-primary-200, #E3F2FD) 116.53%
+            ) fixed;
 
-   */
+     */
 
-  /* 内部填充的半透明背景色 */
+    /* 内部填充的半透明背景色 */
 
-  background: linear-gradient(
-          120deg,
-          var(--jus-color-global-shadow-top-left) 35%,
-          var(--jus-color-global-shadow-bottom-right) 65%
-  ) fixed;
+    background: linear-gradient(
+            120deg,
+            var(--jus-color-global-shadow-top-left) 35%,
+            var(--jus-color-global-shadow-bottom-right) 65%
+    ) fixed;
 
 
-  font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
 #app {
-  /*max-width: 1280px;*/
-  /*margin: 0 auto;*/
-  /*padding: 2rem;*/
-  font-weight: normal;
+    /*max-width: 1280px;*/
+    /*margin: 0 auto;*/
+    /*padding: 2rem;*/
+    font-weight: normal;
+}
+
+.el-skeleton.is-animated .el-skeleton__item {
+    box-shadow: 0 0px 2px var(--jus-color-global-neutrals-text-secondary);
+    /*background: linear-gradient(*/
+    /*        90deg, */
+    /*        var(--el-skeleton-color) 25%,*/
+    /*        var(--el-skeleton-to-color) 37%,*/
+    /*        var(--el-skeleton-color) 63%*/
+    /*) !important;*/
+    /*background: linear-gradient(*/
+    /*        90deg,*/
+    /*        var(--jus-color-icarus-primary-300) 25%,*/
+    /*        var(--jus-color-icarus-primary-400) 37%,*/
+    /*        var(--jus-color-icarus-primary-500) 63%*/
+    /*) !important;*/
+    /*animation: el-skeleton-loading 1.4s ease infinite;*/
+
 }
 
 /*a,*/
