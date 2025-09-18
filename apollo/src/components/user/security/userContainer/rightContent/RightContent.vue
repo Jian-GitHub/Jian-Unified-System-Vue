@@ -26,11 +26,9 @@ function loadUserSecurityInfo(resp: AxiosResponse<UserSecurityInfoResponseData>)
   store.user.security.contacts = securityInfo.contacts;
   store.setActionCardStatus(1, store.actionsIds.securityActions[i++], false);
   // Password
-  if (securityInfo.passwordUpdatedDate.year != 0) {
-    store.user.security.passwordUpdatedDate.year = securityInfo.passwordUpdatedDate.year;
-    store.user.security.passwordUpdatedDate.month = securityInfo.passwordUpdatedDate.month;
-    store.user.security.passwordUpdatedDate.day = securityInfo.passwordUpdatedDate.day;
-  }
+  store.user.security.passwordUpdatedDate.year = securityInfo.passwordUpdatedDate.year;
+  store.user.security.passwordUpdatedDate.month = securityInfo.passwordUpdatedDate.month;
+  store.user.security.passwordUpdatedDate.day = securityInfo.passwordUpdatedDate.day;
   store.setActionCardStatus(1, store.actionsIds.securityActions[i++], false);
   // Account Security
   store.user.security.accountSecurityTokenNum = securityInfo.accountSecurityTokenNum;
@@ -60,9 +58,9 @@ function loadUserInfo(resp: AxiosResponse<UserInfoResponseData>) {
   store.setActionCardStatus(0, store.actionsIds.infoActions[i++], false)
 
   // birthday
-  store.user.info.birthday.year = userInfo.birthday_year === 0 ? null : userInfo.birthday_year;
-  store.user.info.birthday.month = userInfo.birthday_month === 0 ? null : userInfo.birthday_month;
-  store.user.info.birthday.day = userInfo.birthday_day === 0 ? null : userInfo.birthday_day;
+  store.user.info.birthday.year = userInfo.birthday_year;
+  store.user.info.birthday.month = userInfo.birthday_month;
+  store.user.info.birthday.day = userInfo.birthday_day;
   store.setActionCardStatus(0, store.actionsIds.infoActions[i++], false)
 
   // country or region

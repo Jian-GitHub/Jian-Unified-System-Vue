@@ -140,7 +140,7 @@ const handleRegister = async () => {
 
   emit('update:isWaitingForServer', true);
 
-  let language = '';
+  let language;
   if (globalStore.language) {
     language = globalStore.language;
   } else {
@@ -189,7 +189,7 @@ watch(
 )
 
 import {watch} from 'vue'
-import {AxiosPromise, AxiosResponse} from "axios";
+import {AxiosResponse} from "axios";
 
 const handleLogin = async () => {
   if (!loginData.value.email || !loginData.value.password || !cf_token.value) {
@@ -226,15 +226,9 @@ const handleLogin = async () => {
         globalStore.user.avatar = response.data.data.avatar;
 
         // info
-        if (response.data.data.birthday.year === 0) {
-          globalStore.user.info.birthday.year = null
-          globalStore.user.info.birthday.month = null
-          globalStore.user.info.birthday.day = null
-        } else {
-          globalStore.user.info.birthday.year = response.data.data.birthday.year
-          globalStore.user.info.birthday.month = response.data.data.birthday.month
-          globalStore.user.info.birthday.day = response.data.data.birthday.day
-        }
+        globalStore.user.info.birthday.year = response.data.data.birthday.year
+        globalStore.user.info.birthday.month = response.data.data.birthday.month
+        globalStore.user.info.birthday.day = response.data.data.birthday.day
         globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[1], false);
 
         globalStore.user.info.locale = response.data.data.locale;
