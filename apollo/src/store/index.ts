@@ -1,5 +1,5 @@
 import {computed, ComputedRef, ref, Ref} from "vue";
-import {Date, User} from "@/types/User";
+import {User} from "@/types/User";
 import {defineStore} from 'pinia';
 import ApolloLogoBlue from "@/components/user/basic/ApolloLogoBlue.vue";
 import PasswordIcon from "@/assets/icon/password_input_20x20.svg";
@@ -80,9 +80,9 @@ export const useGlobalStore = defineStore('store', () => {
                     familyName: '',
                 },
                 birthday: {
-                    year: null,
-                    month: null,
-                    day: null,
+                    year: 0,
+                    month: 0,
+                    day: 0,
                 },
                 locale: '',
                 language: '',
@@ -90,9 +90,9 @@ export const useGlobalStore = defineStore('store', () => {
             security: {
                 contacts: [],
                 passwordUpdatedDate: {
-                    year: null,
-                    month: null,
-                    day: null,
+                    year: 0,
+                    month: 0,
+                    day: 0,
                 },
                 accountSecurityTokenNum: null,
                 notificationEmail: null,
@@ -115,9 +115,9 @@ export const useGlobalStore = defineStore('store', () => {
                 familyName: '',
             },
             birthday: {
-                year: null,
-                month: null,
-                day: null,
+                year: 0,
+                month: 0,
+                day: 0,
             },
             locale: '',
             language: '',
@@ -125,9 +125,9 @@ export const useGlobalStore = defineStore('store', () => {
         security: {
             contacts: [],
             passwordUpdatedDate: {
-                year: null,
-                month: null,
-                day: null,
+                year: 0,
+                month: 0,
+                day: 0,
             },
             accountSecurityTokenNum: null,
             notificationEmail: null,
