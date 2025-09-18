@@ -98,7 +98,7 @@ const options = [
     label: "JQuantum",
   },
   {
-    id: 1 << 2,
+    id: 1 << 1,
     icon: QuantumLogo,
     label: "Argus",
   }
