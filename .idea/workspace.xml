@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix bug">
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/TokenScopeSelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/TokenScopeSelector.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/user/security.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/user/security.json" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: Multiple languages for Generate Subsystem Token Dialog">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +179,7 @@
       <workItem from="1757632062362" duration="105596000" />
       <workItem from="1757889533463" duration="7151000" />
       <workItem from="1757913996678" duration="1746000" />
-      <workItem from="1757931760048" duration="68950000" />
+      <workItem from="1757931760048" duration="69680000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -526,7 +525,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758200332352</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Feature: Multiple languages for Generate Subsystem Token Dialog">
+      <option name="closed" value="true" />
+      <created>1758203632224</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1758203632224</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +551,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feature: Switch languages; Light &amp; Dark Mode." />
     <MESSAGE value="Tidy LoginPage" />
     <MESSAGE value="Feature: Security Page" />
     <MESSAGE value="Feature: User Passkeys Dialog UI" />
@@ -569,6 +575,7 @@
     <MESSAGE value="Fix JP language bug" />
     <MESSAGE value="Feature: Generate new Subsystem Token" />
     <MESSAGE value="Fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug" />
+    <MESSAGE value="Feature: Multiple languages for Generate Subsystem Token Dialog" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature: Multiple languages for Generate Subsystem Token Dialog" />
   </component>
 </project>
