@@ -142,7 +142,7 @@ const handleRegister = async () => {
 
   let language = '';
   if (globalStore.language) {
-    console.log('globalStore.language', globalStore.language)
+    language = globalStore.language;
   } else {
     language = navigator.language || (navigator as any).userLanguage || 'en';
   }
