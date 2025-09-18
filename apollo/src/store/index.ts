@@ -200,14 +200,12 @@ export const useGlobalStore = defineStore('store', () => {
         const birthdayInfo = computed(() => {
             if (isUserNull.value ||
                 !user.value.info.birthday ||
-                !user.value.info.birthday.year ||
-                !user.value.info.birthday.month ||
-                !user.value.info.birthday.day
+                user.value.info.birthday.month != 0
             ) return t('info_page.actions.birthday.empty');
             return t('info_page.actions.birthday.text_line1', {
                 year: user.value.info.birthday.year,
-                month: user.value.info.birthday.month,
-                day: user.value.info.birthday.day
+                month: user.value.info.birthday.month < 10 ? '0' + user.value.info.birthday.month.toString() : user.value.info.birthday.month.toString(),
+                day: user.value.info.birthday.day < 10 ? '0' + user.value.info.birthday.day.toString() : user.value.info.birthday.day.toString(),
             })
         })
 
@@ -269,23 +267,9 @@ export const useGlobalStore = defineStore('store', () => {
         switch (type) {
             case 0:
                 infoActionCardsStatus.value[id] = status;
-                // if (!infoPageContent.value) return;
-                // for (let action of infoPageContent.value.actions) {
-                //     if (action.id === id) {
-                //         action.isFetching = status;
-                //         return;
-                //     }
-                // }
                 break;
             case 1:
                 securityActionCardsStatus.value[id] = status;
-                // if (!securityPageContent.value) return;
-                // for (let action of securityPageContent.value.actions) {
-                //     if (action.id === id) {
-                //         action.isFetching = status;
-                //         return;
-                //     }
-                // }
                 break;
             default:
                 break;
@@ -298,7 +282,7 @@ export const useGlobalStore = defineStore('store', () => {
         const contentDescription: ComputedRef<string> = computed(() => t('security_page.description'))
 
         const contactsInfo = computed(() => {
-            if (isUserNull.value || user.value.security.contacts.length === 0) return {line1: '', line2: '', line3: ''};
+            if (isUserNull.value || user.value.security.contacts.length === 0) return {line1: t('security_page.actions.email_mobile.empty'), line2: '', line3: ''};
             const contactsNum = user.value.security.contacts.length;
             switch (contactsNum) {
                 case 0:
@@ -325,16 +309,16 @@ export const useGlobalStore = defineStore('store', () => {
         })
 
         const passwordUpdatedInfo = computed(() => {
-            if (isUserNull.value || !user.value.security.passwordUpdatedDate) return '';
+            if (isUserNull.value || user.value.security.passwordUpdatedDate.month != 0) return  t('security_page.actions.password.empty');
             return t('security_page.actions.password.text_line1', {
                 year: user.value.security.passwordUpdatedDate.year,
-                month: user.value.security.passwordUpdatedDate.month,
-                day: user.value.security.passwordUpdatedDate.day
+                month: user.value.security.passwordUpdatedDate.month < 10 ? '0' + user.value.security.passwordUpdatedDate.month.toString() : user.value.security.passwordUpdatedDate.month.toString(),
+                day: user.value.security.passwordUpdatedDate.day < 10 ? '0' + user.value.security.passwordUpdatedDate.day.toString() : user.value.security.passwordUpdatedDate.day.toString(),
             })
         })
 
         const tokenInfo = computed(() => {
-            if (isUserNull.value || !user.value.security.accountSecurityTokenNum) return '';
+            if (isUserNull.value) return t('security_page.actions.security.empty');
             return t('security_page.actions.security.text_line2', {num: user.value.security.accountSecurityTokenNum})
         })
 
@@ -344,7 +328,7 @@ export const useGlobalStore = defineStore('store', () => {
         })
 
         const passkeysInfo = computed(() => {
-            if (isUserNull.value || !user.value.security.passkeysNum) return '';
+            if (isUserNull.value) return t('security_page.actions.passkeys.empty');
             return t('security_page.actions.passkeys.text_line1', {num: user.value.security.passkeysNum});
         })
 

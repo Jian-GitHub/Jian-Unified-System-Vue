@@ -11,7 +11,7 @@ import {ElButton} from "element-plus";
 import ThirdPartyButton from "@/components/login/basic/ThirdPartyButton.vue";
 import {cf_token} from '@/assets/logic/cloudflareTurnstile';
 import CloudflareTurnstile from "@/components/CloudflareTurnstile.vue";
-import {LoginFormData} from "@/api/AccountActions";
+import {LoginFormData, Register, RegisterFormData} from "@/api/AccountActions";
 import {Login} from "@/api/AccountActions"
 import { useRouter } from 'vue-router';
 const router = useRouter();
@@ -130,11 +130,44 @@ const isFormValid = computed(() => {
       registerData.value.password === registerData.value.confirmPassword
 })
 
-const handleRegister = () => {
-  if (isFormValid.value) {
-    console.log('注册数据:', registerData.value)
+import {RegisterResponseData} from "@/api/AccountActions";
+
+const handleRegister = async () => {
+  if (!isFormValid.value && !cf_token.value) {
+    console.log('无注册数据:', registerData.value)
     // 这里添加注册逻辑
   }
+
+  emit('update:isWaitingForServer', true);
+
+  let language = '';
+  if (globalStore.language) {
+    console.log('globalStore.language', globalStore.language)
+  } else {
+    language = navigator.language || (navigator as any).userLanguage || 'en';
+  }
+  const data: RegisterFormData = {
+    email: registerData.value.email,
+    password: registerData.value.password,
+    confirmedPassword: registerData.value.confirmPassword,
+    language: language,
+    cloudflareToken: cf_token.value,
+  }
+  try {
+    const response: AxiosResponse<RegisterResponseData> = await Register(data)
+    if (response.status != 200 || response.data.code != 200) {
+      emit('update:isWaitingForServer', false);
+      console.log(registerData.value)
+      console.log('failed', response.data.code, response.data.message)
+      return;
+    }
+
+    globalStore.token = response.data.data.token;
+    await router.push({name: 'User'});
+  } catch (error) {
+    console.log(error)
+  }
+  emit('update:isWaitingForServer', false);
 }
 
 const showLoginTurnstile = ref(false)
@@ -156,6 +189,7 @@ watch(
 )
 
 import {watch} from 'vue'
+import {AxiosPromise, AxiosResponse} from "axios";
 
 const handleLogin = async () => {
   if (!loginData.value.email || !loginData.value.password || !cf_token.value) {
@@ -172,8 +206,6 @@ const handleLogin = async () => {
     const response = await Login(data)
     console.log(response)
     if (response.status === 200) {
-      // console.log(response.data);
-      // console.log(response.data.data.token);
       if (response.data && response.data.code === 200) {
         // save token
         globalStore.token = response.data.data.token;
@@ -208,7 +240,6 @@ const handleLogin = async () => {
         globalStore.user.info.locale = response.data.data.locale;
         globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[2], false);
 
-        console.log(globalStore.user)
         await router.push({name: 'User'});
       }
     }

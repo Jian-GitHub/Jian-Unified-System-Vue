@@ -5,11 +5,13 @@
     "actions": {
       "email_mobile": {
         "title": "电子邮件和电话号码",
-        "text_line3": "和其他 {num} 个联系方式"
+        "text_line3": "和其他 {num} 个联系方式",
+        "empty": "未设定"
       },
       "password": {
         "title": "密码",
-        "text_line1": "上次更新: {year}年{month}月{day}日"
+        "text_line1": "上次更新: {year}年{month}月{day}日",
+        "empty": "未设定"
       },
       "security": {
         "title": "账户安全",
@@ -17,7 +19,8 @@
         "text_line2": "{num} 个受信任令牌"
       },
       "notification_email": {
-        "title": "通知电子邮件"
+        "title": "通知电子邮件",
+        "empty": "未设定"
       },
       "passkeys": {
         "title": "通行密钥",

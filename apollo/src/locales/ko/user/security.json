@@ -5,11 +5,13 @@
     "actions": {
       "email_mobile": {
         "title": "이메일 및 전화번호",
-        "text_line3": "기타 {num} 개의 연락 방법"
+        "text_line3": "기타 {num} 개의 연락 방법",
+        "empty": "설정되지 않음"
       },
       "password": {
         "title": "비밀번호",
-        "text_line1": "마지막 업데이트: {year}년{month}월{day}일"
+        "text_line1": "마지막 업데이트: {year}년{month}월{day}일",
+        "empty": "설정되지 않음"
       },
       "security": {
         "title": "계정 보안",
@@ -17,7 +19,8 @@
         "text_line2": "{num} 개의 신뢰된 토큰"
       },
       "notification_email": {
-        "title": "알림 이메일"
+        "title": "알림 이메일",
+        "empty": "설정되지 않음"
       },
       "passkeys": {
         "title": "패스키",

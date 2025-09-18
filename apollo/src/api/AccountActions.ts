@@ -29,14 +29,6 @@ export type LoginResponseData = {
     }
 }
 
-export type RegisterFormData = {
-    email: string;
-    password: string;
-    confirmedPassword: string;
-    language: string,
-    cloudflareToken: string;
-}
-
 // Login
 export async function Login(data: LoginFormData): Promise<AxiosResponse<LoginResponseData>> {
     return axiosInstance.post(Server.service.account.login, {
@@ -46,8 +38,24 @@ export async function Login(data: LoginFormData): Promise<AxiosResponse<LoginRes
     })
 }
 
+
+export type RegisterFormData = {
+    email: string;
+    password: string;
+    confirmedPassword: string;
+    language: string,
+    cloudflareToken: string;
+}
+
+export type RegisterResponseData = {
+    code: number;
+    message: string;
+    data: {
+        token: string;
+    }
+}
 // Register
-export function Register(data: RegisterFormData): Promise<AxiosResponse> {
+export function Register(data: RegisterFormData): Promise<AxiosResponse<RegisterResponseData>> {
     return axiosInstance.post(Server.service.account.register, {
         email: data.email,
         password: data.password,

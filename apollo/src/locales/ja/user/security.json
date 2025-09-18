@@ -5,11 +5,13 @@
     "actions": {
       "email_mobile": {
         "title": "メールアドレスと電話番号",
-        "text_line3": "その他 {num} 件の連絡方法"
+        "text_line3": "その他 {num} 件の連絡方法",
+        "empty": "未設定"
       },
       "password": {
         "title": "パスワード",
-        "text_line1": "最終更新: {year}年{month}月{day}日"
+        "text_line1": "最終更新: {year}年{month}月{day}日",
+        "empty": "未設定"
       },
       "security": {
         "title": "アカウントのセキュリティ",
@@ -17,6 +19,7 @@
         "text_line2": "{num} 個の信頼済みトークン"
       },
       "notification_email": {
+        "empty": "未設定",
         "title": "通知用メール"
       },
       "passkeys": {
