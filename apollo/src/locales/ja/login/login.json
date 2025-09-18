@@ -3,7 +3,7 @@
     "login": {
       "CONTAINER_TITLE": "アカウントにログイン",
       "CONTAINER_TEXT": "ログイン方法を選択するか、メールでログイン",
-      "TO_REGISTER": "登録へ進む",
+      "TO_REGISTER": "新規登録へ",
       "FORGET_PASSWORD": "パスワードをお忘れですか？",
       "LOGIN_BUTTON": "ログイン"
     },
@@ -24,7 +24,7 @@
     "login": {
       "SIDE_TEXT_1": "まだアカウントをお持ちでないですか？",
       "SIDE_TEXT_2": "今すぐ登録して、すぐに始めましょう！",
-      "TO_REGISTER": "登録へ進む"
+      "TO_REGISTER": "新規登録へ"
     },
     "registration": {
       "SIDE_TEXT_1": "すでにアカウントをお持ちですか？",
