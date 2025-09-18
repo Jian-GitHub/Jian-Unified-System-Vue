@@ -28,21 +28,38 @@ export const useGlobalStore = defineStore('store', () => {
 
     const languages: Ref<string[], string[]> = ref(['zh', 'ja', 'ko', 'en']);
 
+    const actionsIdsObject = ref({
+        infoAction: {
+            name: 100,
+            birthday: 101,
+            locale: 102,
+            language: 103
+        },
+        securityAction: {
+            contacts: 200,
+            password: 201,
+            security: 202,
+            notification: 203,
+            passkeys: 204,
+            thirdPartyAccounts: 205,
+            removeAccount: 206
+        }
+    })
     const actionsIds: Ref<ActionsIds> = ref({
         infoActions: [
-            100,
-            101,
-            102,
-            103
+            actionsIdsObject.value.infoAction.name,
+            actionsIdsObject.value.infoAction.birthday,
+            actionsIdsObject.value.infoAction.locale,
+            actionsIdsObject.value.infoAction.language,
         ],
         securityActions: [
-            200,
-            201,
-            202,
-            203,
-            204,
-            205,
-            206,
+            actionsIdsObject.value.securityAction.contacts,
+            actionsIdsObject.value.securityAction.password,
+            actionsIdsObject.value.securityAction.security,
+            actionsIdsObject.value.securityAction.notification,
+            actionsIdsObject.value.securityAction.passkeys,
+            actionsIdsObject.value.securityAction.thirdPartyAccounts,
+            actionsIdsObject.value.securityAction.removeAccount,
         ]
     });
 
@@ -139,7 +156,7 @@ export const useGlobalStore = defineStore('store', () => {
             return {
                 id: user.value.id,
                 name: nameInfo.value ? nameInfo.value : t('user_container.left_side.username'),
-                // email: user.value.email
+                // email: user.scope.email
             }
         })
     }
@@ -200,7 +217,7 @@ export const useGlobalStore = defineStore('store', () => {
         const birthdayInfo = computed(() => {
             if (isUserNull.value ||
                 !user.value.info.birthday ||
-                user.value.info.birthday.month != 0
+                user.value.info.birthday.month === 0
             ) return t('info_page.actions.birthday.empty');
             return t('info_page.actions.birthday.text_line1', {
                 year: user.value.info.birthday.year,
@@ -225,29 +242,29 @@ export const useGlobalStore = defineStore('store', () => {
 
         const infoActions: ComputedRef<UserAction[]> = computed(() => [
             {
-                id: actionsIds.value.infoActions[0],
-                isFetching: infoActionCardsStatus.value[actionsIds.value.infoActions[0]],
+                id: actionsIdsObject.value.infoAction.name,
+                isFetching: infoActionCardsStatus.value[actionsIdsObject.value.infoAction.name],
                 title: t('info_page.actions.name.title'),
                 icon: UserIcon,
                 text_line1: nameInfo.value ? nameInfo.value : t('info_page.actions.name.empty'),
             },
             {
-                id:actionsIds.value.infoActions[1],
-                isFetching: infoActionCardsStatus.value[actionsIds.value.infoActions[1]],
+                id: actionsIdsObject.value.infoAction.birthday,
+                isFetching: infoActionCardsStatus.value[actionsIdsObject.value.infoAction.birthday],
                 title: t('info_page.actions.birthday.title'),
                 icon: DateIcon,
                 text_line1: birthdayInfo.value
             },
             {
-                id: actionsIds.value.infoActions[2],
-                isFetching: infoActionCardsStatus.value[actionsIds.value.infoActions[2]],
+                id: actionsIdsObject.value.infoAction.locale,
+                isFetching: infoActionCardsStatus.value[actionsIdsObject.value.infoAction.locale],
                 title: t('info_page.actions.country_region.title'),
                 icon: EarthIcon,
                 text_line1: countryRegionInfo.value
             },
             {
-                id: actionsIds.value.infoActions[3],
-                isFetching: infoActionCardsStatus.value[actionsIds.value.infoActions[3]],
+                id: actionsIdsObject.value.infoAction.language,
+                isFetching: infoActionCardsStatus.value[actionsIdsObject.value.infoAction.language],
                 title: t('info_page.actions.language.title'),
                 icon: LanguageIcon,
                 text_line1: languageInfo.value,
@@ -309,7 +326,7 @@ export const useGlobalStore = defineStore('store', () => {
         })
 
         const passwordUpdatedInfo = computed(() => {
-            if (isUserNull.value || user.value.security.passwordUpdatedDate.month != 0) return  t('security_page.actions.password.empty');
+            if (isUserNull.value || user.value.security.passwordUpdatedDate.month === 0) return  t('security_page.actions.password.empty');
             return t('security_page.actions.password.text_line1', {
                 year: user.value.security.passwordUpdatedDate.year,
                 month: user.value.security.passwordUpdatedDate.month < 10 ? '0' + user.value.security.passwordUpdatedDate.month.toString() : user.value.security.passwordUpdatedDate.month.toString(),
@@ -352,8 +369,8 @@ export const useGlobalStore = defineStore('store', () => {
 
         const securityActions: ComputedRef<UserAction[]> = computed(() => [
             {
-                id: actionsIds.value.securityActions[0],
-                isFetching: securityActionCardsStatus.value[actionsIds.value.securityActions[0]],
+                id: actionsIdsObject.value.securityAction.contacts,
+                isFetching: securityActionCardsStatus.value[actionsIdsObject.value.securityAction.contacts],
                 title: t('security_page.actions.email_mobile.title'),
                 icon: ApolloLogoBlue,
                 text_line1: contactsInfo.value.line1,
@@ -361,45 +378,45 @@ export const useGlobalStore = defineStore('store', () => {
                 text_line3: contactsInfo.value.line3
             },
             {
-                id: actionsIds.value.securityActions[1],
-                isFetching: securityActionCardsStatus.value[actionsIds.value.securityActions[1]],
+                id: actionsIdsObject.value.securityAction.password,
+                isFetching: securityActionCardsStatus.value[actionsIdsObject.value.securityAction.password],
                 title: t('security_page.actions.password.title'),
                 icon: PasswordIcon,
                 text_line1: passwordUpdatedInfo.value
             },
             {
-                id: actionsIds.value.securityActions[2],
-                isFetching: securityActionCardsStatus.value[actionsIds.value.securityActions[2]],
+                id: actionsIdsObject.value.securityAction.security,
+                isFetching: securityActionCardsStatus.value[actionsIdsObject.value.securityAction.security],
                 title: t('security_page.actions.security.title'),
                 icon: SecurityIcon,
                 text_line1: t('security_page.actions.security.text_line1'),
                 text_line2: tokenInfo.value
             },
             {
-                id: actionsIds.value.securityActions[3],
-                isFetching: securityActionCardsStatus.value[actionsIds.value.securityActions[3]],
+                id: actionsIdsObject.value.securityAction.notification,
+                isFetching: securityActionCardsStatus.value[actionsIdsObject.value.securityAction.notification],
                 title: t('security_page.actions.notification_email.title'),
                 icon: EmailIcon,
                 text_line1: notificationEmail.value,
             },
             {
-                id: actionsIds.value.securityActions[4],
-                isFetching: securityActionCardsStatus.value[actionsIds.value.securityActions[4]],
+                id: actionsIdsObject.value.securityAction.passkeys,
+                isFetching: securityActionCardsStatus.value[actionsIdsObject.value.securityAction.passkeys],
                 title: t('security_page.actions.passkeys.title'),
                 icon: PasskeysIcon,
                 text_line1: passkeysInfo.value
             },
             {
-                id: actionsIds.value.securityActions[5],
-                isFetching: securityActionCardsStatus.value[actionsIds.value.securityActions[5]],
+                id: actionsIdsObject.value.securityAction.thirdPartyAccounts,
+                isFetching: securityActionCardsStatus.value[actionsIdsObject.value.securityAction.thirdPartyAccounts],
                 title: t('security_page.actions.third_party_account.title'),
                 icon: ThirdPartyIcon,
                 text_line1: thirdPartyAccountsInfo.value.line1,
                 text_line2: thirdPartyAccountsInfo.value.line2
             },
             {
-                id: actionsIds.value.securityActions[6],
-                isFetching: securityActionCardsStatus.value[actionsIds.value.securityActions[6]],
+                id: actionsIdsObject.value.securityAction.removeAccount,
+                isFetching: securityActionCardsStatus.value[actionsIdsObject.value.securityAction.removeAccount],
                 isDanger: true,
                 title: t('security_page.actions.delete_account.title'),
                 icon: DeleteAccountIcon,
@@ -442,6 +459,7 @@ export const useGlobalStore = defineStore('store', () => {
         infoPageContent,
         accountInfoShort,
         actionsIds,
+        actionsIdsObject,
         userActionDialogLoading,
         userActionDialogId
     }

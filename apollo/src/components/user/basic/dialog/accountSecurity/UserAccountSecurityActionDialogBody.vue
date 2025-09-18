@@ -2,7 +2,7 @@
 import TokenIcon from "@/assets/icon/key_20x20.svg";
 import AddIcon from "@/assets/icon/plus_20x20.svg";
 import DeleteIcon from "@/assets/icon/remove_20x20.svg";
-import {computed, ref} from "vue";
+import {computed, ComputedRef, onMounted, Ref, ref} from "vue";
 import {nextTick} from 'vue'
 import {useI18n} from "vue-i18n";
 import {useGlobalStore} from "@/store";
@@ -11,42 +11,45 @@ import {ElMessage} from "element-plus";
 import InputShort from "@/components/Input/InputShort.vue";
 import QuantumLogo from "@/assets/logo/quantum_20x20.svg";
 import TokenScopeSelector from "@/components/user/basic/dialog/accountSecurity/TokenScopeSelector.vue";
+import {GenerateSubsystemToken, GetTenSubsystemTokens, SubsystemToken} from "@/api/AccountActions";
 
 const {t} = useI18n()
 const store = useGlobalStore()
 
 const contentHeaderText = computed(() => t('user_action_dialog.account_security.content.header', {num: store.user.security.accountSecurityTokenNum}))
 
-const createdDateText = (token: AccountSecurityTokenDialogRowData) => computed(() => t('user_action_dialog.account_security.content.row.date', {
+const createdDateText = (token: SubsystemToken) => computed(() => t('user_action_dialog.account_security.content.row.date', {
   year: token.date.year,
-  month: token.date.month,
-  day: token.date.day
+  month: token.date.month < 10 ? '0' + token.date.month.toString() : token.date.month,
+  day: token.date.day < 10 ? '0' + token.date.day.toString() : token.date.day,
 }))
 
-const tokens: AccountSecurityTokenDialogRowData[] = [
-  {
-    name: "Chaos",
-    value: "esdckjznouierljfdknvkl;lafnjkvdfjnjbkrrfda",
-    date: {
-      year: 2023,
-      month: 11,
-      day: 1,
-    }
-  },
-  {
-    name: "Chaos aksdlanl saflmkdvkl",
-    value: "esdckjznouierljfdknvkl;lafnjkvdfjnjbkrrfda",
-    date: {
-      year: 2023,
-      month: 11,
-      day: 9,
-    }
-  },
-]
+const tokens: Ref<SubsystemToken[]> = ref([])
+// const tokens: Ref<AccountSecurityTokenDialogRowData[]> = ref([
+//   {
+//     id: '1',
+//     name: "Chaos",
+//     value: "esdckjznouierljfdknvkl;lafnjkvdfjnjbkrrfda",
+//     date: {
+//       year: 2023,
+//       month: 11,
+//       day: 1,
+//     }
+//   },
+//   {
+//     id: '2',
+//     name: "Chaos aksdlanl saflmkdvkl",
+//     value: "esdckjznouierljfdknvkl;lafnjkvdfjnjbkrrfda",
+//     date: {
+//       year: 2023,
+//       month: 11,
+//       day: 9,
+//     }
+//   },
+// ])
 
 async function copy(text: string) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    // 现代浏览器
     return navigator.clipboard.writeText(text).then(() => {
       ElMessage({
         message: `Token copied successfully!`,
@@ -65,7 +68,7 @@ async function copy(text: string) {
       })
     })
   } else {
-    // 兼容性方案：用 textarea + execCommand
+    // textarea + execCommand
     const input = document.createElement("textarea")
     input.value = text
     document.body.appendChild(input)
@@ -85,8 +88,8 @@ async function copy(text: string) {
 }
 
 const innerVisible = ref(false)
-const tokenAlias = ref('')
-const tokenAliasButton = ref(null)
+const tokenName = ref('')
+const submitGenerateSubsystemTokenButton = ref(null)
 
 const options = [
   {
@@ -101,121 +104,109 @@ const options = [
   }
 ]
 
-function tokenAliasDialogOpened() {
+function tokenDialogOpened() {
   nextTick(() => {
-    tokenAliasButton.value?.$el?.focus()
+    submitGenerateSubsystemTokenButton.value?.$el?.focus()
   })
 }
 
-function beforeTokenAliasDialogOpened() {
+function beforeTokenDialogOpened() {
   options.forEach((option) => {
-    value.value.push(option.id)
+    scope.value.push(option.id)
   })
 }
 
 function closeTokenAliasDialog() {
-  console.log("a")
-  tokenAlias.value = '';
-  value.value = []
+  tokenName.value = '';
+  scope.value = []
 }
 
-function submitTokenAlias() {
+async function doGenerateSubsystemToken() {
+  const resp = await GenerateSubsystemToken(tokenName.value, scope.value)
+  if (resp.status != 200 || resp.data.code != 200) {
+    console.log('err', resp.data.message);
+    return;
+  }
+  store.user.security.accountSecurityTokenNum++;
+  tokens.value.unshift(resp.data.data.token);
+}
+async function submitGenerateSubsystemToken() {
   innerVisible.value = false;
-  tokenAlias.value = '';
-
-  console.log(value.value.length)
-  console.log(value.value)
-  /**
-   TODO: submitTokenAlias
-   alias -> Server
-   Server -> status & token value
-   - success -> update table & el-notification
-   - failed -> el-notification
-   */
+  store.userActionDialogLoading = true
+  try {
+    await doGenerateSubsystemToken()
+  }catch (e) {
+    console.log('err', e.message)
+  }
+  store.userActionDialogLoading = false;
+  tokenName.value = '';
 }
 
-const value = ref<number[]>([])
+const queryTokens = async () => {
+  const response = await GetTenSubsystemTokens(page.value);
+  if (response.status != 200 || response.data.code != 200) {
+    console.log('error', response.data.message);
+    return;
+  }
+  tokens.value = []
+  response.data.data.tokens.forEach((token) => {
+    tokens.value.push(token);
+  })
+  store.user.security.accountSecurityTokenNum = response.data.data.tokens.length;
+}
 
-// const colors = [
-//   {
-//     value: '#4070D4',
-//     label: 'JQuantum',
-//   },
-//   {
-//     value: '#E63415',
-//     label: 'red',
-//   },
-//   {
-//     value: '#FF6600',
-//     label: 'orange',
-//   },
-//   {
-//     value: '#FFDE0A',
-//     label: 'yellow',
-//   },
-//   {
-//     value: '#1EC79D',
-//     label: 'green',
-//   },
-//   {
-//     value: '#14CCCC',
-//     label: 'cyan',
-//   },
-//   {
-//     value: '#4167F0',
-//     label: 'blue',
-//   },
-//   {
-//     value: '#6222C9',
-//     label: 'purple',
-//   },
-// ]
+const scope = ref<number[]>([])
+const page: Ref<number> = ref(1);
+onMounted(async () => {
+  store.userActionDialogLoading = true
+  try {
+    await queryTokens()
+  } catch (e) {
+    console.log(e.message)
+  }
+  store.userActionDialogLoading = false
 
-
-
-// function getLabel(colorValue) {
-//   const item = colors.find(c => c.value === colorValue)
-//   return item?.label ?? colorValue
-// }
-// function remove(color) {
-//   const idx = value.value.indexOf(color)
-//   if (idx !== -1) value.value.splice(idx, 1)
-// }
+  // setTimeout(() => {
+  //   store.userActionDialogLoading = false
+  // }, 1250)
+})
 </script>
 
 <template>
+  <!--  inner dialog-->
   <el-dialog
       class="jus-apollo-user-account-security-dialog-token-alias"
       v-model="innerVisible"
-      title="设置令牌别名 (可选) 和作用域"
+      title="设置令牌名称 (可选) 和作用域"
       append-to-body
       :show-close="false"
       :close-on-click-modal="false"
       destroy-on-close
-      @opened="tokenAliasDialogOpened"
-      @open="beforeTokenAliasDialogOpened"
+      @opened="tokenDialogOpened"
+      @open="beforeTokenDialogOpened"
       @close="closeTokenAliasDialog"
   >
     <div class="jus-apollo-user-account-security-dialog-token-alias-body">
-      <InputShort class="jus-apollo-user-account-security-dialog-token-alias-input" v-model="tokenAlias"
-                  maxlength="16" show-word-limit clearable placeholder="别名 (可选)"/>
-<!--                  @keydown.enter="submitTokenAlias"/>-->
+      <InputShort class="jus-apollo-user-account-security-dialog-token-alias-input" v-model="tokenName"
+                  maxlength="16" show-word-limit clearable placeholder="名称 (可选)"/>
+      <!--                  @keydown.enter="submitGenerateSubsystemToken"/>-->
 
-      <TokenScopeSelector v-model="value" :options="options"/>
+      <TokenScopeSelector v-model="scope" :options="options"/>
 
     </div>
     <template #footer>
-      <el-button type="info" @click="innerVisible = false; tokenAlias = ''">取消</el-button>
+      <el-button type="info" @click="innerVisible = false; tokenName = ''">取消</el-button>
       <el-button type="primary"
                  autofocus
-                 ref="tokenAliasButton"
-                 :disabled="value.length === 0"
-                 @click="submitTokenAlias">
+                 ref="submitGenerateSubsystemTokenButton"
+                 :disabled="scope.length === 0"
+                 @click="submitGenerateSubsystemToken">
         {{ '确定' }}
       </el-button>
     </template>
   </el-dialog>
 
+  <!-- body content -->
   <div v-loading="store.userActionDialogLoading" element-loading-background="var(--jus-color-icarus-surface)">
     <div v-show="!store.userActionDialogLoading" class="jus-apollo-user-passkeys-dialog-body">
       <div class="jus-apollo-user-passkeys-dialog-body-content-header">
@@ -225,8 +216,8 @@ const value = ref<number[]>([])
       </div>
       <div class="jus-apollo-user-passkeys-dialog-body-content-rows">
         <div
-            v-for="(token, index) in tokens"
-            :key="index"
+            v-for="token in tokens"
+            :key="token.id"
             class="jus-apollo-user-passkeys-dialog-body-content-row">
           <div class="left">
             <TokenIcon class="jus-apollo-user-passkeys-dialog-body-content-passkey-icon"/>
@@ -254,12 +245,9 @@ const value = ref<number[]>([])
 @import "@/assets/css/user/security/userPasskeysDialog.css";
 
 
-
-
 .jus-apollo-user-account-security-dialog-token-alias-input {
   width: 12rem;
 }
-
 
 
 .jus-apollo-user-account-security-dialog-token-alias-body {

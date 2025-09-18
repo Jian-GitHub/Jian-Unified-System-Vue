@@ -1,12 +1,25 @@
+
+const api: string = '/api';
+const apiVersion: string = '/v1';
+const apiUrlPrefix: string = api + apiVersion;
+const apiAccountPrefix: string = apiUrlPrefix + '/account';
+const apiAccountSecurityPrefix: string = apiAccountPrefix + '/security';
+
 export const Server = {
     service: {
         account: {
-            login: '/api/v1/account/login',
-            register: '/api/v1/account/registration',
-            verifyToken: '/api/v1/account/VerifyToken',
-            getUserInfoShort: '/api/v1/account/VerifyToken',
-            getUserInfo: '/api/v1/account/GetUserInfo',
-            getUserSecurity: '/api/v1/account/GetUserSecurityInfo',
+            login: apiAccountPrefix + '/login',
+            register: apiAccountPrefix + '/registration',
+            verifyToken: apiAccountPrefix + '/VerifyToken',
+            getUserInfoShort: apiAccountPrefix + '/VerifyToken',
+            getUserInfo: apiAccountPrefix + '/GetUserInfo',
+            getUserSecurity: apiAccountPrefix + '/GetUserSecurityInfo',
+            security: {
+                subsystemToken: {
+                    getTenSubsystemToken: apiAccountSecurityPrefix + '/GetTenSubsystemTokens',
+                    generateSubsystemToken: apiAccountSecurityPrefix + '/GenerateSubsystemToken',
+                }
+            }
         }
     }
 }

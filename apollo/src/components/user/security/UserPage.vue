@@ -9,15 +9,14 @@
   <!-- 内容区域 -->
 <!--  <div class="content-wrapper">-->
   <UserContainer class="jus-apollo-user-page-container-component"/>
+  <UserActionDialog/>
 <!--  </div>-->
 </template>
 
 <script setup lang="ts">
 import UserHead from "@/components/user/security/userHead/UserHead.vue";
 import UserContainer from "@/components/user/security/userContainer/UserContainer.vue";
-
-const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
-const offsetTop = 6.125 * rem
+import UserActionDialog from "@/components/user/basic/UserActionDialog.vue";
 </script>
 
 <style scoped>

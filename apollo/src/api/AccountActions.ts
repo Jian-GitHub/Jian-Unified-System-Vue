@@ -81,14 +81,14 @@ export async function VerifyToken(): Promise<boolean> {
 }
 
 // GetUserInfoShort
-export async function GetUserInfoShort(): Promise<boolean> {
-    const response = await axiosInstance.post(Server.service.account.verifyToken)
-    if (response.status === 200) {
-        if (response.data.code === 200) {
-            return response.data.data.ok
-        }
-    }
-}
+// export async function GetUserInfoShort(): Promise<boolean> {
+//     const response = await axiosInstance.post(Server.service.account.verifyToken)
+//     if (response.status === 200) {
+//         if (response.data.code === 200) {
+//             return response.data.data.ok
+//         }
+//     }
+// }
 
 export type UserInfoResponseData = {
     code: number;
@@ -131,4 +131,41 @@ export type UserSecurityInfoResponseData = {
 // GetUserSecurityInfo
 export async function GetUserSecurityInfo(): Promise<AxiosResponse<UserSecurityInfoResponseData>> {
     return axiosInstance.post(Server.service.account.getUserSecurity)
+}
+
+export type SubsystemToken = {
+    id: string;
+    value: string;
+    name: string;
+    date: Date;
+}
+export type GetSubsystemTokensResponseData = {
+    code: number;
+    message: string;
+    data: {
+        tokens: SubsystemToken[];
+    }
+}
+// Get 10 Subsystem Tokens
+export async function GetTenSubsystemTokens(page: number): Promise<AxiosResponse<GetSubsystemTokensResponseData>> {
+    if (page < 0) throw new Error('page must >= 0');
+    return axiosInstance.post(Server.service.account.security.subsystemToken.getTenSubsystemToken, {
+        page: page,
+    })
+}
+
+export type GenerateSubsystemTokenResponseData = {
+    code: number;
+    message: string;
+    data: {
+        token: SubsystemToken;
+    }
+}
+// Generate Subsystem Token
+export async function GenerateSubsystemToken(name: string, scope: number[]): Promise<AxiosResponse<GenerateSubsystemTokenResponseData>> {
+    if (scope.length == 0) throw new Error('scope is empty');
+    return axiosInstance.post(Server.service.account.security.subsystemToken.generateSubsystemToken, {
+        name: name,
+        scope: scope, //JSON.stringify(scope),
+    })
 }

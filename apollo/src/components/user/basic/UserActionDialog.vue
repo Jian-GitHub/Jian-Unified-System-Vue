@@ -18,9 +18,6 @@ import UserAccountSecurityActionDialogBody
   from "@/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue";
 import {UserActionDialogData} from "@/types/dialog/UserAction";
 
-const actions: Record<number, number> = {
-  100: 2,
-}
 // actions[200] = 5
 // console.log(actions['200'])
 
@@ -72,14 +69,6 @@ const dialogData = computed(() => {
   if (!store.actionsIds.infoActions.includes(store.userActionDialogId) && !store.actionsIds.securityActions.includes(store.userActionDialogId)) {
     return {} as UserActionDialogData
   }
-  store.userActionDialogId
-  // TODO: Fetch data
-
-  // CLose loading
-  // setTimeout(() => {
-  //   store.userActionDialogLoading = false
-  // }, 1250)
-
   return dialogs[store.userActionDialogId]
 })
 </script>

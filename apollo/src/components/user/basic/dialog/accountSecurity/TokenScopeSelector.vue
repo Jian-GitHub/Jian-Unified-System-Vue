@@ -11,10 +11,10 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string[]): void
+  (e: 'update:modelValue', value: number[]): void
 }>()
 
-const handleUpdate = (value: string[]): void => {
+const handleUpdate = (value: number[]): void => {
   emit('update:modelValue', value)
 }
 </script>

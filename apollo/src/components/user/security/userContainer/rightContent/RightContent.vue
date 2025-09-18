@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import UserActionCard from "@/components/user/security/userContainer/rightContent/UserActionCard.vue";
-import { useRouter } from 'vue-router';
-const router = useRouter();
+// import { useRouter } from 'vue-router';
+// const router = useRouter();
 import {useI18n} from "vue-i18n";
 const {locale} = useI18n()
 

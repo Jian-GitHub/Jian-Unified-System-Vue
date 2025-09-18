@@ -29,13 +29,13 @@ const cardIconColorClass = (cardIsDanger: boolean) => {
 
 function openActionDialog(id: number) {
   globalStore.userActionDialogVisible = true
-  globalStore.userActionDialogLoading = true
+  // globalStore.userActionDialogLoading = true
   globalStore.userActionDialogId = id
 
   // CLose loading
-  setTimeout(() => {
-    globalStore.userActionDialogLoading = false
-  }, 1250)
+  // setTimeout(() => {
+  //   globalStore.userActionDialogLoading = false
+  // }, 1250)
 }
 </script>
 

@@ -86,7 +86,6 @@ import Settings from "@/components/login/setting/Settings.vue";
   <div class="jus-apollo-page">
     <router-view/>
     <Settings class="jus-apollo-page-settings"/>
-    <UserActionDialog/>
   </div>
   <!--  <header>-->
   <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />-->
