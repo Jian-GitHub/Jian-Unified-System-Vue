@@ -16,7 +16,12 @@
       "security": {
         "title": "账户安全",
         "text_line1": "令牌",
-        "text_line2": "{num} 个受信任令牌"
+        "text_line2": "{num} 个受信任令牌",
+        "generate": {
+          "title": "设置令牌名称 (可选) 和作用域",
+          "inputPlaceholder": "名称 (可选)",
+          "selectorPlaceholder": "作用域"
+        }
       },
       "notification_email": {
         "title": "通知电子邮件",

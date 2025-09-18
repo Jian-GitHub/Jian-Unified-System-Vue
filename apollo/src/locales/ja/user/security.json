@@ -16,7 +16,12 @@
       "security": {
         "title": "アカウントのセキュリティ",
         "text_line1": "トークン",
-        "text_line2": "{num} 個の信頼済みトークン"
+        "text_line2": "{num} 個の信頼済みトークン",
+        "generate": {
+          "title": "トークン名（任意）とスコープを設定",
+          "inputPlaceholder": "名前（任意）",
+          "selectorPlaceholder": "スコープ"
+        }
       },
       "notification_email": {
         "empty": "未設定",

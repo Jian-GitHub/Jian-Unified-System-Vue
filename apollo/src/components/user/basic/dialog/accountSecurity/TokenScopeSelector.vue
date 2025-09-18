@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import {type Component} from "vue";
+import {type Component, computed, ComputedRef} from "vue";
+import {useI18n} from "vue-i18n";
+const {t} = useI18n()
 
 defineProps<{
   modelValue: number[],
@@ -17,6 +19,10 @@ const emit = defineEmits<{
 const handleUpdate = (value: number[]): void => {
   emit('update:modelValue', value)
 }
+
+const placeholderText: ComputedRef<string> = computed(()=>{
+  return t('security_page.actions.security.generate.selectorPlaceholder');
+})
 </script>
 
 <template>
@@ -25,7 +31,7 @@ const handleUpdate = (value: number[]): void => {
       @update:modelValue="handleUpdate"
       class="select-scope"
       multiple
-      placeholder="作用域"
+      :placeholder="placeholderText"
       collapse-tags
       collapse-tags-tooltip
       clearable

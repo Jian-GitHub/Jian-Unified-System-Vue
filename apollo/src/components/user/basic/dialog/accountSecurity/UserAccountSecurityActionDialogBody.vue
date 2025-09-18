@@ -6,7 +6,6 @@ import {computed, ComputedRef, onMounted, Ref, ref} from "vue";
 import {nextTick} from 'vue'
 import {useI18n} from "vue-i18n";
 import {useGlobalStore} from "@/store";
-import {AccountSecurityTokenDialogRowData} from "@/types/dialog/security/AccountSecurityToken";
 import {ElMessage} from "element-plus";
 import InputShort from "@/components/Input/InputShort.vue";
 import QuantumLogo from "@/assets/logo/quantum_20x20.svg";
@@ -170,6 +169,9 @@ onMounted(async () => {
   //   store.userActionDialogLoading = false
   // }, 1250)
 })
+
+const titleText: ComputedRef<string> = computed(() => t('security_page.actions.security.generate.title'))
+const inputPlaceholderText: ComputedRef<string> = computed(() => t('security_page.actions.security.generate.inputPlaceholder'))
 </script>
 
 <template>
@@ -177,7 +179,7 @@ onMounted(async () => {
   <el-dialog
       class="jus-apollo-user-account-security-dialog-token-alias"
       v-model="innerVisible"
-      title="设置令牌名称 (可选) 和作用域"
+      :title="titleText"
       append-to-body
       :show-close="false"
       :close-on-click-modal="false"
@@ -188,7 +190,7 @@ onMounted(async () => {
   >
     <div class="jus-apollo-user-account-security-dialog-token-alias-body">
       <InputShort class="jus-apollo-user-account-security-dialog-token-alias-input" v-model="tokenName"
-                  maxlength="16" show-word-limit clearable placeholder="名称 (可选)"/>
+                  maxlength="16" show-word-limit clearable :placeholder="inputPlaceholderText"/>
       <!--                  @keydown.enter="submitGenerateSubsystemToken"/>-->
 
       <TokenScopeSelector v-model="scope" :options="options"/>

@@ -16,7 +16,12 @@
       "security": {
         "title": "계정 보안",
         "text_line1": "토큰",
-        "text_line2": "{num} 개의 신뢰된 토큰"
+        "text_line2": "{num} 개의 신뢰된 토큰",
+        "generate": {
+          "title": "토큰 이름(선택 사항) 및 범위 설정",
+          "inputPlaceholder": "이름 (선택 사항)",
+          "selectorPlaceholder": "범위"
+        }
       },
       "notification_email": {
         "title": "알림 이메일",

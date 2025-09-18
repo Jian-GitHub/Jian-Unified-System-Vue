@@ -16,7 +16,12 @@
       "security": {
         "title": "Account Security",
         "text_line1": "Token",
-        "text_line2": "{num} trusted tokens"
+        "text_line2": "{num} trusted tokens",
+        "generate": {
+          "title": "Set Token Name (optional) and Scope",
+          "inputPlaceholder": "Name (optional)",
+          "selectorPlaceholder": "Scope"
+        }
       },
       "notification_email": {
         "title": "Notification Email",
