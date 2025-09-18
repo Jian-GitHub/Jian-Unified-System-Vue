@@ -93,12 +93,12 @@ const submitGenerateSubsystemTokenButton = ref(null)
 
 const options = [
   {
-    id: 0,
+    id: 1,
     icon: QuantumLogo,
     label: "JQuantum",
   },
   {
-    id: 1,
+    id: 1 << 2,
     icon: QuantumLogo,
     label: "Argus",
   }
