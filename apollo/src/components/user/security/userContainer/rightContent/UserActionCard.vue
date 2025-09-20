@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {UserPageContent} from "@/types/UserPage";
 import {UserAction} from "@/types/dialog/UserAction";
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 import {useI18n} from "vue-i18n";
-const globalStore = useGlobalStore();
+const globalStore = useSessionStore();
 const {locale} = useI18n()
 
 defineProps<{

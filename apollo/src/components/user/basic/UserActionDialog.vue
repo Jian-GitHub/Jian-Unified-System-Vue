@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {computed, ref} from 'vue';
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 import CloseIcon from "@/assets/icon/close_bold_20x20.svg"
 
-const store = useGlobalStore()
+const store = useSessionStore()
 
 import {useI18n} from "vue-i18n";
 

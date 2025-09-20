@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {useGlobalStore} from "@/store";
+import {useLocalStore} from "@/store";
 
 
 // 创建 axios 实例
@@ -10,10 +10,10 @@ const axiosInstance = axios.create({
 // 请求拦截器，用于在请求发送前添加 token 到请求 header 中
 axiosInstance.interceptors.request.use(
     (config) => {
-        const globalStore = useGlobalStore();
+        const store = useLocalStore();
 
-        if (globalStore.token) {
-            config.headers.Authorization = `${globalStore.token}`;
+        if (store.token) {
+            config.headers.Authorization = `${store.token}`;
         }
         // // 获取 localStorage 中的 token
         // const token = localStorage.getItem('token');

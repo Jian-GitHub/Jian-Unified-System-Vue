@@ -1,11 +1,11 @@
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 
 
 const clouds = ["daytime-cloud", "daytime-cloud-light"]
 const stars  = ["big","big","medium","medium","small","small"]
 
 export function logic() {
-    const globalStore = useGlobalStore()
+    const globalStore = useSessionStore()
     const toggle = () => {
         const willChangeMode = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", willChangeMode);

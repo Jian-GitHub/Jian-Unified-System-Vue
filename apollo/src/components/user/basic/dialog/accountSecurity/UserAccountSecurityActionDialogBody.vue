@@ -5,7 +5,7 @@ import DeleteIcon from "@/assets/icon/remove_20x20.svg";
 import {computed, ComputedRef, onMounted, Ref, ref} from "vue";
 import {nextTick} from 'vue'
 import {useI18n} from "vue-i18n";
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 import {ElMessage} from "element-plus";
 import InputShort from "@/components/Input/InputShort.vue";
 import QuantumLogo from "@/assets/logo/quantum_20x20.svg";
@@ -13,7 +13,7 @@ import TokenScopeSelector from "@/components/user/basic/dialog/accountSecurity/T
 import {GenerateSubsystemToken, GetTenSubsystemTokens, SubsystemToken} from "@/api/AccountActions";
 
 const {t} = useI18n()
-const store = useGlobalStore()
+const store = useSessionStore()
 
 const contentHeaderText = computed(() => t('user_action_dialog.account_security.content.header', {num: store.user.security.accountSecurityTokenNum}))
 

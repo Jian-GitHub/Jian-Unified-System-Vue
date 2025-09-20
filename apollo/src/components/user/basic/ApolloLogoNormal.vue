@@ -2,9 +2,9 @@
 import ApolloLogoLightMode from "@/assets/logo/apollo_light.png"
 import ApolloLogoDarkMode from "@/assets/logo/apollo_dark.png"
 import PngIcon from "@/components/PngIcon.vue";
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 
-const globalStore = useGlobalStore()
+const globalStore = useSessionStore()
 </script>
 
 <template>

@@ -6,7 +6,6 @@ import passkeys from "@/assets/logo/passkeys_20x20.svg"
 import google from "@/assets/logo/google_20x20.svg"
 import gitHub from "@/assets/logo/github_20x20.svg"
 import Divider from "../basic/Divider.vue";
-// import CloudflareChecker from '../basic/CloudflareChecker.vue'
 import {ElButton} from "element-plus";
 import ThirdPartyButton from "@/components/login/basic/ThirdPartyButton.vue";
 import {cf_token} from '@/assets/logic/cloudflareTurnstile';
@@ -43,14 +42,15 @@ const thirdPartyProviders: ThirdPartyProvider[] = [
   {icon: google, text: googleText},
   {icon: gitHub, text: githubText}
 ]
-import {useGlobalStore} from "@/store";
+import {useSessionStore, useLocalStore} from "@/store";
 
-const globalStore = useGlobalStore();
+const sessionStore = useSessionStore();
+const localStore = useLocalStore();
 
-const containerTitle: ComputedRef<string> = computed(() => globalStore.isLogin ? t('container.login.CONTAINER_TITLE') : t('container.registration.CONTAINER_TITLE'))
-const containerText: ComputedRef<string> = computed(() => globalStore.isLogin ? t('container.login.CONTAINER_TEXT') : t('container.registration.CONTAINER_TEXT'))
+const containerTitle: ComputedRef<string> = computed(() => sessionStore.isLogin ? t('container.login.CONTAINER_TITLE') : t('container.registration.CONTAINER_TITLE'))
+const containerText: ComputedRef<string> = computed(() => sessionStore.isLogin ? t('container.login.CONTAINER_TEXT') : t('container.registration.CONTAINER_TEXT'))
 const dividerText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.THIRD_PARTY_CONTINUE'))
-const containerActionButtonText: ComputedRef<string> = computed(() => globalStore.isLogin ? t('container.login.LOGIN_BUTTON') : t('container.registration.REGISTER_BUTTON'))
+const containerActionButtonText: ComputedRef<string> = computed(() => sessionStore.isLogin ? t('container.login.LOGIN_BUTTON') : t('container.registration.REGISTER_BUTTON'))
 const containerActionButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: string]: any }>> = computed(() => {
   return h(
       ElButton,
@@ -61,14 +61,14 @@ const containerActionButton: ComputedRef<VNode<RendererNode, RendererElement, { 
           color: 'var(--jus-color-global-neutrals-pure-black)'
         },
         disabled: isButtonDisabled.value,
-        onClick: globalStore.isLogin ? handleLogin : handleRegister,
+        onClick: sessionStore.isLogin ? handleLogin : handleRegister,
       },
       () => containerActionButtonText.value
   );
 });
 
 const isButtonDisabled = computed(() => {
-  if (globalStore.isLogin) {
+  if (sessionStore.isLogin) {
     return !loginData.value.email || !loginData.value.password || !cf_token.value;
   } else {
     return !registerData.value.email ||
@@ -80,8 +80,8 @@ const isButtonDisabled = computed(() => {
 })
 
 function switchPanel(): void {
-  globalStore.isLogin = !globalStore.isLogin
-  if (globalStore.isLogin) {
+  sessionStore.isLogin = !sessionStore.isLogin
+  if (sessionStore.isLogin) {
     setTheme('dark')
     switchLanguage('en')
   } else {
@@ -141,8 +141,8 @@ const handleRegister = async () => {
   emit('update:isWaitingForServer', true);
 
   let language;
-  if (globalStore.language) {
-    language = globalStore.language;
+  if (sessionStore.language) {
+    language = sessionStore.language;
   } else {
     language = navigator.language || (navigator as any).userLanguage || 'en';
   }
@@ -162,7 +162,7 @@ const handleRegister = async () => {
       return;
     }
 
-    globalStore.token = response.data.data.token;
+    localStore.token = response.data.data.token;
     await router.push({name: 'User'});
   } catch (error) {
     console.log(error)
@@ -173,7 +173,7 @@ const handleRegister = async () => {
 const showLoginTurnstile = ref(false)
 const showRegisterTurnstile = ref(false)
 watch(
-    () => globalStore.isLogin,
+    () => sessionStore.isLogin,
     (isLogin) => {
       if (isLogin) {
         showRegisterTurnstile.value = false
@@ -208,31 +208,31 @@ const handleLogin = async () => {
     if (response.status === 200) {
       if (response.data && response.data.code === 200) {
         // save token
-        globalStore.token = response.data.data.token;
+        localStore.token = response.data.data.token;
         // set language
         if (response.data.data.language) {
           let lang = response.data.data.language.split('-')[0]
-          globalStore.user.info.language = lang;
-          globalStore.language = lang;
+          sessionStore.user.info.language = lang;
+          sessionStore.language = lang;
           switchLanguage(lang)
-          globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[3], false);
+          sessionStore.setActionCardStatus(0, sessionStore.actionsIds.infoActions[3], false);
         }
         // short info
-        globalStore.user.id = response.data.data.id;
-        globalStore.user.info.name.givenName = response.data.data.name.givenName;
-        globalStore.user.info.name.middleName = response.data.data.name.middleName;
-        globalStore.user.info.name.familyName = response.data.data.name.familyName;
-        globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[0], false);
-        globalStore.user.avatar = response.data.data.avatar;
+        sessionStore.user.id = response.data.data.id;
+        sessionStore.user.info.name.givenName = response.data.data.name.givenName;
+        sessionStore.user.info.name.middleName = response.data.data.name.middleName;
+        sessionStore.user.info.name.familyName = response.data.data.name.familyName;
+        sessionStore.setActionCardStatus(0, sessionStore.actionsIds.infoActions[0], false);
+        sessionStore.user.avatar = response.data.data.avatar;
 
         // info
-        globalStore.user.info.birthday.year = response.data.data.birthday.year
-        globalStore.user.info.birthday.month = response.data.data.birthday.month
-        globalStore.user.info.birthday.day = response.data.data.birthday.day
-        globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[1], false);
+        sessionStore.user.info.birthday.year = response.data.data.birthday.year
+        sessionStore.user.info.birthday.month = response.data.data.birthday.month
+        sessionStore.user.info.birthday.day = response.data.data.birthday.day
+        sessionStore.setActionCardStatus(0, sessionStore.actionsIds.infoActions[1], false);
 
-        globalStore.user.info.locale = response.data.data.locale;
-        globalStore.setActionCardStatus(0, globalStore.actionsIds.infoActions[2], false);
+        sessionStore.user.info.locale = response.data.data.locale;
+        sessionStore.setActionCardStatus(0, sessionStore.actionsIds.infoActions[2], false);
 
         await router.push({name: 'User'});
       }
@@ -257,7 +257,7 @@ const emit = defineEmits<{
 <template>
   <div class="jus-apollo-container">
     <!-- Register -->
-    <div class="jus-apollo-container-top-section" v-show="!globalStore.isLogin">
+    <div class="jus-apollo-container-top-section" v-show="!sessionStore.isLogin">
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
       <div :class="['jus-apollo-container-text', sideToButtonClass(1)]">{{ containerText }}</div>
@@ -276,7 +276,7 @@ const emit = defineEmits<{
     </div>
 
     <!-- Login   -->
-    <div class="jus-apollo-container-top-section" v-show="globalStore.isLogin">
+    <div class="jus-apollo-container-top-section" v-show="sessionStore.isLogin">
       <!-- 标题 -->
       <div :class="['jus-apollo-container-title', sideToButtonClass(0)]">{{ containerTitle }}</div>
       <div :class="['jus-apollo-container-text', sideToButtonClass(1)]">{{ containerText }}</div>

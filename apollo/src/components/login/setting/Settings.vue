@@ -3,11 +3,11 @@ import {computed} from 'vue'
 import ArrowDown from "@/assets/icon/arrow_drop_down_20x20.svg";
 import DayNightToggleButton from "@/components/dayNightToggleButton/DayNightToggleButton.vue";
 import Translate from "@/assets/icon/translate_20x20.svg";
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 import {useI18n} from "vue-i18n";
 
 const {t, locale} = useI18n()
-const globalStore = useGlobalStore()
+const globalStore = useSessionStore()
 
 const switchLanguage = (lang: string): void => {
   locale.value = lang

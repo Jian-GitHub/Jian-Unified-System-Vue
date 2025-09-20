@@ -2,9 +2,9 @@
 import VueTurnstile from "vue-turnstile"
 import {useI18n} from 'vue-i18n'
 const {t, locale} = useI18n()
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 
-const globalStore = useGlobalStore();
+const globalStore = useSessionStore();
 
 import { cf_token } from "@/assets/logic/cloudflareTurnstile";
 import {computed, ComputedRef, ref} from "vue";

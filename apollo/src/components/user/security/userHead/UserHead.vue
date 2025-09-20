@@ -1,91 +1,27 @@
 <script setup lang="ts">
-import type {User} from "@/types/User"
 import SearchIcon from "@/assets/icon/search_20x20.svg"
 import HeadDivider from "@/assets/svg/head_divider.svg"
 import {computed, ComputedRef} from "vue";
 import ApolloLogoNormal from "@/components/user/basic/ApolloLogoNormal.vue";
-import {useGlobalStore} from "@/store";
+import {useLocalStore} from "@/store";
 
-const globalStore = useGlobalStore()
+const localStore = useLocalStore()
 
 import {useI18n} from "vue-i18n";
+import router from "@/router";
 
 const {t, locale} = useI18n()
 
-const title: ComputedRef<string> = computed(() => t('head.title'))
-const logout: ComputedRef<string> = computed(() => t('head.logout'))
+const titleText: ComputedRef<string> = computed(() => t('head.title'))
+const logoutText: ComputedRef<string> = computed(() => t('head.logout'))
 
 const menu_alfheim: ComputedRef<string> = computed(() => t('head.menu.alfheim'))
 const menu_argus: ComputedRef<string> = computed(() => t('head.menu.argus'))
 const menu_hermes: ComputedRef<string> = computed(() => t('head.menu.hermes'))
 
-const user1: User = {
-  id: '123',
-  avatar: '',
-  info: {
-    name: {
-      givenName: '剑',
-      middleName: '',
-      familyName: '祁'
-    },
-    birthday: {
-      year: 1999,
-      month: 11,
-      day: 6,
-    },
-    locale: 'JP',
-    language: 'ja',
-  },
-  security: {
-    contacts: [
-      {
-        id: '123',
-        value: '201824101323@hainnu.edu.cn',
-        type: 1,
-      },
-      {
-        id: '213',
-        value: 'jq71@students.waikato.ac.nz',
-        type: 1,
-      },
-      {
-        id: '5463',
-        value: 'e.jianqi@gmail.com',
-        type: 1,
-      },
-      {
-        id: '4533',
-        value: 'e_qijian@icloud.com',
-        type: 1,
-      },
-    ],
-    passwordUpdatedDate: {
-      year: 2023,
-      month: 6,
-      day: 2,
-    },
-    accountSecurityTokenNum: 2,
-    notificationEmail: 'e.jianqi@gmail.com',
-    passkeysNum: 1,
-    thirdPartyAccounts: {
-      github: true,
-      google: false,
-    }
-  }
-}
-
-function newUser() {
-  user1.id = Math.random().toString()
-  user1.security.contacts.push({
-    id: 'a',
-    value: 'a',
-    type: 1,
-  })
-  return user1
-}
-
-function setUser() {
-  globalStore.user = {...newUser()}
+const logout = async () => {
+  localStore.clear();
+  await router.push({name: 'Login'});
 }
 
 </script>
@@ -109,10 +45,10 @@ function setUser() {
     </div>
     <!-- Title -->
     <div class="jus-apollo-head-title-section">
-      <div class="jus-apollo-head-page-title">{{ title }}</div>
+      <div class="jus-apollo-head-page-title">{{ titleText }}</div>
       <div :class="['jus-apollo-head-logout-button', {'jus-apollo-head-logout-button-ja': locale === 'ja'}]"
-           @click="setUser()">
-        {{ logout }}
+           @click="logout()">
+        {{ logoutText }}
       </div>
     </div>
     <!-- Divider -->

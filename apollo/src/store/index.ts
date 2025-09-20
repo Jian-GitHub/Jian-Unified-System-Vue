@@ -22,9 +22,7 @@ import {AccountInfoShort, UserPageContent} from "@/types/UserPage";
 // Theme mode type
 export type Theme = 'light' | 'dark';
 
-export const useGlobalStore = defineStore('store', () => {
-
-    const token: Ref<string> = ref('');
+export const useSessionStore = defineStore('session', () => {
 
     const languages: Ref<string[], string[]> = ref(['zh', 'ja', 'ko', 'en']);
 
@@ -142,6 +140,7 @@ export const useGlobalStore = defineStore('store', () => {
     // const userActionDialogVisible: Ref<boolean, boolean> = ref(false);
 
     const isLogin: Ref<boolean, boolean> = ref(true);
+    const isContainerSwitching: Ref<boolean, boolean> = ref(false);
 
     // const userPageItemIndex: Ref<number> = ref(0);
 
@@ -335,8 +334,8 @@ export const useGlobalStore = defineStore('store', () => {
         })
 
         const tokenInfo = computed(() => {
-            if (isUserNull.value) return t('security_page.actions.security.empty');
-            return t('security_page.actions.security.text_line2', {num: user.value.security.accountSecurityTokenNum})
+            if (isUserNull.value) return t('security_page.actions.security.text_line2', {num: 0});
+            return t('security_page.actions.security.text_line2', {num: user.value.security.accountSecurityTokenNum});
         })
 
         const notificationEmail = computed(() => {
@@ -345,7 +344,7 @@ export const useGlobalStore = defineStore('store', () => {
         })
 
         const passkeysInfo = computed(() => {
-            if (isUserNull.value) return t('security_page.actions.passkeys.empty');
+            if (isUserNull.value) return t('security_page.actions.passkeys.text_line1', {num: 0});
             return t('security_page.actions.passkeys.text_line1', {num: user.value.security.passkeysNum});
         })
 
@@ -437,17 +436,15 @@ export const useGlobalStore = defineStore('store', () => {
     const securityPageContent: ComputedRef<UserPageContent> = createSecurityPageContent()
 
     const clear = ()=> {
-        token.value = '';
         theme.value = '';
         language.value = '';
         user.value = {} as User;
-        localStorage.removeItem('store')
+        sessionStorage.removeItem('store')
     }
     return {
         clear,
         setActionCardStatus,
         resetUser,
-        token,
         user,
         theme,
         preferredTheme,
@@ -466,7 +463,44 @@ export const useGlobalStore = defineStore('store', () => {
 }, {
     persist: {
         storage: sessionStorage,
-        pick: ['token', 'preferredTheme', 'user', 'accountInfoShort', /*'theme',*/ 'language', 'isLogin'/*, 'languages', 'actionsIds'*/],
+        pick: ['preferredTheme', 'user', 'accountInfoShort', /*'theme',*/ 'language', 'isLogin'/*, 'languages', 'actionsIds'*/],
+        serializer: {
+            serialize: (value) => {
+                try {
+                    return JSON.stringify(value)
+                } catch (e) {
+                    console.error(e)
+                    return '{}'
+                }
+            },
+            deserialize: (value) => {
+                try {
+                    return JSON.parse(value)
+                } catch (e) {
+                    console.error(e)
+                    return null
+                }
+            }
+        }
+    }
+})
+
+export const useLocalStore = defineStore('local', () => {
+
+    const token: Ref<string> = ref('');
+
+    const clear = ()=> {
+        token.value = '';
+        localStorage.removeItem('store')
+    }
+    return {
+        clear,
+        token,
+    }
+}, {
+    persist: {
+        storage: localStorage,
+        pick: ['token',],
         serializer: {
             serialize: (value) => {
                 try {

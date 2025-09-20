@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import ApolloLogoBlue from "@/assets/logo/apollo_blue.png";
 import PngIcon from "@/components/PngIcon.vue";
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 
-const globalStore = useGlobalStore()
+const globalStore = useSessionStore()
 </script>
 
 <template>

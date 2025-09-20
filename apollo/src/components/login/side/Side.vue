@@ -2,9 +2,8 @@
 import {useI18n} from 'vue-i18n'
 import {computed, Ref, ref} from 'vue'
 import {ElButton} from "element-plus";
-import {useGlobalStore} from "@/store";
-const globalStore = useGlobalStore()
-// Figma assets
+import {useSessionStore} from "@/store";
+const sessionStore = useSessionStore()
 import {h, ComputedRef, VNode, RendererNode, RendererElement} from "vue";
 import CircleTop from "@/components/login/basic/CircleTop.vue";
 import CircleBottom from "@/components/login/basic/CircleBottom.vue";
@@ -18,8 +17,8 @@ const registerSideText1: ComputedRef<string> = computed(() => t('side.registrati
 const registerSideText2: ComputedRef<string> = computed(() => t('side.registration.SIDE_TEXT_2'))
 const loginButtonText: ComputedRef<string> = computed(() => t('side.login.TO_REGISTER'))
 const registerButtonText: ComputedRef<string> = computed(() => t('side.registration.TO_LOGIN'))
-const sideTextLine1: ComputedRef<string> = computed(() => globalStore.isLogin ? loginSideText1.value : registerSideText1.value)
-const sideTextLine2: ComputedRef<string> = computed(() => globalStore.isLogin ? loginSideText2.value : registerSideText2.value)
+const sideTextLine1: ComputedRef<string> = computed(() => sessionStore.isLogin ? loginSideText1.value : registerSideText1.value)
+const sideTextLine2: ComputedRef<string> = computed(() => sessionStore.isLogin ? loginSideText2.value : registerSideText2.value)
 import { cf_token } from "@/assets/logic/cloudflareTurnstile";
 
 const props = defineProps<{
@@ -48,7 +47,7 @@ function setIsLogin(): void {
   }, 1200);
 
   setTimeout(() => {
-    globalStore.isLogin = !globalStore.isLogin
+    sessionStore.isLogin = !sessionStore.isLogin
   }, 400);
 }
 
@@ -62,7 +61,7 @@ const sideToButton: ComputedRef<VNode<RendererNode, RendererElement, { [p: strin
         color: '#E3F2FD',
         onClick: setIsLogin,
       },
-      () => globalStore.isLogin ? loginButtonText.value : registerButtonText.value
+      () => sessionStore.isLogin ? loginButtonText.value : registerButtonText.value
   );
 });
 

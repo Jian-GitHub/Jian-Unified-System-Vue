@@ -5,13 +5,13 @@ import UserActionCard from "@/components/user/security/userContainer/rightConten
 import {useI18n} from "vue-i18n";
 const {locale} = useI18n()
 
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 import {UserPageContent} from "@/types/UserPage";
 import {onMounted} from "vue";
 import {GetUserInfo, GetUserSecurityInfo, UserInfoResponseData, UserSecurityInfoResponseData} from "@/api/AccountActions";
 import {AxiosResponse} from "axios";
 
-const store = useGlobalStore();
+const store = useSessionStore();
 
 defineProps<{
   pageContent: UserPageContent

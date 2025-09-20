@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
-import {useGlobalStore} from "@/store";
+import {useLocalStore, useSessionStore} from "@/store";
 // import App from "@/App.vue";
 import Login from "@/components/login/LoginPage.vue";
 import UserPage from "@/components/user/security/UserPage.vue"
@@ -37,18 +37,19 @@ const router = createRouter({
 
 // 全局前置守卫
 router.beforeEach(async (to, from, next) => {
-    const store = useGlobalStore();
-    if (!store.token && to.name !== 'Login') return next({name: 'Login'});
+    const sessionStore = useSessionStore();
+    const localStore = useLocalStore();
+    if (!localStore.token && to.name !== 'Login') return next({name: 'Login'});
 
-    if (store.token && to.name === 'Login') {
+    if (localStore.token && to.name === 'Login') {
         return next({name: 'User'});
     }
 
     if (to.name === 'User' && from.name != 'Login') {
         if (!await VerifyToken()) {
-            store.token = '';
-            store.language = '';
-            store.resetUser();
+            localStore.token = '';
+            sessionStore.language = '';
+            sessionStore.resetUser();
             return next({name: 'Login'});
         }
     }

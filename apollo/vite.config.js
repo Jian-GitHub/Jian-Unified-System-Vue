@@ -36,7 +36,8 @@ export default defineConfig({
     proxy: {
       '/api': {
         // target: 'http://dev.jian.nz:20550',
-        target: 'http://192.168.20.72:30500',
+        // target: 'http://192.168.20.72:30500',
+        target: 'http://apollo.osaka1.jianqi.jp:30500',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

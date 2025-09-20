@@ -4,11 +4,11 @@ import AddIcon from "@/assets/icon/plus_20x20.svg";
 import DeleteIcon from "@/assets/icon/remove_20x20.svg";
 import {computed} from "vue";
 import {useI18n} from "vue-i18n";
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 import {PasskeysDialogRowData} from "@/types/dialog/security/Passkeys";
 
 const {t} = useI18n()
-const store = useGlobalStore()
+const store = useSessionStore()
 
 const contentHeaderText = computed(() => t('user_action_dialog.passkeys.content.header', {num: store.user.security.passkeysNum}))
 

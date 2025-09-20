@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {computed, ComputedRef, inject, Ref} from "vue";
 import {useI18n} from "vue-i18n";
-import {useGlobalStore} from "@/store"
+import {useSessionStore} from "@/store"
 
-const globalStore = useGlobalStore()
+const globalStore = useSessionStore()
 const {t} = useI18n()
 const menu_user_info: ComputedRef<string> = computed(() => t('user_container.left_side.menu.user_info'))
 const menu_security: ComputedRef<string> = computed(() => t('user_container.left_side.menu.security'))

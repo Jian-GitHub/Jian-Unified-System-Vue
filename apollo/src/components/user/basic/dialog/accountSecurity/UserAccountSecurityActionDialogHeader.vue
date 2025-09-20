@@ -2,9 +2,9 @@
 
 import SecurityIcon from "@/assets/icon/token_20x20.svg";
 import {computed} from "vue";
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 import {useI18n} from "vue-i18n";
-const store = useGlobalStore()
+const store = useSessionStore()
 const {t} = useI18n()
 
 const titleText = computed(() => t('user_action_dialog.account_security.title'))

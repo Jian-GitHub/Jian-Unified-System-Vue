@@ -2,12 +2,12 @@
 import LeftSide from "@/components/user/security/userContainer/leftSide/LeftSide.vue"
 import RightContent from "@/components/user/security/userContainer/rightContent/RightContent.vue";
 
-import {useGlobalStore} from "@/store"
+import {useSessionStore} from "@/store"
 import {computed, ComputedRef, ref, Ref} from "vue";
 import {UserPageContent} from "@/types/UserPage";
 import { provide } from "vue";
 
-const globalStore = useGlobalStore()
+const globalStore = useSessionStore()
 
 const menuItemIndex: Ref<number> = ref(0);
 

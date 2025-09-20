@@ -5,9 +5,9 @@ import LeftSideMenu from "@/components/user/basic/LeftSideMenu.vue";
 import {computed, ComputedRef, Ref} from "vue"
 import {inject} from 'vue'
 import {useI18n} from "vue-i18n";
-import {useGlobalStore} from "@/store";
+import {useSessionStore} from "@/store";
 
-const globalStore = useGlobalStore()
+const globalStore = useSessionStore()
 
 const {t} = useI18n()
 

@@ -2,8 +2,11 @@
 import Side from "@/components/login/side/Side.vue";
 import Container from "@/components/login/container/Container.vue";
 import {ref} from "vue";
+import {useSessionStore} from "@/store";
 
-const isLogin = ref(true)
+const sessionStore = useSessionStore();
+
+const isLogin = ref(sessionStore.isLogin)
 const isWaitingForServer = ref(false)
 </script>
 
