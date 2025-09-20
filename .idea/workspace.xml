@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Using el-affix.css" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix bug">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/functions/api/[[path]].ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/functions/api/[[path]].ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,35 +61,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/jian/code/webstorm/Jian-Unified-System-Vue/apollo/src/locales/ko",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "ts.external.directory.path": "/jian/code/webstorm/Jian-Unified-System-Vue/apollo/node_modules/typescript/lib",
-    "ts.rename.search.for.dynamic.occurrences": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/apollo/src/locales/ko&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/apollo/node_modules/typescript/lib&quot;,
+    &quot;ts.rename.search.for.dynamic.occurrences&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info id="Bookmarks" side_tool="true" />
@@ -93,20 +97,20 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21746576" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" />
       <window_info id="Commit" order="1" weight="0.21746576" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="File Transfer" />
-      <window_info anchor="bottom" id="Version Control" order="1" weight="0.30450734" />
-      <window_info anchor="bottom" id="Problems" order="2" />
-      <window_info anchor="bottom" id="Problems View" order="3" sideWeight="0.5003629" weight="0.21005291" />
-      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.5003629" weight="0.25026456" />
-      <window_info anchor="bottom" id="Services" order="5" weight="0.25026456" />
-      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="6" sideWeight="0.49963716" visible="true" weight="0.25026456" />
-      <window_info anchor="bottom" id="Find" order="7" sideWeight="0.5003629" weight="0.25026456" />
-      <window_info anchor="bottom" id="TODO" order="8" weight="0.25026456" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.30450734" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.25026456" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.25026456" />
+      <window_info anchor="bottom" id="Services" order="4" weight="0.25026456" />
+      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" weight="0.25026456" />
+      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.5003629" weight="0.25026456" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.25026456" />
       <window_info anchor="right" id="Endpoints" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
@@ -176,7 +180,8 @@
       <workItem from="1757632062362" duration="105596000" />
       <workItem from="1757889533463" duration="7151000" />
       <workItem from="1757913996678" duration="1746000" />
-      <workItem from="1757931760048" duration="70059000" />
+      <workItem from="1757931760048" duration="80625000" />
+      <workItem from="1758343910043" duration="506000" />
     </task>
     <task id="LOCAL-00001" summary="Config i18n; Color css variables">
       <option name="closed" value="true" />
@@ -538,7 +543,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758203931175</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Fix bug">
+      <option name="closed" value="true" />
+      <created>1758204353198</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1758204353198</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Fix bug">
+      <option name="closed" value="true" />
+      <created>1758204649112</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1758204649112</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,9 +599,9 @@
     <MESSAGE value="Feature: Register - Email + Password" />
     <MESSAGE value="Fix JP language bug" />
     <MESSAGE value="Feature: Generate new Subsystem Token" />
-    <MESSAGE value="Fix bug" />
     <MESSAGE value="Feature: Multiple languages for Generate Subsystem Token Dialog" />
     <MESSAGE value="Using el-affix.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Using el-affix.css" />
+    <MESSAGE value="Fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug" />
   </component>
 </project>
