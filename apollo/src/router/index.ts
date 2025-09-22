@@ -45,7 +45,7 @@ router.beforeEach(async (to, from, next) => {
         return next({name: 'User'});
     }
 
-    if (to.name === 'User' && from.name != 'Login') {
+    if (to.name === 'User') {
         if (!await VerifyToken()) {
             localStore.token = '';
             sessionStore.language = '';

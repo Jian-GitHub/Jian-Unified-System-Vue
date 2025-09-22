@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: Passkeys Register (Test)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
-    </list>
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix bug" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -184,23 +179,7 @@
       <workItem from="1757931760048" duration="80625000" />
       <workItem from="1758343910043" duration="1293000" />
       <workItem from="1758347301263" duration="8064000" />
-      <workItem from="1758472509764" duration="10796000" />
-    </task>
-    <task id="LOCAL-00005" summary="LoginPage">
-      <option name="closed" value="true" />
-      <created>1757250164022</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1757250164022</updated>
-    </task>
-    <task id="LOCAL-00006" summary="LoginPage">
-      <option name="closed" value="true" />
-      <created>1757250169329</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1757250169329</updated>
+      <workItem from="1758472509764" duration="11689000" />
     </task>
     <task id="LOCAL-00007" summary="Change LoginPage">
       <option name="closed" value="true" />
@@ -578,7 +557,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758538583446</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Feature: Passkeys Login (Test)">
+      <option name="closed" value="true" />
+      <created>1758550557866</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1758550557866</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Fix bug">
+      <option name="closed" value="true" />
+      <created>1758550834727</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1758550834727</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +591,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Decoupling Token Generation Scope Selector" />
     <MESSAGE value="Feature: Cloudflare Turnstile &amp; Login Axios Request &amp; Loading Mask" />
     <MESSAGE value="Fix Bug" />
     <MESSAGE value="Remove unnecessary comments" />
@@ -616,11 +610,12 @@
     <MESSAGE value="Feature: Multiple languages for Generate Subsystem Token Dialog" />
     <MESSAGE value="Using el-affix.css" />
     <MESSAGE value="Switch api to K8s" />
-    <MESSAGE value="Fix bug" />
     <MESSAGE value="Switch API -&gt; Cloud" />
     <MESSAGE value="Feature: Logout" />
     <MESSAGE value="Update Website Title" />
     <MESSAGE value="Feature: Passkeys Register (Test)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feature: Passkeys Register (Test)" />
+    <MESSAGE value="Feature: Passkeys Login (Test)" />
+    <MESSAGE value="Fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug" />
   </component>
 </project>
