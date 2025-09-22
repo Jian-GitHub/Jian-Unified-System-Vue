@@ -32,15 +32,16 @@ const passkeysText: ComputedRef<string> = computed(() => t('container.THIRD_PART
 const googleText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.GOOGLE'))
 const githubText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.GITHUB'))
 
-interface ThirdPartyProvider {
+type ThirdPartyProvider = {
+  id: 0 | 1 | 2
   icon: Component
   text: ComputedRef<string>
 }
 
 const thirdPartyProviders: ThirdPartyProvider[] = [
-  {icon: passkeys, text: passkeysText},
-  {icon: google, text: googleText},
-  {icon: gitHub, text: githubText}
+  {id: 0, icon: passkeys, text: passkeysText},
+  {id: 1, icon: gitHub, text: githubText},
+  {id: 2, icon: google, text: googleText}
 ]
 import {useSessionStore, useLocalStore} from "@/store";
 
@@ -79,15 +80,154 @@ const isButtonDisabled = computed(() => {
   }
 })
 
-function switchPanel(): void {
-  sessionStore.isLogin = !sessionStore.isLogin
-  if (sessionStore.isLogin) {
-    setTheme('dark')
-    switchLanguage('en')
-  } else {
-    setTheme('light')
-    switchLanguage('zh')
+function passkeysLogin() {
+
+}
+async function passkeysRegister() {
+  let currentSession = null;
+  try {
+    console.log("开始")
+    // 阶段1：获取注册选项
+    const { data: startData } = await axiosInstance.post(`/api/v1/passkeys/registration/start`,
+        {
+          user_name: 'user_${Date.now()}@test.com',
+          display_name: '测试用户'
+        }
+    );
+    const data = startData.data
+    currentSession = data.session_id;
+    console.log("data",data)
+
+    let options = JSON.parse(data.options_json).publicKey
+    console.log(options)
+
+    console.log(options.challenge)
+
+    let { rp, challenge, user } = options;
+
+    let createOptions: PublicKeyCredentialCreationOptions = {
+      challenge: base64Decode(challenge),
+      rp: {
+        name: rp.name,
+        id: rp.id,
+      },
+      pubKeyCredParams: [
+        {
+          alg: -8,
+          type: 'public-key',
+        },
+      ],
+      user: {
+        id: base64Decode(user.id),
+        name: user.name,
+        displayName: user.displayName,
+      },
+    };
+    console.log('创建参数：', createOptions);
+    console.log(JSON.stringify(createOptions))
+
+    // 调用浏览器WebAuthn API
+    const credential = await navigator.credentials.create({
+      publicKey: createOptions,
+    }) as PublicKeyCredential;
+    if (!credential) {
+      console.log("创建凭证失败");
+      return;
+    }
+
+    const attestationResponse = credential.response as AuthenticatorAttestationResponse;
+    const finishOptions = {
+      id:     credential.id,
+      type:   credential.type,
+      rawId:  base64Encode(credential.rawId),
+      response: {
+        clientDataJSON:     base64Encode(attestationResponse.clientDataJSON),
+        attestationObject:  base64Encode(attestationResponse.attestationObject),
+      },
+    } ;
+    // const finishOptions = {
+    //   id:     credential.id,
+    //   type:   credential.type,
+    //   rawId:  credential.rawId,
+    //   response: {
+    //     clientDataJSON:     attestationResponse.clientDataJSON,
+    //     attestationObject:  attestationResponse.attestationObject,
+    //   },
+    // } ;
+    // console.log('结束注册参数：', finishOptions);
+
+
+    // finishOptions.rawId = base64Encode(finishOptions.rawId);
+    // finishOptions.response.clientDataJSON = base64Encode(finishOptions.response.clientDataJSON);
+    // finishOptions.response.attestationObject = base64Encode(finishOptions.response.attestationObject);
+
+
+    // 阶段2：提交认证数据
+    // const language = navigator.language || 'en-US';
+    // console.log(language)
+    const { data: finishData } = await axiosInstance.post(`/api/v1/passkeys/registration/finish`, {
+      session_id: currentSession,
+      language: sessionStore.language,
+      credential: JSON.stringify(finishOptions)
+    });
+    alert(`Registration Success: ${finishData.message}`);
+  } catch (err) {
+    console.error(err);
+    alert(`注册失败: ${err.response?.data?.message || err.message}`);
   }
+}
+
+// Base64 编码（字节数组 -> base64字符串）
+function base64Encode(bs) {
+  const bytes = new Uint8Array(bs);
+  return btoa(String.fromCharCode(...bytes))
+      .replace(/=/g, '')
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_');
+}
+// Base64 解码（base64字符串 -> 字节数组）
+function base64Decode(s) {
+  // 添加缺失的填充字符
+  s = s.padEnd(s.length + (4 - (s.length % 4)) % 4, '=');
+
+  // 转换为标准 base64
+  const standardBase64 = s.replace(/-/g, '+').replace(/_/g, '/');
+
+  // 解码为字节数组
+  const byteString = atob(standardBase64);
+  const result = new Uint8Array(byteString.length);
+
+  for (let i = 0; i < byteString.length; i++) {
+    result[i] = byteString.charCodeAt(i);
+  }
+
+  return new Uint8Array(Array.from(result)).buffer;
+}
+
+function handleThirdPartyContinue(id: 0 | 1 | 2): void {
+  switch(id) {
+    // Passkeys
+    case 0:
+      if (sessionStore.isLogin) passkeysLogin();
+      else passkeysRegister();
+      break;
+    // github
+    case 1:
+      break;
+    // google
+    case 2:
+      break;
+    default:
+      return;
+  }
+  // sessionStore.isLogin = !sessionStore.isLogin
+  // if (sessionStore.isLogin) {
+  //   setTheme('dark')
+  //   switchLanguage('en')
+  // } else {
+  //   setTheme('light')
+  //   switchLanguage('zh')
+  // }
 }
 
 function setTheme(theme: 'light' | 'dark'): void {
@@ -140,7 +280,7 @@ const handleRegister = async () => {
 
   emit('update:isWaitingForServer', true);
 
-  let language;
+  let language: string;
   if (sessionStore.language) {
     language = sessionStore.language;
   } else {
@@ -190,6 +330,7 @@ watch(
 
 import {watch} from 'vue'
 import {AxiosResponse} from "axios";
+import axiosInstance from "@/api/axiosInstance";
 
 const handleLogin = async () => {
   if (!loginData.value.email || !loginData.value.password || !cf_token.value) {
@@ -204,7 +345,6 @@ const handleLogin = async () => {
   }
   try {
     const response = await Login(data)
-    console.log(response)
     if (response.status === 200) {
       if (response.data && response.data.code === 200) {
         // save token
@@ -301,11 +441,11 @@ const emit = defineEmits<{
       <Divider class="jus-apollo-container-bottom-section-divider" :text="dividerText"/>
       <div class="jus-apollo-container-bottom-section-third-party-buttons">
         <ThirdPartyButton
-            v-for="(provider, index) in thirdPartyProviders"
-            :key="index"
+            v-for="provider in thirdPartyProviders"
+            :key="provider.id"
             :icon="provider.icon"
             :text="provider.text"
-            @click="switchPanel"/>
+            @click="handleThirdPartyContinue(provider.id)"/>
       </div>
     </div>
   </div>

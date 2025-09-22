@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: Logout">
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Update Website Title">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,8 +97,8 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21130136" />
-      <window_info id="Commit" order="1" weight="0.21130136" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12910959" />
+      <window_info id="Commit" order="1" weight="0.20856164" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -106,7 +108,7 @@
       <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.25026456" />
       <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.25026456" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.25026456" />
-      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" weight="0.25026456" />
+      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" weight="0.22804233" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.5003629" weight="0.25026456" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.25026456" />
       <window_info anchor="right" id="Endpoints" />
@@ -181,14 +183,7 @@
       <workItem from="1757931760048" duration="80625000" />
       <workItem from="1758343910043" duration="1293000" />
       <workItem from="1758347301263" duration="8064000" />
-    </task>
-    <task id="LOCAL-00003" summary="SVG -&gt; Div&#10;Add Circle Shadow Color">
-      <option name="closed" value="true" />
-      <created>1757129663020</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1757129663020</updated>
+      <workItem from="1758472509764" duration="5498000" />
     </task>
     <task id="LOCAL-00004" summary="Optimize code structure">
       <option name="closed" value="true" />
@@ -574,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758377430158</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Update Website Title">
+      <option name="closed" value="true" />
+      <created>1758472570844</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1758472570844</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,7 +595,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update: PasskeysDialog Content UI" />
     <MESSAGE value="Feature: Account Security Token Generation UI" />
     <MESSAGE value="Decoupling Token Generation Scope Selector" />
     <MESSAGE value="Feature: Cloudflare Turnstile &amp; Login Axios Request &amp; Loading Mask" />
@@ -617,6 +619,7 @@
     <MESSAGE value="Fix bug" />
     <MESSAGE value="Switch API -&gt; Cloud" />
     <MESSAGE value="Feature: Logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feature: Logout" />
+    <MESSAGE value="Update Website Title" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Website Title" />
   </component>
 </project>
