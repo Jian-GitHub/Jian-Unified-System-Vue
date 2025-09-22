@@ -3,7 +3,7 @@ const api: string = '/api';
 const apiVersion: string = '/v1';
 const apiUrlPrefix: string = api + apiVersion;
 const apiAccountPrefix: string = apiUrlPrefix + '/account';
-const apiPasskeysPrefix: string = apiAccountPrefix + '/passkeys';
+const apiPasskeysPrefix: string = apiUrlPrefix + '/passkeys';
 
 const apiAccountSecurityPrefix: string = apiAccountPrefix + '/security';
 const apiPasskeysRegistrationPrefix: string = apiPasskeysPrefix + '/registration';
