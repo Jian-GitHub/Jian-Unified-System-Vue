@@ -169,3 +169,94 @@ export async function GenerateSubsystemToken(name: string, scope: number[]): Pro
         scope: scope, //JSON.stringify(scope),
     })
 }
+
+
+export type PasskeysRegisterStartResponseData = {
+    code: number;
+    message: string;
+    data: {
+        session_id: string;
+        options_json: string;
+    }
+}
+// Passkeys Register - start
+export async function PasskeysRegisterStart(user_name?: string, display_name?: string): Promise<AxiosResponse<PasskeysRegisterStartResponseData>> {
+    let data: {
+        user_name: string
+        display_name: string
+    } = {
+        user_name: '',
+        display_name: ''
+    }
+    if (user_name && display_name) {
+        data.user_name = user_name;
+        data.display_name = display_name;
+    }
+    return axiosInstance.post(Server.service.account.passkeys.register.start, data);
+}
+
+export type PasskeysRegisterFinishOptions = {
+    id: string
+    type: string
+    rawId: string
+    response: {
+        clientDataJSON: string
+        attestationObject: string
+    }
+}
+
+export type PasskeysRegisterFinishResponseData = {
+    code: number;
+    message: string;
+    data: {
+        token: string;
+    }
+}
+// Passkeys Register - finish
+export async function PasskeysRegisterFinish(currentSession: string, language: string, finishOptions: PasskeysRegisterFinishOptions): Promise<AxiosResponse<PasskeysRegisterFinishResponseData>> {
+    return axiosInstance.post(Server.service.account.passkeys.register.finish, {
+        session_id: currentSession,
+        language: language,
+        credential: JSON.stringify(finishOptions)
+    });
+}
+
+export type PasskeysLoginStartResponseData = {
+    code: number;
+    message: string;
+    data: {
+        options_json: string;
+        session_id:   string;
+    }
+}
+// Passkeys Login - start
+export async function PasskeysLoginStart(): Promise<AxiosResponse<PasskeysLoginStartResponseData>> {
+    return axiosInstance.post(Server.service.account.passkeys.login.start);
+}
+
+export type PasskeysLoginFinishOptions = {
+    id: string
+    type: string
+    rawId: string
+    response: {
+        clientDataJSON: string
+        authenticatorData: string
+        signature: string
+        userHandle: string
+    }
+}
+
+export type PasskeysLoginFinishResponseData = {
+    code: number;
+    message: string;
+    data: {
+        token: string;
+    }
+}
+// Passkeys Login - finish
+export async function PasskeysLoginFinish(session_id: string, finishLoginOptions:PasskeysLoginFinishOptions): Promise<AxiosResponse<PasskeysLoginFinishResponseData>> {
+    return axiosInstance.post(Server.service.account.passkeys.login.finish, {
+        session_id: session_id,
+        assertion: JSON.stringify(finishLoginOptions),
+    });
+}

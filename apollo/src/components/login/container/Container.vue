@@ -10,9 +10,17 @@ import {ElButton} from "element-plus";
 import ThirdPartyButton from "@/components/login/basic/ThirdPartyButton.vue";
 import {cf_token} from '@/assets/logic/cloudflareTurnstile';
 import CloudflareTurnstile from "@/components/CloudflareTurnstile.vue";
-import {LoginFormData, Register, RegisterFormData} from "@/api/AccountActions";
+import {
+  LoginFormData,
+  PasskeysRegisterFinish, PasskeysRegisterFinishOptions,
+  PasskeysRegisterStartResponseData,
+  PasskeysRegisterStart,
+  Register,
+  RegisterFormData, PasskeysLoginStart, PasskeysLoginFinishOptions, PasskeysLoginFinish
+} from "@/api/AccountActions";
 import {Login} from "@/api/AccountActions"
-import { useRouter } from 'vue-router';
+import {useRouter} from 'vue-router';
+
 const router = useRouter();
 import {useI18n} from 'vue-i18n'
 
@@ -80,113 +88,150 @@ const isButtonDisabled = computed(() => {
   }
 })
 
-function passkeysLogin() {
-
-}
-async function passkeysRegister() {
-  let currentSession = null;
+async function passkeysLogin() {
   try {
-    console.log("开始")
-    // 阶段1：获取注册选项
-    const { data: startData } = await axiosInstance.post(`/api/v1/passkeys/registration/start`,
-        {
-          user_name: 'user_${Date.now()}@test.com',
-          display_name: '测试用户'
-        }
-    );
+    // 阶段1：获取登录选项
+    const {data: startData} = await PasskeysLoginStart()
+
     const data = startData.data
-    currentSession = data.session_id;
-    console.log("data",data)
+    let currentSession = data.session_id;
 
-    let options = JSON.parse(data.options_json).publicKey
-    console.log(options)
+    const options = JSON.parse(data.options_json).publicKey;
 
-    console.log(options.challenge)
+    options.challenge = base64Decode(options.challenge);
 
-    let { rp, challenge, user } = options;
+    let createOptions = {
+      challenge: options.challenge,
+    };
+    let assertion = await navigator.credentials.get({ publicKey: createOptions}) as PublicKeyCredential;
 
-    let createOptions: PublicKeyCredentialCreationOptions = {
-      challenge: base64Decode(challenge),
-      rp: {
-        name: rp.name,
-        id: rp.id,
-      },
-      pubKeyCredParams: [
-        {
-          alg: -8,
-          type: 'public-key',
-        },
-      ],
-      user: {
-        id: base64Decode(user.id),
-        name: user.name,
-        displayName: user.displayName,
+    const authenticatorResponse = assertion.response as AuthenticatorAssertionResponse
+    let finishLoginOptions: PasskeysLoginFinishOptions = {
+      id:     assertion.id,
+      type:   assertion.type,
+      rawId:  base64Encode(assertion.rawId),
+      response: {
+        clientDataJSON:     base64Encode(authenticatorResponse.clientDataJSON),
+        authenticatorData:  base64Encode(authenticatorResponse.authenticatorData),
+        signature:          base64Encode(authenticatorResponse.signature),
+        userHandle:         base64Encode(authenticatorResponse.userHandle),
       },
     };
-    console.log('创建参数：', createOptions);
-    console.log(JSON.stringify(createOptions))
 
-    // 调用浏览器WebAuthn API
-    const credential = await navigator.credentials.create({
-      publicKey: createOptions,
-    }) as PublicKeyCredential;
-    if (!credential) {
-      console.log("创建凭证失败");
-      return;
-    }
-
-    const attestationResponse = credential.response as AuthenticatorAttestationResponse;
-    const finishOptions = {
-      id:     credential.id,
-      type:   credential.type,
-      rawId:  base64Encode(credential.rawId),
-      response: {
-        clientDataJSON:     base64Encode(attestationResponse.clientDataJSON),
-        attestationObject:  base64Encode(attestationResponse.attestationObject),
-      },
-    } ;
-    // const finishOptions = {
-    //   id:     credential.id,
-    //   type:   credential.type,
-    //   rawId:  credential.rawId,
-    //   response: {
-    //     clientDataJSON:     attestationResponse.clientDataJSON,
-    //     attestationObject:  attestationResponse.attestationObject,
-    //   },
-    // } ;
-    // console.log('结束注册参数：', finishOptions);
-
-
-    // finishOptions.rawId = base64Encode(finishOptions.rawId);
-    // finishOptions.response.clientDataJSON = base64Encode(finishOptions.response.clientDataJSON);
-    // finishOptions.response.attestationObject = base64Encode(finishOptions.response.attestationObject);
-
-
-    // 阶段2：提交认证数据
-    // const language = navigator.language || 'en-US';
-    // console.log(language)
-    const { data: finishData } = await axiosInstance.post(`/api/v1/passkeys/registration/finish`, {
-      session_id: currentSession,
-      language: sessionStore.language,
-      credential: JSON.stringify(finishOptions)
-    });
-    alert(`Registration Success: ${finishData.message}`);
+    // 阶段2：提交断言
+    const { data: finishData } = await PasskeysLoginFinish(currentSession, finishLoginOptions);
+    localStore.token = finishData.data.token;
+    emit('update:isWaitingForServer', false);
+    await router.push({name: 'User'});
   } catch (err) {
     console.error(err);
-    alert(`注册失败: ${err.response?.data?.message || err.message}`);
   }
+}
+function serializeCredential(credential) {
+  return {
+    id: credential.id,
+    type: credential.type,
+    rawId: bufferToBase64Url(credential.rawId),
+    response: {
+      clientDataJSON: bufferToBase64Url(credential.response.clientDataJSON),
+      authenticatorData: bufferToBase64Url(credential.response.authenticatorData),
+      signature: bufferToBase64Url(credential.response.signature),
+      userHandle: credential.response.userHandle
+          ? bufferToBase64Url(credential.response.userHandle)
+          : null,
+    },
+    clientExtensionResults: credential.getClientExtensionResults(),
+  };
+}
+function bufferToBase64Url(buffer) {
+  return btoa(String.fromCharCode(...new Uint8Array(buffer)))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+}
+
+async function passkeysRegister() {
+  let currentSession: string = null;
+  let startData: PasskeysRegisterStartResponseData = null;
+  try {
+    // 阶段1：获取注册选项
+    const response = await PasskeysRegisterStart();
+    startData = response.data
+  } catch (e) {
+    console.log(e)
+    return;
+  }
+  const data = startData.data
+  currentSession = data.session_id;
+
+  let options = JSON.parse(data.options_json).publicKey
+
+  let {rp, challenge, user} = options;
+
+  let createOptions: PublicKeyCredentialCreationOptions = {
+    challenge: base64Decode(challenge),
+    rp: {
+      name: rp.name,
+      id: rp.id,
+    },
+    pubKeyCredParams: [
+      {
+        alg: -8,
+        type: 'public-key',
+      },
+    ],
+    user: {
+      id: base64Decode(user.id),
+      name: user.name,
+      displayName: user.displayName,
+    },
+  };
+
+  // 调用浏览器WebAuthn API
+  const credential = await navigator.credentials.create({
+    publicKey: createOptions,
+  }) as PublicKeyCredential;
+  if (!credential) {
+    console.log("创建凭证失败");
+    return;
+  }
+
+  const attestationResponse = credential.response as AuthenticatorAttestationResponse;
+  const finishOptions: PasskeysRegisterFinishOptions = {
+    id: credential.id,
+    type: credential.type,
+    rawId: base64Encode(credential.rawId),
+    response: {
+      clientDataJSON: base64Encode(attestationResponse.clientDataJSON),
+      attestationObject: base64Encode(attestationResponse.attestationObject),
+    },
+  };
+
+  try {
+    // 阶段2：提交认证数据
+    const {data: finishData} = await PasskeysRegisterFinish(currentSession, sessionStore.language, finishOptions);
+    // alert(`Registration Success: ${finishData.message}`);
+    localStore.token = finishData.data.token;
+    emit('update:isWaitingForServer', false);
+    await router.push({name: 'User'});
+  } catch (err) {
+    console.error(err);
+    // alert(`注册失败: ${err.response?.data?.message || err.message}`);
+  }
+  emit('update:isWaitingForServer', false);
 }
 
 // Base64 编码（字节数组 -> base64字符串）
-function base64Encode(bs) {
+function base64Encode(bs: ArrayBuffer) {
   const bytes = new Uint8Array(bs);
   return btoa(String.fromCharCode(...bytes))
       .replace(/=/g, '')
       .replace(/\+/g, '-')
       .replace(/\//g, '_');
 }
+
 // Base64 解码（base64字符串 -> 字节数组）
-function base64Decode(s) {
+function base64Decode(s: string) {
   // 添加缺失的填充字符
   s = s.padEnd(s.length + (4 - (s.length % 4)) % 4, '=');
 
@@ -205,29 +250,21 @@ function base64Decode(s) {
 }
 
 function handleThirdPartyContinue(id: 0 | 1 | 2): void {
-  switch(id) {
-    // Passkeys
+  switch (id) {
+      // Passkeys
     case 0:
       if (sessionStore.isLogin) passkeysLogin();
       else passkeysRegister();
       break;
-    // github
+      // github
     case 1:
       break;
-    // google
+      // google
     case 2:
       break;
     default:
       return;
   }
-  // sessionStore.isLogin = !sessionStore.isLogin
-  // if (sessionStore.isLogin) {
-  //   setTheme('dark')
-  //   switchLanguage('en')
-  // } else {
-  //   setTheme('light')
-  //   switchLanguage('zh')
-  // }
 }
 
 function setTheme(theme: 'light' | 'dark'): void {
@@ -331,6 +368,7 @@ watch(
 import {watch} from 'vue'
 import {AxiosResponse} from "axios";
 import axiosInstance from "@/api/axiosInstance";
+import {Server} from "@/config";
 
 const handleLogin = async () => {
   if (!loginData.value.email || !loginData.value.password || !cf_token.value) {
