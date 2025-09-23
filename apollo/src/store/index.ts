@@ -438,7 +438,7 @@ export const useSessionStore = defineStore('session', () => {
     const clear = ()=> {
         theme.value = '';
         language.value = '';
-        user.value = {} as User;
+        resetUser();
         sessionStorage.removeItem('store')
     }
     return {

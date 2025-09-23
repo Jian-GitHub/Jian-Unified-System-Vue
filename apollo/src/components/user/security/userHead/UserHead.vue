@@ -3,9 +3,10 @@ import SearchIcon from "@/assets/icon/search_20x20.svg"
 import HeadDivider from "@/assets/svg/head_divider.svg"
 import {computed, ComputedRef} from "vue";
 import ApolloLogoNormal from "@/components/user/basic/ApolloLogoNormal.vue";
-import {useLocalStore} from "@/store";
+import {useLocalStore, useSessionStore} from "@/store";
 
 const localStore = useLocalStore()
+const sessionStore = useSessionStore()
 
 import {useI18n} from "vue-i18n";
 import router from "@/router";
@@ -21,6 +22,7 @@ const menu_hermes: ComputedRef<string> = computed(() => t('head.menu.hermes'))
 
 const logout = async () => {
   localStore.clear();
+  sessionStore.clear();
   await router.push({name: 'Login'});
 }
 

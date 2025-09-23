@@ -367,8 +367,6 @@ watch(
 
 import {watch} from 'vue'
 import {AxiosResponse} from "axios";
-import axiosInstance from "@/api/axiosInstance";
-import {Server} from "@/config";
 
 const handleLogin = async () => {
   if (!loginData.value.email || !loginData.value.password || !cf_token.value) {
