@@ -13,11 +13,13 @@ const route = useRoute()
 const router = useRouter()
 onMounted(async () => {
   const tempToken = route.query.temp_token as string | undefined
-  if (!tempToken) {
+  if (tempToken) {
     isWaitingForServer.value = true;
     useLocalStore().token = tempToken;
     await router.push({name: 'User'})
     return
+  } else {
+    isWaitingForServer.value = false;
   }
 })
 </script>

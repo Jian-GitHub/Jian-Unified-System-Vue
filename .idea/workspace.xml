@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: Logout">
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: ThirdParty Continue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/functions/api/[[path]].ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/functions/api/[[path]].ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,8 +96,8 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17431507" />
-      <window_info id="Commit" order="1" weight="0.17431507" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17431507" />
+      <window_info active="true" id="Commit" order="1" visible="true" weight="0.17431507" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -189,15 +184,7 @@
       <workItem from="1758347301263" duration="8064000" />
       <workItem from="1758472509764" duration="16765000" />
       <workItem from="1758697933437" duration="5930000" />
-      <workItem from="1758718105253" duration="1519000" />
-    </task>
-    <task id="LOCAL-00009" summary="Tidy LoginPage">
-      <option name="closed" value="true" />
-      <created>1757426810240</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1757426810240</updated>
+      <workItem from="1758718105253" duration="1728000" />
     </task>
     <task id="LOCAL-00010" summary="Tidy LoginPage">
       <option name="closed" value="true" />
@@ -583,7 +570,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758596791754</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Feature: ThirdParty Continue">
+      <option name="closed" value="true" />
+      <created>1758719737618</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1758719737619</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +596,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Feature: Cloudflare Turnstile &amp; Login Axios Request &amp; Loading Mask" />
     <MESSAGE value="Fix Bug" />
     <MESSAGE value="Remove unnecessary comments" />
     <MESSAGE value="Tidy code" />
@@ -626,6 +620,7 @@
     <MESSAGE value="Feature: Passkeys Login (Test)" />
     <MESSAGE value="Fix bug" />
     <MESSAGE value="Feature: Logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feature: Logout" />
+    <MESSAGE value="Feature: ThirdParty Continue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature: ThirdParty Continue" />
   </component>
 </project>
