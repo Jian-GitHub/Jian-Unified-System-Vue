@@ -1,13 +1,25 @@
 <script setup lang="ts">
 import Side from "@/components/login/side/Side.vue";
 import Container from "@/components/login/container/Container.vue";
-import {ref} from "vue";
-import {useSessionStore} from "@/store";
+import { useRoute, useRouter } from 'vue-router'
+import {onMounted, ref} from "vue";
+import {useLocalStore, useSessionStore} from "@/store";
 
 const sessionStore = useSessionStore();
 
 const isLogin = ref(sessionStore.isLogin)
 const isWaitingForServer = ref(false)
+const route = useRoute()
+const router = useRouter()
+onMounted(async () => {
+  const tempToken = route.query.temp_token as string | undefined
+  if (!tempToken) {
+    isWaitingForServer.value = true;
+    useLocalStore().token = tempToken;
+    await router.push({name: 'User'})
+    return
+  }
+})
 </script>
 
 <template>

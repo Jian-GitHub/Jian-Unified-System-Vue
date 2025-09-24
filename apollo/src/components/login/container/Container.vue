@@ -16,7 +16,7 @@ import {
   PasskeysRegisterStartResponseData,
   PasskeysRegisterStart,
   Register,
-  RegisterFormData, PasskeysLoginStart, PasskeysLoginFinishOptions, PasskeysLoginFinish
+  RegisterFormData, PasskeysLoginStart, PasskeysLoginFinishOptions, PasskeysLoginFinish, ThirdPartyContinue
 } from "@/api/AccountActions";
 import {Login} from "@/api/AccountActions"
 import {useRouter} from 'vue-router';
@@ -40,17 +40,17 @@ const passkeysText: ComputedRef<string> = computed(() => t('container.THIRD_PART
 const googleText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.GOOGLE'))
 const githubText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.GITHUB'))
 
+type ThirdPartyProviderLabel = 'passkeys' | 'github' | 'google'
 type ThirdPartyProvider = {
-  id: 0 | 1 | 2
+  label: ThirdPartyProviderLabel,
   icon: Component
   text: ComputedRef<string>
 }
+const passkeysProvider: ThirdPartyProvider = {label: 'passkeys', icon: passkeys, text: passkeysText}
+const googleProvider: ThirdPartyProvider = {label: 'google', icon: google, text: googleText}
+const githubProvider: ThirdPartyProvider = {label: 'github', icon: gitHub, text: githubText}
+const thirdPartyProviders: ThirdPartyProvider[] = [passkeysProvider, googleProvider, githubProvider]
 
-const thirdPartyProviders: ThirdPartyProvider[] = [
-  {id: 0, icon: passkeys, text: passkeysText},
-  {id: 1, icon: gitHub, text: githubText},
-  {id: 2, icon: google, text: googleText}
-]
 import {useSessionStore, useLocalStore} from "@/store";
 
 const sessionStore = useSessionStore();
@@ -103,23 +103,23 @@ async function passkeysLogin() {
     let createOptions = {
       challenge: options.challenge,
     };
-    let assertion = await navigator.credentials.get({ publicKey: createOptions}) as PublicKeyCredential;
+    let assertion = await navigator.credentials.get({publicKey: createOptions}) as PublicKeyCredential;
 
     const authenticatorResponse = assertion.response as AuthenticatorAssertionResponse
     let finishLoginOptions: PasskeysLoginFinishOptions = {
-      id:     assertion.id,
-      type:   assertion.type,
-      rawId:  base64Encode(assertion.rawId),
+      id: assertion.id,
+      type: assertion.type,
+      rawId: base64Encode(assertion.rawId),
       response: {
-        clientDataJSON:     base64Encode(authenticatorResponse.clientDataJSON),
-        authenticatorData:  base64Encode(authenticatorResponse.authenticatorData),
-        signature:          base64Encode(authenticatorResponse.signature),
-        userHandle:         base64Encode(authenticatorResponse.userHandle),
+        clientDataJSON: base64Encode(authenticatorResponse.clientDataJSON),
+        authenticatorData: base64Encode(authenticatorResponse.authenticatorData),
+        signature: base64Encode(authenticatorResponse.signature),
+        userHandle: base64Encode(authenticatorResponse.userHandle),
       },
     };
 
     // 阶段2：提交断言
-    const { data: finishData } = await PasskeysLoginFinish(currentSession, finishLoginOptions);
+    const {data: finishData} = await PasskeysLoginFinish(currentSession, finishLoginOptions);
     localStore.token = finishData.data.token;
     emit('update:isWaitingForServer', false);
     await router.push({name: 'User'});
@@ -127,6 +127,7 @@ async function passkeysLogin() {
     console.error(err);
   }
 }
+
 function serializeCredential(credential) {
   return {
     id: credential.id,
@@ -143,6 +144,7 @@ function serializeCredential(credential) {
     clientExtensionResults: credential.getClientExtensionResults(),
   };
 }
+
 function bufferToBase64Url(buffer) {
   return btoa(String.fromCharCode(...new Uint8Array(buffer)))
       .replace(/\+/g, '-')
@@ -249,18 +251,22 @@ function base64Decode(s: string) {
   return new Uint8Array(Array.from(result)).buffer;
 }
 
-function handleThirdPartyContinue(id: 0 | 1 | 2): void {
-  switch (id) {
-      // Passkeys
-    case 0:
-      if (sessionStore.isLogin) passkeysLogin();
-      else passkeysRegister();
+async function handleThirdPartyContinue(label: ThirdPartyProviderLabel): Promise<void> {
+  switch (label) {
+    case passkeysProvider.label: // Passkeys
+      if (sessionStore.isLogin) await passkeysLogin();
+      else await passkeysRegister();
       break;
-      // github
-    case 1:
-      break;
-      // google
-    case 2:
+    case googleProvider.label: // google
+    case githubProvider.label:  // github
+      try {
+        const resp = await ThirdPartyContinue(label);
+        if (resp.status === 200 && resp.data.code === 200) {
+          window.location.href = resp.data.data.url;
+        }
+      } catch (e) {
+        console.log(e)
+      }
       break;
     default:
       return;
@@ -478,10 +484,10 @@ const emit = defineEmits<{
       <div class="jus-apollo-container-bottom-section-third-party-buttons">
         <ThirdPartyButton
             v-for="provider in thirdPartyProviders"
-            :key="provider.id"
+            :key="provider.label"
             :icon="provider.icon"
             :text="provider.text"
-            @click="handleThirdPartyContinue(provider.id)"/>
+            @click="handleThirdPartyContinue(provider.label)"/>
       </div>
     </div>
   </div>

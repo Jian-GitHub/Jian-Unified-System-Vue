@@ -11,7 +11,7 @@ export const onRequest = async (
     const url = new URL(request.url);
 
     // const API_BASE_URL = env.API_BASE_URL || 'http://dev.jian.nz:30500';
-    const API_BASE_URL = env.API_BASE_URL || 'http://apollo.osaka1.jianqi.jp:30500';
+    const API_BASE_URL = env.API_BASE_URL || 'http://apollo.api.JianUnifiedSystem.com:30500';
     const targetUrl = `${API_BASE_URL}${url.pathname.replace(/^\/api/, '')}${url.search}`;
 
     // OPTIONS 预检

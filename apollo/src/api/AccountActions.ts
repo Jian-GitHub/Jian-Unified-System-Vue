@@ -260,3 +260,17 @@ export async function PasskeysLoginFinish(session_id: string, finishLoginOptions
         assertion: JSON.stringify(finishLoginOptions),
     });
 }
+
+export type ThirdPartyContinueResponseData = {
+    code: number;
+    message: string;
+    data: {
+        url: string;
+    }
+}
+// Third Party - Continue
+export async function ThirdPartyContinue(provider: string): Promise<AxiosResponse<ThirdPartyContinueResponseData>> {
+    return axiosInstance.post(Server.service.account.thirdParty.continue, {
+        provider: provider,
+    });
+}

@@ -4,6 +4,7 @@ const apiVersion: string = '/v1';
 const apiUrlPrefix: string = api + apiVersion;
 const apiAccountPrefix: string = apiUrlPrefix + '/account';
 const apiPasskeysPrefix: string = apiUrlPrefix + '/passkeys';
+const apiThirdPartyPrefix: string = apiUrlPrefix + '/thirdParty';
 
 const apiAccountSecurityPrefix: string = apiAccountPrefix + '/security';
 const apiPasskeysRegistrationPrefix: string = apiPasskeysPrefix + '/registration';
@@ -33,6 +34,10 @@ export const Server = {
                     start: apiPasskeysLoginPrefix + '/start',
                     finish: apiPasskeysLoginPrefix + '/finish',
                 },
+            },
+            thirdParty: {
+                continue: apiThirdPartyPrefix + '/Continue',
+                bind: apiThirdPartyPrefix + '/Bind',
             }
         },
     }

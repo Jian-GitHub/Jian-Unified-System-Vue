@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix bug">
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: Logout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/functions/api/[[path]].ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/functions/api/[[path]].ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,10 +109,10 @@
       <window_info anchor="bottom" id="File Transfer" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.30450734" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.25026456" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.25026456" />
+      <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.22804233" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.32962963" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.25026456" />
-      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" weight="0.22804233" />
+      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.5003629" weight="0.25026456" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.25026456" />
       <window_info anchor="right" id="Endpoints" />
@@ -184,15 +187,9 @@
       <workItem from="1757931760048" duration="80625000" />
       <workItem from="1758343910043" duration="1293000" />
       <workItem from="1758347301263" duration="8064000" />
-      <workItem from="1758472509764" duration="15273000" />
-    </task>
-    <task id="LOCAL-00008" summary="Feature: Switch languages; Light &amp; Dark Mode.">
-      <option name="closed" value="true" />
-      <created>1757337530598</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1757337530598</updated>
+      <workItem from="1758472509764" duration="16765000" />
+      <workItem from="1758697933437" duration="5930000" />
+      <workItem from="1758718105253" duration="1519000" />
     </task>
     <task id="LOCAL-00009" summary="Tidy LoginPage">
       <option name="closed" value="true" />
@@ -578,7 +575,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758554441083</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Feature: Logout">
+      <option name="closed" value="true" />
+      <created>1758596791754</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1758596791754</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,11 +621,11 @@
     <MESSAGE value="Using el-affix.css" />
     <MESSAGE value="Switch api to K8s" />
     <MESSAGE value="Switch API -&gt; Cloud" />
-    <MESSAGE value="Feature: Logout" />
     <MESSAGE value="Update Website Title" />
     <MESSAGE value="Feature: Passkeys Register (Test)" />
     <MESSAGE value="Feature: Passkeys Login (Test)" />
     <MESSAGE value="Fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug" />
+    <MESSAGE value="Feature: Logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature: Logout" />
   </component>
 </project>
