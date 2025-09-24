@@ -12,7 +12,7 @@ const isWaitingForServer = ref(false)
 const route = useRoute()
 const router = useRouter()
 onMounted(async () => {
-  const tempToken = route.query.temp_token as string | undefined
+  const tempToken = route.query.token as string | undefined
   if (tempToken) {
     isWaitingForServer.value = true;
     useLocalStore().token = tempToken;
