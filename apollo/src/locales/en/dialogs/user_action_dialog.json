@@ -21,17 +21,17 @@
           "date": "{year}-{month}-{day}"
         }
       }
-    }
-  },
-  "third_party_accounts": {
-    "title": "Third-Party Accounts",
-    "line1": "These third-party accounts can be used to log in, and also serve as your contact information for Hermes notifications.",
-    "content": {
-      "is_bound": "Bound",
-      "not_bound": "Not Bound",
-      "buttonText": {
-        "bound": "Unbind",
-        "not_bound": "Bind Account"
+    },
+    "third_party_accounts": {
+      "title": "Third-Party Accounts",
+      "line1": "These third-party accounts can be used to log in, and also serve as your contact information for Hermes notifications.",
+      "content": {
+        "is_bound": "Bound",
+        "not_bound": "Not Bound",
+        "buttonText": {
+          "bound": "Unbind",
+          "not_bound": "Bind Account"
+        }
       }
     }
   }
