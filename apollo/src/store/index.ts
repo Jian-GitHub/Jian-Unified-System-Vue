@@ -460,8 +460,8 @@ export const useSessionStore = defineStore('session', () => {
             label: 'google' as ThirdPartyProviderLabel,
             icon: GoogleLogo,
             isBound: false,
-            boundText: computed(()=>'Google: 已绑定'),
-            notBoundText: computed(()=>'Google: 未绑定')
+            boundText: computed(()=>'Google: ' + t('user_action_dialog.third_party_accounts.content.is_bound')),
+            notBoundText: computed(()=>'Google: ' + t('user_action_dialog.third_party_accounts.content.not_bound'))
         };
     })
     const thirdPartyProviders: ComputedRef<ThirdPartyProvider[]> = computed(() => [
