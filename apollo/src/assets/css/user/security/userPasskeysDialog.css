@@ -74,3 +74,50 @@
     width: 5rem;
     height: 5rem;
 }
+
+/*Third Party Dialog*/
+.jus-apollo-user-third-party-dialog{
+    width: 43.125rem;
+    height: 39.375rem;
+    flex-shrink: 0;
+
+    border-radius: 0.75rem;
+    background: var(--jus-color-icarus-surface);
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.25);
+
+    padding: 0 5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    gap: 3.13rem;
+
+}
+
+.el-dialog__header.jus-apollo-user-third-party-dialog-header.show-close {
+    padding-right: 0;
+}
+.jus-apollo-user-third-party-dialog .el-dialog__headerbtn {
+    left: 0;
+}
+.jus-apollo-user-third-party-dialog .el-dialog__header {
+    left: 0;
+    padding: 0;
+}
+.jus-apollo-user-third-party-dialog .el-dialog__headerbtn svg {
+    color: var(--jus-color-global-neutrals-text-secondary);
+}
+.jus-apollo-user-third-party-dialog .el-dialog__headerbtn:hover svg {
+    color: var(--jus-color-global-neutrals-text-primary);
+}
+
+
+.jus-apollo-user-third-party-dialog-header {
+    margin-top: 4.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: var(--jus-color-global-neutrals-text-primary);
+}

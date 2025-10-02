@@ -58,6 +58,8 @@ declare module 'vue' {
     UserPage: typeof import('./src/components/user/security/UserPage.vue')['default']
     UserPasskeysActionDialogBody: typeof import('./src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue')['default']
     UserPasskeysActionDialogHeader: typeof import('./src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogHeader.vue')['default']
+    UserThirdPartyAccountsActionDialogBody: typeof import('./src/components/user/basic/dialog/thirdPartyAccounts/UserThirdPartyAccountsActionDialogBody.vue')['default']
+    UserThirdPartyAccountsActionDialogHeader: typeof import('./src/components/user/basic/dialog/thirdPartyAccounts/UserThirdPartyAccountsActionDialogHeader.vue')['default']
   }
   export interface GlobalDirectives {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']

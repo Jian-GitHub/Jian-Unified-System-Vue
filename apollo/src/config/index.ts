@@ -36,8 +36,10 @@ export const Server = {
                 },
             },
             thirdParty: {
+                getInfo: apiThirdPartyPrefix + '/GetInfo',
                 continue: apiThirdPartyPrefix + '/Continue',
                 bind: apiThirdPartyPrefix + '/Bind',
+                remove: apiThirdPartyPrefix + '/Remove',
             }
         },
     }

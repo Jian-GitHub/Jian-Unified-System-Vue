@@ -21,6 +21,18 @@
           "date": "{year}-{month}-{day}"
         }
       }
+    },
+    "third_party_accounts": {
+      "title": "第三方账号",
+      "line1": "这些第三方账号可用于登录，也可用作你在 Hermes 通知等的联系方式。",
+      "content": {
+        "is_bound": "已绑定",
+        "not_bound": "未绑定",
+        "buttonText": {
+          "bound": "解除绑定",
+          "not_bound": "账号绑定"
+        }
+      }
     }
   }
 }

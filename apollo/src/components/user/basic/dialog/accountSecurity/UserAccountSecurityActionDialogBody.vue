@@ -366,7 +366,7 @@ const inputPlaceholderText: ComputedRef<string> = computed(() => t('security_pag
 }
 
 .jus-apollo-user-passkeys-dialog-body-content-passkey-value {
-  width: 12rem;
+  width: 11rem;
 
   overflow: hidden;
   white-space: nowrap;

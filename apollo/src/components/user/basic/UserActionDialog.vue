@@ -17,6 +17,10 @@ import UserAccountSecurityActionDialogHeader
 import UserAccountSecurityActionDialogBody
   from "@/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue";
 import {UserActionDialogData} from "@/types/dialog/UserAction";
+import UserThirdPartyAccountsActionDialogBody
+  from "@/components/user/basic/dialog/thirdPartyAccounts/UserThirdPartyAccountsActionDialogBody.vue";
+import UserThirdPartyAccountsActionDialogHeader
+  from "@/components/user/basic/dialog/thirdPartyAccounts/UserThirdPartyAccountsActionDialogHeader.vue";
 
 // actions[200] = 5
 // console.log(actions['200'])
@@ -60,6 +64,19 @@ const dialogs: Record<number, UserActionDialogData> = {
     component: {
       header: UserPasskeysActionDialogHeader,
       body: UserPasskeysActionDialogBody,
+      footer: null
+    }
+  },
+  205: {
+    className: {
+      class: 'jus-apollo-user-third-party-dialog',
+      header: 'jus-apollo-user-third-party-dialog-header',
+      body: 'jus-apollo-user-third-party-dialog-body',
+      footer: 'jus-apollo-user-third-party-dialog-footer'
+    },
+    component: {
+      header: UserThirdPartyAccountsActionDialogHeader,
+      body: UserThirdPartyAccountsActionDialogBody,
       footer: null
     }
   }

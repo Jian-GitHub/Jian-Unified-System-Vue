@@ -21,6 +21,18 @@
           "date": "{year}-{month}-{day}"
         }
       }
+    },
+    "third_party_accounts": {
+      "title": "외부 계정",
+      "line1": "이 외부 계정은 로그인에 사용할 수 있으며, Hermes 알림 등의 연락처로도 활용됩니다.",
+      "content": {
+        "is_bound": "연결됨",
+        "not_bound": "연결되지 않음",
+        "buttonText": {
+          "bound": "연결 해제",
+          "not_bound": "계정 연결"
+        }
+      }
     }
   }
 }

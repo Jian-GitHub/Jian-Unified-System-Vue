@@ -1,4 +1,4 @@
-import {computed, ComputedRef, ref, Ref} from "vue";
+import {Component, computed, ComputedRef, DefineComponent, ref, Ref} from "vue";
 import {User} from "@/types/User";
 import {defineStore} from 'pinia';
 import ApolloLogoBlue from "@/components/user/basic/ApolloLogoBlue.vue";
@@ -17,6 +17,9 @@ import LanguageIcon from "@/assets/icon/language_20x20.svg";
 import {useI18n} from "vue-i18n";
 import {ActionsIds, UserAction} from "@/types/dialog/UserAction";
 import {AccountInfoShort, UserPageContent} from "@/types/UserPage";
+import GitHubLogo from "@/assets/logo/github_20x20.svg"
+import GoogleLogo from "@/assets/logo/google_20x20.svg"
+import {ThirdPartyProvider, ThirdPartyProviderLabel} from "@/types/thirdParty/ThirdParty";
 
 
 // Theme mode type
@@ -435,6 +438,36 @@ export const useSessionStore = defineStore('session', () => {
     const infoPageContent: ComputedRef<UserPageContent> = createInfoPageContent()
     const securityPageContent: ComputedRef<UserPageContent> = createSecurityPageContent()
 
+
+    const githubText: ComputedRef<string> = computed(() => {
+        return 'GitHub'
+    })
+    const googleText: ComputedRef<string> = computed(() => {
+        return 'Google'
+    })
+
+    const githubProvider: ComputedRef<ThirdPartyProvider> = computed(() => {
+        return {
+            label: 'github' as ThirdPartyProviderLabel,
+            icon: GitHubLogo,
+            isBound: false,
+            boundText: computed(()=>'GitHub: ' + t('user_action_dialog.third_party_accounts.content.is_bound')),
+            notBoundText: computed(()=>'GitHub: ' + t('user_action_dialog.third_party_accounts.content.not_bound'))
+        };
+    })
+    const googleProvider: ComputedRef<ThirdPartyProvider> = computed(() => {
+        return {
+            label: 'google' as ThirdPartyProviderLabel,
+            icon: GoogleLogo,
+            isBound: false,
+            boundText: computed(()=>'Google: 已绑定'),
+            notBoundText: computed(()=>'Google: 未绑定')
+        };
+    })
+    const thirdPartyProviders: ComputedRef<ThirdPartyProvider[]> = computed(() => [
+        githubProvider.value,
+        googleProvider.value
+    ])
     const clear = ()=> {
         theme.value = '';
         language.value = '';
@@ -458,7 +491,8 @@ export const useSessionStore = defineStore('session', () => {
         actionsIds,
         actionsIdsObject,
         userActionDialogLoading,
-        userActionDialogId
+        userActionDialogId,
+        thirdPartyProviders
     }
 }, {
     persist: {

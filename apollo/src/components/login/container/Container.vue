@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {ref, computed, ComputedRef, VNode, RendererNode, RendererElement, h} from 'vue'
-import type {Component} from "vue"
 import CustomInputLong from '../basic/InputLong.vue'
 import passkeys from "@/assets/logo/passkeys_20x20.svg"
 import google from "@/assets/logo/google_20x20.svg"
@@ -18,6 +17,7 @@ import {
   Register,
   RegisterFormData, PasskeysLoginStart, PasskeysLoginFinishOptions, PasskeysLoginFinish, ThirdPartyContinue
 } from "@/api/AccountActions";
+import {ThirdPartyProvider, ThirdPartyProviderLabel} from "@/types/thirdParty/ThirdParty";
 import {Login} from "@/api/AccountActions"
 import {useRouter} from 'vue-router';
 
@@ -40,12 +40,7 @@ const passkeysText: ComputedRef<string> = computed(() => t('container.THIRD_PART
 const googleText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.GOOGLE'))
 const githubText: ComputedRef<string> = computed(() => t('container.THIRD_PARTY.GITHUB'))
 
-type ThirdPartyProviderLabel = 'passkeys' | 'github' | 'google'
-type ThirdPartyProvider = {
-  label: ThirdPartyProviderLabel,
-  icon: Component
-  text: ComputedRef<string>
-}
+
 const passkeysProvider: ThirdPartyProvider = {label: 'passkeys', icon: passkeys, text: passkeysText}
 const googleProvider: ThirdPartyProvider = {label: 'google', icon: google, text: googleText}
 const githubProvider: ThirdPartyProvider = {label: 'github', icon: gitHub, text: githubText}
@@ -126,30 +121,6 @@ async function passkeysLogin() {
   } catch (err) {
     console.error(err);
   }
-}
-
-function serializeCredential(credential) {
-  return {
-    id: credential.id,
-    type: credential.type,
-    rawId: bufferToBase64Url(credential.rawId),
-    response: {
-      clientDataJSON: bufferToBase64Url(credential.response.clientDataJSON),
-      authenticatorData: bufferToBase64Url(credential.response.authenticatorData),
-      signature: bufferToBase64Url(credential.response.signature),
-      userHandle: credential.response.userHandle
-          ? bufferToBase64Url(credential.response.userHandle)
-          : null,
-    },
-    clientExtensionResults: credential.getClientExtensionResults(),
-  };
-}
-
-function bufferToBase64Url(buffer) {
-  return btoa(String.fromCharCode(...new Uint8Array(buffer)))
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_')
-      .replace(/=+$/, '');
 }
 
 async function passkeysRegister() {

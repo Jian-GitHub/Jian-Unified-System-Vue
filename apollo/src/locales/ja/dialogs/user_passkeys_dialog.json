@@ -21,6 +21,18 @@
           "date": "{year}-{month}-{day}"
         }
       }
+    },
+    "third_party_accounts": {
+      "title": "外部アカウント",
+      "line1": "これらの外部アカウントはログインに利用でき、Hermes通知などの連絡先としても使用されます。",
+      "content": {
+        "is_bound": "連携済み",
+        "not_bound": "未連携",
+        "buttonText": {
+          "bound": "連携解除",
+          "not_bound": "アカウント連携"
+        }
+      }
     }
   }
 }

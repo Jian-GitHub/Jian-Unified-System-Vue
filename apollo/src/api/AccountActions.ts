@@ -274,3 +274,48 @@ export async function ThirdPartyContinue(provider: string): Promise<AxiosRespons
         provider: provider,
     });
 }
+export type ThirdPartyBindResponseData = {
+    code: number;
+    message: string;
+    data: {
+        url: string;
+    }
+}
+// Third Party - Bind
+export async function ThirdPartyBind(provider: string): Promise<AxiosResponse<ThirdPartyBindResponseData>> {
+    return axiosInstance.post(Server.service.account.thirdParty.bind, {
+        provider: provider,
+    });
+}
+
+export type ThirdPartyRemoveResponseData = {
+    code: number;
+    message: string;
+    data: {
+        ok: boolean;
+    }
+}
+// Third Party - Remove
+export async function ThirdPartyRemove(thirdPartyId: number): Promise<AxiosResponse<ThirdPartyRemoveResponseData>> {
+    return axiosInstance.post(Server.service.account.thirdParty.remove, {
+        thirdPartyId: thirdPartyId,
+    });
+}
+
+export type ThirdPartyAccountInfo = {
+    id: number;
+    provider: string;
+    isBound:  boolean;
+    content:  string;
+}
+export type ThirdPartyGetInfoResponseData = {
+    code: number;
+    message: string;
+    data: {
+        accounts: ThirdPartyAccountInfo[];
+    }
+}
+// Third Party - Remove
+export async function ThirdPartyGetInfo(): Promise<AxiosResponse<ThirdPartyGetInfoResponseData>> {
+    return axiosInstance.post(Server.service.account.thirdParty.getInfo);
+}

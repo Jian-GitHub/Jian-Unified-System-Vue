@@ -7,7 +7,7 @@ import {computed, ComputedRef, ref, Ref} from "vue";
 import {UserPageContent} from "@/types/UserPage";
 import { provide } from "vue";
 
-const globalStore = useSessionStore()
+const sessionStore = useSessionStore()
 
 const menuItemIndex: Ref<number> = ref(0);
 
@@ -16,7 +16,7 @@ function setMenuItemIndex(val: number) {
 }
 
 const pageContent: ComputedRef<UserPageContent> = computed(() => {
-  return menuItemIndex.value === 0 ? globalStore.infoPageContent : globalStore.securityPageContent
+  return menuItemIndex.value === 0 ? sessionStore.infoPageContent : sessionStore.securityPageContent
 })
 // onMounted(()=>{
 //   alert("进入")

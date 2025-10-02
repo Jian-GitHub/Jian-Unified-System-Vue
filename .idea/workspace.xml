@@ -4,9 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: ThirdParty Continue">
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix bug">
+      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/thirdPartyAccounts/UserThirdPartyAccountsActionDialogBody.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/thirdPartyAccounts/UserThirdPartyAccountsActionDialogHeader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apollo/src/types/thirdParty/ThirdParty.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logo/github_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logo/github_20x20.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/UserActionDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/UserActionDialog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/dialogs/user_action_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/dialogs/user_action_dialog.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/dialogs/user_passkeys_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ja/dialogs/user_passkeys_dialog.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ko/dialogs/user_action_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ko/dialogs/user_action_dialog.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/dialogs/user_action_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/dialogs/user_action_dialog.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
         <option value="Vue Composition API Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -47,7 +64,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -68,7 +85,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/apollo/src/locales/ko&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/apollo/src/components/user/basic/dialog/thirdPartyAccounts&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -96,16 +113,16 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17431507" />
-      <window_info active="true" id="Commit" order="1" visible="true" weight="0.17431507" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16883561" />
+      <window_info id="Commit" order="1" weight="0.17431507" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="File Transfer" />
-      <window_info anchor="bottom" id="Version Control" order="0" weight="0.30450734" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.32962963" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.22804233" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.32962963" />
+      <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.32962963" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.33016986" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.25026456" />
       <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.5003629" weight="0.25026456" />
@@ -121,11 +138,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/thirdPartyAccounts" />
       <recent name="$PROJECT_DIR$/apollo/src/locales/ko" />
       <recent name="$PROJECT_DIR$/apollo/src/locales/ja" />
       <recent name="$PROJECT_DIR$/apollo/src/locales/en" />
       <recent name="$PROJECT_DIR$/apollo/src/api" />
-      <recent name="$PROJECT_DIR$/apollo/src/locales/zh/dialogs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apollo/src/assets/logic" />
@@ -184,15 +201,17 @@
       <workItem from="1758347301263" duration="8064000" />
       <workItem from="1758472509764" duration="16765000" />
       <workItem from="1758697933437" duration="5930000" />
-      <workItem from="1758718105253" duration="1728000" />
-    </task>
-    <task id="LOCAL-00010" summary="Tidy LoginPage">
-      <option name="closed" value="true" />
-      <created>1757426821820</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1757426821820</updated>
+      <workItem from="1758718105253" duration="2384000" />
+      <workItem from="1758759263557" duration="4344000" />
+      <workItem from="1758803516218" duration="5402000" />
+      <workItem from="1758936693095" duration="82000" />
+      <workItem from="1758936781682" duration="35000" />
+      <workItem from="1758936824199" duration="1000" />
+      <workItem from="1758936833199" duration="18000" />
+      <workItem from="1758936858574" duration="20000" />
+      <workItem from="1758936886332" duration="10344000" />
+      <workItem from="1758970198804" duration="12967000" />
+      <workItem from="1759387764837" duration="2876000" />
     </task>
     <task id="LOCAL-00011" summary="Feature: Security Page">
       <option name="closed" value="true" />
@@ -578,7 +597,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758719737619</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Fix bug">
+      <option name="closed" value="true" />
+      <created>1758719954140</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1758719954140</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,9 +645,9 @@
     <MESSAGE value="Update Website Title" />
     <MESSAGE value="Feature: Passkeys Register (Test)" />
     <MESSAGE value="Feature: Passkeys Login (Test)" />
-    <MESSAGE value="Fix bug" />
     <MESSAGE value="Feature: Logout" />
     <MESSAGE value="Feature: ThirdParty Continue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feature: ThirdParty Continue" />
+    <MESSAGE value="Fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug" />
   </component>
 </project>
