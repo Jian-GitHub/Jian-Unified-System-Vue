@@ -197,13 +197,13 @@ const inputPlaceholderText: ComputedRef<string> = computed(() => t('security_pag
 
     </div>
     <template #footer>
-      <el-button type="info" @click="innerVisible = false; tokenName = ''">取消</el-button>
+      <el-button type="info" @click="innerVisible = false; tokenName = ''">cancel</el-button>
       <el-button type="primary"
                  autofocus
                  ref="submitGenerateSubsystemTokenButton"
                  :disabled="scope.length === 0"
                  @click="submitGenerateSubsystemToken">
-        {{ '确定' }}
+        {{ 'confirm' }}
       </el-button>
     </template>
   </el-dialog>
