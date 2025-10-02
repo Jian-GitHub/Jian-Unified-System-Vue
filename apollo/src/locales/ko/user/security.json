@@ -21,7 +21,9 @@
           "title": "토큰 이름(선택 사항) 및 범위 설정",
           "inputPlaceholder": "이름 (선택 사항)",
           "selectorPlaceholder": "범위"
-        }
+        },
+        "cancel": "취소",
+        "confirm": "확인"
       },
       "notification_email": {
         "title": "알림 이메일",

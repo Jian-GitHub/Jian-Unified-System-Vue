@@ -21,7 +21,9 @@
           "title": "设置令牌名称 (可选) 和作用域",
           "inputPlaceholder": "名称 (可选)",
           "selectorPlaceholder": "作用域"
-        }
+        },
+        "cancel": "取消",
+        "confirm": "确认"
       },
       "notification_email": {
         "title": "通知电子邮件",

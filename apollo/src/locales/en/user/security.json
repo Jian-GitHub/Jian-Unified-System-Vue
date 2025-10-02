@@ -21,7 +21,9 @@
           "title": "Set Token Name (optional) and Scope",
           "inputPlaceholder": "Name (optional)",
           "selectorPlaceholder": "Scope"
-        }
+        },
+        "cancel": "Cancel",
+        "confirm": "Confirm"
       },
       "notification_email": {
         "title": "Notification Email",

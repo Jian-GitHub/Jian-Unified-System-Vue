@@ -21,7 +21,9 @@
           "title": "トークン名（任意）とスコープを設定",
           "inputPlaceholder": "名前（任意）",
           "selectorPlaceholder": "スコープ"
-        }
+        },
+        "cancel": "キャンセル",
+        "confirm": "確認"
       },
       "notification_email": {
         "empty": "未設定",
