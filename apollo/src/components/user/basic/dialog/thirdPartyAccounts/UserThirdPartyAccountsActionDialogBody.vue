@@ -70,6 +70,14 @@ async function thirdPartyAccountAction(provider: ThirdPartyProvider) {
         return;
       }
       provider.isBound = false;
+      switch (provider.label) {
+        case 'github':
+          store.user.security.thirdPartyAccounts.github = false;
+          break;
+        case "google":
+          store.user.security.thirdPartyAccounts.google = false;
+          break;
+      }
     } catch (e) {
       console.log(e)
     }
