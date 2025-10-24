@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix bug">
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/thirdPartyAccounts/UserThirdPartyAccountsActionDialogBody.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/thirdPartyAccounts/UserThirdPartyAccountsActionDialogHeader.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/types/thirdParty/ThirdParty.ts" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix dialog text bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/components.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/logo/github_20x20.svg" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/logo/github_20x20.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/UserActionDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/UserActionDialog.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userContainer/UserContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/en/dialogs/user_action_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/en/dialogs/user_action_dialog.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ja/dialogs/user_passkeys_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ja/dialogs/user_passkeys_dialog.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/ko/dialogs/user_action_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/ko/dialogs/user_action_dialog.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/locales/zh/dialogs/user_action_dialog.json" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/locales/zh/dialogs/user_action_dialog.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/store/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,8 +100,8 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16883561" />
-      <window_info id="Commit" order="1" weight="0.17431507" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2208904" />
+      <window_info id="Commit" order="1" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -122,9 +109,9 @@
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32962963" />
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.32962963" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.33016986" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.32962963" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.25026456" />
-      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" />
+      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" weight="0.17089948" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.5003629" weight="0.25026456" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.25026456" />
       <window_info anchor="right" id="Endpoints" />
@@ -211,55 +198,13 @@
       <workItem from="1758936858574" duration="20000" />
       <workItem from="1758936886332" duration="10344000" />
       <workItem from="1758970198804" duration="12967000" />
-      <workItem from="1759387764837" duration="2876000" />
-    </task>
-    <task id="LOCAL-00011" summary="Feature: Security Page">
-      <option name="closed" value="true" />
-      <created>1757498003826</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1757498003826</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Feature: User Passkeys Dialog UI">
-      <option name="closed" value="true" />
-      <created>1757600838168</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1757600838168</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Feature: User Basic UI">
-      <option name="closed" value="true" />
-      <created>1757683884113</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1757683884113</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Update: PasskeysDialog Content UI">
-      <option name="closed" value="true" />
-      <created>1757743926715</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1757743926715</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Feature: Account Security Token Generation UI">
-      <option name="closed" value="true" />
-      <created>1757780911254</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1757780911254</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Decoupling Token Generation Scope Selector">
-      <option name="closed" value="true" />
-      <created>1757821723205</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1757821723205</updated>
+      <workItem from="1759387764837" duration="3329000" />
+      <workItem from="1759393527856" duration="847000" />
+      <workItem from="1759406544984" duration="137000" />
+      <workItem from="1759406883223" duration="96000" />
+      <workItem from="1759407771456" duration="317000" />
+      <workItem from="1761212250216" duration="2110000" />
+      <workItem from="1761277721464" duration="1448000" />
     </task>
     <task id="LOCAL-00017" summary="Feature: Cloudflare Turnstile &amp; Login Axios Request &amp; Loading Mask">
       <option name="closed" value="true" />
@@ -605,7 +550,55 @@
       <option name="project" value="LOCAL" />
       <updated>1758719954140</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Feature: Bind Third-Party Accounts">
+      <option name="closed" value="true" />
+      <created>1759393293323</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1759393293323</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Update user info">
+      <option name="closed" value="true" />
+      <created>1759393765118</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1759393765119</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Fix en bug">
+      <option name="closed" value="true" />
+      <created>1759406672343</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1759406672344</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Fix google text bug">
+      <option name="closed" value="true" />
+      <created>1759406968033</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1759406968033</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Fix dialog text bug">
+      <option name="closed" value="true" />
+      <created>1759407849845</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1759407849845</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Fix dialog text bug">
+      <option name="closed" value="true" />
+      <created>1759408077043</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1759408077043</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,11 +616,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix Bug" />
-    <MESSAGE value="Remove unnecessary comments" />
-    <MESSAGE value="Tidy code" />
-    <MESSAGE value="Feature: Cloudflare worker" />
-    <MESSAGE value="Fix CORS bug" />
     <MESSAGE value="Add Cloudflare routes" />
     <MESSAGE value="Using js" />
     <MESSAGE value="Cloudflare Functions" />
@@ -648,6 +636,11 @@
     <MESSAGE value="Feature: Logout" />
     <MESSAGE value="Feature: ThirdParty Continue" />
     <MESSAGE value="Fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug" />
+    <MESSAGE value="Feature: Bind Third-Party Accounts" />
+    <MESSAGE value="Update user info" />
+    <MESSAGE value="Fix en bug" />
+    <MESSAGE value="Fix google text bug" />
+    <MESSAGE value="Fix dialog text bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix dialog text bug" />
   </component>
 </project>

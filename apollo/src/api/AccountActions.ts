@@ -148,7 +148,7 @@ export type GetSubsystemTokensResponseData = {
 }
 // Get 10 Subsystem Tokens
 export async function GetTenSubsystemTokens(page: number): Promise<AxiosResponse<GetSubsystemTokensResponseData>> {
-    if (page < 0) throw new Error('page must >= 0');
+    if (page < 1) throw new Error('page must >= 1');
     return axiosInstance.post(Server.service.account.security.subsystemToken.getTenSubsystemToken, {
         page: page,
     })
@@ -170,6 +170,14 @@ export async function GenerateSubsystemToken(name: string, scope: number[]): Pro
     })
 }
 
+
+// Passkeys
+export type Passkey = {
+    id: string;
+    name: string;
+    date: Date;
+    isEnabled: boolean;
+}
 
 export type PasskeysRegisterStartResponseData = {
     code: number;
@@ -295,6 +303,22 @@ export type ThirdPartyRemoveResponseData = {
         ok: boolean;
     }
 }
+
+export type GetTenPasskeysResponseData = {
+    code: number;
+    message: string;
+    data: {
+        passkeys: Passkey[];
+    }
+}
+// Get 10 Passkeys
+export async function GetTenPasskeys(page: number): Promise<AxiosResponse<GetTenPasskeysResponseData>> {
+    if (page < 1) throw new Error('page must >= 1');
+    return axiosInstance.post(Server.service.account.security.passkeys.getTenPasskeys, {
+        page: page,
+    })
+}
+
 // Third Party - Remove
 export async function ThirdPartyRemove(thirdPartyId: number): Promise<AxiosResponse<ThirdPartyRemoveResponseData>> {
     return axiosInstance.post(Server.service.account.thirdParty.remove, {

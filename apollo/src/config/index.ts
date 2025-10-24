@@ -23,6 +23,9 @@ export const Server = {
                 subsystemToken: {
                     getTenSubsystemToken: apiAccountSecurityPrefix + '/GetTenSubsystemTokens',
                     generateSubsystemToken: apiAccountSecurityPrefix + '/GenerateSubsystemToken',
+                },
+                passkeys: {
+                    getTenPasskeys: apiAccountSecurityPrefix + '/GetTenPasskeys',
                 }
             },
             passkeys: {

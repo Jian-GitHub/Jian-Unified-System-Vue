@@ -56,7 +56,7 @@ async function copy(text: string) {
         placement: 'top',
         grouping: true,
         duration: 1000
-      })
+      });
     }).catch(e => {
       ElMessage({
         message: `Token copied failed!`,
@@ -64,8 +64,9 @@ async function copy(text: string) {
         placement: 'top',
         grouping: true,
         duration: 1000
-      })
-    })
+      });
+      console.error(e);
+    });
   } else {
     // textarea + execCommand
     const input = document.createElement("textarea")
@@ -117,7 +118,7 @@ function beforeTokenDialogOpened() {
 
 function closeTokenAliasDialog() {
   tokenName.value = '';
-  scope.value = []
+  scope.value = [];
 }
 
 async function doGenerateSubsystemToken() {
