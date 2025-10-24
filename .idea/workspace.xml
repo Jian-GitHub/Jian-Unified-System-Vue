@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Fix dialog text bug">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: Display user Passkeys">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,17 +96,17 @@
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2208904" />
-      <window_info id="Commit" order="1" />
+      <window_info id="Commit" order="1" weight="0.2208904" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="File Transfer" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32962963" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.32962963" />
+      <window_info active="true" anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" visible="true" weight="0.17089948" />
       <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.32962963" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.25026456" />
-      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" weight="0.17089948" />
+      <window_info anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" weight="0.17089948" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.5003629" weight="0.25026456" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.25026456" />
       <window_info anchor="right" id="Endpoints" />
@@ -204,15 +199,7 @@
       <workItem from="1759406883223" duration="96000" />
       <workItem from="1759407771456" duration="317000" />
       <workItem from="1761212250216" duration="2110000" />
-      <workItem from="1761277721464" duration="1448000" />
-    </task>
-    <task id="LOCAL-00017" summary="Feature: Cloudflare Turnstile &amp; Login Axios Request &amp; Loading Mask">
-      <option name="closed" value="true" />
-      <created>1757858947582</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1757858947582</updated>
+      <workItem from="1761277721464" duration="2083000" />
     </task>
     <task id="LOCAL-00018" summary="Fix Bug">
       <option name="closed" value="true" />
@@ -598,7 +585,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759408077043</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Feature: Display user Passkeys">
+      <option name="closed" value="true" />
+      <created>1761279523744</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1761279523744</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,7 +611,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add Cloudflare routes" />
     <MESSAGE value="Using js" />
     <MESSAGE value="Cloudflare Functions" />
     <MESSAGE value="Change animation" />
@@ -641,6 +635,7 @@
     <MESSAGE value="Fix en bug" />
     <MESSAGE value="Fix google text bug" />
     <MESSAGE value="Fix dialog text bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix dialog text bug" />
+    <MESSAGE value="Feature: Display user Passkeys" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature: Display user Passkeys" />
   </component>
 </project>
