@@ -1,0 +1,43 @@
+{
+  "container": {
+    "login": {
+      "CONTAINER_TITLE": "アカウントにログイン",
+      "CONTAINER_TEXT": "ログイン方法を選択するか、メールでログイン",
+      "TO_REGISTER": "新規登録へ",
+      "FORGET_PASSWORD": "パスワードをお忘れですか？",
+      "LOGIN_BUTTON": "ログイン"
+    },
+    "registration": {
+      "CONTAINER_TITLE": "アカウントを登録",
+      "CONTAINER_TEXT": "登録方法を選択するか、メールで登録",
+      "REGISTER_BUTTON": "登録"
+    },
+    "THIRD_PARTY": {
+      "THIRD_PARTY_CONTINUE": "または",
+      "PASSKEYS": "パスキーで続行",
+      "GOOGLE": "Googleで続行",
+      "GITHUB": "GitHubで続行"
+    }
+  },
+  "side": {
+    "SIDE_TITLE": "Jian Unified System",
+    "login": {
+      "SIDE_TEXT_1": "まだアカウントをお持ちでないですか？",
+      "SIDE_TEXT_2": "今すぐ登録して、すぐに始めましょう！",
+      "TO_REGISTER": "新規登録へ"
+    },
+    "registration": {
+      "SIDE_TEXT_1": "すでにアカウントをお持ちですか？",
+      "SIDE_TEXT_2": "今すぐログインしてスムーズに利用！",
+      "TO_LOGIN": "ログインへ進む"
+    }
+  },
+  "cloudflareChecker": {
+    "status": {
+      "success": "成功",
+      "failed": "失敗"
+    },
+    "privacy": "プライバシー",
+    "terms": "利用規約"
+  }
+}

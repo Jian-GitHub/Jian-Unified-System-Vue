@@ -1,0 +1,43 @@
+{
+  "container": {
+    "login": {
+      "CONTAINER_TITLE": "Login Account",
+      "CONTAINER_TEXT": "Choose login method or sign in with email",
+      "TO_REGISTER": "Go to Register",
+      "FORGET_PASSWORD": "Forgot Password?",
+      "LOGIN_BUTTON": "Login"
+    },
+    "registration": {
+      "CONTAINER_TITLE": "Create Account",
+      "CONTAINER_TEXT": "Choose registration method or sign up with email",
+      "REGISTER_BUTTON": "Register"
+    },
+    "THIRD_PARTY": {
+      "THIRD_PARTY_CONTINUE": "or",
+      "PASSKEYS": "Continue with Passkeys",
+      "GOOGLE": "Continue with Google",
+      "GITHUB": "Continue with GitHub"
+    }
+  },
+  "side": {
+    "SIDE_TITLE": "Jian Unified System",
+    "login": {
+      "SIDE_TEXT_1": "Don't have an account yet?",
+      "SIDE_TEXT_2": "Register now and start your journey!",
+      "TO_REGISTER": "Go to Register"
+    },
+    "registration": {
+      "SIDE_TEXT_1": "Already have an account?",
+      "SIDE_TEXT_2": "Login now for seamless access!",
+      "TO_LOGIN": "Go to Login"
+    }
+  },
+  "cloudflareChecker": {
+    "status": {
+      "success": "Success",
+      "failed": "Failed"
+    },
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}

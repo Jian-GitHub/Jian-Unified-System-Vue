@@ -1,0 +1,7 @@
+{
+  "cloudflare": {
+    "turnstile": {
+      "loadingText": "Cloudflare 인증을 기다리는 중"
+    }
+  }
+}

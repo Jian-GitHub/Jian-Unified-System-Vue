@@ -1,0 +1,38 @@
+{
+  "user_action_dialog": {
+    "passkeys": {
+      "title": "Passkeys",
+      "line1": "{num} Passkeys",
+      "line2": "Passkeys can be used as passwordless credentials for signing in to Jian Unified System.",
+      "content": {
+        "header": "{num} Passkeys",
+        "row": {
+          "date": "{year}-{month}-{day}"
+        }
+      }
+    },
+    "account_security": {
+      "title": "Account Security",
+      "line1": "{num} Trusted Tokens",
+      "line2": "These trusted tokens can be used as credentials to access the Jian Unified System.",
+      "content": {
+        "header": "{num} Trusted Tokens",
+        "row": {
+          "date": "{year}-{month}-{day}"
+        }
+      }
+    },
+    "third_party_accounts": {
+      "title": "Third-Party Accounts",
+      "line1": "These third-party accounts can be used to log in, and also serve as your contact information for Hermes notifications.",
+      "content": {
+        "is_bound": "Bound",
+        "not_bound": "Not Bound",
+        "buttonText": {
+          "bound": "Unbind",
+          "not_bound": "Bind Account"
+        }
+      }
+    }
+  }
+}

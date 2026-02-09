@@ -1,0 +1,24 @@
+/* Ensure page has no margin and root fills viewport so background sits behind content without layout shift */
+:root, html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent background from causing scrollbars by ensuring background container uses viewport units */
+.color-bends-bg {
+  contain: layout paint;
+}
+
+/* Ensure main content has transparent background so ColorBends shows through */
+main, header {
+  background: transparent !important;
+}
+
+/* Utility: ensure any absolutely/fixed children don't shift layout */
+* { box-sizing: border-box; }
+

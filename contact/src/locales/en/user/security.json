@@ -1,0 +1,47 @@
+{
+  "security_page": {
+    "title": "Login & Security",
+    "description": "Manage settings related to account login, account security, and data recovery when you cannot sign in.",
+    "actions": {
+      "email_mobile": {
+        "title": "Email & Phone numbers",
+        "text_line3": "and {num} other contact methods",
+        "empty": "Not set"
+      },
+      "password": {
+        "title": "Password",
+        "text_line1": "Last updated: {year}-{month}-{day}",
+        "empty": "Not set"
+      },
+      "security": {
+        "title": "Account Security",
+        "text_line1": "Token",
+        "text_line2": "{num} trusted tokens",
+        "generate": {
+          "title": "Set Token Name (optional) and Scope",
+          "inputPlaceholder": "Name (optional)",
+          "selectorPlaceholder": "Scope"
+        },
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+      },
+      "notification_email": {
+        "title": "Notification Email",
+        "empty": "Not set"
+      },
+      "passkeys": {
+        "title": "Passkeys",
+        "text_line1": "{num} passkeys"
+      },
+      "third_party_account": {
+        "title": "Third-party accounts",
+        "bound": "Bound",
+        "not_bound": "Not bound"
+      },
+      "delete_account": {
+        "title": "Delete Account",
+        "text_line1": "Cannot be recovered after deletion"
+      }
+    }
+  }
+}
