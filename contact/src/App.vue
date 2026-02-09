@@ -34,6 +34,8 @@ const {locale} = useI18n()
 // background
 import ColorBends from './components/ColorBends/ColorBends.vue'
 
+import SpotlightCard from "./components/SpotlightCard/SpotlightCard.vue";
+
 // const router = useRouter(); // 创建路由实例
 
 const screenWidth = ref(window.innerWidth);
@@ -244,6 +246,7 @@ function screenResized(newWidth) {
       lgSpan.value = 12;
       xlSpan.value = 8;
       isScrollbar.value = true;
+      // isScrollbar.value = false;
       break;
     case newWidth > 1560 && newWidth < 2050:
       lgSpan.value = 8;
@@ -323,9 +326,10 @@ function initAppList() {
 </script>
 
 <template>
-  <div>
+  <!-- ColorBends 固定背景层 - 扩大120%覆盖拉扯区域 -->
+  <div style="position: fixed; top: -10%; left: -10%; right: -10%; bottom: -10%; z-index: -1; overflow: hidden; width: 120vw; height: 120vh;">
     <ColorBends
-        :colors="['#ff5c7a', '#8a5cff', '#00ffd1']"
+        style="width: 100%; height: 100%;"
         :rotation="0"
         :auto-rotate="1"
         :speed="0.2"
@@ -335,7 +339,6 @@ function initAppList() {
         :mouseInfluence="1"
         :parallax="0.5"
         :noise="0.1"
-        style="background: transparent"
         transparent
     />
   </div>
@@ -344,26 +347,47 @@ function initAppList() {
     <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>-->
     <div class="wrapper">
       <Intro msg="祁剑 (Jian Qi)!"/>
+      <SpotlightCard
+          class-name="custom-spotlight-card"
+          spotlight-color="rgba(255, 255, 255, 0.25)"
+          style="background: black"
+      >
+        <-!-- Content inside the card -->
+      </SpotlightCard>
     </div>
   </header>
 
-  <main v-if="isLogin">
-    <el-scrollbar v-if="isScrollbar" max-height="95vh" style="margin-top: 1vh;margin-bottom: 1vh">
-      <el-row :gutter="0" style="overflow-x: hidden !important;">
+  <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }">
+    <el-scrollbar v-if="isScrollbar" style="height: 100vh; width: 100%;">
+      <el-row :gutter="0" style="overflow-x: hidden !important; padding-bottom: 150px;">
         <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
-          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
+<!--          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>-->
+          <SpotlightCard
+              class-name="custom-spotlight-card"
+              spotlight-color="rgba(0, 255, 255, 1)"
+              style="background: black"
+          >
+<!--            <-!&#45;&#45; Content inside the card &ndash;&gt;-->
+            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
+          </SpotlightCard>
         </el-col>
       </el-row>
     </el-scrollbar>
-    <div v-else style="display: flex; flex-direction: column;overflow-y: visible">
+    <div v-else style="overflow-y: visible; overflow-x: hidden; width: 100%;">
       <el-row :gutter="0" style="overflow-x: hidden !important;">
         <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
-          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
+          <SpotlightCard
+              class-name="custom-spotlight-card"
+              spotlight-color="rgba(255, 255, 255, 0.25)"
+          >
+            <-!-- Content inside the card -->
+            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
+          </SpotlightCard>
+
+<!--          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>-->
         </el-col>
       </el-row>
     </div>
-
-
   </main>
 
 
@@ -372,40 +396,36 @@ function initAppList() {
 <style scoped>
 header {
   line-height: 1.5;
-  background: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto; /* allow natural flow on small screens */
 }
 
 main {
-  background: transparent !important;
-}
-
-/*.el-row {
-  background: red;
-}
-
-.el-col {
-  background: cyan;
-  border-radius: 4px;
-  margin-bottom: 60px;
-  height: 320px;
-}
-
-.grid-content {
-  background: blueviolet;
-  border-radius: 4px;
-  min-height: 36px;
-}*/
-
-.logo {
   display: block;
-  margin: 0 auto 2rem;
+  align-items: stretch;
+  justify-content: stretch;
+  height: auto; /* natural height so page can scroll from top to bottom */
+}
+
+/* When using the el-scrollbar (wide screens), force main to be viewport-height and hide page scroll */
+.use-el-scroll {
+  height: 100vh;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {
   header {
+    height: 100vh; /* left column full height on wide screens */
+    overflow: hidden;
     display: flex;
     place-items: center;
-    /*padding-right: calc(var(--section-gap) / 2);*/
+  }
+
+  main.use-el-scroll {
+    height: 100vh;
+    overflow: hidden;
   }
 
   .logo {

@@ -45,15 +45,15 @@ function endHover() {
 </script>
 
 <template>
-  <div class="cardPanel" @click="redirectToApp(name)">
+  <div class="cardPanel">
     <div class="container">
-      <div class="card" @touchstart="startHover" @touchend="endHover">
-        <div class="img-box" style="z-index: 2">
-          <img alt="app icon" :src="icon">
+      <div class="card" @click="redirectToApp(name)" @touchstart="startHover" @touchend="endHover">
+        <div class="img-box" style="z-index: 2; pointer-events: none;">
+          <img alt="app icon" :src="icon" style="pointer-events: none;">
         </div>
 <!--        <el-image class="qrCode" style="display: flex;justify-content: center;align-items: center;flex-direction: column;z-index: 1; object-fit: cover; width: 150px; height: 150px;  opacity: 0;transition: transform 0.5s, opacity 0.5s;" :src="qrCode" fit="contain" />-->
-        <img alt="QR Code" class="qrCode" :src="qrCode" style="text-align: center;line-height: 240px;vertical-align: middle;object-fit: cover;position: absolute; width: 120px; height: 120px; max-width: 250px; max-height: 250px; opacity: 0;transition: transform 0.5s, opacity 0.5s;">
-        <h2 :class="name">{{ name }}</h2>
+        <img alt="QR Code" class="qrCode" :src="qrCode" style="text-align: center;line-height: 240px;vertical-align: middle;object-fit: cover;position: absolute; width: 120px; height: 120px; max-width: 250px; max-height: 250px; opacity: 0;transition: transform 0.5s, opacity 0.5s; pointer-events: none;">
+        <h2 :class="name" style="pointer-events: none;">{{ name }}</h2>
       </div>
     </div>
 

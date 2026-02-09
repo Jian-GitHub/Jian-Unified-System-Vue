@@ -5,19 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Update README.md">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/contact/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/contact/src/assets/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/src/components/views/ImgCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/contact/src/components/views/ImgCard.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/jian/code/webstorm/Jian-Unified-System-Vue" value="32D5GCX7z4pCYtptkHa3o542eDP" />
+    </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="chat-panel" value="GPT-5 mini" />
+      <entry key="agent-panel" value="GPT-5 mini" />
+    </selectedModels>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Vue Composition API Component" />
         <option value="TypeScript File" />
+        <option value="Vue Composition API Component" />
       </list>
     </option>
   </component>
@@ -59,35 +79,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/apollo/src/components/user/basic/dialog/thirdPartyAccounts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/apollo/node_modules/typescript/lib&quot;,
-    &quot;ts.rename.search.for.dynamic.occurrences&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/jian/code/webstorm/Jian-Unified-System-Vue/contact/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
+    "npm.dev (1).executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.serve.executor": "Run",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "/jian/code/webstorm/Jian-Unified-System-Vue/apollo/node_modules/typescript/lib",
+    "ts.rename.search.for.dynamic.occurrences": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;vue.recent.templates&quot;: [
-      &quot;Vue Composition API Component&quot;
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
     ]
   }
-}</component>
+}]]></component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info id="Bookmarks" side_tool="true" />
@@ -95,46 +118,70 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2208904" />
-      <window_info active="true" id="Commit" order="1" visible="true" weight="0.2208904" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19965753" />
+      <window_info id="Commit" order="1" weight="0.19965753" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="GitHub Copilot MCP Log" />
       <window_info anchor="bottom" id="File Transfer" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32962963" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info active="true" anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" visible="true" weight="0.17089948" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.32962963" />
+      <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.17089948" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" visible="true" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.25026456" />
-      <window_info anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" weight="0.17089948" />
+      <window_info anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" weight="0.32962963" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.5003629" weight="0.25026456" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.25026456" />
       <window_info anchor="right" id="Endpoints" />
+      <window_info anchor="right" id="github.copilotToolWindow" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
+      <window_info anchor="right" id="GitHub Coding Agent Jobs" />
       <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
       <window_info anchor="right" id="AIAssistant" order="1" weight="0.25" />
       <window_info anchor="right" id="Database" order="2" weight="0.25" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
       <window_info anchor="right" id="Maven" order="4" weight="0.25" />
+      <window_info active="true" anchor="right" id="GitHub Copilot Chat" order="5" weight="0.30513698" />
     </layout>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/thirdPartyAccounts" />
-      <recent name="$PROJECT_DIR$/apollo/src/locales/ko" />
-      <recent name="$PROJECT_DIR$/apollo/src/locales/ja" />
-      <recent name="$PROJECT_DIR$/apollo/src/locales/en" />
-      <recent name="$PROJECT_DIR$/apollo/src/api" />
+      <recent name="$PROJECT_DIR$/contact/src" />
+      <recent name="$PROJECT_DIR$/contact/src/assets" />
+      <recent name="$PROJECT_DIR$/contact/public" />
+      <recent name="$PROJECT_DIR$/contact/src/assets/wechat" />
+      <recent name="$PROJECT_DIR$/contact/src/assets/line" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/contact/src/components" />
       <recent name="$PROJECT_DIR$/apollo/src/assets/logic" />
       <recent name="$PROJECT_DIR$/apollo/src/components/basic" />
       <recent name="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys" />
       <recent name="$PROJECT_DIR$/apollo/src/components/user/basic" />
-      <recent name="$PROJECT_DIR$/apollo/src/locales/en/dialogs" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev (1)">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/apollo/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/contact/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/apollo/package.json" />
       <command value="run" />
@@ -145,9 +192,22 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/contact/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev (1)" />
+        <item itemvalue="npm.serve" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -199,15 +259,15 @@
       <workItem from="1759406883223" duration="96000" />
       <workItem from="1759407771456" duration="317000" />
       <workItem from="1761212250216" duration="2110000" />
-      <workItem from="1761277721464" duration="3015000" />
-    </task>
-    <task id="LOCAL-00019" summary="Remove unnecessary comments">
-      <option name="closed" value="true" />
-      <created>1757860518396</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1757860518396</updated>
+      <workItem from="1761277721464" duration="11845000" />
+      <workItem from="1762318089039" duration="2104000" />
+      <workItem from="1763080432232" duration="616000" />
+      <workItem from="1766096487409" duration="603000" />
+      <workItem from="1767671459349" duration="67000" />
+      <workItem from="1768979676093" duration="112000" />
+      <workItem from="1770601456130" duration="1648000" />
+      <workItem from="1770603745253" duration="25940000" />
+      <workItem from="1770642354144" duration="32000" />
     </task>
     <task id="LOCAL-00020" summary="Tidy code">
       <option name="closed" value="true" />
@@ -593,11 +653,24 @@
       <option name="project" value="LOCAL" />
       <updated>1761280233796</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1761281205191</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1761281205191</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/contact/vite.config.js" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -611,6 +684,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/contact" />
+    </ignored-roots>
     <MESSAGE value="Cloudflare Functions" />
     <MESSAGE value="Change animation" />
     <MESSAGE value="Cloudflare component: Multiple languages" />
@@ -637,5 +713,13 @@
     <MESSAGE value="Feature: Display user Passkeys" />
     <MESSAGE value="Update README.md" />
     <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

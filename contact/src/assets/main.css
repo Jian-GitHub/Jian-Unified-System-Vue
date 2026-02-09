@@ -1,10 +1,22 @@
 @import './base.css';
 
+html, body {
+  /* allow content to grow beyond the viewport so the page scrolls from top to bottom */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
 #app {
-  /*max-width: 1280px;*/
   margin: 0;
   padding: 2rem;
   font-weight: normal;
+  min-height: 100vh;
+  width: 100%; /* allow natural page width, avoid forcing viewport width */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 a,
@@ -27,12 +39,15 @@ a,
   body {
     display: flex;
     place-items: center;
+    overflow: hidden;
   }
 
   #app {
     display: grid;
     grid-template-columns: 1fr 1.8fr;
     padding: 0 2rem;
+    height: 100vh;
+    overflow: hidden;
   }
 }
 
@@ -43,8 +58,8 @@ a,
 }
 .cardPanel {
   /*position: absolute;*/
-  margin: 60px 0 0;
-  padding: 0;
+  margin: 1rem 0 2rem 0;
+  padding: 3rem;
   box-sizing: border-box;
   color: black;
 
@@ -63,19 +78,15 @@ a,
 
 .container {
 
+
 /*  Card*/
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   gap: 60px;
-
-  /*max-height: 35vh;*/
   /*max-width: 80vw;*/
 }
 
 .card {
+  position: relative; /* 恢复相对定位 */
   box-shadow: 0px 0px 10px 0px var(--clr);
 }
 
@@ -83,7 +94,6 @@ a,
   position: relative;
   width: 300px;
   height: 230px;
-  /*background: var(--color-border);*/
   background-image: linear-gradient(to bottom right, var(--card-background-bottom), var(--card-background-right));
   border-radius: 20px;
   display: flex;
@@ -96,12 +106,12 @@ a,
 
 .container .card:hover {
   height: 280px;
+  margin-bottom: -50px; /* 补偿高度增加，避免挤压下方卡片 */
 }
 
 .container .card .img-box {
   position: absolute;
   inset: 20px 20px 50px 20px;
-  /*background: var(--color-border);*/
   background-image: linear-gradient(to bottom right, var(--card-background-bottom), var(--card-background-right));
   border: 15px;
   transition: 0.5s;
@@ -131,7 +141,7 @@ a,
   transform: translateY(-100px);
   opacity: 0;
   /*box-shadow: -5px -5px 0 4px var(--clr);*/
-  pointer-events: none;
+  /*transform: scale(1.1); !* 使用缩放效果代替高度变化 *!*/
   transition: 0.5s;
 }
 
@@ -150,14 +160,10 @@ a,
   border-top-right-radius: 20px;
   transform: translateY(-100px);
   opacity: 0;
-  /*box-shadow: 5px -5px 0 4px var(--clr);*/
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.container .card:hover .img-box::before {
-  opacity: 1;
-  transform: translateY(50px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 添加浮现效果 */
+  transition: height 0.5s ease, box-shadow 0.5s ease; /* 添加平滑过渡效果 */
+  top: 0; /* 确保卡片在原位置展开 */
+  transform-origin: center;
 }
 
 .container .card:hover .qrCode {
