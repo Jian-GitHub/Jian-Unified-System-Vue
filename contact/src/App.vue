@@ -347,44 +347,44 @@ function initAppList() {
     <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>-->
     <div class="wrapper">
       <Intro msg="祁剑 (Jian Qi)!"/>
-      <SpotlightCard
-          class-name="custom-spotlight-card"
-          spotlight-color="rgba(255, 255, 255, 0.25)"
-          style="background: black"
-      >
-        <-!-- Content inside the card -->
-      </SpotlightCard>
+<!--      <SpotlightCard-->
+<!--          class-name="custom-spotlight-card"-->
+<!--          spotlight-color="rgba(255, 255, 255, 0.25)"-->
+<!--          style="background: black"-->
+<!--      >-->
+<!--        <-!&#45;&#45; Content inside the card &ndash;&gt;-->
+<!--      </SpotlightCard>-->
     </div>
   </header>
 
   <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }">
-    <el-scrollbar v-if="isScrollbar" style="height: 100vh; width: 100%;">
+    <el-scrollbar v-if="isScrollbar" style="height: calc(100vh - 10rem); width: 100%;margin-top: 5rem;margin-bottom: 5rem;">
       <el-row :gutter="0" style="overflow-x: hidden !important; padding-bottom: 150px;">
         <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
-<!--          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>-->
-          <SpotlightCard
-              class-name="custom-spotlight-card"
-              spotlight-color="rgba(0, 255, 255, 1)"
-              style="background: black"
-          >
-<!--            <-!&#45;&#45; Content inside the card &ndash;&gt;-->
-            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
-          </SpotlightCard>
+          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
+<!--          <SpotlightCard-->
+<!--              class-name="custom-spotlight-card"-->
+<!--              spotlight-color="rgba(0, 255, 255, 1)"-->
+<!--              style="background: black"-->
+<!--          >-->
+<!--&lt;!&ndash;            <-!&#45;&#45; Content inside the card &ndash;&gt;&ndash;&gt;-->
+<!--            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>-->
+<!--          </SpotlightCard>-->
         </el-col>
       </el-row>
     </el-scrollbar>
     <div v-else style="overflow-y: visible; overflow-x: hidden; width: 100%;">
       <el-row :gutter="0" style="overflow-x: hidden !important;">
         <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
-          <SpotlightCard
-              class-name="custom-spotlight-card"
-              spotlight-color="rgba(255, 255, 255, 0.25)"
-          >
-            <-!-- Content inside the card -->
-            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
-          </SpotlightCard>
+<!--          <SpotlightCard-->
+<!--              class-name="custom-spotlight-card"-->
+<!--              spotlight-color="rgba(255, 255, 255, 0.25)"-->
+<!--          >-->
+<!--            <-!&#45;&#45; Content inside the card &ndash;&gt;-->
+<!--            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>-->
+<!--          </SpotlightCard>-->
 
-<!--          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>-->
+          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
         </el-col>
       </el-row>
     </div>
