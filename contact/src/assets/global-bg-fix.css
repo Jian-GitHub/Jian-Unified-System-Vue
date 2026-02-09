@@ -16,7 +16,19 @@ html, body {
 
 /* Ensure main content has transparent background so ColorBends shows through */
 main, header {
-  background: transparent !important;
+  background: transparent;
+  padding: 2rem;
+}
+
+@media (min-width: 1024px) {
+  header {
+    padding: 2rem;
+  }
+}
+@media (max-width: 1024px) {
+  header {
+    padding: 2rem 7.5vw;
+  }
 }
 
 /* Utility: ensure any absolutely/fixed children don't shift layout */
