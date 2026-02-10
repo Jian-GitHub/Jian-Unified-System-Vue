@@ -478,4 +478,13 @@ main {
     flex-wrap: wrap;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .wrapper {
+    border-radius: 24px;
+    background: black;
+    opacity: 0.5;
+    filter: brightness(2);
+  }
+}
 </style>

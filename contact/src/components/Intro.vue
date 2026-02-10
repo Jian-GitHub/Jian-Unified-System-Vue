@@ -19,7 +19,7 @@ defineProps({
     <h2>Jian Qi</h2>
     </div>
     <h3 >
-      <p style="font-weight: bolder">Please feel free and contact me!</p>
+      <p style="font-weight: bolder; text-align: center">Please feel free and contact me!</p>
       <br/>
       <p>
         I am a forest, and a night of dark trees, but he who is not afraid of my darkness, will find banks full of roses under my cypresses.
@@ -100,7 +100,7 @@ h3 p {
 /* 亮模式下 email 添加简单描边 */
 .email-label,
 .email-address {
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.65);
 }
 
@@ -108,6 +108,7 @@ h3 p {
 @media (prefers-color-scheme: dark) {
   h1 {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+    filter: brightness(1.3);
   }
 
   h2 {
