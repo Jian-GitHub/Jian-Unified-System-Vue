@@ -460,6 +460,7 @@ main {
     overflow: hidden;
     display: flex;
     place-items: center;
+    margin-top: env(safe-area-inset-top); /* 避免刘海遮挡 */
   }
 
   main.use-el-scroll {
