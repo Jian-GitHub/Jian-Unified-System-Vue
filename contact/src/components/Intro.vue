@@ -102,6 +102,7 @@ h3 p {
 .email-address {
   font-size: 1.1rem;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.65);
+  letter-spacing: 0.04rem;
 }
 
 /* 暗模式 - 添加阴影，h2/h3更亮 */
