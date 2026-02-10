@@ -401,7 +401,6 @@ function initAppList() {
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); mask-image: linear-gradient(to top, black 0%, black 8%, transparent 60%);"></div>
   </div>
 
-
 </template>
 
 <style scoped>
