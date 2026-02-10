@@ -12,29 +12,22 @@ defineProps({
 <!--    <h1 class="green">{{ msg }}</h1>-->
 <!--    <div style="display: flex;align-items: baseline">-->
 
-
     <div>
       <h1 class="green" style="color: #538CEB">
         祁剑
-        <!--      <br/>-->
-        <!--      Jian Qi-->
       </h1>
-    <h2 style="font-size: 1.5rem;font-weight: 300;font-style: italic">Jian Qi</h2>
+    <h2>Jian Qi</h2>
     </div>
-<!--      <h2 class="green" style="font-style: italic">-->
-<!--        Jian Qi-->
-<!--      </h2>-->
-<!--    </div>-->
     <h3 >
-<!--      <p>You can contact me through these communication software.</p>-->
       <p style="font-weight: bolder">Please feel free and contact me!</p>
+      <br/>
       <p>
         I am a forest, and a night of dark trees, but he who is not afraid of my darkness, will find banks full of roses under my cypresses.
       </p>
       <br/>
       <div style="color: var(--color-text)">
-        <a style="display: flex" href="mailto:e.jianqi@gmail.com" target="_blank" rel="noopener">
-          <p style="color: var(--color-text)">&centerdot;&nbsp;</p>
+        <a style="display: flex; align-items: center;justify-items: left; padding: 0" href="mailto:e.jianqi@gmail.com" target="_blank" rel="noopener">
+          <p style="color: var(--color-text);">&centerdot;&nbsp;</p>
           <p class="email-label" style="color: #C77C97">
             Email:
           </p>
@@ -66,8 +59,6 @@ defineProps({
 <!--          </p>-->
 <!--        </a>-->
       </div>
-
-
     </h3>
   </div>
 </template>
@@ -75,30 +66,29 @@ defineProps({
 <style scoped>
 /* 亮模式 - 无阴影 */
 h1 {
-  font-weight: 600;
-  font-size: 3.2rem;
+  font-weight: 500;
+  font-size: 2.6rem;
   position: relative;
   top: -10px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 0.02em;
 }
 
 h2 {
-  font-weight: 400;
-  font-size: 1.8rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+  font-style: italic;
   position: relative;
   top: -10px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 0.02em;
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
+  line-height: 1;
 }
 
 h3 p {
@@ -110,6 +100,7 @@ h3 p {
 /* 亮模式下 email 添加简单描边 */
 .email-label,
 .email-address {
+  font-size: 1rem;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.65);
 }
 
@@ -145,26 +136,15 @@ h3 p {
 }
 
 .greetings h1,
-.greetings h2,
-.greetings h3 {
+.greetings h2 {
   text-align: center;
 }
 
+.greetings h3 {
+  text-align: left;
+}
+
 @media (min-width: 1024px) {
-  h1 {
-    font-size: 2.6rem;
-    font-weight: 500;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 300;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
-
   .greetings h1,
   .greetings h2,
   .greetings h3 {

@@ -356,7 +356,7 @@ function initAppList() {
           />
         </div>
         <!-- Intro 在前景 -->
-        <div style="position: relative; z-index: 1; padding: 2rem;">
+        <div style="position: relative; z-index: 1; padding: 1.3rem;">
           <Intro msg="祁剑 (Jian Qi)!"/>
         </div>
       </div>
