@@ -496,19 +496,27 @@ main {
 </style>
 
 <style>
-/* 禁止整个页面的 overscroll，防止 Safari 拉扯 fixed 元素 */
+/* 全局禁止 overscroll */
 html {
   overscroll-behavior: none;
-  overflow: hidden;
-  height: 100%;
 }
 
 body {
   overscroll-behavior: none;
-  overflow: hidden;
-  height: 100%;
-  position: fixed;
-  width: 100%;
-  touch-action: pan-y;
+}
+
+/* 宽屏模式：禁止 body 滚动，防止 Safari 拉扯 fixed 元素 */
+@media (min-width: 1024px) {
+  html {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  body {
+    overflow: hidden;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+  }
 }
 </style>
