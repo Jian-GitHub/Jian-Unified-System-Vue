@@ -6,20 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="blur">
       <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contact/tsconfig.node.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/core/components/GradualBlur/GradualBlur.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/contact/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/contact/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/contact/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact/src/assets/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/contact/src/assets/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/contact/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contact/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contact/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,8 +121,8 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18527398" />
-      <window_info id="Commit" order="1" weight="0.26746577" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18527398" />
+      <window_info id="Commit" order="1" weight="0.18527398" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -288,15 +280,7 @@
       <workItem from="1770603745253" duration="25940000" />
       <workItem from="1770642354144" duration="4756000" />
       <workItem from="1770679113976" duration="13902000" />
-      <workItem from="1770715658255" duration="348000" />
-    </task>
-    <task id="LOCAL-00023" summary="Fix CORS bug">
-      <option name="closed" value="true" />
-      <created>1757889927452</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1757889927452</updated>
+      <workItem from="1770715658255" duration="840000" />
     </task>
     <task id="LOCAL-00024" summary="Fix CORS bug">
       <option name="closed" value="true" />
@@ -682,7 +666,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770647152537</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="blur">
+      <option name="closed" value="true" />
+      <created>1770716073930</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1770716073930</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +700,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/contact" />
     </ignored-roots>
-    <MESSAGE value="Remove Localstorage usage&#10;Add Skeleton" />
     <MESSAGE value="Load User Info &amp; Security Info" />
     <MESSAGE value="Feature: Register - Email + Password" />
     <MESSAGE value="Fix JP language bug" />
@@ -733,7 +724,8 @@
     <MESSAGE value="Contact subproject" />
     <MESSAGE value="layout margin" />
     <MESSAGE value="layout padding" />
-    <option name="LAST_COMMIT_MESSAGE" value="layout padding" />
+    <MESSAGE value="blur" />
+    <option name="LAST_COMMIT_MESSAGE" value="blur" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
