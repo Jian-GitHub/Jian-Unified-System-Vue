@@ -274,7 +274,6 @@ watch(screenWidth, (newWidth) => {
   // }
 });
 
-
 interface appListElement {
   name: string,
   icon: string,
