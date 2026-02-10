@@ -35,6 +35,7 @@ const {locale} = useI18n()
 import ColorBends from './components/ColorBends/ColorBends.vue'
 
 import SpotlightCard from "./components/SpotlightCard/SpotlightCard.vue";
+import GlassSurface from "../../core/components/GlassSurface/GlassSurface.vue";
 
 // const router = useRouter(); // 创建路由实例
 
@@ -346,14 +347,20 @@ function initAppList() {
   <header v-if="isLogin">
     <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>-->
     <div class="wrapper">
-      <Intro msg="祁剑 (Jian Qi)!"/>
-<!--      <SpotlightCard-->
-<!--          class-name="custom-spotlight-card"-->
-<!--          spotlight-color="rgba(255, 255, 255, 0.25)"-->
-<!--          style="background: black"-->
-<!--      >-->
-<!--        <-!&#45;&#45; Content inside the card &ndash;&gt;-->
-<!--      </SpotlightCard>-->
+      <div style="position: relative; width: 100%; height: 100%;">
+        <!-- GlassSurface 作为背景 -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+          <GlassSurface
+              width="100%"
+              height="100%"
+              :border-radius="24"
+          />
+        </div>
+        <!-- Intro 在前景 -->
+        <div style="position: relative; z-index: 1; padding: 2rem;">
+          <Intro msg="祁剑 (Jian Qi)!"/>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -370,8 +377,8 @@ function initAppList() {
     </div>
 
     <!-- 窄屏：普通滚动 -->
-    <div v-else style="overflow-y: visible; overflow-x: hidden; width: 100%;">
-      <el-row :gutter="0" style="overflow-x: hidden !important;">
+    <div v-else style="width: 100%;">
+      <el-row :gutter="0" style="overflow-x: visible;overflow-y: visible">
         <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
           <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
         </el-col>
