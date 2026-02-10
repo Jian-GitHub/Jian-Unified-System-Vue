@@ -358,37 +358,42 @@ function initAppList() {
   </header>
 
   <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }">
-    <el-scrollbar v-if="isScrollbar" style="height: calc(100vh - 10rem); width: 100%;margin-top: 5rem;margin-bottom: 5rem;">
-      <el-row :gutter="0" style="overflow-x: hidden !important; padding-bottom: 150px;">
-        <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
-          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
-<!--          <SpotlightCard-->
-<!--              class-name="custom-spotlight-card"-->
-<!--              spotlight-color="rgba(0, 255, 255, 1)"-->
-<!--              style="background: black"-->
-<!--          >-->
-<!--&lt;!&ndash;            <-!&#45;&#45; Content inside the card &ndash;&gt;&ndash;&gt;-->
-<!--            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>-->
-<!--          </SpotlightCard>-->
-        </el-col>
-      </el-row>
-    </el-scrollbar>
+    <!-- 宽屏：使用 el-scrollbar + 渐变模糊 -->
+    <div v-if="isScrollbar" style="position: relative; width: 100%; height: 100vh;overflow-y: visible">
+      <el-scrollbar style="height: calc(100vh - 10rem); width: 100%;margin-top: 2rem;margin-bottom: 5rem;overflow-y: visible">
+        <el-row :gutter="0" style="overflow-x: hidden !important; padding-bottom: 150px;">
+          <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
+            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
+          </el-col>
+        </el-row>
+      </el-scrollbar>
+    </div>
+
+    <!-- 窄屏：普通滚动 -->
     <div v-else style="overflow-y: visible; overflow-x: hidden; width: 100%;">
       <el-row :gutter="0" style="overflow-x: hidden !important;">
         <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
-<!--          <SpotlightCard-->
-<!--              class-name="custom-spotlight-card"-->
-<!--              spotlight-color="rgba(255, 255, 255, 0.25)"-->
-<!--          >-->
-<!--            <-!&#45;&#45; Content inside the card &ndash;&gt;-->
-<!--            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>-->
-<!--          </SpotlightCard>-->
-
           <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
         </el-col>
       </el-row>
     </div>
   </main>
+
+  <!-- 顶部渐变模糊 - 移到 main 外，使用 fixed 定位，完全不受任何容器限制 -->
+  <div v-if="isLogin && isScrollbar" style="position: fixed; top: 0; left: 0; right: 0; height: 10rem; z-index: 1000; pointer-events: none;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to bottom, black 0%, black 25%, transparent 95%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to bottom, black 0%, black 15%, transparent 80%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); mask-image: linear-gradient(to bottom, black 0%, black 8%, transparent 60%);"></div>
+  </div>
+
+  <!-- 底部渐变模糊 - 移到 main 外，使用 fixed 定位，完全不受任何容器限制 -->
+  <div v-if="isLogin && isScrollbar" style="position: fixed; bottom: 0; left: 0; right: 0; height: 15rem; z-index: 1000; pointer-events: none;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); mask-image: linear-gradient(to top, black 0%, black 35%, transparent 100%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to top, black 0%, black 25%, transparent 95%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to top, black 0%, black 15%, transparent 80%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); mask-image: linear-gradient(to top, black 0%, black 8%, transparent 60%);"></div>
+  </div>
 
 
 </template>
@@ -412,7 +417,36 @@ main {
 /* When using the el-scrollbar (wide screens), force main to be viewport-height and hide page scroll */
 .use-el-scroll {
   height: 100vh;
-  overflow: hidden;
+  overflow-x: visible;
+  overflow-y: hidden;
+}
+
+/* 顶部渐变模糊 */
+.scroll-blur-top {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  height: 8rem;
+  pointer-events: none;
+  z-index: 10;
+  background: rgba(255, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 底部渐变模糊 */
+.scroll-blur-bottom {
+  position: absolute;
+  bottom: 5rem;
+  left: 0;
+  right: 0;
+  height: 10rem;
+  pointer-events: none;
+  z-index: 10;
+  background: rgba(0, 0, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 @media (min-width: 1024px) {
