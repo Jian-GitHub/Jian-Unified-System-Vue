@@ -235,13 +235,14 @@ const setup = () => {
     pointerTargetRef.value.set(x, y);
   };
 
-  container.addEventListener('pointermove', handlePointerMove);
+  // 监听整个窗口的鼠标移动，而不只是 container
+  window.addEventListener('pointermove', handlePointerMove);
 
   cleanup = () => {
     if (rafRef.value !== null) cancelAnimationFrame(rafRef.value);
     if (resizeObserverRef.value) resizeObserverRef.value.disconnect();
     else window.removeEventListener('resize', handleResize);
-    container.removeEventListener('pointermove', handlePointerMove);
+    window.removeEventListener('pointermove', handlePointerMove);
     geometry.dispose();
     material.dispose();
     renderer.dispose();

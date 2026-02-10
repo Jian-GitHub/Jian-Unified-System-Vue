@@ -343,29 +343,29 @@ function initAppList() {
     />
   </div>
 
-  <header v-if="isLogin">
+  <header v-if="isLogin" style="pointer-events: none;">
     <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>-->
     <div class="wrapper">
-      <div style="position: relative; width: 100%; height: 100%;">
-        <!-- GlassSurface 作为背景 -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+      <div style="position: relative; width: 100%; height: 100%; pointer-events: auto;">
+        <!-- GlassSurface 作为背景 - 不需要鼠标交互 -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
           <GlassSurface
               width="100%"
               height="100%"
               :border-radius="24"
           />
         </div>
-        <!-- Intro 在前景 -->
-        <div style="position: relative; z-index: 1; padding: 1.3rem;">
+        <!-- Intro 在前景 - 需要鼠标交互 -->
+        <div style="position: relative; z-index: 1; padding: 1.3rem; pointer-events: auto;">
           <Intro msg="祁剑 (Jian Qi)!"/>
         </div>
       </div>
     </div>
   </header>
 
-  <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }">
+  <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }" style="pointer-events: none;">
     <!-- 宽屏：使用 el-scrollbar + 渐变模糊 -->
-    <div v-if="isScrollbar" style="position: relative; width: 100%; height: 100vh;overflow-y: visible">
+    <div v-if="isScrollbar" style="position: relative; width: 100%; height: 100vh;overflow-y: visible; pointer-events: auto;">
       <el-scrollbar style="height: calc(100vh - 10rem); width: 100%;margin-top: 2rem;margin-bottom: 5rem;overflow-y: visible">
         <el-row :gutter="0" style="overflow-x: hidden !important; padding-bottom: 150px;">
           <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
@@ -376,7 +376,7 @@ function initAppList() {
     </div>
 
     <!-- 窄屏：普通滚动 -->
-    <div v-else style="width: 100%;">
+    <div v-else style="width: 100%; pointer-events: auto;">
       <el-row :gutter="0" style="overflow-x: visible;overflow-y: visible">
         <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
           <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
