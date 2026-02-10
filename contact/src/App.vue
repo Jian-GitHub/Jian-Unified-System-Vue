@@ -386,19 +386,19 @@ function initAppList() {
   </main>
 
   <!-- 顶部渐变模糊 - 固定在视口顶部 -->
-  <div v-if="isLogin && isScrollbar" style="position: fixed; top: 0; left: 0; right: 0; height: 12rem; z-index: 999; pointer-events: none;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);"></div>
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to bottom, black 0%, black 25%, transparent 95%);"></div>
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to bottom, black 0%, black 15%, transparent 80%);"></div>
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); mask-image: linear-gradient(to bottom, black 0%, black 8%, transparent 60%);"></div>
+  <div v-if="isLogin && isScrollbar" style="position: fixed; top: 0; left: 0; right: 0; height: 10rem; z-index: 999; pointer-events: none;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to bottom, black 0%, black 25%, transparent 95%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); mask-image: linear-gradient(to bottom, black 0%, black 15%, transparent 80%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); mask-image: linear-gradient(to bottom, black 0%, black 8%, transparent 60%);"></div>
   </div>
 
   <!-- 底部渐变模糊 - 固定在视口底部 -->
-  <div v-if="isLogin && isScrollbar" style="position: fixed; bottom: 0; left: 0; right: 0; height: 15rem; z-index: 999; pointer-events: none;">
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); mask-image: linear-gradient(to top, black 0%, black 35%, transparent 100%);"></div>
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to top, black 0%, black 25%, transparent 95%);"></div>
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to top, black 0%, black 15%, transparent 80%);"></div>
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); mask-image: linear-gradient(to top, black 0%, black 8%, transparent 60%);"></div>
+  <div v-if="isLogin && isScrollbar" style="position: fixed; bottom: 0; left: 0; right: 0; height: 12rem; z-index: 999; pointer-events: none;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to top, black 0%, black 35%, transparent 100%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to top, black 0%, black 25%, transparent 95%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); mask-image: linear-gradient(to top, black 0%, black 15%, transparent 80%);"></div>
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); mask-image: linear-gradient(to top, black 0%, black 8%, transparent 60%);"></div>
   </div>
 
 </template>
@@ -492,5 +492,23 @@ main {
     opacity: 0.5;
     filter: brightness(2);
   }
+}
+</style>
+
+<style>
+/* 禁止整个页面的 overscroll，防止 Safari 拉扯 fixed 元素 */
+html {
+  overscroll-behavior: none;
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  overscroll-behavior: none;
+  overflow: hidden;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  touch-action: pan-y;
 }
 </style>
