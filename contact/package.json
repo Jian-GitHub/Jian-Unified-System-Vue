@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite --port 20551 --host",
     "serve": "vue-cli-service serve --port 20551 --host",
-    "build": "vite build",
+    "build": "npx vite build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
