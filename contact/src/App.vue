@@ -386,7 +386,7 @@ function initAppList() {
   </main>
 
   <!-- 顶部渐变模糊 - 移到 main 外，使用 fixed 定位，完全不受任何容器限制 -->
-  <div v-if="isLogin && isScrollbar" style="position: fixed; top: 0; left: 0; right: 0; height: 10rem; z-index: 1000; pointer-events: none;">
+  <div v-if="isLogin && isScrollbar" style="position: relative; top: -5vh; left: 0; right: 0; height: calc(5vh + 10rem); z-index: 1000; pointer-events: none;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);"></div>
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to bottom, black 0%, black 25%, transparent 95%);"></div>
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to bottom, black 0%, black 15%, transparent 80%);"></div>
@@ -394,7 +394,7 @@ function initAppList() {
   </div>
 
   <!-- 底部渐变模糊 - 移到 main 外，使用 fixed 定位，完全不受任何容器限制 -->
-  <div v-if="isLogin && isScrollbar" style="position: fixed; bottom: 0; left: 0; right: 0; height: 15rem; z-index: 1000; pointer-events: none;">
+  <div v-if="isLogin && isScrollbar" style="position: relative; bottom: -5vh; left: 0; right: 0; height: calc(5vh + 15rem); z-index: 1000; pointer-events: none;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); mask-image: linear-gradient(to top, black 0%, black 35%, transparent 100%);"></div>
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to top, black 0%, black 25%, transparent 95%);"></div>
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to top, black 0%, black 15%, transparent 80%);"></div>
