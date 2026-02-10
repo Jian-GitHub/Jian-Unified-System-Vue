@@ -454,10 +454,15 @@ main {
   -webkit-backdrop-filter: blur(10px);
 }
 
+@media (max-width: 1024px) {
+  header {
+    margin-top: max(1rem, env(safe-area-inset-top)); /* 避免刘海遮挡 */
+  }
+}
 @media (min-width: 1024px) {
   header {
     height: 100vh; /* left column full height on wide screens */
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     place-items: center;
     margin-top: env(safe-area-inset-top); /* 避免刘海遮挡 */
