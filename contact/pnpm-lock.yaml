@@ -26,6 +26,9 @@ importers:
       mathjs:
         specifier: ^15.1.0
         version: 15.1.0
+      primeicons:
+        specifier: ^7.0.0
+        version: 7.0.0
       qs:
         specifier: ^6.14.1
         version: 6.14.1
@@ -4019,6 +4022,9 @@ packages:
 
   pretty-error@4.0.0:
     resolution: {integrity: sha512-AoJ5YMAcXKYxKhuJGdcvse+Voc6v1RgnsR3nWcYU7q4t6z0Q6T86sv5Zq8VIRbOWWFpvdGE83LtdSMNd+6Y0xw==}
+
+  primeicons@7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
@@ -9075,6 +9081,8 @@ snapshots:
     dependencies:
       lodash: 4.17.23
       renderkid: 3.0.0
+
+  primeicons@7.0.0: {}
 
   process-nextick-args@2.0.1: {}
 
