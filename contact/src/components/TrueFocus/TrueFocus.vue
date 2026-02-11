@@ -32,19 +32,21 @@ const words = computed(() => props.sentence.split(' '));
 const sharedIndexMap = inject<Map<string, any> | null>('trueFocusSharedIndexMap', null);
 
 // 根据 syncGroup 决定使用共享还是独立的 currentIndex
+// 初始化为 -1 表示全部清晰
 const currentIndex = (props.syncGroup && sharedIndexMap)
   ? (() => {
       if (!sharedIndexMap.has(props.syncGroup)) {
-        sharedIndexMap.set(props.syncGroup, ref(0));
+        sharedIndexMap.set(props.syncGroup, ref(-1));
       }
       const shared = sharedIndexMap.get(props.syncGroup);
       return shared;
     })()
   : (() => {
-      return ref(0);
+      return ref(-1);
     })();
 
 const lastActiveIndex = ref<number | null>(null);
+const isHovered = ref(false);
 const containerRef = useTemplateRef<HTMLDivElement>('containerRef');
 const wordRefs = ref<HTMLSpanElement[]>([]);
 const focusRect = ref({ x: 0, y: 0, width: 0, height: 0 });
@@ -85,6 +87,7 @@ watch(
 
 const handleMouseEnter = (index: number) => {
   if (props.manualMode) {
+    isHovered.value = true;
     // 如果有 index 映射，使用映射后的值；否则直接使用数组索引
     const mappedIndex = props.index ? props.index[index] : index;
     lastActiveIndex.value = mappedIndex;
@@ -94,7 +97,9 @@ const handleMouseEnter = (index: number) => {
 
 const handleMouseLeave = () => {
   if (props.manualMode) {
-    currentIndex.value = lastActiveIndex.value || 0;
+    isHovered.value = false;
+    // 鼠标移出时设置为 -1，让所有文字都清晰
+    currentIndex.value = -1;
   }
 };
 
@@ -164,7 +169,7 @@ onUnmounted(() => {
         :ref="el => setWordRef(el as HTMLSpanElement, index)"
         class="relative font-black transition-[filter,color] duration-300 ease-in-out cursor-pointer"
         :style="{
-        filter: (props.index ? props.index[index] : index) === currentIndex ? 'blur(0px)' : `blur(${blurAmount}px)`,
+        filter: currentIndex === -1 || (props.index ? props.index[index] : index) === currentIndex ? 'blur(0px)' : `blur(${blurAmount}px)`,
         '--border-color': borderColor,
         '--glow-color': glowColor,
         transition: `filter ${animationDuration}s ease`
