@@ -90,17 +90,8 @@ const handleMouseEnter = (index: number) => {
   if (props.manualMode) {
     // 如果有 index 映射，使用映射后的值；否则直接使用数组索引
     const mappedIndex = props.index ? props.index[index] : index;
-    console.log('[TrueFocus] handleMouseEnter:', {
-      sentence: props.sentence,
-      wordArrayIndex: index,
-      mappedIndex: mappedIndex,
-      propsIndex: props.index,
-      oldValue: currentIndex.value,
-      syncGroup: props.syncGroup
-    });
     lastActiveIndex.value = mappedIndex;
     currentIndex.value = mappedIndex;
-    console.log('[TrueFocus] after set currentIndex.value =', currentIndex.value);
   }
 };
 
@@ -143,7 +134,19 @@ onMounted(async () => {
   watch(
       [() => props.manualMode, () => props.animationDuration, () => props.pauseBetweenAnimations, () => words.value],
       () => {
-        // ...existing code...
+        if (interval) {
+          clearInterval(interval);
+          interval = null;
+        }
+
+        if (!props.manualMode) {
+          interval = setInterval(
+              () => {
+                currentIndex.value = (currentIndex.value + 1) % words.value.length;
+              },
+              (props.animationDuration + props.pauseBetweenAnimations) * 1000
+          );
+        }
       },
       { immediate: true }
   );
@@ -181,7 +184,6 @@ onUnmounted(() => {
 
     <motion.div
         class="top-0 left-0 box-content absolute border-none pointer-events-none"
-        :initial="{ opacity: 0 }"
         :animate="{
         x: focusRect.x,
         y: focusRect.y,
@@ -198,19 +200,19 @@ onUnmounted(() => {
       }"
     >
       <span
-          class="top-[-10px] left-[-10px] absolute filter-[drop-shadow(0_0_4px_var(--border-color,#fff))] border-[3px] border-(--border-color,#fff) border-r-0 border-b-0 rounded-[3px] w-4 h-4 transition-none"
+          class="top-[-5px] left-[-5px] absolute filter-[drop-shadow(0_0_4px_var(--border-color,#fff))] border-[2px] border-(--border-color,#fff) border-r-0 border-b-0 rounded-[2px] w-2 h-2 transition-none"
       ></span>
 
       <span
-          class="top-[-10px] right-[-10px] absolute filter-[drop-shadow(0_0_4px_var(--border-color,#fff))] border-[3px] border-(--border-color,#fff) border-b-0 border-l-0 rounded-[3px] w-4 h-4 transition-none"
+          class="top-[-5px] right-[-5px] absolute filter-[drop-shadow(0_0_4px_var(--border-color,#fff))] border-[2px] border-(--border-color,#fff) border-b-0 border-l-0 rounded-[2px] w-2 h-2 transition-none"
       ></span>
 
       <span
-          class="bottom-[-10px] left-[-10px] absolute filter-[drop-shadow(0_0_4px_var(--border-color,#fff))] border-[3px] border-(--border-color,#fff) border-t-0 border-r-0 rounded-[3px] w-4 h-4 transition-none"
+          class="bottom-[-5px] left-[-5px] absolute filter-[drop-shadow(0_0_4px_var(--border-color,#fff))] border-[2px] border-(--border-color,#fff) border-t-0 border-r-0 rounded-[2px] w-2 h-2 transition-none"
       ></span>
 
       <span
-          class="right-[-10px] bottom-[-10px] absolute filter-[drop-shadow(0_0_4px_var(--border-color,#fff))] border-[3px] border-(--border-color,#fff) border-t-0 border-l-0 rounded-[3px] w-4 h-4 transition-none"
+          class="right-[-5px] bottom-[-5px] absolute filter-[drop-shadow(0_0_4px_var(--border-color,#fff))] border-[2px] border-(--border-color,#fff) border-t-0 border-l-0 rounded-[2px] w-2.5 h-2.5 transition-none"
       ></span>
     </motion.div>
   </div>
