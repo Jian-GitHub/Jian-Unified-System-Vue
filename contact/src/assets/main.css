@@ -71,8 +71,6 @@ a,
   box-sizing: border-box;
   color: black;
 
-
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,9 +83,8 @@ a,
 }
 
 .container {
-
-
-/*  Card*/
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 60px;
   /*max-width: 80vw;*/

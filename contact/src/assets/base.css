@@ -65,19 +65,13 @@
 }
 
 html {
-  overflow: hidden !important;
   background: transparent !important;
   width: 100vw;
-  height: 100vh;
   max-width: 100vw;
-  max-height: 100vh;
-  position: fixed;
 }
 
 body {
   min-height: 100vh;
-  max-height: 100vh;
-  height: 100vh;
   color: var(--color-text);
   background: transparent !important;
   transition:
@@ -101,7 +95,22 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden !important;
-  position: fixed;
   width: 100vw;
+}
+
+/* 宽屏模式才禁止滚动 */
+@media (min-width: 1024px) {
+  html {
+    overflow: hidden !important;
+    height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+  }
+
+  body {
+    max-height: 100vh;
+    height: 100vh;
+    overflow: hidden !important;
+    position: fixed;
+  }
 }

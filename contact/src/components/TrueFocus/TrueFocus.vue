@@ -157,7 +157,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :class="['relative', 'flex', mode === 'zh' ? 'gap-[0.02em]' : 'gap-[0.5em]']" ref="containerRef">
+  <div :class="['relative', 'flex', 'items-center', mode === 'zh' ? 'gap-[0.02em]' : 'gap-[0.5em]']" ref="containerRef">
     <span
         v-for="(word, index) in words"
         :key="props.index ? props.index[index] : index"

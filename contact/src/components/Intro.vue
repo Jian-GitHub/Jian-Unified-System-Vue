@@ -40,20 +40,20 @@ provide('trueFocusSharedIndexMap', sharedIndexMap);
             :manualMode="true"
             :blurAmount="5"
             borderColor="green"
-            :animationDuration="1"
+            :animationDuration="0.7"
             :pauseBetweenAnimations="0"
             :index="index"
             :mode="'zh'"
             syncGroup="name"
         />
       </h1>
-    <h2>
+    <h2 style="margin-top: 0.5rem;">
       <TrueFocus
           :sentence="nameEn"
           :manualMode="true"
           :blurAmount="5"
           borderColor="green"
-          :animationDuration="1"
+          :animationDuration="0.7"
           :pauseBetweenAnimations="0"
           :index="indexReversed"
           syncGroup="name"
