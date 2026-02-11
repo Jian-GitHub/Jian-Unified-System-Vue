@@ -187,6 +187,8 @@ h3 p {
 .greetings h1,
 .greetings h2 {
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .greetings h3 {
@@ -201,6 +203,10 @@ h3 p {
     text-align: left;
   }
 
+  .greetings h1,
+  .greetings h2 {
+    justify-content: flex-start;
+  }
 }
 </style>
 

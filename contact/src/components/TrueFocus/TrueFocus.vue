@@ -38,11 +38,9 @@ const currentIndex = (props.syncGroup && sharedIndexMap)
         sharedIndexMap.set(props.syncGroup, ref(0));
       }
       const shared = sharedIndexMap.get(props.syncGroup);
-      console.log('[TrueFocus] Using shared currentIndex for group:', props.syncGroup, 'sentence:', props.sentence);
       return shared;
     })()
   : (() => {
-      console.log('[TrueFocus] Using independent currentIndex for sentence:', props.sentence);
       return ref(0);
     })();
 
@@ -64,7 +62,6 @@ watch(
         // 反向查找：props.index 中哪个位置的值等于 currentIndex.value
         actualWordIndex = props.index.findIndex(val => val === currentIndex.value);
         if (actualWordIndex === -1) {
-          console.error('[TrueFocus] Cannot find word index for currentIndex.value:', currentIndex.value);
           return;
         }
       }
@@ -160,7 +157,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :class="['relative', 'flex', mode === 'zh' ? 'gap-[0em]' : 'gap-[0.5em]']" ref="containerRef">
+  <div :class="['relative', 'flex', mode === 'zh' ? 'gap-[0.02em]' : 'gap-[0.5em]']" ref="containerRef">
     <span
         v-for="(word, index) in words"
         :key="props.index ? props.index[index] : index"
