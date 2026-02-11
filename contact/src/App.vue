@@ -363,11 +363,11 @@ function initAppList() {
     </div>
   </header>
 
-  <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }" style="pointer-events: none;">
+  <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }" style="z-index: 0;">
     <!-- 宽屏：使用 el-scrollbar + 渐变模糊 -->
-    <div v-if="isScrollbar" style="position: relative; width: 100%; height: 100vh;overflow-y: visible; pointer-events: auto;">
-      <el-scrollbar style="height: calc(100vh - 10rem); width: 100%;margin-top: 2rem;margin-bottom: 5rem;overflow-y: visible">
-        <el-row :gutter="0" style="overflow-x: hidden !important; padding-bottom: 150px;">
+    <div v-if="isScrollbar" style="position: relative; width: 100%; height: 100vh;overflow-y: visible; display: flex; justify-content: center;">
+      <el-scrollbar style="height: calc(100vh - 10rem); width: 100%; max-width: 1400px; margin-top: 2rem;margin-bottom: 5rem;overflow-y: visible">
+        <el-row :gutter="0" style="overflow-x: hidden !important; padding-bottom: 150px; display: flex !important; justify-content: flex-start !important; flex-wrap: wrap !important;">
           <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
             <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
           </el-col>
@@ -376,12 +376,14 @@ function initAppList() {
     </div>
 
     <!-- 窄屏：普通滚动 -->
-    <div v-else style="width: 100%; pointer-events: auto;">
-      <el-row :gutter="0" style="overflow-x: visible;overflow-y: visible">
-        <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
-          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
-        </el-col>
-      </el-row>
+    <div v-else style="width: 100%; display: flex; justify-content: center;">
+      <div style="width: 100%; max-width: 1400px;">
+        <el-row :gutter="0" style="overflow-x: visible;overflow-y: visible; display: flex !important; justify-content: flex-start !important; flex-wrap: wrap !important;">
+          <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
+            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
+          </el-col>
+        </el-row>
+      </div>
     </div>
   </main>
 
@@ -414,8 +416,6 @@ header {
 
 main {
   display: block;
-  align-items: stretch;
-  justify-content: stretch;
   height: auto; /* natural height so page can scroll from top to bottom */
 }
 
