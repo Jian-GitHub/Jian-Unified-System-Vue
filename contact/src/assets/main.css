@@ -1,4 +1,12 @@
+@import "tailwindcss";
+
 @import './base.css';
+
+@import './css/base.css';
+@import './css/sidebar.css';
+@import './css/category.css';
+@import './css/landing.css';
+@import './css/transitions.css';
 
 html, body {
   /* allow content to grow beyond the viewport so the page scrolls from top to bottom */

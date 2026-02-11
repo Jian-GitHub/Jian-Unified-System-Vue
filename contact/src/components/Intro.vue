@@ -1,10 +1,31 @@
 <script setup>
-defineProps({
-  msg: {
+import TrueFocus from "../components/TrueFocus/TrueFocus.vue";
+import {computed, provide, ref} from "vue";
+
+const props = defineProps({
+  nameZh: {
+    type: String,
+    required: true
+  },
+  nameEn: {
     type: String,
     required: true
   }
 })
+
+const index = computed(() => {
+  return [...Array(props.nameZh.split(' ').length).keys()];
+})
+
+const indexReversed = computed(() => {
+  return [...index.value].reverse();
+})
+
+// 为所有 TrueFocus 子组件提供共享的 Map
+const sharedIndexMap = new Map();
+provide('trueFocusSharedIndexMap', sharedIndexMap);
+
+// console.log([...index.value].reverse())
 </script>
 
 <template>
@@ -13,10 +34,31 @@ defineProps({
 <!--    <div style="display: flex;align-items: baseline">-->
 
     <div>
-      <h1 class="green" style="color: #538CEB">
-        祁剑
+      <h1 class="green" style="color: #538CEB; height: 3.5rem; margin-top: 0.5rem">
+        <TrueFocus
+            :sentence="nameZh"
+            :manualMode="true"
+            :blurAmount="5"
+            borderColor="green"
+            :animationDuration="1"
+            :pauseBetweenAnimations="0"
+            :index="index"
+            :mode="'zh'"
+            syncGroup="name"
+        />
       </h1>
-    <h2>Jian Qi</h2>
+    <h2>
+      <TrueFocus
+          :sentence="nameEn"
+          :manualMode="true"
+          :blurAmount="5"
+          borderColor="green"
+          :animationDuration="1"
+          :pauseBetweenAnimations="0"
+          :index="indexReversed"
+          syncGroup="name"
+      />
+    </h2>
     </div>
     <h3 >
       <p class="bolder-text">Please feel free and contact me!</p>

@@ -343,7 +343,7 @@ function initAppList() {
     />
   </div>
 
-  <header v-if="isLogin" style="pointer-events: none;">
+  <header v-if="isLogin" style=" z-index: 2; pointer-events: none;">
     <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>-->
     <div class="wrapper">
       <div style="position: relative; width: 100%; height: 100%; pointer-events: auto;">
@@ -356,8 +356,8 @@ function initAppList() {
           />
         </div>
         <!-- Intro 在前景 - 需要鼠标交互 -->
-        <div style="position: relative; z-index: 1; padding: 1.3rem; pointer-events: auto;">
-          <Intro msg="祁剑 (Jian Qi)!"/>
+        <div style="position: relative; padding: 1.3rem; pointer-events: auto;">
+          <Intro name-zh="祁 剑" name-en="Jian Qi"/>
         </div>
       </div>
     </div>
@@ -386,7 +386,7 @@ function initAppList() {
   </main>
 
   <!-- 顶部渐变模糊 - 固定在视口顶部 -->
-  <div v-if="isLogin && isScrollbar" style="position: fixed; top: 0; left: 0; right: 0; height: 10rem; z-index: 999; pointer-events: none;">
+  <div v-if="isLogin && isScrollbar" style="position: fixed; top: 0; left: 0; right: 0; height: 10rem; z-index: 1; pointer-events: none;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 100%);"></div>
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to bottom, black 0%, black 25%, transparent 95%);"></div>
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); mask-image: linear-gradient(to bottom, black 0%, black 15%, transparent 80%);"></div>
@@ -394,7 +394,7 @@ function initAppList() {
   </div>
 
   <!-- 底部渐变模糊 - 固定在视口底部 -->
-  <div v-if="isLogin && isScrollbar" style="position: fixed; bottom: 0; left: 0; right: 0; height: 12rem; z-index: 999; pointer-events: none;">
+  <div v-if="isLogin && isScrollbar" style="position: fixed; bottom: 0; left: 0; right: 0; height: 12rem; z-index: 1; pointer-events: none;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); mask-image: linear-gradient(to top, black 0%, black 35%, transparent 100%);"></div>
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); mask-image: linear-gradient(to top, black 0%, black 25%, transparent 95%);"></div>
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); mask-image: linear-gradient(to top, black 0%, black 15%, transparent 80%);"></div>
@@ -405,7 +405,7 @@ function initAppList() {
 
 <style scoped>
 header {
-  line-height: 1.5;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;

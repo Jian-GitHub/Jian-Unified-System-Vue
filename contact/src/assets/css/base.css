@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+@import 'primeicons/primeicons.css';
+
+/**,*/
+/**::before,*/
+/**::after {*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*body {*/
+/*    background-color: #0b0b0b;*/
+/*    font-family: 'Figtree', sans-serif !important;*/
+/*    font-size: 16px;*/
+/*    color: #fff;*/
+/*    min-height: 100vh;*/
+/*    text-rendering: optimizeLegibility;*/
+/*    -webkit-font-smoothing: antialiased;*/
+/*    -moz-osx-font-smoothing: grayscale;*/
+/*}*/
+
+/*.app-container {*/
+/*    min-height: 100vh;*/
+/*    display: flex;*/
+/*    padding: 0 2em;*/
+/*}*/
+
+/*.back-to-top {*/
+/*    background: #0b0b0b;*/
+/*    aspect-ratio: 1;*/
+/*    font-weight: 500;*/
+/*    border-radius: 0.75rem;*/
+/*    border: 1px solid #333;*/
+/*    width: 50px;*/
+/*    position: fixed;*/
+/*    right: 2.3em;*/
+/*    z-index: 98;*/
+/*    box-shadow: 10px 0 25px rgba(0, 0, 0, 0.2);*/
+/*    transition:*/
+/*            opacity 0.3s ease,*/
+/*            bottom 0.3s ease;*/
+/*    opacity: 0;*/
+/*    bottom: 1em;*/
+/*    cursor: default;*/
+/*}*/
+
+/*.back-to-top.visible {*/
+/*    opacity: 1;*/
+/*    bottom: 2.5em;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.v-code-block--code-copy-button {*/
+/*    border: 1px solid #333;*/
+/*    border-radius: 8px;*/
+/*    padding: 0.8em !important;*/
+/*    height: 35px !important;*/
+/*    top: 0.5em !important;*/
+/*    right: 0.5em !important;*/
+/*}*/
+
+/*.v-code-block--code-copy-button.v-code-block--code-copy-button-status-success svg {*/
+/*    fill: #27ff64 !important;*/
+/*}*/
+
+/*.v-code-block--code-copy-button svg {*/
+/*    fill: #ffffff !important;*/
+/*}*/
+
+/*@media (max-width: 640px) {*/
+/*    .p-toast {*/
+/*        position: fixed !important;*/
+/*        bottom: 1rem !important;*/
+/*        right: 1rem !important;*/
+/*        left: 1rem !important;*/
+/*        width: auto !important;*/
+/*        max-width: calc(100vw - 2rem) !important;*/
+/*    }*/
+
+/*    .p-toast-message {*/
+/*        max-width: 100% !important;*/
+/*        min-width: unset !important;*/
+/*        width: 100% !important;*/
+/*        margin: 0 !important;*/
+/*        font-size: 0.875rem !important;*/
+/*        padding: 0.75rem !important;*/
+/*        box-sizing: border-box !important;*/
+/*    }*/
+
+/*    .p-toast-message-content {*/
+/*        padding: 0.5rem !important;*/
+/*        gap: 0.5rem !important;*/
+/*    }*/
+
+/*    .p-toast-message-text {*/
+/*        word-wrap: break-word !important;*/
+/*        overflow-wrap: break-word !important;*/
+/*        hyphens: auto !important;*/
+/*    }*/
+
+/*    .p-toast-message-summary {*/
+/*        font-size: 0.875rem !important;*/
+/*        line-height: 1.25 !important;*/
+/*    }*/
+/*}*/

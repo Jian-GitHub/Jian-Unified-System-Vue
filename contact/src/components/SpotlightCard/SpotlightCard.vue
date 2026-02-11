@@ -7,12 +7,14 @@
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
       :class="['relative rounded-3xl border overflow-hidden p-8', className]"
+      tabindex="0"
   >
     <div
         class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out"
         :style="{
         opacity,
-        background: `radial-gradient(circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`
+        background: `radial-gradient(circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,
+        zIndex: 10
       }"
     />
 
@@ -21,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, useTemplateRef } from 'vue';
+import { ref } from 'vue';
 
 interface Position {
   x: number;
@@ -33,9 +35,11 @@ interface SpotlightCardProps {
   spotlightColor?: string;
 }
 
-const { className = '', spotlightColor = 'rgba(255, 255, 255, 0.25)' } = defineProps<SpotlightCardProps>();
+const props = defineProps<SpotlightCardProps>();
+const className = props.className ?? '';
+const spotlightColor = props.spotlightColor ?? 'rgba(255, 255, 255, 0.25)';
 
-const divRef = useTemplateRef<HTMLDivElement>('divRef');
+const divRef = ref<HTMLDivElement | null>(null);
 const isFocused = ref<boolean>(false);
 const position = ref<Position>({ x: 0, y: 0 });
 const opacity = ref<number>(0);
