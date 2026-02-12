@@ -15,7 +15,11 @@ html, body {
 }
 
 /* Ensure main content has transparent background so ColorBends shows through */
-main, header {
+main {
+  background: transparent;
+  padding: 0 2rem;
+}
+header {
   background: transparent;
   padding: 2rem;
 }
