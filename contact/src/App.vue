@@ -5,7 +5,7 @@ import ColorBends from "./components/ColorBends/ColorBends.vue";
 </script>
 
 <template>
-  <div style="position: fixed; top: -10%; left: -10%; right: -10%; bottom: -10%; z-index: -1; overflow: hidden; width: 120vw; height: 120vh;">
+  <div style="position: fixed; top: -10%; left: -10%; right: -10%; bottom: -10%; z-index: -1; overflow: hidden; width: 120vw; height: 120vh;background: var(--color-background-mute)">
     <ColorBends
         style="width: 100%; height: 100%;"
         :rotation="0"
@@ -21,7 +21,7 @@ import ColorBends from "./components/ColorBends/ColorBends.vue";
     />
   </div>
 
-  <section style="display: flex;height: 100vh; width: 100vw;">
+  <section class="main-content-container" style="width: 100vw;">
       <!-- Content Here - such as an image or text -->
       <MainContent/>
 
