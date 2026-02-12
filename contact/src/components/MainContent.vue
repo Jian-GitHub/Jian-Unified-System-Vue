@@ -371,12 +371,14 @@ function initAppList() {
   <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }" style="z-index: 0;">
     <!-- 宽屏：使用 el-scrollbar -->
     <div v-if="isScrollbar" style="position: relative; width: 100%; height: 100vh; display: flex; justify-content: center;">
-      <el-scrollbar style="height: calc(100vh - 10vh); width: 100%; max-width: 1400px; margin-top: 5vh; margin-bottom: 5vh">
-        <el-row :gutter="20" style="overflow-x: hidden !important; display: flex !important; justify-content: flex-start !important; flex-wrap: wrap !important;padding: 0 15px">
-          <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
-            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
-          </el-col>
-        </el-row>
+      <el-scrollbar style="height: calc(100vh - 10vh); width: 100%; max-width: 1400px; margin-top: 5vh; margin-bottom: 5vh;">
+        <div style="overflow-x: hidden; width: 100%;">
+          <el-row :gutter="20" style="display: flex !important; justify-content: flex-start !important; flex-wrap: wrap !important; padding: 0 15px; margin: 0 -10px;">
+            <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
+              <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
+            </el-col>
+          </el-row>
+        </div>
       </el-scrollbar>
     </div>
 
@@ -466,6 +468,7 @@ html {
 body {
   overscroll-behavior: none;
 }
+
 
 /* 宽屏模式：禁止 body 滚动，防止 Safari 拉扯 fixed 元素 */
 @media (min-width: 1024px) {

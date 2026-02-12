@@ -30,11 +30,11 @@ provide('trueFocusSharedIndexMap', sharedIndexMap);
 
 <template>
   <div class="greetings">
-<!--    <h1 class="green">{{ msg }}</h1>-->
-<!--    <div style="display: flex;align-items: baseline">-->
+    <!--    <h1 class="green">{{ msg }}</h1>-->
+    <!--    <div style="display: flex;align-items: baseline">-->
 
     <div>
-      <h1 class="green" style="color: #538CEB; height: 3.5rem; margin-top: 0.5rem">
+      <h1 style="color: #538CEB; height: 3.5rem; margin-top: 0.5rem">
         <TrueFocus
             :sentence="nameZh"
             :manualMode="true"
@@ -47,28 +47,30 @@ provide('trueFocusSharedIndexMap', sharedIndexMap);
             syncGroup="name"
         />
       </h1>
-    <h2 style="margin-top: 0.5rem;">
-      <TrueFocus
-          :sentence="nameEn"
-          :manualMode="true"
-          :blurAmount="5"
-          borderColor="green"
-          :animationDuration="0.7"
-          :pauseBetweenAnimations="0"
-          :index="indexReversed"
-          syncGroup="name"
-      />
-    </h2>
+      <h2 style="margin-top: 0.5rem;">
+        <TrueFocus
+            :sentence="nameEn"
+            :manualMode="true"
+            :blurAmount="5"
+            borderColor="green"
+            :animationDuration="0.7"
+            :pauseBetweenAnimations="0"
+            :index="indexReversed"
+            syncGroup="name"
+        />
+      </h2>
     </div>
-    <h3 >
+    <h3>
       <p class="bolder-text">Please feel free and contact me!</p>
       <br/>
       <p>
-        I am a forest, and a night of dark trees, but he who is not afraid of my darkness, will find banks full of roses under my cypresses.
+        I am a forest, and a night of dark trees, but he who is not afraid of my darkness, will find banks full of roses
+        under my cypresses.
       </p>
       <br/>
       <div style="color: var(--color-text)">
-        <a style="display: flex; align-items: center;justify-items: left; padding: 0" href="mailto:e.jianqi@gmail.com" target="_blank" rel="noopener">
+        <a style="display: flex; align-items: center;justify-items: left; padding: 0" href="mailto:e.jianqi@gmail.com"
+           target="_blank" rel="noopener">
           <p style="color: var(--color-text);">&centerdot;&nbsp;</p>
           <p class="email-label" style="color: #C77C97">
             Email:
@@ -78,28 +80,28 @@ provide('trueFocusSharedIndexMap', sharedIndexMap);
             E.JianQi@Gmail.com
           </p>
         </a>
-<!--        <br/>-->
-<!--        <a style="display: flex" href="tel:+8615540251709" target="_blank" rel="noopener">-->
-<!--          <p style="color: var(&#45;&#45;color-text)">&centerdot;&nbsp;</p>-->
-<!--          <p style="color: #C77C97">-->
-<!--            Tel:-->
-<!--          </p>-->
-<!--          &nbsp;-->
-<!--          <p style="color: #CEAFBE">-->
-<!--            (+86) 15540251709-->
-<!--          </p>-->
-<!--        </a>-->
-<!--        <br/>-->
-<!--        <a style="display: flex" href="tel:+64211833385" target="_blank" rel="noopener">-->
-<!--          <p style="color: var(&#45;&#45;color-text)">&centerdot;&nbsp;</p>-->
-<!--          <p style="color: #C77C97">-->
-<!--            Tel:-->
-<!--          </p>-->
-<!--          &nbsp;-->
-<!--          <p style="color: #CEAFBE">-->
-<!--            (+64) 021 183 3385-->
-<!--          </p>-->
-<!--        </a>-->
+        <!--        <br/>-->
+        <!--        <a style="display: flex" href="tel:+8615540251709" target="_blank" rel="noopener">-->
+        <!--          <p style="color: var(&#45;&#45;color-text)">&centerdot;&nbsp;</p>-->
+        <!--          <p style="color: #C77C97">-->
+        <!--            Tel:-->
+        <!--          </p>-->
+        <!--          &nbsp;-->
+        <!--          <p style="color: #CEAFBE">-->
+        <!--            (+86) 15540251709-->
+        <!--          </p>-->
+        <!--        </a>-->
+        <!--        <br/>-->
+        <!--        <a style="display: flex" href="tel:+64211833385" target="_blank" rel="noopener">-->
+        <!--          <p style="color: var(&#45;&#45;color-text)">&centerdot;&nbsp;</p>-->
+        <!--          <p style="color: #C77C97">-->
+        <!--            Tel:-->
+        <!--          </p>-->
+        <!--          &nbsp;-->
+        <!--          <p style="color: #CEAFBE">-->
+        <!--            (+64) 021 183 3385-->
+        <!--          </p>-->
+        <!--        </a>-->
       </div>
     </h3>
   </div>
