@@ -28,7 +28,7 @@ import ColorBends from "./components/ColorBends/ColorBends.vue";
     <GradualBlur
         target="parent"
         position="bottom"
-        height="15vh"
+        height="12vh"
         :strength="3"
         :divCount="5"
         curve="bezier"
@@ -38,7 +38,7 @@ import ColorBends from "./components/ColorBends/ColorBends.vue";
     <GradualBlur
         target="parent"
         position="top"
-        height="15vh"
+        height="12vh"
         :strength="3"
         :divCount="5"
         curve="bezier"

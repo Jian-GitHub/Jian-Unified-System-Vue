@@ -370,18 +370,20 @@ function initAppList() {
 
   <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }" style="z-index: 0;">
     <!-- 宽屏：使用 el-scrollbar -->
-    <el-scrollbar v-if="isScrollbar" style="height: calc(100vh - 10vh);margin-top: 5vh;margin-bottom: 5vh">
-      <el-row :gutter="0" style="overflow-x: hidden !important;">
-        <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
-          <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
-        </el-col>
-      </el-row>
-    </el-scrollbar>
+    <div v-if="isScrollbar" style="position: relative; width: 100%; height: 100vh; display: flex; justify-content: center;">
+      <el-scrollbar style="height: calc(100vh - 10vh); width: 100%; max-width: 1400px; margin-top: 5vh; margin-bottom: 5vh">
+        <el-row :gutter="20" style="overflow-x: hidden !important; display: flex !important; justify-content: flex-start !important; flex-wrap: wrap !important;padding: 0 15px">
+          <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
+            <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
+          </el-col>
+        </el-row>
+      </el-scrollbar>
+    </div>
 
     <!-- 窄屏：普通滚动 -->
     <div v-else style="width: 100%; display: flex; justify-content: center;">
       <div style="width: 100%; max-width: 1400px;">
-        <el-row :gutter="0"
+        <el-row :gutter="20"
                 style="overflow-x: visible;overflow-y: visible; display: flex !important; justify-content: flex-start !important; flex-wrap: wrap !important;">
           <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
             <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
