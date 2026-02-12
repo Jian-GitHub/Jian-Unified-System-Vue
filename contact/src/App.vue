@@ -2,6 +2,26 @@
 import MainContent from "./components/MainContent.vue"
 import GradualBlur from "./components/GradualBlur/GradualBlur.vue";
 import ColorBends from "./components/ColorBends/ColorBends.vue";
+import {computed, onMounted, onBeforeUnmount, ref} from "vue";
+
+const screenWidth = ref(window.innerWidth);
+
+const isScrollbar = computed(() => {
+  return screenWidth.value >= 1024;
+});
+
+// 更新屏幕宽度
+const updateScreenWidth = () => {
+  screenWidth.value = window.innerWidth;
+};
+
+onMounted(() => {
+  window.addEventListener('resize', updateScreenWidth);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateScreenWidth);
+});
 </script>
 
 <template>
@@ -26,8 +46,9 @@ import ColorBends from "./components/ColorBends/ColorBends.vue";
       <MainContent/>
 
     <GradualBlur
+        v-if="isScrollbar"
         target="parent"
-        position="bottom"
+        position="top"
         height="12vh"
         :strength="3"
         :divCount="5"
@@ -36,8 +57,9 @@ import ColorBends from "./components/ColorBends/ColorBends.vue";
         :opacity="1"
     />
     <GradualBlur
+        v-if="isScrollbar"
         target="parent"
-        position="top"
+        position="bottom"
         height="12vh"
         :strength="3"
         :divCount="5"

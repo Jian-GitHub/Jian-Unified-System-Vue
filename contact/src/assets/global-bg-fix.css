@@ -17,16 +17,16 @@ html, body {
 /* Ensure main content has transparent background so ColorBends shows through */
 main {
   background: transparent;
-  padding: 0 2rem;
+  padding-right: 2rem;
 }
 header {
   background: transparent;
-  padding: 2rem;
+  padding: 2rem 2rem 2rem 2rem;
 }
 
 @media (min-width: 1024px) {
   header {
-    padding: 2rem;
+    padding: 2rem max(0.5rem, 5vw) 2rem 2rem;
   }
 }
 @media (max-width: 1024px) {

@@ -383,7 +383,7 @@ function initAppList() {
     </div>
 
     <!-- 窄屏：普通滚动 -->
-    <div v-else style="width: 100%; display: flex; justify-content: center;">
+    <div v-else style="padding-bottom: 10vh;width: 100%; display: flex; justify-content: center;">
       <div style="width: 100%; max-width: 1400px;">
         <el-row :gutter="20"
                 style="overflow-x: visible;overflow-y: visible; display: flex !important; justify-content: flex-start !important; flex-wrap: wrap !important;">
