@@ -17,7 +17,6 @@ html, body {
 /* Ensure main content has transparent background so ColorBends shows through */
 main {
   background: transparent;
-  padding-right: 2rem;
 }
 header {
   background: transparent;
@@ -32,6 +31,9 @@ header {
 @media (max-width: 1024px) {
   header {
     padding: 2rem 7.5vw;
+  }
+  main {
+    margin-top: 2rem;
   }
 }
 

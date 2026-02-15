@@ -66,8 +66,8 @@ a,
 }
 .cardPanel {
   /*position: absolute;*/
-  margin: 2rem 0 2rem 0;
-  padding: 2rem 0 3rem 0;
+  margin: 0 0 0 0;
+  padding: 0;
   box-sizing: border-box;
   color: black;
 
@@ -75,6 +75,9 @@ a,
   align-items: center;
   justify-content: center;
 
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
   /*max-height: 35vh;*/
   /*max-width: 80vw;*/
   /*min-height: 100vh;*/
@@ -86,7 +89,9 @@ a,
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 0;
+  width: 300px;
+  height: auto;
   /*max-width: 80vw;*/
 }
 
@@ -97,8 +102,12 @@ a,
 
 .container .card {
   position: relative;
-  width: 300px;
-  height: 230px;
+  width: 300px !important;
+  height: 230px !important;
+  min-width: 300px !important;
+  min-height: 230px !important;
+  max-width: 300px !important;
+  max-height: 230px !important;
   background-image: linear-gradient(to bottom right, var(--card-background-bottom), var(--card-background-right));
   border-radius: 20px;
   display: flex;
@@ -107,10 +116,13 @@ a,
   flex-direction: column;
   cursor: pointer;
   transition: 0.5s;
+  flex-shrink: 0;
 }
 
 .container .card:hover {
-  height: 280px;
+  height: 280px !important;
+  min-height: 280px !important;
+  max-height: 280px !important;
   margin-bottom: -50px; /* 补偿高度增加，避免挤压下方卡片 */
 }
 
@@ -239,8 +251,8 @@ a,
   /*margin-left: auto;*/
   /*margin-right: auto;*/
   /*margin-top: 35px;*/
-  min-width: 18vw !important;
-  min-height: 100px !important;
+  min-width: 250px;
+  min-height: 100px;
   width: 250px !important;
   height: 100px !important;
 

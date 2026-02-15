@@ -370,10 +370,10 @@ function initAppList() {
 
   <main v-if="isLogin" :class="{ 'use-el-scroll': isScrollbar }" style="z-index: 0;">
     <!-- 宽屏：使用 el-scrollbar -->
-    <div v-if="isScrollbar" style="position: relative; width: 100%; height: 100vh; display: flex; justify-content: center;">
-      <el-scrollbar style="height: calc(100vh - 10vh); width: 100%; max-width: 1400px; margin-top: 5vh; margin-bottom: 5vh;">
-        <div style="overflow-x: hidden; width: 100%;">
-          <el-row :gutter="20" style="display: flex !important; justify-content: flex-start !important; flex-wrap: wrap !important; padding: 0 15px; margin: 0 -10px;">
+    <div v-if="isScrollbar" style="position: relative; height: 100vh; display: flex; justify-content: center;">
+      <el-scrollbar style="height: calc(100vh - 10vh); width: 65vw; margin-top: 5vh; margin-bottom: 5vh;">
+        <div style="overflow-x: hidden; width: 100%; padding: 4rem 10px 4rem 10px;">
+          <el-row :gutter="0">
             <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
               <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
             </el-col>
@@ -383,10 +383,9 @@ function initAppList() {
     </div>
 
     <!-- 窄屏：普通滚动 -->
-    <div v-else style="padding-bottom: 10vh;width: 100%; display: flex; justify-content: center;">
-      <div style="width: 100%; max-width: 1400px;">
-        <el-row :gutter="20"
-                style="overflow-x: visible;overflow-y: visible; display: flex !important; justify-content: flex-start !important; flex-wrap: wrap !important;">
+    <div v-else style="padding-bottom: 10vh; width: 100%; display: flex; justify-content: center;">
+      <div style="width: 100%; max-width: 85vw;">
+        <el-row :gutter="0">
           <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
             <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
           </el-col>
@@ -447,6 +446,9 @@ main {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+  main {
+    padding-right: 5vw;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -455,6 +457,35 @@ main {
     background: black;
     opacity: 0.5;
     filter: brightness(2);
+  }
+}
+
+/* 使用Grid布局 */
+:deep(.el-row) {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, 300px) !important;
+  justify-content: center !important; /* 默认居中 */
+  gap: 2rem !important;
+  width: 100% !important;
+}
+
+:deep(.el-col) {
+  width: 300px !important;
+  min-width: 300px !important;
+  max-width: 300px !important;
+}
+
+/* 窄屏模式：能放下2个卡片时改为space-between */
+@media (min-width: 766px) and (max-width: 1023px) {
+  :deep(.el-row) {
+    justify-content: space-between !important;
+  }
+}
+
+/* 宽屏模式：改为space-between */
+@media (min-width: 1024px) {
+  :deep(.el-row) {
+    justify-content: space-between !important;
   }
 }
 </style>
@@ -467,6 +498,38 @@ html {
 
 body {
   overscroll-behavior: none;
+}
+
+/* 使用Grid布局自动排列卡片 */
+.el-row {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, 300px) !important;
+  justify-content: space-between !important;
+  gap: 2rem !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.el-col {
+  width: 300px !important;
+  min-width: 300px !important;
+  max-width: 300px !important;
+  box-sizing: border-box !important;
+}
+
+/* 当容器宽度较小时（窄屏模式的85vw或宽屏的80vw小于650px），一行只能放1个卡片，此时居中 */
+/* 窄屏模式：85vw < 650px 时，即 vw < 765px */
+@media (max-width: 765px) {
+  .el-row {
+    justify-content: center !important;
+  }
+}
+
+/* 宽屏模式：80vw < 650px 时，即 vw < 812px，但只在宽屏模式生效 */
+@media (min-width: 1024px) and (max-width: 812px) {
+  .el-row {
+    justify-content: center !important;
+  }
 }
 
 
