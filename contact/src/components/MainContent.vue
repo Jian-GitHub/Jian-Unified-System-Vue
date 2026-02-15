@@ -372,7 +372,7 @@ function initAppList() {
     <!-- 宽屏：使用 el-scrollbar -->
     <div v-if="isScrollbar" style="position: relative; height: 100vh; display: flex; justify-content: center;">
       <el-scrollbar style="height: calc(100vh - 10vh); width: 65vw; margin-top: 5vh; margin-bottom: 5vh;">
-        <div style="overflow-x: hidden; width: 100%; padding: 4rem 10px 4rem 10px;">
+        <div style="overflow-x: hidden; width: 100%; padding: 4rem 10px 5.5rem 10px;">
           <el-row :gutter="0">
             <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
               <ImgCard :icon="app.icon" :qr-code="app.qrCode" :name="app.name"/>
