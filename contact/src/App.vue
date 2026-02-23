@@ -3,6 +3,21 @@ import MainContent from "./components/MainContent.vue"
 import GradualBlur from "./components/GradualBlur/GradualBlur.vue";
 import ColorBends from "./components/ColorBends/ColorBends.vue";
 import {computed, onMounted, onBeforeUnmount, ref} from "vue";
+import {useI18n} from "vue-i18n";
+
+const {locale} = useI18n()
+// default language: zh
+const systemLanguage = ref('zh');
+const updateSystemLanguage = (customizedLanguage: string | null) => {
+  if (customizedLanguage === null) {
+    const lang = navigator.language || (navigator as any).userLanguage || 'zh';
+    systemLanguage.value = lang.split('-')[0].toLowerCase();
+  } else {
+    systemLanguage.value = customizedLanguage;
+  }
+  locale.value = systemLanguage.value;
+};
+
 
 const screenWidth = ref(window.innerWidth);
 
@@ -16,7 +31,13 @@ const updateScreenWidth = () => {
 };
 
 onMounted(() => {
+  console.info(
+      "%c Contact - Jian Unified System %c v" + "0.2.0",
+      "padding: 2px 6px; border-radius: 3px 0 0 3px; color: #fff; background: #FF6699; font-weight: bold;",
+      "padding: 2px 6px; border-radius: 0 3px 3px 0; color: #fff; background: #FF9999; font-weight: bold;"
+  );
   window.addEventListener('resize', updateScreenWidth);
+  updateSystemLanguage(null);
 });
 
 onBeforeUnmount(() => {

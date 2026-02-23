@@ -22,16 +22,19 @@ import line_icon from "../assets/line/line_icon.svg"
 import line_qrCode from "../assets/line/line_qrCode.webp"
 
 
-import {ref, onMounted, onBeforeUnmount, watch, onBeforeMount, onUnmounted, computed} from 'vue';
+import {ref, onMounted, onBeforeUnmount, watch, onBeforeMount, onUnmounted, computed, ComputedRef} from 'vue';
 import {useRoute, useRouter} from 'vue-router';
 import {Token} from "../api/token";
 import store from "../store/index";
 
 // i18n
-import {useI18n} from "vue-i18n";
+// import {useI18n} from "vue-i18n";
+// const {t, locale} = useI18n()
+// const nameZh: ComputedRef<string> = computed(() => t('info.name_zh'))
+// const name: ComputedRef<string> = computed(() => t('info.name'))
+// const reversedFlag: ComputedRef<boolean> = computed(() => t('info.reversed_name') === 'true')
 
-const {locale} = useI18n()
-
+// console.log(nameZh.value, name.value, reversedFlag.value)
 // background
 import ColorBends from './ColorBends/ColorBends.vue'
 
@@ -330,24 +333,6 @@ function initAppList() {
 </script>
 
 <template>
-  <!-- ColorBends 固定背景层 - 扩大120%覆盖拉扯区域 -->
-<!--  <div-->
-<!--      style="position: fixed; top: -10%; left: -10%; right: -10%; bottom: -10%; z-index: -1; overflow: hidden; width: 120vw; height: 120vh;">-->
-<!--    <ColorBends-->
-<!--        style="width: 100%; height: 100%;"-->
-<!--        :rotation="0"-->
-<!--        :auto-rotate="1"-->
-<!--        :speed="0.2"-->
-<!--        :scale="1"-->
-<!--        :frequency="1"-->
-<!--        :warpStrength="1"-->
-<!--        :mouseInfluence="1"-->
-<!--        :parallax="0.5"-->
-<!--        :noise="0.1"-->
-<!--        transparent-->
-<!--    />-->
-<!--  </div>-->
-
   <header v-if="isLogin" style=" z-index: 2; pointer-events: none;">
     <!--    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125"/>-->
     <div class="wrapper">
@@ -362,7 +347,7 @@ function initAppList() {
         </div>
         <!-- Intro 在前景 - 需要鼠标交互 -->
         <div style="position: relative; padding: 1.3rem; pointer-events: auto;">
-          <Intro name-zh="祁 剑" name-en="Jian Qi"/>
+          <Intro/>
         </div>
       </div>
     </div>

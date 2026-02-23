@@ -1,38 +1,49 @@
-<script setup>
+<script setup lang="ts">
 import TrueFocus from "../components/TrueFocus/TrueFocus.vue";
-import {computed, provide, ref} from "vue";
+import {computed, provide, ref, ComputedRef} from "vue";
 
-const props = defineProps({
-  nameZh: {
-    type: String,
-    required: true
-  },
-  nameEn: {
-    type: String,
-    required: true
-  }
-})
+// const props = defineProps({
+//   nameZh: {
+//     type: String,
+//     required: true
+//   },
+//   name: {
+//     type: String,
+//     required: true
+//   },
+//   reversed: {
+//     type: Boolean,
+//     required: false,
+//     default: true
+//   }
+// })
+
+// i18n
+import {useI18n} from "vue-i18n";
+const {t, locale} = useI18n();
+const nameZh: ComputedRef<string> = computed(() => t('info.name_zh'));
+const name: ComputedRef<string> = computed(() => t('info.name'));
+const reversedFlag: ComputedRef<boolean> = computed(() => t('info.reversed_name') === 'true')
+const msg: ComputedRef<string> = computed(() => t('info.msg'))
+const description: ComputedRef<string> = computed(() => t('info.description'))
+const email: ComputedRef<string> = computed(() => t('info.email'))
 
 const index = computed(() => {
-  return [...Array(props.nameZh.split(' ').length).keys()];
+  return [...Array(nameZh.value.split(' ').length).keys()];
 })
 
 const indexReversed = computed(() => {
-  return [...index.value].reverse();
+  return reversedFlag.value ? [...index.value].reverse() : [...index.value];
 })
 
 // 为所有 TrueFocus 子组件提供共享的 Map
 const sharedIndexMap = new Map();
 provide('trueFocusSharedIndexMap', sharedIndexMap);
 
-// console.log([...index.value].reverse())
 </script>
 
 <template>
   <div class="greetings">
-    <!--    <h1 class="green">{{ msg }}</h1>-->
-    <!--    <div style="display: flex;align-items: baseline">-->
-
     <div>
       <h1 style="color: #538CEB; height: 3.5rem; margin-top: 0.5rem">
         <TrueFocus
@@ -49,7 +60,7 @@ provide('trueFocusSharedIndexMap', sharedIndexMap);
       </h1>
       <h2 style="margin-top: 0.5rem;">
         <TrueFocus
-            :sentence="nameEn"
+            :sentence="name"
             :manualMode="true"
             :blurAmount="5"
             borderColor="green"
@@ -61,11 +72,12 @@ provide('trueFocusSharedIndexMap', sharedIndexMap);
       </h2>
     </div>
     <h3>
-      <p class="bolder-text">Please feel free and contact me!</p>
+      <p class="bolder-text">{{msg}}<!--Please feel free and contact me!--></p>
       <br/>
       <p>
-        I am a forest, and a night of dark trees, but he who is not afraid of my darkness, will find banks full of roses
-        under my cypresses.
+        {{description}}
+<!--        I am a forest, and a night of dark trees, but he who is not afraid of my darkness, will find banks full of roses-->
+<!--        under my cypresses.-->
       </p>
       <br/>
       <div style="color: var(--color-text)">

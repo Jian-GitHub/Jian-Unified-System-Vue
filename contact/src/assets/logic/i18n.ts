@@ -1,5 +1,5 @@
 function loadLocaleMessages() {
-    const locales = import.meta.glob('./locales/*/*/*.json', { eager: true })
+    const locales = import.meta.glob('../../locales/*/*/*.json', { eager: true })
     const messages: Record<string, any> = {}
 
     for (const path in locales) {
