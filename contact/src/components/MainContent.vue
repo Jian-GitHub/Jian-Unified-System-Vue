@@ -368,7 +368,7 @@ function initAppList() {
     </div>
 
     <!-- 窄屏：普通滚动 -->
-    <div v-else style="padding-bottom: 10vh; width: 100%; display: flex; justify-content: center;">
+    <div v-else style="margin-top: 1rem; padding-bottom: 10vh; width: 100%; display: flex; justify-content: center;">
       <div style="width: 100%; max-width: 85vw;">
         <el-row :gutter="0">
           <el-col v-for="app in appList" :xs="xsSpan" :sm="smSpan" :md="mdSpan" :lg="lgSpan" :xl="xlSpan">
