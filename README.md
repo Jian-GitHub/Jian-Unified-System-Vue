@@ -16,3 +16,8 @@
 ---
 
 <p>🚧 Work in Progress...</p>
+
+
+## Stats
+
+![Alt](https://repobeats.axiom.co/api/embed/862586ca917b92add34b1ecc5f262945765ceb47.svg "Repobeats analytics image")
