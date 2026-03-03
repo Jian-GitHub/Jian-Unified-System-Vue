@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import MainContent from "./components/MainContent.vue"
+import { backgroundInit } from "./assets/logic/background"
 import GradualBlur from "./components/GradualBlur/GradualBlur.vue";
 import ColorBends from "./components/ColorBends/ColorBends.vue";
 import {computed, onMounted, onBeforeUnmount, ref} from "vue";
@@ -30,7 +31,7 @@ const updateScreenWidth = () => {
   screenWidth.value = window.innerWidth;
 };
 
-onMounted(() => {
+onMounted(async () => {
   console.info(
       "%c Contact - Jian Unified System %c v" + "0.2.0",
       "padding: 2px 6px; border-radius: 3px 0 0 3px; color: #fff; background: #FF6699; font-weight: bold;",
@@ -38,6 +39,8 @@ onMounted(() => {
   );
   window.addEventListener('resize', updateScreenWidth);
   updateSystemLanguage(null);
+
+  await backgroundInit();
 });
 
 onBeforeUnmount(() => {
@@ -46,7 +49,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div style="position: fixed; top: -10%; left: -10%; right: -10%; bottom: -10%; z-index: -1; overflow: hidden; width: 120vw; height: 120vh;background: var(--color-background-mute)">
+  <div id="background" style="position: fixed; top: -10%; left: -10%; right: -10%; bottom: -10%; z-index: -1; overflow: hidden; width: 120vw; height: 120vh;background: var(--color-background-mute)">
     <ColorBends
         style="width: 100%; height: 100%;"
         :rotation="0"
@@ -90,3 +93,17 @@ onBeforeUnmount(() => {
     />
   </section>
 </template>
+
+<style>
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0.6;
+}
+</style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TrueFocus from "../components/TrueFocus/TrueFocus.vue";
-import {computed, provide, ref, ComputedRef} from "vue";
+import {computed, provide, Ref, ComputedRef} from "vue";
 
 // const props = defineProps({
 //   nameZh: {
@@ -37,7 +37,7 @@ const indexReversed = computed(() => {
 })
 
 // 为所有 TrueFocus 子组件提供共享的 Map
-const sharedIndexMap = new Map();
+const sharedIndexMap: Map<string, Ref<number, number>> = new Map();
 provide('trueFocusSharedIndexMap', sharedIndexMap);
 
 </script>

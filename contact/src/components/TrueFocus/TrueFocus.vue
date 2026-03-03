@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { motion } from 'motion-v';
-import { computed, nextTick, onMounted, onUnmounted, ref, watch, useTemplateRef, inject } from 'vue';
+import { computed, nextTick, onMounted, onUnmounted, ref, watch, useTemplateRef, inject, Ref } from 'vue';
 
 interface TrueFocusProps {
   sentence?: string;
@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<TrueFocusProps>(), {
 const words = computed(() => props.sentence.split(' '));
 
 // 从父组件获取共享的 Map
-const sharedIndexMap = inject<Map<string, any> | null>('trueFocusSharedIndexMap', null);
+const sharedIndexMap = inject<Map<string, Ref<number, number>> | null>('trueFocusSharedIndexMap', null);
 
 // 根据 syncGroup 决定使用共享还是独立的 currentIndex
 // 初始化为 -1 表示全部清晰
