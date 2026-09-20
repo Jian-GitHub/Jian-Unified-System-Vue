@@ -5,92 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Hephaestus - v0.1.0">
-      <change afterPath="$PROJECT_DIR$/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SECURITY.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/REVIEW-2026-09-16.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/auto-imports.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/components.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/functions/api/[[path]].ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/public/favicon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/scripts/actions-browser-regression.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/scripts/audit-browser-regression.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/scripts/format-regression.test.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/scripts/import-browser-regression.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/scripts/locale-regression.test.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/scripts/person-name-regression.test.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/scripts/settings-browser-regression.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/api/apollo.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/api/axiosInstance.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/api/collections.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/api/imports.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/api/income.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/api/invoice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/api/reporting.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/api/session.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/assets/css/dayNightToggleButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/assets/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/assets/css/tokens.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/GoogleSheetsImport.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/AnimatedValue.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/ApolloThemeToggle.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/AppSettingsPanel.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/AppSidebar.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/ArrowDropDownIcon.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/EmptyState.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/ErrorBanner.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/StatCard.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/TopBar.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/common/TranslateIcon.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/income/IncomeFilters.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/income/IncomeInsights.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/income/MonthNavigator.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/income/SheetPreview.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/income/TrendChart.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/income/WeeklyCalendar.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/components/invoice/InvoiceShell.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/composables/useCursorPagination.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/composables/useIntersectionActivation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/composables/useLazyRequest.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/composables/useUnsavedChanges.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/directives/motion.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/i18n.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/locales/en/common.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/locales/ja/common.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/locales/ko/common.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/locales/zh/common.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/auth/AuthErrorPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/dashboard/DashboardPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/imports/ImportDetailPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/imports/ImportNewPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/imports/ImportsListPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/invoice/InvoiceIssuerPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/invoice/InvoiceListPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/invoice/InvoiceMakerPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/records/RecordEditPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/records/RecordsListPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/settings/SettingsPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/pages/sources/SourcesPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/router/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/shims-vue.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/store/invoice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/store/session.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/store/settings.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/types/income.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/types/invoice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/types/session.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/utils/errors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/utils/format.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/src/utils/personName.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/tsconfig.node.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hephaestus/vite.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,23 +66,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000000000002" />
-      <entry key="S60" value="1.000000016364915" />
-      <entry key="M2" value="1.0002878829780455" />
-      <entry key="M5" value="1.1732541264378484" />
-      <entry key="M10" value="3.575420925791568" />
-      <entry key="M15" value="8.84908663643251" />
-      <entry key="M30" value="28.868747446157112" />
-      <entry key="H1" value="56.63351448096332" />
-      <entry key="H2" value="81.46281995457814" />
-      <entry key="H4" value="116.51346243581068" />
-      <entry key="D1" value="463.22262225465636" />
-      <entry key="W1" value="1072.7964166576214" />
+      <entry key="MS100" value="1.0185913835784515" />
+      <entry key="MS500" value="1.8702010695767344" />
+      <entry key="S2" value="3.1368633219105106" />
+      <entry key="S5" value="3.6117830592473994" />
+      <entry key="S10" value="3.7977866593781626" />
+      <entry key="S30" value="3.930695882507318" />
+      <entry key="S60" value="3.9651040172262837" />
+      <entry key="M2" value="3.9824905308491854" />
+      <entry key="M5" value="3.9929813935835834" />
+      <entry key="M10" value="3.996488305119763" />
+      <entry key="M15" value="3.997730554139289" />
+      <entry key="M30" value="4.081341076728178" />
+      <entry key="H1" value="7.027155059515125" />
+      <entry key="H2" value="22.835418343169344" />
+      <entry key="H4" value="60.02556755501752" />
+      <entry key="D1" value="414.00732603211907" />
+      <entry key="W1" value="1058.2561740459662" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -190,23 +104,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.5904963307147651" />
-      <entry key="MS500" value="0.9000019297935121" />
-      <entry key="S2" value="0.974004268543241" />
-      <entry key="S5" value="0.9895194703802146" />
-      <entry key="S10" value="0.9947459325778691" />
-      <entry key="S30" value="0.9982455679609094" />
-      <entry key="S60" value="0.9991224151819191" />
-      <entry key="M2" value="0.9998485671473534" />
-      <entry key="M5" value="1.1730124939244206" />
-      <entry key="M10" value="3.5749270958184165" />
-      <entry key="M15" value="8.848300113867266" />
-      <entry key="M30" value="28.867640209152732" />
-      <entry key="H1" value="56.63253507435031" />
-      <entry key="H2" value="81.46215882211503" />
-      <entry key="H4" value="116.51305756425643" />
-      <entry key="D1" value="463.2224723024481" />
-      <entry key="W1" value="1072.7963678205733" />
+      <entry key="MS100" value="0.18583789494401623" />
+      <entry key="MS500" value="1.507170320271565" />
+      <entry key="S2" value="3.0058517190640757" />
+      <entry key="S5" value="3.553512405761027" />
+      <entry key="S10" value="3.767501086097673" />
+      <entry key="S30" value="3.920326348037167" />
+      <entry key="S60" value="3.959883709057445" />
+      <entry key="M2" value="3.9798713948762683" />
+      <entry key="M5" value="3.9919315710378664" />
+      <entry key="M10" value="3.9959630314284795" />
+      <entry key="M15" value="3.99738028464819" />
+      <entry key="M30" value="4.081162740181309" />
+      <entry key="H1" value="7.027015102468671" />
+      <entry key="H2" value="22.83522167658278" />
+      <entry key="H4" value="60.02535097088663" />
+      <entry key="D1" value="414.00718965626703" />
+      <entry key="W1" value="1058.2561255314629" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -446,39 +360,7 @@
       <workItem from="1789333667201" duration="867000" />
       <workItem from="1789367788379" duration="18546000" />
       <workItem from="1789648545550" duration="6198000" />
-      <workItem from="1789888594203" duration="3890000" />
-    </task>
-    <task id="LOCAL-00055" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1758550834727</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1758550834727</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1758554441083</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1758554441083</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Feature: Logout">
-      <option name="closed" value="true" />
-      <created>1758596791754</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1758596791754</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Feature: ThirdParty Continue">
-      <option name="closed" value="true" />
-      <created>1758719737618</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1758719737619</updated>
+      <workItem from="1789888594203" duration="8262000" />
     </task>
     <task id="LOCAL-00059" summary="Fix bug">
       <option name="closed" value="true" />
@@ -840,7 +722,39 @@
       <option name="project" value="LOCAL" />
       <updated>1789891012859</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Hephaestus - v0.1.0">
+      <option name="closed" value="true" />
+      <created>1789893113821</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1789893113822</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Hephaestus - v0.1.0">
+      <option name="closed" value="true" />
+      <created>1789908185701</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1789908185701</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Hephaestus - v0.1.0">
+      <option name="closed" value="true" />
+      <created>1789908935212</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1789908935212</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Hephaestus - v0.1.0">
+      <option name="closed" value="true" />
+      <created>1789909634273</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1789909634273</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
