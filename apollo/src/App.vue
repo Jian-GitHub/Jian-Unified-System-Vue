@@ -32,7 +32,7 @@ const updateSystemLanguage = (customizedLanguage: string | null) => {
 
 onMounted(() => {
   console.info(
-      "%c Apollo - Jian Unified System %c v" + "0.1.0",
+      "%c Apollo - Jian Unified System %c v" + "0.2.0",
       "padding: 2px 6px; border-radius: 3px 0 0 3px; color: #fff; background: #FF6699; font-weight: bold;",
       "padding: 2px 6px; border-radius: 0 3px 3px 0; color: #fff; background: #FF9999; font-weight: bold;"
   );
