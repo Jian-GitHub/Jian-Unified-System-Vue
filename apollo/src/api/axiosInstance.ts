@@ -13,7 +13,7 @@ axiosInstance.interceptors.request.use(
         const store = useLocalStore();
 
         if (store.token) {
-            config.headers.Authorization = `${store.token}`;
+            config.headers.Authorization = store.token.startsWith('Bearer ') ? store.token : `Bearer ${store.token}`;
         }
         // // 获取 localStorage 中的 token
         // const token = localStorage.getItem('token');

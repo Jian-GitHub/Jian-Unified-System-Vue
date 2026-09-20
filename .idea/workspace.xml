@@ -4,14 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="blur">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/components/GradualBlur/GradualBlur.vue" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Feature: background wave">
+      <change afterPath="$PROJECT_DIR$/core/components/TrueFocus/TrueFocus.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/css/category.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/css/landing.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/css/sidebar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/css/transitions.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/components.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/AccountActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/user/security/userPasskeysDialog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/api/axiosInstance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/api/axiosInstance.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/assets/css/dayNightToggleButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/assets/css/dayNightToggleButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/CloudflareTurnstile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/CloudflareTurnstile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/container/Container.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/login/setting/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/login/setting/Settings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/UserActionDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/UserActionDialog.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/accountSecurity/UserAccountSecurityActionDialogBody.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys/UserPasskeysActionDialogBody.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/components/user/security/userHead/UserHead.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apollo/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/config/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/src/types/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/src/types/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/apollo/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/contact/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/components/GradualBlur/GradualBlur.vue" beforeDir="false" afterPath="$PROJECT_DIR$/core/components/GradualBlur/GradualBlur.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,17 +46,20 @@
   </component>
   <component name="CopilotUserSelectedModel">
     <selectedModels>
-      <entry key="chat-panel" value="Claude Sonnet 4.5" />
-      <entry key="agent-panel" value="Claude Sonnet 4.5" />
+      <entry key="chat-panel" value="GPT-4o" />
+      <entry key="agent-panel" value="GPT-4o" />
     </selectedModels>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="355" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="Vue Composition API Component" />
         <option value="Vue Options API Component" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -60,9 +84,72 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Jian-GitHub/Jian-Unified-System-Vue.git&quot;,
-    &quot;accountId&quot;: &quot;5b3bfe61-352f-420e-b215-f193cc5581d6&quot;
+    &quot;accountId&quot;: &quot;f2dd212d-f972-495f-bb16-f1f6d5540321&quot;
   }
 }</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000000140973575" />
+      <entry key="MS500" value="1.027260768828167" />
+      <entry key="S2" value="2.1289036249354063" />
+      <entry key="S5" value="5.724858859331405" />
+      <entry key="S10" value="9.715011851530635" />
+      <entry key="S30" value="15.273661397316083" />
+      <entry key="S60" value="17.404951433013867" />
+      <entry key="M2" value="18.65691919794733" />
+      <entry key="M5" value="22.09645490109763" />
+      <entry key="M10" value="33.428299872903246" />
+      <entry key="M15" value="43.52209571110813" />
+      <entry key="M30" value="60.92681839718979" />
+      <entry key="H1" value="73.91997434875961" />
+      <entry key="H2" value="82.96030473768323" />
+      <entry key="H4" value="109.38105553662649" />
+      <entry key="D1" value="449.7455833259415" />
+      <entry key="W1" value="1051.5947830714933" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.870550575399628" />
+      <entry key="MS500" value="0.9990965406270089" />
+      <entry key="S2" value="2.113445065932729" />
+      <entry key="S5" value="5.7077912900191015" />
+      <entry key="S10" value="9.700343357082879" />
+      <entry key="S30" value="15.265849311021464" />
+      <entry key="S60" value="17.40047553412915" />
+      <entry key="M2" value="18.654512332359104" />
+      <entry key="M5" value="22.095262462518168" />
+      <entry key="M10" value="33.42728912497428" />
+      <entry key="M15" value="43.52116989735021" />
+      <entry key="M30" value="60.92613538771939" />
+      <entry key="H1" value="73.91954993490243" />
+      <entry key="H2" value="82.96006472191799" />
+      <entry key="H4" value="109.3809050935015" />
+      <entry key="D1" value="449.74548208644654" />
+      <entry key="W1" value="1051.5947415406595" />
+    </decayedShown>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -77,43 +164,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/jian/code/webstorm/Jian-Unified-System-Vue/contact/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "npm.build.executor": "Run",
-    "npm.contact.executor": "Run",
-    "npm.dev (1).executor": "Run",
-    "npm.dev.executor": "Run",
-    "npm.serve.executor": "Run",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/jian/code/webstorm/Jian-Unified-System-Vue/apollo/node_modules/typescript/lib",
-    "ts.rename.search.for.dynamic.occurrences": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.contact.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.serve.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/apollo/node_modules/typescript/lib&quot;,
+    &quot;ts.rename.search.for.dynamic.occurrences&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component",
-      "Vue Options API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;,
+      &quot;Vue Options API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info id="Bookmarks" side_tool="true" />
@@ -121,8 +212,8 @@
       <window_info id="Backup and Sync History" />
       <window_info id="Commit_Guest" show_stripe_button="false" />
       <window_info id="Pull Requests" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18527398" />
-      <window_info id="Commit" order="1" weight="0.18527398" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18047945" />
+      <window_info active="true" id="Commit" order="1" visible="true" weight="0.18047945" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.21746576" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
@@ -130,10 +221,10 @@
       <window_info anchor="bottom" id="File Transfer" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32962963" />
       <window_info anchor="bottom" id="Problems" order="1" />
-      <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.32962963" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.32962963" />
+      <window_info anchor="bottom" id="Problems View" order="2" sideWeight="0.5003629" weight="0.23550001" />
+      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.5003629" weight="0.2079365" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.25026456" />
-      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" weight="0.32962963" />
+      <window_info active="true" anchor="bottom" x="389" y="777" width="1271" height="167" id="Run" order="5" sideWeight="0.49963716" visible="true" weight="0.2079365" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.5003629" weight="0.25026456" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.25026456" />
       <window_info active="true" anchor="bottom" id="Debug" order="8" visible="true" weight="0.32962963" />
@@ -147,23 +238,23 @@
       <window_info anchor="right" id="Database" order="2" weight="0.25" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
       <window_info anchor="right" id="Maven" order="4" weight="0.25" />
-      <window_info active="true" anchor="right" id="GitHub Copilot Chat" order="5" visible="true" weight="0.32979453" />
+      <window_info active="true" anchor="right" id="GitHub Copilot Chat" order="5" visible="true" weight="0.23321918" />
     </layout>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/contact/public/assets" />
+      <recent name="$PROJECT_DIR$/contact/src/assets/img" />
       <recent name="$PROJECT_DIR$/contact/src" />
-      <recent name="$PROJECT_DIR$/contact/src/assets" />
-      <recent name="$PROJECT_DIR$/contact/public" />
-      <recent name="$PROJECT_DIR$/contact/src/assets/wechat" />
-      <recent name="$PROJECT_DIR$/contact/src/assets/line" />
+      <recent name="$PROJECT_DIR$/contact/src/locales/ja" />
+      <recent name="$PROJECT_DIR$/contact/src/locales/zh" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/components" />
       <recent name="$PROJECT_DIR$/contact/src/components" />
       <recent name="$PROJECT_DIR$/apollo/src/assets/logic" />
       <recent name="$PROJECT_DIR$/apollo/src/components/basic" />
       <recent name="$PROJECT_DIR$/apollo/src/components/user/basic/dialog/passkeys" />
-      <recent name="$PROJECT_DIR$/apollo/src/components/user/basic" />
     </key>
   </component>
   <component name="RunManager" selected="npm.contact">
@@ -209,8 +300,8 @@
     </configuration>
     <list>
       <item itemvalue="npm.build" />
-      <item itemvalue="npm.dev" />
       <item itemvalue="npm.contact" />
+      <item itemvalue="npm.dev" />
       <item itemvalue="npm.serve" />
     </list>
     <recent_temporary>
@@ -225,7 +316,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.26927.40" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.10315.144" />
       </set>
     </attachedChunks>
   </component>
@@ -281,214 +372,22 @@
       <workItem from="1770642354144" duration="4756000" />
       <workItem from="1770679113976" duration="13902000" />
       <workItem from="1770715658255" duration="840000" />
-    </task>
-    <task id="LOCAL-00024" summary="Fix CORS bug">
-      <option name="closed" value="true" />
-      <created>1757890790996</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1757890790996</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Add Cloudflare routes">
-      <option name="closed" value="true" />
-      <created>1757891615000</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1757891615000</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Using js">
-      <option name="closed" value="true" />
-      <created>1757894036391</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1757894036391</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Cloudflare Functions">
-      <option name="closed" value="true" />
-      <created>1757902536848</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1757902536848</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Cloudflare Functions">
-      <option name="closed" value="true" />
-      <created>1757933646126</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1757933646126</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Change animation">
-      <option name="closed" value="true" />
-      <created>1757934192067</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1757934192067</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1757934369352</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1757934369352</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Cloudflare component: Multiple languages">
-      <option name="closed" value="true" />
-      <created>1757937789559</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1757937789559</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1757937884840</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1757937884840</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1757937979076</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1757937979076</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1757938074575</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1757938074575</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1757938123129</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1757938123129</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Remove Localstorage usage&#10;Add Skeleton">
-      <option name="closed" value="true" />
-      <created>1758033925549</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1758033925549</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Load User Info &amp; Security Info">
-      <option name="closed" value="true" />
-      <created>1758118968489</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1758118968489</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Feature: Register - Email + Password">
-      <option name="closed" value="true" />
-      <created>1758161872168</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1758161872168</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1758162228421</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1758162228421</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Fix JP language bug">
-      <option name="closed" value="true" />
-      <created>1758162518518</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1758162518518</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Feature: Generate new Subsystem Token">
-      <option name="closed" value="true" />
-      <created>1758199465493</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1758199465493</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1758200313854</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1758200313854</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1758200332352</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1758200332352</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Feature: Multiple languages for Generate Subsystem Token Dialog">
-      <option name="closed" value="true" />
-      <created>1758203632224</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1758203632224</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Using el-affix.css">
-      <option name="closed" value="true" />
-      <created>1758203931175</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1758203931175</updated>
-    </task>
-    <task id="LOCAL-00046" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1758204353198</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1758204353198</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1758204649112</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1758204649112</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Switch api to K8s">
-      <option name="closed" value="true" />
-      <created>1758344432461</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1758344432461</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1758344595008</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1758344595008</updated>
+      <workItem from="1771155220831" duration="7180000" />
+      <workItem from="1771806612334" duration="55000" />
+      <workItem from="1771806686224" duration="5000" />
+      <workItem from="1771806707218" duration="10145000" />
+      <workItem from="1771893825006" duration="127000" />
+      <workItem from="1771893971799" duration="1189000" />
+      <workItem from="1771987232762" duration="6111000" />
+      <workItem from="1772010943125" duration="756000" />
+      <workItem from="1772535156068" duration="4643000" />
+      <workItem from="1788748546550" duration="19048000" />
+      <workItem from="1788950428381" duration="903000" />
+      <workItem from="1788989468254" duration="12952000" />
+      <workItem from="1789333667201" duration="867000" />
+      <workItem from="1789367788379" duration="18546000" />
+      <workItem from="1789648545550" duration="6198000" />
+      <workItem from="1789888594203" duration="1040000" />
     </task>
     <task id="LOCAL-00050" summary="Switch API -&gt; Cloud">
       <option name="closed" value="true" />
@@ -674,14 +573,239 @@
       <option name="project" value="LOCAL" />
       <updated>1770716073930</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="disable overscroll">
+      <option name="closed" value="true" />
+      <created>1770740473365</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1770740473365</updated>
+    </task>
+    <task id="LOCAL-00074" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1770741048448</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1770741048448</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Focus">
+      <option name="closed" value="true" />
+      <created>1770809394663</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1770809394663</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Fix bug">
+      <option name="closed" value="true" />
+      <created>1770810887366</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1770810887367</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Build">
+      <option name="closed" value="true" />
+      <created>1770811152748</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1770811152748</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Build">
+      <option name="closed" value="true" />
+      <created>1770811365763</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1770811365764</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Build">
+      <option name="closed" value="true" />
+      <created>1770811393565</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1770811393565</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Build">
+      <option name="closed" value="true" />
+      <created>1770811595004</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1770811595004</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Build">
+      <option name="closed" value="true" />
+      <created>1770811619534</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1770811619534</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Layout">
+      <option name="closed" value="true" />
+      <created>1770812499376</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1770812499376</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Layout">
+      <option name="closed" value="true" />
+      <created>1770814494509</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1770814494509</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Layout">
+      <option name="closed" value="true" />
+      <created>1770814544635</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1770814544635</updated>
+    </task>
+    <task id="LOCAL-00085" summary="optimization">
+      <option name="closed" value="true" />
+      <created>1770814982624</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1770814982624</updated>
+    </task>
+    <task id="LOCAL-00086" summary="optimization">
+      <option name="closed" value="true" />
+      <created>1770898669411</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1770898669412</updated>
+    </task>
+    <task id="LOCAL-00087" summary="optimization">
+      <option name="closed" value="true" />
+      <created>1770899073104</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1770899073104</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Fix bug">
+      <option name="closed" value="true" />
+      <created>1770899461440</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1770899461440</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Fix bug">
+      <option name="closed" value="true" />
+      <created>1770900711526</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1770900711526</updated>
+    </task>
+    <task id="LOCAL-00090" summary="optimization">
+      <option name="closed" value="true" />
+      <created>1770903024400</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1770903024400</updated>
+    </task>
+    <task id="LOCAL-00091" summary="optimization">
+      <option name="closed" value="true" />
+      <created>1771162248942</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1771162248942</updated>
+    </task>
+    <task id="LOCAL-00092" summary="optimization">
+      <option name="closed" value="true" />
+      <created>1771162297928</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1771162297928</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Feature: i18n">
+      <option name="closed" value="true" />
+      <created>1771818917273</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1771818917273</updated>
+    </task>
+    <task id="LOCAL-00094" summary="css">
+      <option name="closed" value="true" />
+      <created>1771894177567</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1771894177568</updated>
+    </task>
+    <task id="LOCAL-00095" summary="css">
+      <option name="closed" value="true" />
+      <created>1771894338111</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1771894338111</updated>
+    </task>
+    <task id="LOCAL-00096" summary="css">
+      <option name="closed" value="true" />
+      <created>1771894563003</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1771894563003</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1772011084038</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1772011084038</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Feature: background wave">
+      <option name="closed" value="true" />
+      <created>1772539271639</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1772539271639</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
     <option name="exactExcludedFiles">
       <list>
-        <option value="$PROJECT_DIR$/contact/vite.config.js" />
+        <option value="$PROJECT_DIR$/hephaestus/vite.config.d.ts" />
+        <option value="$PROJECT_DIR$/hephaestus/vite.config.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/router/index.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/types/income.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/types/session.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/types/invoice.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/main.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/api/session.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/api/reporting.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/api/imports.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/api/income.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/api/apollo.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/api/axiosInstance.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/api/invoice.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/store/settings.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/store/session.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/store/invoice.js" />
+        <option value="$PROJECT_DIR$/hephaestus/src/utils/format.js" />
       </list>
     </option>
   </component>
@@ -700,32 +824,32 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/contact" />
     </ignored-roots>
-    <MESSAGE value="Load User Info &amp; Security Info" />
-    <MESSAGE value="Feature: Register - Email + Password" />
-    <MESSAGE value="Fix JP language bug" />
-    <MESSAGE value="Feature: Generate new Subsystem Token" />
-    <MESSAGE value="Feature: Multiple languages for Generate Subsystem Token Dialog" />
-    <MESSAGE value="Using el-affix.css" />
-    <MESSAGE value="Switch api to K8s" />
-    <MESSAGE value="Switch API -&gt; Cloud" />
-    <MESSAGE value="Update Website Title" />
     <MESSAGE value="Feature: Passkeys Register (Test)" />
     <MESSAGE value="Feature: Passkeys Login (Test)" />
     <MESSAGE value="Feature: Logout" />
     <MESSAGE value="Feature: ThirdParty Continue" />
-    <MESSAGE value="Fix bug" />
     <MESSAGE value="Feature: Bind Third-Party Accounts" />
     <MESSAGE value="Update user info" />
     <MESSAGE value="Fix en bug" />
     <MESSAGE value="Fix google text bug" />
     <MESSAGE value="Fix dialog text bug" />
     <MESSAGE value="Feature: Display user Passkeys" />
-    <MESSAGE value="Update README.md" />
     <MESSAGE value="Contact subproject" />
     <MESSAGE value="layout margin" />
     <MESSAGE value="layout padding" />
     <MESSAGE value="blur" />
-    <option name="LAST_COMMIT_MESSAGE" value="blur" />
+    <MESSAGE value="disable overscroll" />
+    <MESSAGE value="fix bug" />
+    <MESSAGE value="Focus" />
+    <MESSAGE value="Build" />
+    <MESSAGE value="Layout" />
+    <MESSAGE value="Fix bug" />
+    <MESSAGE value="optimization" />
+    <MESSAGE value="Feature: i18n" />
+    <MESSAGE value="css" />
+    <MESSAGE value="Update README.md" />
+    <MESSAGE value="Feature: background wave" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feature: background wave" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

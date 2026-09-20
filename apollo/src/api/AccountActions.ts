@@ -43,8 +43,7 @@ export type RegisterFormData = {
     email: string;
     password: string;
     confirmedPassword: string;
-    language: string,
-    cloudflareToken: string;
+    language: string;
 }
 
 export type RegisterResponseData = {
@@ -59,9 +58,8 @@ export function Register(data: RegisterFormData): Promise<AxiosResponse<Register
     return axiosInstance.post(Server.service.account.register, {
         email: data.email,
         password: data.password,
-        confirm_password: data.password,
+        confirm_password: data.confirmedPassword,
         language: data.language,
-        cloudflareToken: data.cloudflareToken
     })
 }
 
@@ -99,9 +97,9 @@ export type UserInfoResponseData = {
         middle_name: string;
         family_name: string;
         avatar: string;
-        birthday_year: 0,
-        birthday_month: 0,
-        birthday_day: 0,
+        birthday_year: number,
+        birthday_month: number,
+        birthday_day: number,
         notification_email: string;
         locate: string;
         language: string;
@@ -112,6 +110,28 @@ export type UserInfoResponseData = {
 // GetUserInfo
 export async function GetUserInfo(): Promise<AxiosResponse<UserInfoResponseData>> {
     return axiosInstance.post(Server.service.account.getUserInfo)
+}
+
+export type OkResponseData = {
+    code: number;
+    message: string;
+    data: { ok: boolean };
+}
+
+export function UpdateName(givenName: string, middleName: string, familyName: string): Promise<AxiosResponse<OkResponseData>> {
+    return axiosInstance.post(Server.service.account.updateName, {
+        given_name: givenName,
+        middle_name: middleName,
+        family_name: familyName,
+    })
+}
+
+export function UpdateBirthday(year: number, month: number, day: number): Promise<AxiosResponse<OkResponseData>> {
+    return axiosInstance.post(Server.service.account.updateBirthday, {year, month, day})
+}
+
+export function UpdateLanguage(language: string): Promise<AxiosResponse<OkResponseData>> {
+    return axiosInstance.post(Server.service.account.updateLanguage, {language})
 }
 
 import {Date, Contact, ThirdPartyAccount} from "@/types/User";
@@ -131,6 +151,48 @@ export type UserSecurityInfoResponseData = {
 // GetUserSecurityInfo
 export async function GetUserSecurityInfo(): Promise<AxiosResponse<UserSecurityInfoResponseData>> {
     return axiosInstance.post(Server.service.account.getUserSecurity)
+}
+
+export type AddContactResponseData = {
+    code: number;
+    message: string;
+    data: { contact: Contact };
+}
+
+export function AddContact(value: string, type: 1 | 2, phoneRegion = ''): Promise<AxiosResponse<AddContactResponseData>> {
+    return axiosInstance.post(Server.service.account.addContact, {
+        value,
+        type,
+        phone_region: phoneRegion,
+    })
+}
+
+export function RemoveContact(id: string): Promise<AxiosResponse<OkResponseData>> {
+    return axiosInstance.post(Server.service.account.removeContact, {id})
+}
+
+export function ChangePassword(currentPassword: string, newPassword: string, confirmNewPassword: string, signOutEverywhere: boolean): Promise<AxiosResponse<OkResponseData>> {
+    return axiosInstance.post(Server.service.account.changePassword, {
+        current_password: currentPassword,
+        new_password: newPassword,
+        confirm_new_password: confirmNewPassword,
+        sign_out_everywhere: signOutEverywhere,
+    })
+}
+
+export function ChangeNotificationEmail(email: string): Promise<AxiosResponse<OkResponseData>> {
+    return axiosInstance.post(Server.service.account.changeNotificationEmail, {email})
+}
+
+export function RemoveNotificationEmail(): Promise<AxiosResponse<OkResponseData>> {
+    return axiosInstance.post(Server.service.account.removeNotificationEmail)
+}
+
+export function DeleteAccount(confirmation: string, currentPassword = ''): Promise<AxiosResponse<OkResponseData>> {
+    return axiosInstance.post(Server.service.account.deleteAccount, {
+        current_password: currentPassword,
+        confirmation,
+    })
 }
 
 export type SubsystemToken = {
@@ -170,6 +232,20 @@ export async function GenerateSubsystemToken(name: string, scope: number[]): Pro
     })
 }
 
+export type RemoveSubsystemTokenResponseData = {
+    code: number;
+    message: string;
+    data: {
+        ok: boolean;
+    }
+}
+// Remove Subsystem Token
+export async function RemoveSubsystemToken(id: string): Promise<AxiosResponse<RemoveSubsystemTokenResponseData>> {
+    return axiosInstance.post(Server.service.account.security.subsystemToken.removeSubsystemToken, {
+        id: id,
+    })
+}
+
 
 // Passkeys
 export type Passkey = {
@@ -189,28 +265,14 @@ export type PasskeysRegisterStartResponseData = {
 }
 // Passkeys Register - start
 export async function PasskeysRegisterStart(user_name?: string, display_name?: string): Promise<AxiosResponse<PasskeysRegisterStartResponseData>> {
-    let data: {
+    const data: {
         user_name: string
         display_name: string
     } = {
-        user_name: '',
-        display_name: ''
-    }
-    if (user_name && display_name) {
-        data.user_name = user_name;
-        data.display_name = display_name;
+        user_name: user_name || '',
+        display_name: display_name || '',
     }
     return axiosInstance.post(Server.service.account.passkeys.register.start, data);
-}
-
-export type PasskeysRegisterFinishOptions = {
-    id: string
-    type: string
-    rawId: string
-    response: {
-        clientDataJSON: string
-        attestationObject: string
-    }
 }
 
 export type PasskeysRegisterFinishResponseData = {
@@ -221,7 +283,7 @@ export type PasskeysRegisterFinishResponseData = {
     }
 }
 // Passkeys Register - finish
-export async function PasskeysRegisterFinish(currentSession: string, language: string, finishOptions: PasskeysRegisterFinishOptions): Promise<AxiosResponse<PasskeysRegisterFinishResponseData>> {
+export async function PasskeysRegisterFinish(currentSession: string, language: string, finishOptions: unknown): Promise<AxiosResponse<PasskeysRegisterFinishResponseData>> {
     return axiosInstance.post(Server.service.account.passkeys.register.finish, {
         session_id: currentSession,
         language: language,
@@ -242,18 +304,6 @@ export async function PasskeysLoginStart(): Promise<AxiosResponse<PasskeysLoginS
     return axiosInstance.post(Server.service.account.passkeys.login.start);
 }
 
-export type PasskeysLoginFinishOptions = {
-    id: string
-    type: string
-    rawId: string
-    response: {
-        clientDataJSON: string
-        authenticatorData: string
-        signature: string
-        userHandle: string
-    }
-}
-
 export type PasskeysLoginFinishResponseData = {
     code: number;
     message: string;
@@ -262,7 +312,7 @@ export type PasskeysLoginFinishResponseData = {
     }
 }
 // Passkeys Login - finish
-export async function PasskeysLoginFinish(session_id: string, finishLoginOptions:PasskeysLoginFinishOptions): Promise<AxiosResponse<PasskeysLoginFinishResponseData>> {
+export async function PasskeysLoginFinish(session_id: string, finishLoginOptions: unknown): Promise<AxiosResponse<PasskeysLoginFinishResponseData>> {
     return axiosInstance.post(Server.service.account.passkeys.login.finish, {
         session_id: session_id,
         assertion: JSON.stringify(finishLoginOptions),
@@ -280,7 +330,7 @@ export type ThirdPartyContinueResponseData = {
 export async function ThirdPartyContinue(provider: string): Promise<AxiosResponse<ThirdPartyContinueResponseData>> {
     return axiosInstance.post(Server.service.account.thirdParty.continue, {
         provider: provider,
-    });
+    }, {withCredentials: true});
 }
 export type ThirdPartyBindResponseData = {
     code: number;
@@ -293,7 +343,7 @@ export type ThirdPartyBindResponseData = {
 export async function ThirdPartyBind(provider: string): Promise<AxiosResponse<ThirdPartyBindResponseData>> {
     return axiosInstance.post(Server.service.account.thirdParty.bind, {
         provider: provider,
-    });
+    }, {withCredentials: true});
 }
 
 export type ThirdPartyRemoveResponseData = {
@@ -317,6 +367,29 @@ export async function GetTenPasskeys(page: number): Promise<AxiosResponse<GetTen
     return axiosInstance.post(Server.service.account.security.passkeys.getTenPasskeys, {
         page: page,
     })
+}
+
+export type PasskeyBindStartResponseData = PasskeysRegisterStartResponseData
+export type PasskeyBindFinishResponseData = {
+    code: number;
+    message: string;
+    data: Omit<Passkey, 'isEnabled'>;
+}
+
+export function PasskeyBindStart(name: string): Promise<AxiosResponse<PasskeyBindStartResponseData>> {
+    return axiosInstance.post(Server.service.account.passkeys.bind.start, {name})
+}
+
+export function PasskeyBindFinish(sessionId: string, credential: unknown, name: string): Promise<AxiosResponse<PasskeyBindFinishResponseData>> {
+    return axiosInstance.post(Server.service.account.passkeys.bind.finish, {
+        session_id: sessionId,
+        credential: JSON.stringify(credential),
+        name,
+    })
+}
+
+export function RemovePasskey(id: string): Promise<AxiosResponse<OkResponseData>> {
+    return axiosInstance.post(Server.service.account.security.passkeys.removePasskey, {id})
 }
 
 // Third Party - Remove

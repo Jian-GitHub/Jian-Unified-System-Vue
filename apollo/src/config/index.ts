@@ -19,13 +19,24 @@ export const Server = {
             getUserInfoShort: apiAccountPrefix + '/VerifyToken',
             getUserInfo: apiAccountPrefix + '/GetUserInfo',
             getUserSecurity: apiAccountPrefix + '/GetUserSecurityInfo',
+            updateName: apiAccountPrefix + '/UpdateName',
+            updateBirthday: apiAccountPrefix + '/UpdateBirthday',
+            updateLanguage: apiAccountPrefix + '/UpdateLanguage',
+            addContact: apiAccountPrefix + '/AddContact',
+            removeContact: apiAccountPrefix + '/RemoveContact',
+            changePassword: apiAccountPrefix + '/ChangePassword',
+            changeNotificationEmail: apiAccountPrefix + '/ChangeNotificationEmail',
+            removeNotificationEmail: apiAccountPrefix + '/RemoveNotificationEmail',
+            deleteAccount: apiAccountPrefix + '/DeleteAccount',
             security: {
                 subsystemToken: {
                     getTenSubsystemToken: apiAccountSecurityPrefix + '/GetTenSubsystemTokens',
                     generateSubsystemToken: apiAccountSecurityPrefix + '/GenerateSubsystemToken',
+                    removeSubsystemToken: apiAccountSecurityPrefix + '/RemoveSubsystemToken',
                 },
                 passkeys: {
                     getTenPasskeys: apiAccountSecurityPrefix + '/GetTenPasskeys',
+                    removePasskey: apiAccountSecurityPrefix + '/RemovePasskey',
                 }
             },
             passkeys: {
@@ -36,6 +47,10 @@ export const Server = {
                 login: {
                     start: apiPasskeysLoginPrefix + '/start',
                     finish: apiPasskeysLoginPrefix + '/finish',
+                },
+                bind: {
+                    start: apiPasskeysPrefix + '/bind/start',
+                    finish: apiPasskeysPrefix + '/bind/finish',
                 },
             },
             thirdParty: {

@@ -6,7 +6,9 @@ import {computed, ComputedRef, nextTick, onMounted, ref, Ref} from "vue";
 import {useI18n} from "vue-i18n";
 import {useSessionStore} from "@/store";
 import InputShort from "@/components/Input/InputShort.vue";
-import {GetTenPasskeys, Passkey} from "@/api/AccountActions";
+import {GetTenPasskeys, Passkey, PasskeyBindFinish, PasskeyBindStart, RemovePasskey} from "@/api/AccountActions";
+import {apiErrorKey} from '@/api/errors'
+import {parseCreationOptions, serializeRegistrationCredential} from '@/utils/webauthn'
 
 const {t} = useI18n()
 const store = useSessionStore()
@@ -94,44 +96,60 @@ const createdDateText = (passkey: Passkey) => computed(() => t('user_action_dial
 const page: Ref<number> = ref(1);
 const passkeys: Ref<Passkey[]> = ref([])
 const innerVisible = ref(false)
+const loadError = ref(false)
+const feedback = ref('')
+const pendingRemoval = ref<Passkey | null>(null)
 const passkeyName = ref('')
-const titleText: ComputedRef<string> = computed(() => '创建新通行密钥')//t('security_page.actions.security.generate.title'))
-const inputPlaceholderText: ComputedRef<string> = computed(() => '通行密钥名称 (可选)')//t('security_page.actions.security.generate.inputPlaceholder'))
-const cancelText: ComputedRef<string> = computed(() => '取消')//t('security_page.actions.security.cancel'))
-const confirmText: ComputedRef<string> = computed(() => '确认')//t('security_page.actions.security.confirm'))
+const titleText = computed(() => t('account_ui.passkey_create'))
+const inputPlaceholderText = computed(() => t('account_ui.passkey_name'))
+const cancelText = computed(() => t('account_ui.cancel'))
 const submitGeneratePasskeyButton = ref(null)
 function passkeyDialogOpened() {
   nextTick(() => {
     submitGeneratePasskeyButton.value?.$el?.focus()
   })
 }
-function closeTokenAliasDialog() {
+function closePasskeyAliasDialog() {
   innerVisible.value = false;
   passkeyName.value = '';
 }
-async function submitGenerateSubsystemToken() {
+async function submitGeneratePasskey() {
   innerVisible.value = false;
   store.userActionDialogLoading = true
+  feedback.value = ''
   try {
-    await doGenerateSubsystemToken()
-  }catch (e) {
-    console.log('err', e.message)
+    await doGeneratePasskey()
+  } catch (error) {
+    feedback.value = error instanceof DOMException && error.name === 'NotAllowedError'
+        ? 'passkey_cancelled'
+        : apiErrorKey(error)
   }
   store.userActionDialogLoading = false;
   passkeyName.value = '';
 }
-async function doGenerateSubsystemToken() {
-  // const resp = await GenerateSubsystemToken(passkeyName.value, scope.value)
-  // if (resp.status != 200 || resp.data.code != 200) {
-  //   console.log('err', resp.data.message);
-  //   return;
-  // }
-  // store.user.security.accountSecurityTokenNum++;
-  // passkeys.value.unshift(resp.data.data.token);
+async function doGeneratePasskey() {
+  if (!window.PublicKeyCredential) {
+    feedback.value = 'passkey_unsupported'
+    return
+  }
+  const start = await PasskeyBindStart(passkeyName.value.trim())
+  const credential = await navigator.credentials.create({
+    publicKey: parseCreationOptions(start.data.data.options_json),
+  }) as PublicKeyCredential | null
+  if (!credential) throw new DOMException('Credential creation was cancelled', 'NotAllowedError')
+  const finish = await PasskeyBindFinish(
+      start.data.data.session_id,
+      serializeRegistrationCredential(credential),
+      passkeyName.value.trim(),
+  )
+  passkeys.value.unshift({...finish.data.data, isEnabled: true})
+  if (store.user) store.user.security.passkeysNum = passkeys.value.length
+  feedback.value = 'passkey_added'
 }
 const queryPasskeys = async () => {
   const response = await GetTenPasskeys(page.value);
   if (response.status != 200 || response.data.code != 200) {
+    loadError.value = true
     console.log('error', response.data.message);
     return;
   }
@@ -139,13 +157,32 @@ const queryPasskeys = async () => {
   response.data.data.passkeys.forEach((passkey) => {
     passkeys.value.push(passkey);
   })
-  store.user.security.accountSecurityTokenNum = response.data.data.passkeys.length;
+  if (store.user) store.user.security.passkeysNum = response.data.data.passkeys.length;
 }
-onMounted(async () => {
+async function removeSelectedPasskey() {
+  if (!pendingRemoval.value) return
+  store.userActionDialogLoading = true
+  feedback.value = ''
+  try {
+    const id = pendingRemoval.value.id
+    await RemovePasskey(id)
+    passkeys.value = passkeys.value.filter(item => item.id !== id)
+    if (store.user) store.user.security.passkeysNum = passkeys.value.length
+    pendingRemoval.value = null
+    feedback.value = 'passkey_removed'
+  } catch (error) {
+    feedback.value = apiErrorKey(error)
+  } finally {
+    store.userActionDialogLoading = false
+  }
+}
+const loadPasskeys = async () => {
+  loadError.value = false
   store.userActionDialogLoading = true
   try {
     await queryPasskeys()
   } catch (e) {
+    loadError.value = true
     console.log(e.message)
   }
   store.userActionDialogLoading = false
@@ -153,13 +190,20 @@ onMounted(async () => {
   // setTimeout(() => {
   //   store.userActionDialogLoading = false
   // }, 1250)
-})
+}
+onMounted(loadPasskeys)
 </script>
 
 <template>
+  <el-dialog :model-value="!!pendingRemoval" :title="t('account_ui.remove_title')" width="30rem"
+             append-to-body :close-on-click-modal="false" @update:model-value="pendingRemoval = null">
+    <p>{{ pendingRemoval?.name }}</p>
+    <p class="passkey-state">{{ t('account_ui.passkey_remove_description') }}</p>
+    <template #footer><el-button @click="pendingRemoval = null">{{ cancelText }}</el-button><el-button type="danger" @click="removeSelectedPasskey">{{ t('account_ui.confirm_remove') }}</el-button></template>
+  </el-dialog>
   <!--  inner dialog-->
   <el-dialog
-      class="jus-apollo-user-account-security-dialog-token-alias"
+      class="jus-apollo-user-passkeys-dialog-token-alias"
       v-model="innerVisible"
       :title="titleText"
       append-to-body
@@ -167,21 +211,21 @@ onMounted(async () => {
       :close-on-click-modal="false"
       destroy-on-close
       @opened="passkeyDialogOpened"
-      @close="closeTokenAliasDialog"
+      @close="closePasskeyAliasDialog"
   >
-    <div class="jus-apollo-user-account-security-dialog-token-alias-body">
-      <InputShort class="jus-apollo-user-account-security-dialog-token-alias-input" v-model="passkeyName"
-                  maxlength="16" show-word-limit clearable :placeholder="inputPlaceholderText"/>
-      <!--                  @keydown.enter="submitGenerateSubsystemToken"/>-->
+    <div class="jus-apollo-user-passkeys-dialog-passkey-alias-body">
+      <InputShort class="jus-apollo-user-passkeys-dialog-passkey-alias-input" v-model="passkeyName"
+                  maxlength="16" show-word-limit clearable :placeholder="inputPlaceholderText"
+                        @keydown.enter="submitGeneratePasskey"/>
 
     </div>
     <template #footer>
-      <el-button type="info" @click="closeTokenAliasDialog">{{ cancelText }}</el-button>
+      <el-button type="info" @click="closePasskeyAliasDialog">{{ cancelText }}</el-button>
       <el-button type="primary"
                  autofocus
                  ref="submitGeneratePasskeyButton"
-                 @click="submitGenerateSubsystemToken">
-        {{ confirmText }}
+                 @click="submitGeneratePasskey">
+        {{ t('account_ui.add') }}
       </el-button>
     </template>
   </el-dialog>
@@ -191,9 +235,11 @@ onMounted(async () => {
     <div v-show="!store.userActionDialogLoading" class="jus-apollo-user-passkeys-dialog-body">
       <div class="jus-apollo-user-passkeys-dialog-body-content-header">
         <span class="jus-apollo-user-passkeys-dialog-body-content-header-text">{{ contentHeaderText }}</span>
-        <AddIcon class="jus-apollo-user-passkeys-dialog-body-content-header-icon"/>
+        <button type="button" class="passkey-icon-button" :aria-label="titleText" @click="innerVisible = true; feedback = ''"><AddIcon class="jus-apollo-user-passkeys-dialog-body-content-header-icon" aria-hidden="true" /></button>
       </div>
       <div class="jus-apollo-user-passkeys-dialog-body-content-rows">
+        <div v-if="loadError" class="passkey-state" role="alert">{{ t('account_ui.load_error') }} <el-button text type="primary" @click="loadPasskeys">{{ t('account_ui.retry') }}</el-button></div>
+        <p v-else-if="!passkeys.length" class="passkey-state">{{ t('account_ui.no_passkeys') }}</p>
         <div
             v-for="passkey in passkeys"
             :key="passkey.id"
@@ -205,15 +251,49 @@ onMounted(async () => {
                 createdDateText(passkey)
               }}</span>
           </div>
-          <DeleteIcon class="jus-apollo-user-passkeys-dialog-body-content-passkey-delete-icon right"/>
+          <button type="button" class="passkey-icon-button right" :aria-label="t('account_ui.remove_contact', { value: passkey.name })" @click="pendingRemoval = passkey; feedback = ''"><DeleteIcon class="jus-apollo-user-passkeys-dialog-body-content-passkey-delete-icon" aria-hidden="true" /></button>
         </div>
       </div>
+      <p v-if="feedback" class="passkey-state" :class="{ error: !['passkey_added', 'passkey_removed'].includes(feedback) }" role="status">{{ t('account_ui.' + feedback) }}</p>
     </div>
   </div>
 </template>
 
+<style>
+/* This dialog is teleported to body, outside the parent passkey dialog. */
+.el-dialog.jus-apollo-user-passkeys-dialog-token-alias {
+  --el-dialog-bg-color: var(--jus-color-icarus-surface);
+  --el-text-color-primary: var(--jus-color-global-neutrals-text-primary);
+  --el-text-color-regular: var(--jus-color-global-neutrals-text-primary);
+  --el-text-color-secondary: var(--jus-color-global-neutrals-text-secondary);
+  --el-text-color-placeholder: var(--jus-color-global-neutrals-text-placeholder);
+  --el-fill-color-blank: var(--jus-color-icarus-surface);
+  color: var(--jus-color-global-neutrals-text-primary);
+  border-radius: .75rem;
+}
+</style>
+
 <style scoped>
 @import "@/assets/css/user/security/userPasskeysDialog.css";
+.passkey-state { font-size: .875rem; line-height: 1.5; color: var(--jus-color-global-neutrals-text-secondary); margin-block: .75rem; }
+.passkey-state.error { color: var(--jus-color-global-functional-error); }
+.passkey-icon-button { border: 0; padding: 0; background: transparent; display: inline-flex; align-items: center; cursor: pointer; }
+.passkey-icon-button:focus-visible { outline: 2px solid var(--jus-color-global-icon-blue); outline-offset: 4px; }
+.jus-apollo-user-passkeys-dialog-passkey-alias-input {
+  width: 20rem;
+}
+
+
+.jus-apollo-user-passkeys-dialog-passkey-alias-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 0 1rem 0;
+}
+
 .jus-apollo-user-passkeys-dialog-body-content-header {
   display: flex;
   flex-direction: row;
@@ -240,6 +320,8 @@ onMounted(async () => {
 
   color: var(--jus-color-global-neutrals-text-primary);
   margin-right: 12px;
+
+  cursor: pointer;
 }
 
 .jus-apollo-user-passkeys-dialog-body-content-rows {
@@ -279,6 +361,7 @@ onMounted(async () => {
   aspect-ratio: 1/1;
 
   color: var(--jus-color-global-neutrals-text-primary);
+  cursor: pointer;
 }
 
 .jus-apollo-user-passkeys-dialog-body-content-passkey-date {

@@ -10,7 +10,12 @@ import {ElMessage} from "element-plus";
 import InputShort from "@/components/Input/InputShort.vue";
 import QuantumLogo from "@/assets/logo/quantum_20x20.svg";
 import TokenScopeSelector from "@/components/user/basic/dialog/accountSecurity/TokenScopeSelector.vue";
-import {GenerateSubsystemToken, GetTenSubsystemTokens, SubsystemToken} from "@/api/AccountActions";
+import {
+  GenerateSubsystemToken,
+  GetTenSubsystemTokens,
+  RemoveSubsystemToken,
+  SubsystemToken
+} from "@/api/AccountActions";
 
 const {t} = useI18n()
 const store = useSessionStore()
@@ -101,6 +106,11 @@ const options = [
     id: 1 << 1,
     icon: QuantumLogo,
     label: "Argus",
+  },
+  {
+    id: 1 << 2,
+    icon: QuantumLogo,
+    label: "Hephaestus",
   }
 ]
 
@@ -111,9 +121,7 @@ function tokenDialogOpened() {
 }
 
 function beforeTokenDialogOpened() {
-  options.forEach((option) => {
-    scope.value.push(option.id)
-  })
+  scope.value = options.map((option) => option.id)
 }
 
 function closeTokenAliasDialog() {
@@ -141,6 +149,16 @@ async function submitGenerateSubsystemToken() {
   store.userActionDialogLoading = false;
   tokenName.value = '';
 }
+async function removeSubsystemToken(id: string) {
+  const resp = await RemoveSubsystemToken(id)
+  if (resp.status != 200 || resp.data.code != 200) {
+    console.log('err', resp.data.message);
+    return;
+  }
+  store.user.security.accountSecurityTokenNum--;
+  const index = tokens.value.findIndex(t => t.id === id);
+  if (index !== -1) tokens.value.splice(index, 1);
+}
 
 const queryTokens = async () => {
   const response = await GetTenSubsystemTokens(page.value);
@@ -152,7 +170,10 @@ const queryTokens = async () => {
   response.data.data.tokens.forEach((token) => {
     tokens.value.push(token);
   })
-  store.user.security.accountSecurityTokenNum = response.data.data.tokens.length;
+  // accountSecurityTokenNum reflects the *total* token count, which is loaded
+  // by GetUserSecurityInfo in RightContent.vue. Overwriting it here with the
+  // current page's slice would cap the display at 10 even when more tokens
+  // exist. Leave the value alone; per-token add/remove already keep it in sync.
 }
 
 const scope = ref<number[]>([])
@@ -238,7 +259,7 @@ const confirmText: ComputedRef<string> = computed(() => t('security_page.actions
                 createdDateText(token)
               }}</span>
           </div>
-          <DeleteIcon class="jus-apollo-user-passkeys-dialog-body-content-passkey-delete-icon right icon" tabindex="0"/>
+          <DeleteIcon class="jus-apollo-user-passkeys-dialog-body-content-passkey-delete-icon right icon" tabindex="0" @click="removeSubsystemToken(token.id)"/>
         </div>
       </div>
     </div>

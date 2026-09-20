@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Side from "@/components/login/side/Side.vue";
 import Container from "@/components/login/container/Container.vue";
+import '@/assets/css/login/theme-transition.css';
 import { useRoute, useRouter } from 'vue-router'
 import {onMounted, ref} from "vue";
 import {useLocalStore, useSessionStore} from "@/store";
@@ -105,7 +106,7 @@ onMounted(async () => {
 
 /* 子元素宽度固定 */
 .jus-apollo-login > * {
-  transition: all 1.5s ease;
+  transition: transform 1.5s ease;
 }
 
 /* 默认布局：LeftSide 左，UserContainer 右 */

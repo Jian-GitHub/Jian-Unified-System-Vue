@@ -15,6 +15,12 @@ defineProps<{
 }>()
 
 const turnstile = ref(null)
+// The store is empty before theme initialization and after clearing a session.
+// Type assertions do not validate the value passed to the Turnstile SDK.
+const turnstileTheme = computed<'dark' | 'light' | 'auto'>(() => {
+  const theme = globalStore.theme
+  return theme === 'dark' || theme === 'light' ? theme : 'auto'
+})
 const loadingText: ComputedRef<string> = computed(() => t('cloudflare.turnstile.loadingText'))
 /*
 0x4AAAAAAANVWc7MkXgqcP22
@@ -39,7 +45,7 @@ const loadingText: ComputedRef<string> = computed(() => t('cloudflare.turnstile.
                      size="flexible"
                      :action="action"
                      :language="locale"
-                     :theme="globalStore.theme as 'dark' | 'light' | 'auto'"/>
+                     :theme="turnstileTheme"/>
     </div>
 </template>
 <style>

@@ -3,6 +3,7 @@ import {useLocalStore, useSessionStore} from "@/store";
 // import App from "@/App.vue";
 import Login from "@/components/login/LoginPage.vue";
 import UserPage from "@/components/user/security/UserPage.vue"
+import {rememberAuthorization, pendingAuthorization} from '@/utils/sso';
 import {GetUserInfo, VerifyToken} from "@/api/AccountActions";
 
 // 定义路由记录类型
@@ -23,6 +24,7 @@ const routes: Array<RouteRecordRaw> = [
         name: 'User',
         component: UserPage
     },
+    { path: '/authorize', name: 'Authorize', component: () => import('@/components/authorization/AuthorizationPage.vue') },
     // default
     {
         path: '/:pathMatch(.*)*',
@@ -39,13 +41,18 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
     const sessionStore = useSessionStore();
     const localStore = useLocalStore();
+    if (to.name === 'Authorize') rememberAuthorization(to.fullPath);
+    if (to.name === 'User' && localStore.token) {
+        const pending = pendingAuthorization();
+        if (pending) return next(pending);
+    }
     if (!localStore.token && to.name !== 'Login') return next({name: 'Login'});
 
     if (localStore.token && to.name === 'Login') {
-        return next({name: 'User'});
+        return next(pendingAuthorization() || {name: 'User'});
     }
 
-    if (to.name === 'User') {
+    if (to.name === 'User' || to.name === 'Authorize') {
         if (!await VerifyToken()) {
             localStore.token = '';
             sessionStore.language = '';

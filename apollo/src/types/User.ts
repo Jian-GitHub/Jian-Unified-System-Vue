@@ -21,6 +21,8 @@ export type Contact = {
     value: string;
     type: number;
     phone_region?: string;
+    phoneRegion?: string;
+    primary?: boolean;
 }
 type SecurityOptions = {
     contacts: Contact[];

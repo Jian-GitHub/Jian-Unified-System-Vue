@@ -1,38 +1,21 @@
-# contact
+# Contact
 
-This template should help get you started developing with Vue 3 in Vite.
+Jian Unified System 的个人资料与跨平台联系页，包含多语言内容、二维码卡片、玻璃效果和 WebGL 动态背景。认证代码目前处于停用状态，公开范围需先完成产品与安全决策。
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+开发服务器默认监听 `20551`。生产构建使用：
 
-```sh
+```bash
 npm run build
 ```
+
+当前构建产物较大，且 `core/` 与本应用存在视觉组件副本。详情见：
+
+- [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md)
+- [`../docs/STATUS.md`](../docs/STATUS.md)
+- [`../docs/TESTING.md`](../docs/TESTING.md)
+- [`../docs/DEPLOYMENT.md`](../docs/DEPLOYMENT.md)

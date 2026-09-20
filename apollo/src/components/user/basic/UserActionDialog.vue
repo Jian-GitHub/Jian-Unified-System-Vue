@@ -2,6 +2,7 @@
 import {computed, ref} from 'vue';
 import {useSessionStore} from "@/store";
 import CloseIcon from "@/assets/icon/close_bold_20x20.svg"
+import AccountEditorDialog from './dialog/editor/AccountEditorDialog.vue'
 
 const store = useSessionStore()
 
@@ -88,13 +89,16 @@ const dialogData = computed(() => {
   }
   return dialogs[store.userActionDialogId]
 })
+const isAccountEditor = computed(() => [100, 101, 102, 103, 200, 201, 203, 206].includes(store.userActionDialogId))
 </script>
 
 <template>
+  <AccountEditorDialog v-if="isAccountEditor && store.userActionDialogVisible"
+                       v-model="store.userActionDialogVisible" :action-id="store.userActionDialogId" />
   <el-dialog
       :class="dialogData.className.class"
       v-model="store.userActionDialogVisible"
-      v-if="store.userActionDialogVisible"
+      v-if="store.userActionDialogVisible && !isAccountEditor && dialogData?.className"
       destroy-on-close
       center
       lock-scroll

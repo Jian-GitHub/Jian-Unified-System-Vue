@@ -10,6 +10,10 @@ const sessionStore = useSessionStore()
 
 import {useI18n} from "vue-i18n";
 import router from "@/router";
+import axios from "@/api/axiosInstance";
+import {ElMessage} from "element-plus";
+import {clearAuthorization} from "@/utils/sso";
+import {hephaestusUrl} from "@/config/apps";
 
 const {t, locale} = useI18n()
 
@@ -21,6 +25,15 @@ const menu_argus: ComputedRef<string> = computed(() => t('head.menu.argus'))
 const menu_hermes: ComputedRef<string> = computed(() => t('head.menu.hermes'))
 
 const logout = async () => {
+  try {
+    await axios.post('/api/v1/sso/logout');
+  } catch (e: any) {
+    if (e.response?.status !== 401) {
+      ElMessage.error(locale.value.startsWith('zh') ? '退出失败，请稍后重试' : 'Sign out failed. Please try again.');
+      return;
+    }
+  }
+  clearAuthorization();
   localStore.clear();
   sessionStore.clear();
   await router.push({name: 'Login'});
@@ -37,6 +50,7 @@ const logout = async () => {
       </div>
       <!-- Navigation Menu -->
       <div class="jus-apollo-header-nav-items">
+        <a class="jus-apollo-header-nav-item app-link" :href="hephaestusUrl()">Hephaestus</a>
         <div class="jus-apollo-header-nav-item">{{ menu_alfheim }}</div>
         <div class="jus-apollo-header-nav-item">{{ menu_argus }}</div>
         <div class="jus-apollo-header-nav-item">{{ menu_hermes }}</div>
@@ -127,6 +141,8 @@ const logout = async () => {
   font-style: normal;
   letter-spacing: 0.01275rem;
 }
+.app-link { color:inherit; text-decoration:none; transition:opacity .2s ease,color .2s ease; }
+.app-link:hover,.app-link:focus-visible { color:var(--jus-color-global-icon-blue); opacity:1; }
 
 .search-icon {
   width: 1.35rem;

@@ -8,8 +8,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AccountEditorDialog: typeof import('./src/components/user/basic/dialog/editor/AccountEditorDialog.vue')['default']
+    AccountField: typeof import('./src/components/user/basic/dialog/editor/AccountField.vue')['default']
     ApolloLogoBlue: typeof import('./src/components/user/basic/ApolloLogoBlue.vue')['default']
     ApolloLogoNormal: typeof import('./src/components/user/basic/ApolloLogoNormal.vue')['default']
+    AuthorizationPage: typeof import('./src/components/authorization/AuthorizationPage.vue')['default']
     CircleBottom: typeof import('./src/components/login/basic/CircleBottom.vue')['default']
     CircleTop: typeof import('./src/components/login/basic/CircleTop.vue')['default']
     CloudflareChecker: typeof import('./src/components/login/basic/CloudflareChecker.vue')['default']
@@ -20,6 +23,7 @@ declare module 'vue' {
     Divider: typeof import('./src/components/login/basic/Divider.vue')['default']
     ElAffix: typeof import('element-plus/es')['ElAffix']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
@@ -40,9 +44,11 @@ declare module 'vue' {
     LeftSideMenu: typeof import('./src/components/user/basic/LeftSideMenu.vue')['default']
     LoginPage: typeof import('./src/components/login/LoginPage.vue')['default']
     PngIcon: typeof import('./src/components/PngIcon.vue')['default']
+    ProfileFields: typeof import('./src/components/user/basic/dialog/editor/ProfileFields.vue')['default']
     RightContent: typeof import('./src/components/user/security/userContainer/rightContent/RightContent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SecurityFields: typeof import('./src/components/user/basic/dialog/editor/SecurityFields.vue')['default']
     Settings: typeof import('./src/components/login/setting/Settings.vue')['default']
     ShellButton: typeof import('./src/components/login/basic/ShellButton.vue')['default']
     Side: typeof import('./src/components/login/side/Side.vue')['default']

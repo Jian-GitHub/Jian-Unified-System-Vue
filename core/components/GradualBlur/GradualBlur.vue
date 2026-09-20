@@ -134,8 +134,10 @@ const config = computed(() => {
 
 const getGradientDirection = (position: string): string => {
   const directions: Record<string, string> = {
-    top: 'to bottom',    // 反向：从下到上
-    bottom: 'to top',    // 反向：从上到下
+    top: 'to top',
+    bottom: 'to bottom',
+    left: 'to left',
+    right: 'to right'
   };
   return directions[position] || 'to bottom';
 };
@@ -143,7 +145,7 @@ const getGradientDirection = (position: string): string => {
 const debounce = <T extends (...a: unknown[]) => void>(fn: T, wait: number) => {
   let timeout: ReturnType<typeof setTimeout>;
   return (...args: Parameters<T>) => {
-  return directions[position] || 'to bottom';
+    clearTimeout(timeout);
     timeout = setTimeout(() => fn(...args), wait);
   };
 };
@@ -192,7 +194,6 @@ const setupIntersectionObserver = () => {
 
 const blurDivs = computed(() => {
   const divs: Array<{ style: CSSProperties }> = [];
-  const increment = 100 / config.value.divCount;
   const currentStrength =
       isHovered.value && config.value.hoverIntensity
           ? config.value.strength * config.value.hoverIntensity
@@ -211,27 +212,25 @@ const blurDivs = computed(() => {
       blurValue = 0.0625 * (progress * config.value.divCount + 1) * currentStrength;
     }
 
-    const p1 = math.round((increment * i - increment) * 10) / 10;
-    const p2 = math.round(increment * i * 10) / 10;
+    // 新方法：使用单一的 linear-gradient mask 从透明到不透明
+    // 结合不同的模糊强度来创建渐变效果
+    const direction = config.value.position === 'bottom' ? 'to top' :
+                     config.value.position === 'top' ? 'to bottom' :
+                     config.value.position === 'left' ? 'to right' : 'to left';
 
-    let gradient = `transparent ${p1}%, black ${p2}%`;
-    if (p3 <= 100) gradient += `, black ${p3}%`;
-    if (p4 <= 100) gradient += `, transparent ${p4}%`;
-
-
-    const direction = getGradientDirection(config.value.position);
-
-      // 恢复正确的 mask 渐变 - 每个 div 有不同的可见区域
-    const gradient = `transparent 0%, transparent ${startPercent}%, black ${startPercent + increment}%, black 100%`;
+    // 每一层的 opacity 随着层数递减，创建叠加效果
+    const layerOpacity = 1 / config.value.divCount;
 
     const divStyle: CSSProperties = {
-      maskImage: `linear-gradient(${direction}, ${gradient})`,
-      WebkitMaskImage: `linear-gradient(${direction}, ${gradient})`,
+      // 使用简单的渐变 mask：从一端到另一端
+      maskImage: `linear-gradient(${direction}, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)`,
+      WebkitMaskImage: `linear-gradient(${direction}, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)`,
       backdropFilter: `blur(${blurValue.toFixed(3)}rem)`,
       WebkitBackdropFilter: `blur(${blurValue.toFixed(3)}rem)`,
-      opacity: config.value.opacity,
+      opacity: layerOpacity * config.value.opacity,
       transition:
-    // 调试：打印第一个和最后一个 div 的样式
+          config.value.animated && config.value.animated !== 'scroll'
+              ? `backdrop-filter ${config.value.duration} ${config.value.easing}`
               : undefined
     } as CSSProperties;
 
@@ -257,6 +256,7 @@ const containerStyle = computed((): StyleValue => {
 
   if (isVertical) {
     baseStyle.height = responsiveHeight.value;
+    baseStyle.width = responsiveWidth.value || '100%';
     baseStyle[config.value.position] = '0';
     baseStyle.left = '0';
     baseStyle.right = '0';
@@ -268,14 +268,14 @@ const containerStyle = computed((): StyleValue => {
     baseStyle.bottom = '0';
   }
 
-  // 调试日志
-  console.log('[GradualBlur] containerStyle:', {
-    position: config.value.position,
-    height: baseStyle.height,
-    width: baseStyle.width,
-    bottom: baseStyle.bottom,
-    opacity: baseStyle.opacity,
-    isVisible: isVisible.value,
+  return baseStyle;
+});
+
+const debouncedResize = debounce(updateResponsiveDimensions, 100);
+
+onMounted(() => {
+  // Initialize responsive dimensions
+  if (config.value.responsive) {
     updateResponsiveDimensions();
     window.addEventListener('resize', debouncedResize);
   }
@@ -328,7 +328,6 @@ const injectStyles = () => {
 </script>
 
 <template>
-<template>
   <div
       ref="containerRef"
       :class="[
@@ -340,29 +339,14 @@ const injectStyles = () => {
       @mouseenter="hoverIntensity ? (isHovered = true) : null"
       @mouseleave="hoverIntensity ? (isHovered = false) : null"
   >
-    <div class="relative w-full h-full">
-      <div v-for="(div, index) in blurDivs" :key="index" class="absolute inset-0" :style="div.style" />
     <div style="position: relative; width: 100%; height: 100%;">
-      <div
-        v-for="(div, index) in blurDivs"
-        :key="index"
       <div
         v-for="(div, index) in blurDivs"
         :key="index"
         style="position: absolute; top: 0; right: 0; bottom: 0; left: 0;"
         :style="div.style"
-    <div style="position: relative; width: 100%; height: 100%; background: rgba(0, 255, 0, 0.3);">
-      <div
-        v-for="(div, index) in blurDivs"
-        :key="index"
-        style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0, 0, 255, 0.1);"
-        :style="div.style"
-        :style="div.style"
       />
     </div>
-    <div v-if="$slots.default" class="relative">
-      'gradual-blur relative',
-      'gradual-blur relative isolate',
     <div v-if="$slots.default" style="position: relative;">
       <slot />
     </div>

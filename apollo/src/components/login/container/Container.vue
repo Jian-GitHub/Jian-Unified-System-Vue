@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import {ref, computed, ComputedRef, VNode, RendererNode, RendererElement, h} from 'vue'
+import AccountEditorDialog from '@/components/user/basic/dialog/editor/AccountEditorDialog.vue'
+const recoveryVisible = ref(false)
 import CustomInputLong from '../basic/InputLong.vue'
 import passkeys from "@/assets/logo/passkeys_20x20.svg"
 import google from "@/assets/logo/google_20x20.svg"
@@ -11,12 +13,18 @@ import {cf_token} from '@/assets/logic/cloudflareTurnstile';
 import CloudflareTurnstile from "@/components/CloudflareTurnstile.vue";
 import {
   LoginFormData,
-  PasskeysRegisterFinish, PasskeysRegisterFinishOptions,
-  PasskeysRegisterStartResponseData,
+  PasskeysRegisterFinish,
   PasskeysRegisterStart,
   Register,
-  RegisterFormData, PasskeysLoginStart, PasskeysLoginFinishOptions, PasskeysLoginFinish, ThirdPartyContinue
+  RegisterFormData, PasskeysLoginStart, PasskeysLoginFinish, ThirdPartyContinue
 } from "@/api/AccountActions";
+import {
+  parseCreationOptions,
+  parseRequestOptions,
+  serializeAuthenticationCredential,
+  serializeRegistrationCredential,
+} from '@/utils/webauthn'
+import {apiErrorKey} from '@/api/errors'
 import {ThirdPartyProvider, ThirdPartyProviderLabel} from "@/types/thirdParty/ThirdParty";
 import {Login} from "@/api/AccountActions"
 import {useRouter} from 'vue-router';
@@ -50,6 +58,12 @@ import {useSessionStore, useLocalStore} from "@/store";
 
 const sessionStore = useSessionStore();
 const localStore = useLocalStore();
+const authFeedback = ref('')
+
+function normalizeLanguage(value?: string): string {
+  const language = (value || 'en').split('-')[0].toLowerCase()
+  return ['zh', 'en', 'ja', 'ko'].includes(language) ? language : 'en'
+}
 
 const containerTitle: ComputedRef<string> = computed(() => sessionStore.isLogin ? t('container.login.CONTAINER_TITLE') : t('container.registration.CONTAINER_TITLE'))
 const containerText: ComputedRef<string> = computed(() => sessionStore.isLogin ? t('container.login.CONTAINER_TEXT') : t('container.registration.CONTAINER_TEXT'))
@@ -84,142 +98,58 @@ const isButtonDisabled = computed(() => {
 })
 
 async function passkeysLogin() {
+  authFeedback.value = ''
+  emit('update:isWaitingForServer', true)
   try {
-    // 阶段1：获取登录选项
     const {data: startData} = await PasskeysLoginStart()
-
-    const data = startData.data
-    let currentSession = data.session_id;
-
-    const options = JSON.parse(data.options_json).publicKey;
-
-    options.challenge = base64Decode(options.challenge);
-
-    let createOptions = {
-      challenge: options.challenge,
-    };
-    let assertion = await navigator.credentials.get({publicKey: createOptions}) as PublicKeyCredential;
-
-    const authenticatorResponse = assertion.response as AuthenticatorAssertionResponse
-    let finishLoginOptions: PasskeysLoginFinishOptions = {
-      id: assertion.id,
-      type: assertion.type,
-      rawId: base64Encode(assertion.rawId),
-      response: {
-        clientDataJSON: base64Encode(authenticatorResponse.clientDataJSON),
-        authenticatorData: base64Encode(authenticatorResponse.authenticatorData),
-        signature: base64Encode(authenticatorResponse.signature),
-        userHandle: base64Encode(authenticatorResponse.userHandle),
-      },
-    };
-
-    // 阶段2：提交断言
-    const {data: finishData} = await PasskeysLoginFinish(currentSession, finishLoginOptions);
+    const assertion = await navigator.credentials.get({
+      publicKey: parseRequestOptions(startData.data.options_json),
+    }) as PublicKeyCredential | null
+    if (!assertion) {
+      authFeedback.value = 'passkey_cancelled'
+      return
+    }
+    const {data: finishData} = await PasskeysLoginFinish(
+        startData.data.session_id,
+        serializeAuthenticationCredential(assertion),
+    )
     localStore.token = finishData.data.token;
-    emit('update:isWaitingForServer', false);
     await router.push({name: 'User'});
   } catch (err) {
-    console.error(err);
+    authFeedback.value = err instanceof DOMException && err.name === 'NotAllowedError'
+        ? 'passkey_cancelled'
+        : apiErrorKey(err)
+  } finally {
+    emit('update:isWaitingForServer', false)
   }
 }
 
 async function passkeysRegister() {
-  let currentSession: string = null;
-  let startData: PasskeysRegisterStartResponseData = null;
+  authFeedback.value = ''
+  emit('update:isWaitingForServer', true)
   try {
-    // 阶段1：获取注册选项
-    const response = await PasskeysRegisterStart();
-    startData = response.data
-  } catch (e) {
-    console.log(e)
-    return;
-  }
-  const data = startData.data
-  currentSession = data.session_id;
-
-  let options = JSON.parse(data.options_json).publicKey
-
-  let {rp, challenge, user} = options;
-
-  let createOptions: PublicKeyCredentialCreationOptions = {
-    challenge: base64Decode(challenge),
-    rp: {
-      name: rp.name,
-      id: rp.id,
-    },
-    pubKeyCredParams: [
-      {
-        alg: -8,
-        type: 'public-key',
-      },
-    ],
-    user: {
-      id: base64Decode(user.id),
-      name: user.name,
-      displayName: user.displayName,
-    },
-  };
-
-  // 调用浏览器WebAuthn API
-  const credential = await navigator.credentials.create({
-    publicKey: createOptions,
-  }) as PublicKeyCredential;
-  if (!credential) {
-    console.log("创建凭证失败");
-    return;
-  }
-
-  const attestationResponse = credential.response as AuthenticatorAttestationResponse;
-  const finishOptions: PasskeysRegisterFinishOptions = {
-    id: credential.id,
-    type: credential.type,
-    rawId: base64Encode(credential.rawId),
-    response: {
-      clientDataJSON: base64Encode(attestationResponse.clientDataJSON),
-      attestationObject: base64Encode(attestationResponse.attestationObject),
-    },
-  };
-
-  try {
-    // 阶段2：提交认证数据
-    const {data: finishData} = await PasskeysRegisterFinish(currentSession, sessionStore.language, finishOptions);
-    // alert(`Registration Success: ${finishData.message}`);
+    const {data: startData} = await PasskeysRegisterStart()
+    const credential = await navigator.credentials.create({
+      publicKey: parseCreationOptions(startData.data.options_json),
+    }) as PublicKeyCredential | null
+    if (!credential) {
+      authFeedback.value = 'passkey_cancelled'
+      return
+    }
+    const {data: finishData} = await PasskeysRegisterFinish(
+        startData.data.session_id,
+        normalizeLanguage(sessionStore.language || locale.value),
+        serializeRegistrationCredential(credential),
+    )
     localStore.token = finishData.data.token;
-    emit('update:isWaitingForServer', false);
     await router.push({name: 'User'});
   } catch (err) {
-    console.error(err);
-    // alert(`注册失败: ${err.response?.data?.message || err.message}`);
+    authFeedback.value = err instanceof DOMException && err.name === 'NotAllowedError'
+        ? 'passkey_cancelled'
+        : apiErrorKey(err)
+  } finally {
+    emit('update:isWaitingForServer', false)
   }
-  emit('update:isWaitingForServer', false);
-}
-
-// Base64 编码（字节数组 -> base64字符串）
-function base64Encode(bs: ArrayBuffer) {
-  const bytes = new Uint8Array(bs);
-  return btoa(String.fromCharCode(...bytes))
-      .replace(/=/g, '')
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_');
-}
-
-// Base64 解码（base64字符串 -> 字节数组）
-function base64Decode(s: string) {
-  // 添加缺失的填充字符
-  s = s.padEnd(s.length + (4 - (s.length % 4)) % 4, '=');
-
-  // 转换为标准 base64
-  const standardBase64 = s.replace(/-/g, '+').replace(/_/g, '/');
-
-  // 解码为字节数组
-  const byteString = atob(standardBase64);
-  const result = new Uint8Array(byteString.length);
-
-  for (let i = 0; i < byteString.length; i++) {
-    result[i] = byteString.charCodeAt(i);
-  }
-
-  return new Uint8Array(Array.from(result)).buffer;
 }
 
 async function handleThirdPartyContinue(label: ThirdPartyProviderLabel): Promise<void> {
@@ -230,13 +160,17 @@ async function handleThirdPartyContinue(label: ThirdPartyProviderLabel): Promise
       break;
     case googleProvider.label: // google
     case githubProvider.label:  // github
+      authFeedback.value = ''
+      emit('update:isWaitingForServer', true)
       try {
         const resp = await ThirdPartyContinue(label);
         if (resp.status === 200 && resp.data.code === 200) {
           window.location.href = resp.data.data.url;
         }
       } catch (e) {
-        console.log(e)
+        authFeedback.value = apiErrorKey(e)
+      } finally {
+        emit('update:isWaitingForServer', false)
       }
       break;
     default:
@@ -287,39 +221,35 @@ const isFormValid = computed(() => {
 import {RegisterResponseData} from "@/api/AccountActions";
 
 const handleRegister = async () => {
-  if (!isFormValid.value && !cf_token.value) {
-    console.log('无注册数据:', registerData.value)
-    // 这里添加注册逻辑
-  }
+  if (!isFormValid.value || !cf_token.value) return
 
+  authFeedback.value = ''
   emit('update:isWaitingForServer', true);
 
   let language: string;
   if (sessionStore.language) {
-    language = sessionStore.language;
+    language = normalizeLanguage(sessionStore.language);
   } else {
-    language = navigator.language || (navigator as any).userLanguage || 'en';
+    language = normalizeLanguage(navigator.language || (navigator as any).userLanguage || 'en');
   }
   const data: RegisterFormData = {
     email: registerData.value.email,
     password: registerData.value.password,
     confirmedPassword: registerData.value.confirmPassword,
     language: language,
-    cloudflareToken: cf_token.value,
   }
   try {
     const response: AxiosResponse<RegisterResponseData> = await Register(data)
     if (response.status != 200 || response.data.code != 200) {
       emit('update:isWaitingForServer', false);
-      console.log(registerData.value)
-      console.log('failed', response.data.code, response.data.message)
+      authFeedback.value = 'service_unavailable'
       return;
     }
 
     localStore.token = response.data.data.token;
     await router.push({name: 'User'});
   } catch (error) {
-    console.log(error)
+    authFeedback.value = apiErrorKey(error)
   }
   emit('update:isWaitingForServer', false);
 }
@@ -350,6 +280,7 @@ const handleLogin = async () => {
     console.log('nothing')
     return
   }
+  authFeedback.value = ''
   emit('update:isWaitingForServer', true);
   const data: LoginFormData = {
     email: loginData.value.email,
@@ -391,8 +322,7 @@ const handleLogin = async () => {
       }
     }
   } catch (error) {
-    console.log(error)
-    console.log('failed')
+    authFeedback.value = apiErrorKey(error)
   }
 
   emit('update:isWaitingForServer', false);
@@ -409,6 +339,7 @@ const emit = defineEmits<{
 
 <template>
   <div class="jus-apollo-container">
+    <AccountEditorDialog v-if="recoveryVisible" v-model="recoveryVisible" :action-id="207" />
     <!-- Register -->
     <div class="jus-apollo-container-top-section" v-show="!sessionStore.isLogin">
       <!-- 标题 -->
@@ -423,6 +354,7 @@ const emit = defineEmits<{
           :type="field.type"
       />
       <CloudflareTurnstile :show="showRegisterTurnstile" action="register"/>
+      <p v-if="authFeedback" class="auth-feedback" role="status">{{ t(`account_ui.${authFeedback}`) }}</p>
       <div class="jus-apollo-container-action-section register">
         <component :is="containerActionButton" :class="['container-action-button', sideToButtonClass(2)]"/>
       </div>
@@ -442,8 +374,9 @@ const emit = defineEmits<{
           :type="field.type"
       />
       <CloudflareTurnstile :show="showLoginTurnstile" action="login"/>
+      <p v-if="authFeedback" class="auth-feedback" role="status">{{ t(`account_ui.${authFeedback}`) }}</p>
       <div class="jus-apollo-container-action-section">
-        <span class="jus-apollo-container-action-section-text">{{ forgetPassword }}</span>
+        <button type="button" class="jus-apollo-container-action-section-text recovery-link" @click="recoveryVisible = true">{{ forgetPassword }}</button>
         <component :is="containerActionButton" :class="['container-action-button', sideToButtonClass(2)]"/>
       </div>
     </div>
@@ -628,4 +561,7 @@ const emit = defineEmits<{
   width: 100%;
   height: 40px;
 }
+.recovery-link { background: none; border: 0; padding: 0; font-family: inherit; }
+.recovery-link:focus-visible { outline: 2px solid var(--jus-color-global-icon-blue); outline-offset: 4px; border-radius: 2px; }
+.auth-feedback { width: 21.875rem; margin: -0.4rem 0; color: var(--el-color-danger); font-size: 0.8125rem; line-height: 1.25rem; text-align: center; }
 </style>
