@@ -1,10 +1,16 @@
 // The backend starts Apollo SSO and binds the callback to this browser.
 export function redirectToApollo(from = '/dashboard') {
   const destination = new URL(from, window.location.origin)
-  const safePath = destination.origin === window.location.origin && destination.pathname !== '/login'
-    ? destination.pathname + destination.search + destination.hash : '/dashboard'
+
+  const safePath =
+      destination.origin === window.location.origin &&
+      destination.pathname !== '/login'
+          ? destination.pathname
+          : '/dashboard'
+
   const start = new URL('/api/v1/auth/start', window.location.origin)
   start.searchParams.set('return_to', safePath)
+
   window.location.assign(start.href)
 }
 
