@@ -1,4 +1,4 @@
-# Apollo
+# Apollo - v0.2.0
 
 Jian Unified System 的统一账户前端，包含登录/注册、Turnstile、Passkey、第三方登录以及个人资料和账户安全页。项目仍在开发中，功能完成度见 [`../docs/STATUS.md`](../docs/STATUS.md)。
 

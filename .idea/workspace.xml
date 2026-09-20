@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Implement features of Apollo">
-      <change afterPath="$PROJECT_DIR$/apollo/src/utils/sso.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apollo/src/utils/webauthn.ts" afterDir="false" />
+    <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Apollo - v0.2.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,23 +66,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000140973575" />
-      <entry key="MS500" value="1.027260768828167" />
-      <entry key="S2" value="2.1289036249354063" />
-      <entry key="S5" value="5.724858859331405" />
-      <entry key="S10" value="9.715011851530635" />
-      <entry key="S30" value="15.273661397316083" />
-      <entry key="S60" value="17.404951433013867" />
-      <entry key="M2" value="18.65691919794733" />
-      <entry key="M5" value="22.09645490109763" />
-      <entry key="M10" value="33.428299872903246" />
-      <entry key="M15" value="43.52209571110813" />
-      <entry key="M30" value="60.92681839718979" />
-      <entry key="H1" value="73.91997434875961" />
-      <entry key="H2" value="82.96030473768323" />
-      <entry key="H4" value="109.38105553662649" />
-      <entry key="D1" value="449.7455833259415" />
-      <entry key="W1" value="1051.5947830714933" />
+      <entry key="MS100" value="1.3368090775958021" />
+      <entry key="MS500" value="2.972822313676108" />
+      <entry key="S2" value="4.768961825135355" />
+      <entry key="S5" value="5.722550017733496" />
+      <entry key="S10" value="6.250016769663042" />
+      <entry key="S30" value="6.726905662392321" />
+      <entry key="S60" value="7.351749172382907" />
+      <entry key="M2" value="10.587354202471827" />
+      <entry key="M5" value="20.31852956953618" />
+      <entry key="M10" value="34.3562571143328" />
+      <entry key="M15" value="45.93851044507368" />
+      <entry key="M30" value="66.63170135771988" />
+      <entry key="H1" value="82.81760255801007" />
+      <entry key="H2" value="94.07771439588504" />
+      <entry key="H4" value="121.5009489113314" />
+      <entry key="D1" value="462.5068765327976" />
+      <entry key="W1" value="1065.1841338679485" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -105,23 +104,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.870550575399628" />
-      <entry key="MS500" value="0.9990965406270089" />
-      <entry key="S2" value="2.113445065932729" />
-      <entry key="S5" value="5.7077912900191015" />
-      <entry key="S10" value="9.700343357082879" />
-      <entry key="S30" value="15.265849311021464" />
-      <entry key="S60" value="17.40047553412915" />
-      <entry key="M2" value="18.654512332359104" />
-      <entry key="M5" value="22.095262462518168" />
-      <entry key="M10" value="33.42728912497428" />
-      <entry key="M15" value="43.52116989735021" />
-      <entry key="M30" value="60.92613538771939" />
-      <entry key="H1" value="73.91954993490243" />
-      <entry key="H2" value="82.96006472191799" />
-      <entry key="H4" value="109.3809050935015" />
-      <entry key="D1" value="449.74548208644654" />
-      <entry key="W1" value="1051.5947415406595" />
+      <entry key="MS100" value="0.6317580789064031" />
+      <entry key="MS500" value="2.544333241363839" />
+      <entry key="S2" value="4.568164331337314" />
+      <entry key="S5" value="5.609427474085618" />
+      <entry key="S10" value="6.181268185236743" />
+      <entry key="S30" value="6.699860815194788" />
+      <entry key="S60" value="7.336564964837234" />
+      <entry key="M2" value="10.576463160914889" />
+      <entry key="M5" value="20.310825350639238" />
+      <entry key="M10" value="34.350992123516605" />
+      <entry key="M15" value="45.93445683668983" />
+      <entry key="M30" value="66.62926914900414" />
+      <entry key="H1" value="82.8162438751766" />
+      <entry key="H2" value="94.07698982427075" />
+      <entry key="H4" value="121.50055177094292" />
+      <entry key="D1" value="462.50673362316536" />
+      <entry key="W1" value="1065.1840863506748" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -361,31 +360,7 @@
       <workItem from="1789333667201" duration="867000" />
       <workItem from="1789367788379" duration="18546000" />
       <workItem from="1789648545550" duration="6198000" />
-      <workItem from="1789888594203" duration="1347000" />
-    </task>
-    <task id="LOCAL-00051" summary="Feature: Logout">
-      <option name="closed" value="true" />
-      <created>1758377430158</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1758377430158</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Update Website Title">
-      <option name="closed" value="true" />
-      <created>1758472570844</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1758472570844</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Feature: Passkeys Register (Test)">
-      <option name="closed" value="true" />
-      <created>1758538583446</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1758538583446</updated>
+      <workItem from="1789888594203" duration="2003000" />
     </task>
     <task id="LOCAL-00054" summary="Feature: Passkeys Login (Test)">
       <option name="closed" value="true" />
@@ -755,7 +730,31 @@
       <option name="project" value="LOCAL" />
       <updated>1789889948606</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Implement features of Apollo">
+      <option name="closed" value="true" />
+      <created>1789890065267</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1789890065267</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Implement features of Apollo">
+      <option name="closed" value="true" />
+      <created>1789890129881</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1789890129882</updated>
+    </task>
+    <task id="LOCAL-00102" summary="Apollo - v0.2.0">
+      <option name="closed" value="true" />
+      <created>1789890210266</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1789890210266</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -798,7 +797,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/contact" />
     </ignored-roots>
-    <MESSAGE value="Feature: Passkeys Login (Test)" />
     <MESSAGE value="Feature: Logout" />
     <MESSAGE value="Feature: ThirdParty Continue" />
     <MESSAGE value="Feature: Bind Third-Party Accounts" />
@@ -823,7 +821,8 @@
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Feature: background wave" />
     <MESSAGE value="Implement features of Apollo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement features of Apollo" />
+    <MESSAGE value="Apollo - v0.2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Apollo - v0.2.0" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
