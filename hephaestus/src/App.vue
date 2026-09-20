@@ -72,6 +72,11 @@ watch(
 )
 
 onMounted(() => {
+  console.info(
+      "%c Hephaestus - Jian Unified System %c v" + "0.1.0",
+      "padding: 2px 6px; border-radius: 3px 0 0 3px; color: #fff; background: #FF6699; font-weight: bold;",
+      "padding: 2px 6px; border-radius: 0 3px 3px 0; color: #fff; background: #FF9999; font-weight: bold;"
+  );
   mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
   applyTheme(settings.theme)
   mediaQuery.addEventListener('change', onSystem)
