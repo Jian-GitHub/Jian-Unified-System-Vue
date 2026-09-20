@@ -15,7 +15,7 @@ export const onRequest = async (
 
     // /api/v1/auth/start -> /v1/auth/start
     const targetUrl =
-        `${API_BASE_URL}${url.pathname.replace(/^\/api/, '')}${url.search}`;
+        `${API_BASE_URL}${url.pathname}${url.search}`;
 
     const headers = new Headers(request.headers);
 
