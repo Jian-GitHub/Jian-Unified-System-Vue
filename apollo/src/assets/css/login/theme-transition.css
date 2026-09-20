@@ -1,0 +1,205 @@
+/* Typed colors interpolate inside gradients as well as text, borders and shadows. */
+@property --jus-color-global-functional-success {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #4CAF50;
+}
+
+@property --jus-color-global-functional-warning {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #FFC107;
+}
+
+@property --jus-color-global-functional-error {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #F44336;
+}
+
+@property --jus-color-global-functional-info {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2196F3;
+}
+
+@property --jus-color-global-neutrals-text-primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #212121;
+}
+
+@property --jus-color-global-neutrals-text-secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #757575;
+}
+
+@property --jus-color-global-neutrals-text-disabled {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #BDBDBD;
+}
+
+@property --jus-color-global-neutrals-text-dividers {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #E0E0E0;
+}
+
+@property --jus-color-global-shadow-top-left {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #D1D9E6;
+}
+
+@property --jus-color-global-shadow-bottom-right {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #F9F9F9;
+}
+
+@property --jus-color-global-circle-shadow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #B8BEC7;
+}
+
+@property --jus-color-doraemon-background {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #FFFFFF;
+}
+
+@property --jus-color-doraemon-surface {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #F5F5F5;
+}
+
+@property --jus-color-doraemon-primary-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #416AAB;
+}
+
+@property --jus-color-doraemon-primary-400 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #68A0F7;
+}
+
+@property --jus-color-doraemon-primary-300 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8ABCFA;
+}
+
+@property --jus-color-doraemon-primary-200 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #E3F2FD;
+}
+
+@property --jus-color-doraemon-accent-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #F3B869;
+}
+
+@property --jus-color-doraemon-accent-400 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #A8732F;
+}
+
+@property --jus-color-icarus-background {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #FFFFFF;
+}
+
+@property --jus-color-icarus-surface {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #FAFAFA;
+}
+
+@property --jus-color-icarus-primary-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #A99399;
+}
+
+@property --jus-color-icarus-primary-400 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #CFA9AC;
+}
+
+@property --jus-color-icarus-primary-300 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #F4BEBD;
+}
+
+@property --jus-color-icarus-primary-200 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #F9E8E7;
+}
+
+@property --jus-color-icarus-secondary-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #616977;
+}
+
+@property --jus-color-icarus-secondary-300 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #867E88;
+}
+
+html:has(.jus-apollo-login-page) {
+  transition-property: --jus-color-global-functional-success,
+    --jus-color-global-functional-warning,
+    --jus-color-global-functional-error,
+    --jus-color-global-functional-info,
+    --jus-color-global-neutrals-text-primary,
+    --jus-color-global-neutrals-text-secondary,
+    --jus-color-global-neutrals-text-disabled,
+    --jus-color-global-neutrals-text-dividers,
+    --jus-color-global-shadow-top-left,
+    --jus-color-global-shadow-bottom-right,
+    --jus-color-global-circle-shadow,
+    --jus-color-doraemon-background,
+    --jus-color-doraemon-surface,
+    --jus-color-doraemon-primary-500,
+    --jus-color-doraemon-primary-400,
+    --jus-color-doraemon-primary-300,
+    --jus-color-doraemon-primary-200,
+    --jus-color-doraemon-accent-500,
+    --jus-color-doraemon-accent-400,
+    --jus-color-icarus-background,
+    --jus-color-icarus-surface,
+    --jus-color-icarus-primary-500,
+    --jus-color-icarus-primary-400,
+    --jus-color-icarus-primary-300,
+    --jus-color-icarus-primary-200,
+    --jus-color-icarus-secondary-500,
+    --jus-color-icarus-secondary-300;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Avoid a second color transition trailing the inherited palette animation. */
+html:has(.jus-apollo-login-page) body { transition: none; }
+.jus-apollo-login > .jus-apollo-side,
+.jus-apollo-login > .jus-apollo-container { transition: transform 1.5s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.jus-apollo-login-page) { transition-duration: 0s; }
+  .jus-apollo-login > .jus-apollo-side,
+  .jus-apollo-login > .jus-apollo-container { transition-duration: 0s; }
+}
