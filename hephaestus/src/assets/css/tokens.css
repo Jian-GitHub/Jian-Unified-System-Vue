@@ -1,0 +1,64 @@
+/* Shared workspace palette. Charts and controls use the same semantic colors. */
+:root {
+  --heph-canvas: #f5f7f8;
+  --heph-canvas-soft: #f0f3f4;
+  --heph-paper: #ffffff;
+  --heph-paper-solid: #ffffff;
+  --heph-ink: #202c30;
+  --heph-muted: #77848a;
+  --heph-line: #e7ecee;
+  --heph-line-strong: #cbd5d8;
+  --heph-pine: #147d64;
+  --heph-pine-2: #199b7c;
+  --heph-mint: #e2f4ed;
+  --heph-lime: #bce7cd;
+  --heph-amber: #ca9540;
+  --heph-coral: #d27669;
+  --heph-blue: #7c98b6;
+  --heph-shadow: 0 2px 6px rgba(27, 44, 50, .025);
+  --heph-radius-xl: 18px;
+  --heph-radius-lg: 14px;
+  --heph-radius-md: 10px;
+  --heph-radius-sm: 7px;
+  --heph-ease: cubic-bezier(.2,.75,.25,1);
+  --heph-success: #147d64;
+  --heph-warning: #a87625;
+  --heph-danger: #c56659;
+  --heph-info: #6e89a5;
+  --heph-chart-1: #199b7c;
+  --heph-chart-2: #91cbb6;
+  --heph-chart-3: #bce7cd;
+  --heph-chart-4: #7c98b6;
+  --heph-chart-5: #ca9540;
+  --heph-chart-6: #d27669;
+  --heph-chart-7: #a1a8c7;
+  --heph-sidebar: #142b2b;
+  --heph-sidebar-muted: #8ea5a4;
+  --heph-sidebar-width: clamp(196px, 14.5vw, 218px);
+  --heph-sidebar-collapsed-width: 68px;
+  --heph-rule: var(--heph-line);
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  --heph-canvas: #101b20;
+  --heph-canvas-soft: #1d2c31;
+  --heph-paper: #17262c;
+  --heph-paper-solid: #17262c;
+  --heph-ink: #e5eeef;
+  --heph-muted: #94a6ac;
+  --heph-line: #293b42;
+  --heph-line-strong: #41585f;
+  --heph-pine: #72d2b1;
+  --heph-pine-2: #51b996;
+  --heph-mint: #24473d;
+  --heph-lime: #a5d7b7;
+  --heph-amber: #dbb267;
+  --heph-coral: #e3998c;
+  --heph-blue: #9db9d4;
+  --heph-shadow: 0 2px 8px rgba(0,0,0,.08);
+  --heph-success: #72d2b1;
+  --heph-warning: #dbb267;
+  --heph-danger: #e3998c;
+  --heph-info: #9db9d4;
+  color-scheme: dark;
+}

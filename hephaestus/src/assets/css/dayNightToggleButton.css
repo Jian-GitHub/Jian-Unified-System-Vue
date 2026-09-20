@@ -1,0 +1,736 @@
+.day-night-toggle-container {
+    font-size: 5px;
+    position: relative;
+    width: 180em;
+    height: 70em;
+    display: inline-block;
+    vertical-align: bottom;
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+
+    border-radius: 100em;
+}
+.day-night-toggle-container:hover {
+    transition: all 0.3s ease-out;
+    box-shadow: 0 2px 6px 0 var(--jus-color-global-neutrals-text-secondary);
+
+}
+
+.day-night-toggle-container .day-night-toggle-components {
+    position: fixed;
+    width: 180em;
+    height: 70em;
+    background-color: #4685c0;
+    border-radius: 100em;
+    -webkit-box-shadow: inset 0 0 5em 3em rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5em 3em rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    -webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -o-transition: 0.7s;
+    -ms-transition: 0.7s;
+    transition: 0.7s;
+    -webkit-transition-timing-function: cubic-bezier(0, 0.5, 1, 1);
+    -moz-transition-timing-function: cubic-bezier(0, 0.5, 1, 1);
+    -o-transition-timing-function: cubic-bezier(0, 0.5, 1, 1);
+    transition-timing-function: cubic-bezier(0, 0.5, 1, 1);
+    cursor: pointer;
+}
+
+.day-night-toggle-container .day-night-toggle-main-button {
+    margin: 7.5em 0 0 7.5em;
+    width: 55em;
+    height: 55em;
+    background-color: #ffc323;
+    border-radius: 50%;
+    -webkit-box-shadow: 3em 3em 5em rgba(0, 0, 0, 0.5),
+    inset -3em -5em 3em -3em rgba(0, 0, 0, 0.5), inset 4em 5em 2em -2em #ffe650;
+    box-shadow: 3em 3em 5em rgba(0, 0, 0, 0.5),
+    inset -3em -5em 3em -3em rgba(0, 0, 0, 0.5), inset 4em 5em 2em -2em #ffe650;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -ms-transition: 1s;
+    transition: 1s;
+    -webkit-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -moz-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -o-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+}
+
+.day-night-toggle-container .day-night-toggle-moon {
+    position: absolute;
+    background-color: #96a0b4;
+    -webkit-box-shadow: inset 0 0 1em 1em rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 1em 1em rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+}
+
+.day-night-toggle-container .day-night-toggle-moon:nth-child(1) {
+    top: 7.5em;
+    left: 25em;
+    width: 12.5em;
+    height: 12.5em;
+}
+
+.day-night-toggle-container .day-night-toggle-moon:nth-child(2) {
+    top: 20em;
+    left: 7.5em;
+    width: 20em;
+    height: 20em;
+}
+
+.day-night-toggle-container .day-night-toggle-moon:nth-child(3) {
+    top: 32.5em;
+    left: 32.5em;
+    width: 12.5em;
+    height: 12.5em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-background {
+    position: absolute;
+    border-radius: 50%;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -ms-transition: 1s;
+    transition: 1s;
+    -webkit-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -moz-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -o-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-background:nth-child(2) {
+    top: -20em;
+    left: -20em;
+    width: 110em;
+    height: 110em;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -2;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-background:nth-child(3) {
+    top: -32.5em;
+    left: -17.5em;
+    width: 135em;
+    height: 135em;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -3;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-background:nth-child(4) {
+    top: -45em;
+    left: -15em;
+    width: 160em;
+    height: 160em;
+    background-color: rgba(255, 255, 255, 0.05);
+    z-index: -4;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud,
+.day-night-toggle-container .day-night-toggle-daytime-cloud-light {
+    -ms-transform: translateY(10em);
+    transform: translateY(10em);
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -ms-transition: 1s;
+    transition: 1s;
+    -webkit-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -moz-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -o-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud-son {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: -1;
+    -webkit-transition: -webkit-transform 6s, right 1s, bottom 1s;
+    -moz-transition: -moz-transform 6s, right 1s, bottom 1s;
+    -o-transition: -o-transform 6s, right 1s, bottom 1s;
+    -ms-transition: -ms-transform 6s, right 1s, bottom 1s;
+    transition: transform 6s, right 1s, bottom 1s;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 1) {
+    right: -20em;
+    bottom: 10em;
+    width: 50em;
+    height: 50em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 2) {
+    right: -10em;
+    bottom: -25em;
+    width: 60em;
+    height: 60em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 3) {
+    right: 20em;
+    bottom: -40em;
+    width: 60em;
+    height: 60em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 4) {
+    right: 50em;
+    bottom: -35em;
+    width: 60em;
+    height: 60em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 5) {
+    right: 75em;
+    bottom: -60em;
+    width: 75em;
+    height: 75em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 6) {
+    right: 110em;
+    bottom: -50em;
+    width: 60em;
+    height: 60em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud {
+    z-index: -2;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-cloud-light {
+    position: absolute;
+    right: 0;
+    bottom: 25em;
+    opacity: 0.5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    z-index: -3;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-stars {
+    -ms-transform: translateY(-125em);
+    transform: translateY(-125em);
+    z-index: -2;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -ms-transition: 1s;
+    transition: 1s;
+    -webkit-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -moz-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -o-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-big {
+    --size: 7em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-medium {
+    --size: 5em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-small {
+    --size: 3em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star {
+    position: absolute;
+    width: calc(2 * var(--size));
+    height: calc(2 * var(--size));
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star:nth-child(1) {
+    top: 11em;
+    left: 39em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star:nth-child(2) {
+    top: 39em;
+    left: 91em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star:nth-child(3) {
+    top: 26em;
+    left: 19em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star:nth-child(4) {
+    top: 37em;
+    left: 66em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star:nth-child(5) {
+    top: 21em;
+    left: 75em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star:nth-child(6) {
+    top: 51em;
+    left: 38em;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star-son {
+    float: left;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star-son:nth-child(1) {
+    --pos: left 0;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star-son:nth-child(2) {
+    --pos: right 0;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star-son:nth-child(3) {
+    --pos: 0 bottom;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star-son:nth-child(4) {
+    --pos: right bottom;
+}
+
+.day-night-toggle-container .day-night-toggle-daytime-star-son {
+    width: var(--size);
+    height: var(--size);
+    background-image: -webkit-radial-gradient(
+            circle var(--size) at var(--pos),
+            transparent calc(95% - 1px),
+            #fff 95%
+    );
+    background-image: -moz-radial-gradient(
+            circle var(--size) at var(--pos),
+            transparent calc(95% - 1px),
+            #fff 95%
+    );
+    background-image: -o-radial-gradient(
+            circle var(--size) at var(--pos),
+            transparent calc(95% - 1px),
+            #fff 95%
+    );
+    background-image: -ms-radial-gradient(
+            circle var(--size) at var(--pos),
+            transparent calc(95% - 1px),
+            #fff 95%
+    );
+    background-image: radial-gradient(
+            circle var(--size) at var(--pos),
+            transparent calc(95% - 1px),
+            #fff 95%
+    );
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover {
+    -ms-transform: translateX(10em);
+    transform: translateX(10em);
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-background:nth-child(2) {
+    -ms-transform: translateX(10em);
+    transform: translateX(10em);
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-background:nth-child(3) {
+    -ms-transform: translateX(7em);
+    transform: translateX(7em);
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-background:nth-child(4) {
+    -ms-transform: translateX(4em);
+    transform: translateX(4em);
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud .day-night-toggle-daytime-cloud-son:nth-child(1) {
+    right: -24em;
+    bottom: 10em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud .day-night-toggle-daytime-cloud-son:nth-child(2) {
+    right: -12em;
+    bottom: -27em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud .day-night-toggle-daytime-cloud-son:nth-child(3) {
+    right: 17em;
+    bottom: -43em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud .day-night-toggle-daytime-cloud-son:nth-child(4) {
+    right: 46em;
+    bottom: -39em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud .day-night-toggle-daytime-cloud-son:nth-child(5) {
+    right: 70em;
+    bottom: -65em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud .day-night-toggle-daytime-cloud-son:nth-child(6) {
+    right: 109em;
+    bottom: -54em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud-light .day-night-toggle-daytime-cloud-son:nth-child(1) {
+    right: -23em;
+    bottom: 10em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud-light .day-night-toggle-daytime-cloud-son:nth-child(2) {
+    right: -11em;
+    bottom: -26em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud-light .day-night-toggle-daytime-cloud-son:nth-child(3) {
+    right: 18em;
+    bottom: -42em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud-light .day-night-toggle-daytime-cloud-son:nth-child(4) {
+    right: 47em;
+    bottom: -38em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud-light .day-night-toggle-daytime-cloud-son:nth-child(5) {
+    right: 74em;
+    bottom: -64em;
+}
+
+.day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-cloud-light .day-night-toggle-daytime-cloud-son:nth-child(6) {
+    right: 110em;
+    bottom: -55em;
+}
+
+[data-theme="light"] .day-night-toggle-container .day-night-toggle-daytime-cloud-son {
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -moz-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -o-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -ms-transition: 1s;
+    transition: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -moz-animation-direction: alternate;
+    -o-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-timing-function: ease-in-out;
+    -o-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+}
+
+[data-theme="light"] .day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 1) {
+    -webkit-animation-name: naoCloud;
+    -moz-animation-name: naoCloud;
+    -o-animation-name: naoCloud;
+    animation-name: naoCloud;
+    -webkit-animation-duration: 4.5s;
+    -moz-animation-duration: 4.5s;
+    -o-animation-duration: 4.5s;
+    animation-duration: 4.5s;
+}
+
+[data-theme="light"] .day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 2) {
+    -webkit-animation-name: naoCloud;
+    -moz-animation-name: naoCloud;
+    -o-animation-name: naoCloud;
+    animation-name: naoCloud;
+    -webkit-animation-duration: 5.1s;
+    -moz-animation-duration: 5.1s;
+    -o-animation-duration: 5.1s;
+    animation-duration: 5.1s;
+}
+
+[data-theme="light"] .day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 3) {
+    -webkit-animation-name: naoCloud;
+    -moz-animation-name: naoCloud;
+    -o-animation-name: naoCloud;
+    animation-name: naoCloud;
+    -webkit-animation-duration: 5.9s;
+    -moz-animation-duration: 5.9s;
+    -o-animation-duration: 5.9s;
+    animation-duration: 5.9s;
+}
+
+[data-theme="light"] .day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 4) {
+    -webkit-animation-name: naoCloud;
+    -moz-animation-name: naoCloud;
+    -o-animation-name: naoCloud;
+    animation-name: naoCloud;
+    -webkit-animation-duration: 6.3s;
+    -moz-animation-duration: 6.3s;
+    -o-animation-duration: 6.3s;
+    animation-duration: 6.3s;
+}
+
+[data-theme="light"] .day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 5) {
+    -webkit-animation-name: naoCloud;
+    -moz-animation-name: naoCloud;
+    -o-animation-name: naoCloud;
+    animation-name: naoCloud;
+    -webkit-animation-duration: 4.7s;
+    -moz-animation-duration: 4.7s;
+    -o-animation-duration: 4.7s;
+    animation-duration: 4.7s;
+}
+
+[data-theme="light"] .day-night-toggle-container .day-night-toggle-daytime-cloud-son:nth-child(6n + 6) {
+    -webkit-animation-name: naoCloud;
+    -moz-animation-name: naoCloud;
+    -o-animation-name: naoCloud;
+    animation-name: naoCloud;
+    -webkit-animation-duration: 5s;
+    -moz-animation-duration: 5s;
+    -o-animation-duration: 5s;
+    animation-duration: 5s;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components {
+    background-color: #191e32;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-main-button {
+    -ms-transform: translateX(110em);
+    transform: translateX(110em);
+    background-color: #c3c8d2;
+    -webkit-box-shadow: 3em 3em 5em rgba(0, 0, 0, 0.5),
+    inset -3em -5em 3em -3em rgba(0, 0, 0, 0.5), inset 4em 5em 2em -2em #ffffd2;
+    box-shadow: 3em 3em 5em rgba(0, 0, 0, 0.5),
+    inset -3em -5em 3em -3em rgba(0, 0, 0, 0.5), inset 4em 5em 2em -2em #ffffd2;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-moon:nth-child(1) {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-moon:nth-child(2) {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-moon:nth-child(3) {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-background:nth-child(2) {
+    -ms-transform: translateX(110em);
+    transform: translateX(110em);
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-background:nth-child(3) {
+    -ms-transform: translateX(80em);
+    transform: translateX(80em);
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-background:nth-child(4) {
+    -ms-transform: translateX(50em);
+    transform: translateX(50em);
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-cloud,
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-cloud-light {
+    -ms-transform: translateY(80em);
+    transform: translateY(80em);
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-stars {
+    -ms-transform: translateY(-62.5em);
+    transform: translateY(-62.5em);
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-star {
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -moz-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -o-transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    transition-timing-function: cubic-bezier(0.56, 1.35, 0.52, 1);
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -ms-transition: 1s;
+    transition: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -moz-animation-direction: alternate;
+    -o-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-star:nth-child(1) {
+    -webkit-animation-name: naoStar;
+    -moz-animation-name: naoStar;
+    -o-animation-name: naoStar;
+    animation-name: naoStar;
+    -webkit-animation-duration: 3.5s;
+    -moz-animation-duration: 3.5s;
+    -o-animation-duration: 3.5s;
+    animation-duration: 3.5s;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-star:nth-child(2) {
+    -webkit-animation-name: naoStar;
+    -moz-animation-name: naoStar;
+    -o-animation-name: naoStar;
+    animation-name: naoStar;
+    -webkit-animation-duration: 4.1s;
+    -moz-animation-duration: 4.1s;
+    -o-animation-duration: 4.1s;
+    animation-duration: 4.1s;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-star:nth-child(3) {
+    -webkit-animation-name: naoStar;
+    -moz-animation-name: naoStar;
+    -o-animation-name: naoStar;
+    animation-name: naoStar;
+    -webkit-animation-duration: 4.9s;
+    -moz-animation-duration: 4.9s;
+    -o-animation-duration: 4.9s;
+    animation-duration: 4.9s;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-star:nth-child(4) {
+    -webkit-animation-name: naoStar;
+    -moz-animation-name: naoStar;
+    -o-animation-name: naoStar;
+    animation-name: naoStar;
+    -webkit-animation-duration: 5.3s;
+    -moz-animation-duration: 5.3s;
+    -o-animation-duration: 5.3s;
+    animation-duration: 5.3s;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-star:nth-child(5) {
+    -webkit-animation-name: naoStar;
+    -moz-animation-name: naoStar;
+    -o-animation-name: naoStar;
+    animation-name: naoStar;
+    -webkit-animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    -o-animation-duration: 3s;
+    animation-duration: 3s;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-daytime-star:nth-child(6) {
+    -webkit-animation-name: naoStar;
+    -moz-animation-name: naoStar;
+    -o-animation-name: naoStar;
+    animation-name: naoStar;
+    -webkit-animation-duration: 2.2s;
+    -moz-animation-duration: 2.2s;
+    -o-animation-duration: 2.2s;
+    animation-duration: 2.2s;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover {
+    -ms-transform: translateX(100em);
+    transform: translateX(100em);
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-background:nth-child(2) {
+    -ms-transform: translateX(100em);
+    transform: translateX(100em);
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-background:nth-child(3) {
+    -ms-transform: translateX(73em);
+    transform: translateX(73em);
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-background:nth-child(4) {
+    -ms-transform: translateX(46em);
+    transform: translateX(46em);
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-stars .day-night-toggle-daytime-star:nth-child(1) {
+    top: 10em;
+    left: 36em;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-stars .day-night-toggle-daytime-star:nth-child(2) {
+    top: 40em;
+    left: 87em;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-stars .day-night-toggle-daytime-star:nth-child(3) {
+    top: 26em;
+    left: 16em;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-stars .day-night-toggle-daytime-star:nth-child(4) {
+    top: 38em;
+    left: 63em;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-stars .day-night-toggle-daytime-star:nth-child(5) {
+    top: 20.5em;
+    left: 72em;
+}
+
+[data-theme="dark"] .day-night-toggle-container .day-night-toggle-components .day-night-toggle-main-button:hover ~ .day-night-toggle-daytime-stars .day-night-toggle-daytime-star:nth-child(6) {
+    top: 51.5em;
+    left: 35em;
+}
+
+@keyframes naoStar {
+    0%,
+    20% {
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+    20%,
+    100% {
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes naoCloud {
+    0% {
+        -ms-transform: translate(2em, -2em);
+        transform: translate(2em, -2em);
+    }
+    50% {
+        -ms-transform: translate(-2em, 2em);
+        transform: translate(-2em, 2em);
+    }
+    100% {
+        -ms-transform: translate(2em, -2em);
+        transform: translate(2em, -2em);
+    }
+}
