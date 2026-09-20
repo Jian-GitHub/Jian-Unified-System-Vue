@@ -10,71 +10,64 @@ export const onRequest = async (
     const { request, env } = context;
     const url = new URL(request.url);
 
-    const API_BASE_URL = env.API_BASE_URL || 'http://apollo.api.JianUnifiedSystem.com:31500';
-    const targetUrl = `${API_BASE_URL}${url.pathname.replace(/^\/api/, '')}${url.search}`;
+    const API_BASE_URL =
+        env.API_BASE_URL || 'http://apollo.api.JianUnifiedSystem.com:31500';
 
-    // OPTIONS 预检
-    if (request.method === 'OPTIONS') {
-        return new Response(null, {
-            status: 204,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
-                'Access-Control-Max-Age': '86400',
-            },
-        });
-    }
+    // /api/v1/auth/start -> /v1/auth/start
+    const targetUrl =
+        `${API_BASE_URL}${url.pathname.replace(/^\/api/, '')}${url.search}`;
 
-    // 转换 Headers -> DOM HeadersInit 类型
-    const headersInit: Record<string, string> = {};
-    request.headers.forEach((value, key) => {
-        headersInit[key] = value;
-    });
+    const headers = new Headers(request.headers);
 
-    // 转换 body -> DOM BodyInit 类型
-    let body: BodyInit | undefined = undefined;
+    // 告诉后端，用户实际访问的是哪个公网地址
+    headers.set('X-Forwarded-Host', url.host);
+    headers.set('X-Forwarded-Proto', url.protocol.replace(':', ''));
+
+    // 不建议把 Cloudflare 的 Host 直接发给源站
+    headers.delete('host');
+
+    let body: BodyInit | undefined;
+
     if (request.method !== 'GET' && request.method !== 'HEAD') {
-        body = await request.arrayBuffer();
+        body = request.body;
     }
-
-    // 构造 RequestInit
-    const reqInit: RequestInit = {
-        method: request.method,
-        headers: headersInit,
-        body,
-        redirect: 'follow',
-    };
 
     try {
-        // fetch 直接用 URL + RequestInit
-        const response = await fetch(targetUrl, reqInit);
+        const response = await fetch(targetUrl, {
+            method: request.method,
+            headers,
+            body,
 
-        // 克隆响应并添加 CORS
-        const newResponse = new Response(response.body, {
+            // 非常重要：
+            // 后端 302 必须返回给浏览器，不能让 Worker 自己跟随
+            redirect: 'manual',
+        });
+
+        // 原样返回上游响应
+        // 包括：
+        // Location
+        // Set-Cookie
+        // Content-Type
+        // Status Code
+        return new Response(response.body, {
             status: response.status,
             statusText: response.statusText,
             headers: response.headers,
         });
-
-        newResponse.headers.set('Access-Control-Allow-Origin', '*');
-        newResponse.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-        newResponse.headers.set(
-            'Access-Control-Allow-Headers',
-            'Content-Type, Authorization, X-Requested-With'
-        );
-
-        return newResponse;
     } catch (err) {
         console.error('Proxy error:', err);
+
         return new Response(
             JSON.stringify({
                 error: 'Proxy error',
                 message: err instanceof Error ? err.message : 'Unknown error',
             }),
             {
-                status: 500,
-                headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+                status: 502,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-store',
+                },
             }
         );
     }
