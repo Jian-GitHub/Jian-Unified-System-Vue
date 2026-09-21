@@ -6,16 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/src/assets/css/dayNightToggleButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/assets/css/dayNightToggleButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/src/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/common/ApolloThemeToggle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/common/ApolloThemeToggle.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/common/TopBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/common/TopBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/income/IncomeInsights.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/income/IncomeInsights.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/income/TrendChart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/income/TrendChart.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hephaestus/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,23 +66,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.08800699356545" />
-      <entry key="MS500" value="2.0017741423665143" />
-      <entry key="S2" value="2.6763180416009664" />
-      <entry key="S5" value="2.8630771828130435" />
-      <entry key="S10" value="2.930228795416504" />
-      <entry key="S30" value="2.9764454528237474" />
-      <entry key="S60" value="2.991423372277718" />
-      <entry key="M2" value="3.439548833816944" />
-      <entry key="M5" value="12.866184069187343" />
-      <entry key="M10" value="36.37349380802662" />
-      <entry key="M15" value="59.38330106453851" />
-      <entry key="M30" value="110.26655117662865" />
-      <entry key="H1" value="160.23526590031005" />
-      <entry key="H2" value="205.0241602845586" />
-      <entry key="H4" value="257.67274848958544" />
-      <entry key="D1" value="626.3904992170858" />
-      <entry key="W1" value="1286.3848647190216" />
+      <entry key="MS100" value="1.0001131139505208" />
+      <entry key="MS500" value="1.1891591835728432" />
+      <entry key="S2" value="2.3776480500175516" />
+      <entry key="S5" value="4.171462307795208" />
+      <entry key="S10" value="6.842254059436112" />
+      <entry key="S30" value="12.344818490609393" />
+      <entry key="S60" value="15.954017510799371" />
+      <entry key="M2" value="19.417430284028455" />
+      <entry key="M5" value="28.94751489270002" />
+      <entry key="M10" value="50.997343906074704" />
+      <entry key="M15" value="73.50611010631255" />
+      <entry key="M30" value="124.99475280549424" />
+      <entry key="H1" value="176.93952240220474" />
+      <entry key="H2" value="223.63125776588544" />
+      <entry key="H4" value="277.5423313133273" />
+      <entry key="D1" value="647.5339691432731" />
+      <entry key="W1" value="1308.134434718521" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -114,23 +104,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.2549691155882298" />
-      <entry key="MS500" value="1.5136407504176086" />
-      <entry key="S2" value="2.4880818683626273" />
-      <entry key="S5" value="2.7798111289936256" />
-      <entry key="S10" value="2.887130381760498" />
-      <entry key="S30" value="2.961739892286021" />
-      <entry key="S60" value="2.984024695241778" />
-      <entry key="M2" value="3.435662499426899" />
-      <entry key="M5" value="12.863131707061848" />
-      <entry key="M10" value="36.37024853702094" />
-      <entry key="M15" value="59.380131660732296" />
-      <entry key="M30" value="110.2639320198136" />
-      <entry key="H1" value="160.2334571552754" />
-      <entry key="H2" value="205.02300586033098" />
-      <entry key="H4" value="257.67201607954695" />
-      <entry key="D1" value="626.3902667475057" />
-      <entry key="W1" value="1286.384801697299" />
+      <entry key="MS100" value="0.5988075478672824" />
+      <entry key="MS500" value="1.0706720358104134" />
+      <entry key="S2" value="2.2964965862793423" />
+      <entry key="S5" value="4.111057234894555" />
+      <entry key="S10" value="6.79303604098098" />
+      <entry key="S30" value="12.31453570563604" />
+      <entry key="S60" value="15.934126995040273" />
+      <entry key="M2" value="19.405111470035937" />
+      <entry key="M5" value="28.940659566324122" />
+      <entry key="M10" value="50.992193191477675" />
+      <entry key="M15" value="73.50165331786197" />
+      <entry key="M30" value="124.99145118596793" />
+      <entry key="H1" value="176.93734514829237" />
+      <entry key="H2" value="223.62990808225763" />
+      <entry key="H4" value="277.54149772014256" />
+      <entry key="D1" value="647.5337191115442" />
+      <entry key="W1" value="1308.134369154512" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -371,15 +361,7 @@
       <workItem from="1789367788379" duration="18546000" />
       <workItem from="1789648545550" duration="6198000" />
       <workItem from="1789888594203" duration="10628000" />
-      <workItem from="1789990676319" duration="2458000" />
-    </task>
-    <task id="LOCAL-00064" summary="Fix dialog text bug">
-      <option name="closed" value="true" />
-      <created>1759407849845</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1759407849845</updated>
+      <workItem from="1789990676319" duration="3112000" />
     </task>
     <task id="LOCAL-00065" summary="Fix dialog text bug">
       <option name="closed" value="true" />
@@ -765,7 +747,15 @@
       <option name="project" value="LOCAL" />
       <updated>1789992439925</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="UI">
+      <option name="closed" value="true" />
+      <created>1789994023576</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1789994023576</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
