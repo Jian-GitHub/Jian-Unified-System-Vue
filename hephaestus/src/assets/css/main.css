@@ -126,3 +126,6 @@ html .el-radio-button.is-active .el-radio-button__inner { color: var(--heph-pine
   .heph-date-range-popper .el-picker-panel__body { display:flex; flex-direction:column; min-width:0; max-height:65dvh; overflow-y:auto; }
   .heph-date-range-popper .el-date-range-picker__content { width:100%; padding:12px; }
 }
+
+/* Single-finger table panning is axis-locked by v-axis-locked-scroll; pinch zoom stays available. */
+.el-table__body-wrapper .el-scrollbar__wrap, .matrix-scroll { touch-action:pinch-zoom; }

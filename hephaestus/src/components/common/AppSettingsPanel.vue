@@ -61,10 +61,10 @@ async function handleAccount(command: string) {
     <ApolloThemeToggle />
     <div class="jus-apollo-login-setting-language-switch">
       <el-dropdown trigger="click" @command="switchLanguage">
-        <el-button text class="el-dropdown-link" :aria-label="t('settings.language')">
+        <button type="button" class="el-dropdown-link" :aria-label="t('settings.language')">
           <TranslateIcon class="jus-apollo-login-setting-language-switch-icon" />
           <ArrowDropDownIcon class="jus-apollo-login-setting-language-switch-icon arrow-down" />
-        </el-button>
+        </button>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item
@@ -81,9 +81,9 @@ async function handleAccount(command: string) {
     </div>
 
     <el-dropdown trigger="click" :hide-on-click="false" @command="handleAccount">
-      <el-button text class="account-button" :aria-label="session.localizedDisplayName(settings.language) || t('settings.openApollo')">
+      <button type="button" class="account-button" :aria-label="session.localizedDisplayName(settings.language) || t('settings.openApollo')">
         <el-avatar class="avatar" :size="30">{{ initials }}</el-avatar><el-icon class="account-arrow"><ArrowDown /></el-icon>
-      </el-button>
+      </button>
       <template #dropdown>
         <el-dropdown-menu class="account-dropdown-menu">
           <el-dropdown-item command="apollo"><el-icon><Link /></el-icon>{{ t('settings.openApollo') }}</el-dropdown-item>
@@ -142,7 +142,6 @@ async function handleAccount(command: string) {
 .account-arrow { font-size:9px; color:var(--heph-muted); }
 
 :global(.account-dropdown-menu) { width:260px; max-width:calc(100vw - 24px); }
-.account-button :deep(> span), .el-dropdown-link :deep(> span) { display:flex; align-items:center; gap:4px; }
 :global(.account-dropdown-menu .currency-picker) { display:grid; gap:8px; margin-top:5px; padding:12px 16px 10px; border-top:1px solid var(--heph-line); list-style:none; }
 :global(.account-dropdown-menu .currency-picker label) { display:flex; align-items:center; gap:7px; color:var(--heph-muted); font-size:12px; }
 :global(.account-dropdown-menu .currency-picker .el-select) { width:100%; }

@@ -15,6 +15,7 @@ import { useSettingsStore } from '@/store/settings'
 import AppSidebar from '@/components/common/AppSidebar.vue'
 import TopBar from '@/components/common/TopBar.vue'
 import InvoiceShell from '@/components/invoice/InvoiceShell.vue'
+import { vAxisLockedScroll } from '@/directives/axisLockedScroll'
 import { configureMoneyFormat } from '@/utils/format'
 
 const route = useRoute()
@@ -86,7 +87,7 @@ onBeforeUnmount(() => mediaQuery?.removeEventListener('change', onSystem))
 
 <template>
   <el-config-provider :locale="elementLocale">
-  <div :class="['heph-shell', { 'has-workspace': layout !== 'minimal', 'sidebar-collapsed': settings.sidebarCollapsed }]">
+  <div v-axis-locked-scroll :class="['heph-shell', { 'has-workspace': layout !== 'minimal', 'sidebar-collapsed': settings.sidebarCollapsed }]">
     <template v-if="layout !== 'minimal'">
       <a class="skip-link" href="#main-content">{{ t('ui.skipToContent') }}</a>
       <AppSidebar :open="menuOpen" :collapsed="settings.sidebarCollapsed" @close="menuOpen = false" />

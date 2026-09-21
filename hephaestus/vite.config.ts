@@ -24,6 +24,18 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
   ],
+  // Pre-bundle lazy dashboard imports before the browser requests the route.
+  // Otherwise discovering ECharts/auto-imported styles can invalidate an open page's dependency URLs.
+  optimizeDeps: {
+    include: [
+      'echarts/core',
+      'echarts/charts',
+      'echarts/components',
+      'echarts/renderers',
+      'element-plus/es',
+      'element-plus/es/components/**/style/css',
+    ],
+  },
   resolve: {
     alias: {
       // @ts-ignore
@@ -37,7 +49,7 @@ export default defineConfig({
     allowedHosts: ['dev.jian.nz'],
     proxy: {
       '/api': {
-        target: process.env.HEPHAESTUS_API_TARGET || 'http://localhost:18101',
+        target: process.env.HEPHAESTUS_API_TARGET || 'http://localhost:21500',
         changeOrigin: true,
       },
     },

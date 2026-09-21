@@ -5,20 +5,18 @@
     height: 70em;
     display: inline-block;
     vertical-align: bottom;
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
 
     border-radius: 100em;
 }
 .day-night-toggle-container:hover {
     transition: all 0.3s ease-out;
-    box-shadow: 0 2px 6px 0 var(--jus-color-global-neutrals-text-secondary);
+    box-shadow: 0 2px 6px 0 var(--heph-muted);
 
 }
 
 .day-night-toggle-container .day-night-toggle-components {
-    position: absolute;
-    inset: 0;
+    /* Keep the artwork in the button flow, including during scroll bounce. */
+    position: relative;
     width: 180em;
     height: 70em;
     background-color: #4685c0;

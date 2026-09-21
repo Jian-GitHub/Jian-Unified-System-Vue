@@ -28,7 +28,7 @@ const workspaceLabel = computed(() => t('ui.workspace'))
 </template>
 
 <style scoped>
-.workspace-topbar { position:sticky; top:0; z-index:30; display:flex; align-items:center; justify-content:space-between; gap:12px; height:clamp(60px,7vh,68px); padding:0 0 0 clamp(16px,2vw,28px); background:transparent; border-bottom:1px solid transparent; backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); }
+.workspace-topbar { position:sticky; top:0; z-index:30; display:flex; align-items:center; justify-content:space-between; gap:12px; height:clamp(60px,7vh,68px); padding:0 0 0 clamp(16px,2vw,28px); background:color-mix(in srgb,var(--heph-paper-solid) 18%,transparent); border-bottom:1px solid color-mix(in srgb,var(--heph-line) 45%,transparent); backdrop-filter:blur(3px) saturate(125%); -webkit-backdrop-filter:blur(3px) saturate(125%); }
 .breadcrumb { min-width:0; display:flex; align-items:center; gap:11px; font-size:11px; }.breadcrumb-root { color:var(--heph-muted); }.breadcrumb strong { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:500; }.breadcrumb-arrow { width:10px; color:var(--heph-muted); }.topbar-right { display:flex; align-items:center; flex-shrink:0; }
 .menu-toggle { display:grid; place-items:center; flex-shrink:0; width:44px; height:44px; padding:6px; color:var(--heph-muted); background:transparent; border:0; border-radius:7px; cursor:pointer; transition:color .2s ease,background .2s ease; }.menu-toggle:hover { color:var(--heph-ink); background:color-mix(in srgb,var(--heph-paper-solid) 42%,transparent); }.menu-toggle :deep(svg) { width:18px; height:18px; }.mobile-menu { display:none; }
 @media(max-width:1100px) { .workspace-topbar { padding-left:18px; } }
