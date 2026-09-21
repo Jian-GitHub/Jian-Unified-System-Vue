@@ -188,7 +188,7 @@ function onRecentTableScroll({ scrollTop }: { scrollTop: number }) {
       <router-link class="rate-settings-link" to="/settings">{{ t('settings.calculation') }} →</router-link>
     </section>
 
-    <div v-reveal="110" class="dashboard-toolbar"><MonthNavigator v-model="filters" @change="reloadAll" /><button type="button" :class="['filter-toggle', { active: filtersOpen || activeFilters }]" :aria-expanded="filtersOpen" aria-controls="dashboard-filters" @click="filtersOpen = !filtersOpen"><Filter />{{ t('app.filter') }}<span v-if="activeFilters" class="filter-count">{{ activeFilters }}</span></button><el-button class="refresh-button" :icon="Refresh" :loading="loading" :aria-label="t('app.refresh')" @click="reloadAll" /></div>
+    <div v-reveal="110" class="dashboard-toolbar"><MonthNavigator v-model="filters" @change="reloadAll" /><el-button :class="['filter-toggle', { active: filtersOpen || activeFilters }]" :aria-expanded="filtersOpen" aria-controls="dashboard-filters" @click="filtersOpen = !filtersOpen"><Filter />{{ t('app.filter') }}<span v-if="activeFilters" class="filter-count">{{ activeFilters }}</span></el-button><el-button class="refresh-button" :icon="Refresh" :loading="loading" :aria-label="t('app.refresh')" @click="reloadAll" /></div>
     <IncomeFilters v-show="filtersOpen" id="dashboard-filters" v-model="filters" @apply="reloadAll" />
     <ErrorBanner :message="actionError" />
     <div v-if="summaryError" class="section-error"><ErrorBanner :message="summaryError" /><el-button text @click="retrySummary">{{ t('app.retry') }}</el-button></div>
@@ -264,4 +264,14 @@ function onRecentTableScroll({ scrollTop }: { scrollTop: number }) {
 @media(max-width:1200px) { .dashboard-toolbar { flex-wrap: wrap; }.dashboard-toolbar :deep(.period-bar) { flex-basis: calc(100% - 135px); }.estimate-strip { flex-wrap: wrap; }.rate-note { max-width: none; padding-left: 0; border-left: 0; } }
 @media(max-width:1100px) and (min-width:901px) { .summary-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }.dashboard-visuals { grid-template-columns: 1fr; } }
 @media(max-width:740px) { .summary-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }.dashboard-visuals { grid-template-columns: 1fr; }.dashboard-toolbar :deep(.period-bar) { flex-basis: 100%; }.dashboard-toolbar { gap: 10px; }.filter-toggle { margin-left: auto; }.card-header { flex-wrap: wrap; }.trend-total .trend-scope { display: none; }.header-actions { width: 100%; flex-wrap: wrap; }.all-time-total { margin-right: auto; padding-left: 0; text-align: left; }.estimate-strip { gap: 10px; padding: 12px; }.estimate-status { min-width: 100%; }.rate-control { width: 100%; }.dashboard-footer { flex-direction: column; }.dashboard-page { gap: 12px; } }
+@media(max-width:480px) {
+  .summary-grid { grid-template-columns:1fr; }
+  .header-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .all-time-total { grid-column:1 / -1; border-right:0; }
+  .header-actions .el-button { height:auto; min-height:44px; font-size:12px; padding:8px; }
+  .header-actions :deep(.el-button > span) { white-space:normal; }
+  .trend-total { flex-wrap:wrap; }
+  .trend-total strong { overflow-wrap:anywhere; }
+}
+.filter-toggle :deep(> span) { display:flex; align-items:center; gap:7px; }
 </style>

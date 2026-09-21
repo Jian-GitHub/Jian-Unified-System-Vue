@@ -15,7 +15,7 @@ const toggle = () => {
 </script>
 
 <template>
-  <button type="button" class="theme-toggle" :aria-label="t('settings.theme')" @click="toggle">
+  <el-button text class="theme-toggle" :aria-label="t('settings.theme')" @click="toggle">
   <span class="day-night-toggle-container" aria-hidden="true">
     <div class="day-night-toggle-components">
       <!-- moon -->
@@ -39,12 +39,12 @@ const toggle = () => {
       </div>
     </div>
   </span>
-  </button>
+  </el-button>
 </template>
 
 <style scoped>
 @import "@/assets/css/dayNightToggleButton.css";
-.theme-toggle { display:grid; place-items:center; width:50px; height:36px; padding:0; border:0; border-radius:7px; background:transparent; cursor:pointer; }
+.theme-toggle { display:grid; place-items:center; width:50px; height:44px; padding:0; border:0; border-radius:7px; background:transparent; cursor:pointer; }
 .theme-toggle:focus-visible { outline:2px solid var(--heph-pine); outline-offset:2px; }
 .day-night-toggle-container { font-size:.25px; }
 </style>

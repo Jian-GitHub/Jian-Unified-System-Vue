@@ -6,6 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="5eb8e860-7f6b-4aad-99c6-fc87f7e2f748" name="Changes" comment="Hephaestus - v0.1.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/assets/css/dayNightToggleButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/assets/css/dayNightToggleButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/common/ApolloThemeToggle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/common/ApolloThemeToggle.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/common/AppSettingsPanel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/common/AppSettingsPanel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/common/TopBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/common/TopBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/income/IncomeFilters.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/income/IncomeFilters.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/income/MonthNavigator.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/income/MonthNavigator.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/components/income/WeeklyCalendar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/components/income/WeeklyCalendar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hephaestus/src/pages/dashboard/DashboardPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/hephaestus/src/pages/dashboard/DashboardPage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +35,7 @@
     </selectedModels>
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="355" />
+    <option name="cachedIndexableFilesCount" value="386" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -66,23 +77,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0185913835784515" />
-      <entry key="MS500" value="1.8702010695767344" />
-      <entry key="S2" value="3.1368633219105106" />
-      <entry key="S5" value="3.6117830592473994" />
-      <entry key="S10" value="3.7977866593781626" />
-      <entry key="S30" value="3.930695882507318" />
-      <entry key="S60" value="3.9651040172262837" />
-      <entry key="M2" value="3.9824905308491854" />
-      <entry key="M5" value="3.9929813935835834" />
-      <entry key="M10" value="3.996488305119763" />
-      <entry key="M15" value="3.997730554139289" />
-      <entry key="M30" value="4.081341076728178" />
-      <entry key="H1" value="7.027155059515125" />
-      <entry key="H2" value="22.835418343169344" />
-      <entry key="H4" value="60.02556755501752" />
-      <entry key="D1" value="414.00732603211907" />
-      <entry key="W1" value="1058.2561740459662" />
+      <entry key="MS100" value="1.0112063263099118" />
+      <entry key="MS500" value="1.6319106751435988" />
+      <entry key="S2" value="3.9210382365635894" />
+      <entry key="S5" value="7.4192126382676955" />
+      <entry key="S10" value="12.219512505811492" />
+      <entry key="S30" value="24.05997539182198" />
+      <entry key="S60" value="32.72999944345101" />
+      <entry key="M2" value="49.409459674885674" />
+      <entry key="M5" value="86.0501888401354" />
+      <entry key="M10" value="111.53146662508556" />
+      <entry key="M15" value="122.81594202465025" />
+      <entry key="M30" value="136.374697953243" />
+      <entry key="H1" value="146.0178910063569" />
+      <entry key="H2" value="162.57075232888894" />
+      <entry key="H4" value="198.99607611635298" />
+      <entry key="D1" value="552.5292346908062" />
+      <entry key="W1" value="1204.0901884549482" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -104,23 +115,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.18583789494401623" />
-      <entry key="MS500" value="1.507170320271565" />
-      <entry key="S2" value="3.0058517190640757" />
-      <entry key="S5" value="3.553512405761027" />
-      <entry key="S10" value="3.767501086097673" />
-      <entry key="S30" value="3.920326348037167" />
-      <entry key="S60" value="3.959883709057445" />
-      <entry key="M2" value="3.9798713948762683" />
-      <entry key="M5" value="3.9919315710378664" />
-      <entry key="M10" value="3.9959630314284795" />
-      <entry key="M15" value="3.99738028464819" />
-      <entry key="M30" value="4.081162740181309" />
-      <entry key="H1" value="7.027015102468671" />
-      <entry key="H2" value="22.83522167658278" />
-      <entry key="H4" value="60.02535097088663" />
-      <entry key="D1" value="414.00718965626703" />
-      <entry key="W1" value="1058.2561255314629" />
+      <entry key="MS100" value="0.8275884667653335" />
+      <entry key="MS500" value="1.5737712158729378" />
+      <entry key="S2" value="3.8887358360810094" />
+      <entry key="S5" value="7.3947866851654025" />
+      <entry key="S10" value="12.199104124723178" />
+      <entry key="S30" value="24.046468991768005" />
+      <entry key="S60" value="32.72056165798906" />
+      <entry key="M2" value="49.40110782936151" />
+      <entry key="M5" value="86.04288910041593" />
+      <entry key="M10" value="111.52630726773444" />
+      <entry key="M15" value="122.81203546979039" />
+      <entry key="M30" value="136.37244759026927" />
+      <entry key="H1" value="146.01664366848505" />
+      <entry key="H2" value="162.57000377665398" />
+      <entry key="H4" value="198.99558382213533" />
+      <entry key="D1" value="552.5290498720441" />
+      <entry key="W1" value="1204.090132666658" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -137,47 +148,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "javascript.preferred.runtime.type.id": "node",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/jian/code/webstorm/Jian-Unified-System-Vue/hephaestus",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "npm.build.executor": "Run",
-    "npm.contact.executor": "Run",
-    "npm.dev (1).executor": "Run",
-    "npm.dev.executor": "Run",
-    "npm.serve.executor": "Run",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/jian/code/webstorm/Jian-Unified-System-Vue/apollo/node_modules/typescript/lib",
-    "ts.rename.search.for.dynamic.occurrences": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/hephaestus&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.contact.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.serve.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/jian/code/webstorm/Jian-Unified-System-Vue/apollo/node_modules/typescript/lib&quot;,
+    &quot;ts.rename.search.for.dynamic.occurrences&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component",
-      "Vue Options API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;,
+      &quot;Vue Options API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
     <layout>
       <window_info id="Bookmarks" side_tool="true" />
@@ -360,39 +371,8 @@
       <workItem from="1789333667201" duration="867000" />
       <workItem from="1789367788379" duration="18546000" />
       <workItem from="1789648545550" duration="6198000" />
-      <workItem from="1789888594203" duration="8262000" />
-    </task>
-    <task id="LOCAL-00059" summary="Fix bug">
-      <option name="closed" value="true" />
-      <created>1758719954140</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1758719954140</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Feature: Bind Third-Party Accounts">
-      <option name="closed" value="true" />
-      <created>1759393293323</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1759393293323</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Update user info">
-      <option name="closed" value="true" />
-      <created>1759393765118</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1759393765119</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Fix en bug">
-      <option name="closed" value="true" />
-      <created>1759406672343</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1759406672344</updated>
+      <workItem from="1789888594203" duration="10628000" />
+      <workItem from="1789990676319" duration="1052000" />
     </task>
     <task id="LOCAL-00063" summary="Fix google text bug">
       <option name="closed" value="true" />
@@ -754,7 +734,39 @@
       <option name="project" value="LOCAL" />
       <updated>1789909634273</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Hephaestus - v0.1.0">
+      <option name="closed" value="true" />
+      <created>1789910137558</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1789910137558</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Hephaestus - v0.1.0">
+      <option name="closed" value="true" />
+      <created>1789910400555</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1789910400556</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Hephaestus - v0.1.0">
+      <option name="closed" value="true" />
+      <created>1789911104122</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1789911104122</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Hephaestus - v0.1.0">
+      <option name="closed" value="true" />
+      <created>1789911167082</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1789911167082</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

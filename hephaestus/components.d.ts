@@ -17,6 +17,7 @@ declare module 'vue' {
     AppSidebar: typeof import('./src/components/common/AppSidebar.vue')['default']
     ArrowDropDownIcon: typeof import('./src/components/common/ArrowDropDownIcon.vue')['default']
     ElAffix: typeof import('element-plus/es')['ElAffix']
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']

@@ -104,3 +104,25 @@ html .el-radio-button.is-active .el-radio-button__inner { color: var(--heph-pine
 }
 @media(max-width:700px) { .heph-page { padding: 16px 12px; } .heph-card { padding: 14px; } .heph-grid.cols-2,.heph-grid.cols-3,.heph-grid.cols-4 { grid-template-columns: 1fr; } .heph-page .page-header h1 { font-size: 25px; } }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }.heph-reveal { opacity:1 !important; translate:none !important; }.heph-spotlight { transform:none !important; }.heph-spotlight::before { display:none !important; } }
+
+
+/* Keep narrow workspaces usable without hiding overflowing content. */
+.workspace-content > main, .heph-page > *, .heph-page .page-header > * { min-width:0; }
+@media(max-width:700px) {
+  .heph-page { padding-bottom:max(20px, env(safe-area-inset-bottom)); }
+  .heph-page .page-header { gap:12px; }
+  .heph-page .page-header .subtitle { overflow-wrap:anywhere; }
+  html .el-dialog { width:calc(100% - 24px); max-width:600px; margin-inline:auto; }
+  html .el-message { max-width:calc(100vw - 24px); }
+}
+@media(pointer:coarse) {
+  html .el-button, html .el-button.is-text, html .el-button.is-link { min-height:44px; }
+  html .el-input__wrapper, html .el-select__wrapper { min-height:40px; }
+}
+
+@media(max-width:700px) {
+  .heph-date-range-popper { max-width:calc(100vw - 16px); }
+  .heph-date-range-popper .el-date-range-picker { width:min(646px, calc(100vw - 18px)); }
+  .heph-date-range-popper .el-picker-panel__body { display:flex; flex-direction:column; min-width:0; max-height:65dvh; overflow-y:auto; }
+  .heph-date-range-popper .el-date-range-picker__content { width:100%; padding:12px; }
+}

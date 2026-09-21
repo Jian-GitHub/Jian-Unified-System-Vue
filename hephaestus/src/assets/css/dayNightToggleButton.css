@@ -17,7 +17,8 @@
 }
 
 .day-night-toggle-container .day-night-toggle-components {
-    position: fixed;
+    position: absolute;
+    inset: 0;
     width: 180em;
     height: 70em;
     background-color: #4685c0;

@@ -92,7 +92,7 @@ onBeforeUnmount(() => mediaQuery?.removeEventListener('change', onSystem))
       <AppSidebar :open="menuOpen" :collapsed="settings.sidebarCollapsed" @close="menuOpen = false" />
       <button v-if="menuOpen" class="sidebar-backdrop" type="button" :aria-label="t('ui.closeNavigation')" @click="menuOpen = false"></button>
       <div class="workspace-content">
-        <el-affix :offset="0" :z-index="30"><TopBar :menu-open="menuOpen" :sidebar-collapsed="settings.sidebarCollapsed" @menu="menuOpen = !menuOpen" @collapse="settings.setSidebarCollapsed(!settings.sidebarCollapsed)" /></el-affix>
+        <TopBar :menu-open="menuOpen" :sidebar-collapsed="settings.sidebarCollapsed" @menu="menuOpen = !menuOpen" @collapse="settings.setSidebarCollapsed(!settings.sidebarCollapsed)" />
         <main v-if="layout === 'default'" id="main-content" class="heph-page" tabindex="-1">
           <router-view v-if="!route.meta.requiresAuth || session.isAuthenticated" :key="session.ownerId" />
         </main>

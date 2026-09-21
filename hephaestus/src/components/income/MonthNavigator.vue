@@ -54,8 +54,8 @@ function all() {
       <el-date-picker v-model="month" type="month" value-format="YYYY-MM" :clearable="false" :placeholder="t('ui.chooseMonth')" />
       <el-button circle :aria-label="t('ui.nextMonth')" @click="move(1)">→</el-button>
       <div class="period-presets">
-        <button type="button" :class="{ active: month === todayInAucklandIso().slice(0, 7) }" @click="select(todayInAucklandIso().slice(0, 7))">{{ t('ui.thisMonth') }}</button>
-        <button type="button" :class="{ active: !modelValue.from && !modelValue.to }" @click="all">{{ t('ui.allTime') }}</button>
+        <el-button text :class="{ active: month === todayInAucklandIso().slice(0, 7) }" @click="select(todayInAucklandIso().slice(0, 7))">{{ t('ui.thisMonth') }}</el-button>
+        <el-button text :class="{ active: !modelValue.from && !modelValue.to }" @click="all">{{ t('ui.allTime') }}</el-button>
       </div>
     </div>
   </section>

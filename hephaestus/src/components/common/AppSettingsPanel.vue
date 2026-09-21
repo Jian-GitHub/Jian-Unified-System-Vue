@@ -61,10 +61,10 @@ async function handleAccount(command: string) {
     <ApolloThemeToggle />
     <div class="jus-apollo-login-setting-language-switch">
       <el-dropdown trigger="click" @command="switchLanguage">
-        <button type="button" class="el-dropdown-link" :aria-label="t('settings.language')">
+        <el-button text class="el-dropdown-link" :aria-label="t('settings.language')">
           <TranslateIcon class="jus-apollo-login-setting-language-switch-icon" />
           <ArrowDropDownIcon class="jus-apollo-login-setting-language-switch-icon arrow-down" />
-        </button>
+        </el-button>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item
@@ -81,9 +81,9 @@ async function handleAccount(command: string) {
     </div>
 
     <el-dropdown trigger="click" :hide-on-click="false" @command="handleAccount">
-      <button class="account-button" type="button" :aria-label="session.localizedDisplayName(settings.language) || t('settings.openApollo')">
-        <span class="avatar">{{ initials }}</span><el-icon class="account-arrow"><ArrowDown /></el-icon>
-      </button>
+      <el-button text class="account-button" :aria-label="session.localizedDisplayName(settings.language) || t('settings.openApollo')">
+        <el-avatar class="avatar" :size="30">{{ initials }}</el-avatar><el-icon class="account-arrow"><ArrowDown /></el-icon>
+      </el-button>
       <template #dropdown>
         <el-dropdown-menu class="account-dropdown-menu">
           <el-dropdown-item command="apollo"><el-icon><Link /></el-icon>{{ t('settings.openApollo') }}</el-dropdown-item>
@@ -103,10 +103,8 @@ async function handleAccount(command: string) {
 
 <style scoped>
 .jus-apollo-login-settings {
-  top: 0;
-  right: 0;
-  position: sticky;
-  z-index: 1;
+  position: relative;
+  flex-shrink: 0;
   color: var(--heph-ink);
   display: flex;
   gap: 10px;
@@ -133,20 +131,21 @@ async function handleAccount(command: string) {
 }
 
 :deep(.el-dropdown) { border: none; }
-.el-dropdown-link { display:flex; align-items:center; justify-content:center; width:36px; height:36px; padding:0; border:0; border-radius:6px; background:transparent; cursor:pointer; }
+.el-dropdown-link { display:flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; border:0; border-radius:6px; background:transparent; cursor:pointer; }
 :global([data-theme="dark"] .jus-apollo-login-setting-language-switch) { --language-hover-shadow: #9E9E9E; }
 .el-dropdown-link:focus-visible { outline:2px solid var(--heph-pine); outline-offset:2px; }
 .jus-apollo-login-setting-language-switch-icon { width: 18px; height: 18px; color: var(--heph-ink); }
 .jus-apollo-login-setting-language-switch-icon.arrow-down { width:14px; height:14px; }
 
-.account-button { display:flex; align-items:center; justify-content:center; gap:4px; min-height:34px; padding:0 0 0 13px; color:var(--heph-ink); border:0; border-left:1px solid color-mix(in srgb,var(--heph-line-strong) 58%,transparent); background:transparent; cursor:pointer; }
+.account-button { display:flex; align-items:center; justify-content:center; gap:4px; height:44px; padding:0 0 0 13px; color:var(--heph-ink); border:0; border-left:1px solid color-mix(in srgb,var(--heph-line-strong) 58%,transparent); background:transparent; cursor:pointer; }
 .avatar { display:grid; place-items:center; width:30px; height:30px; color:var(--heph-pine); border-radius:50%; background:var(--heph-mint); font-size:11px; font-weight:650; }
 .account-arrow { font-size:9px; color:var(--heph-muted); }
 
-:global(.account-dropdown-menu) { min-width:260px; }
+:global(.account-dropdown-menu) { width:260px; max-width:calc(100vw - 24px); }
+.account-button :deep(> span), .el-dropdown-link :deep(> span) { display:flex; align-items:center; gap:4px; }
 :global(.account-dropdown-menu .currency-picker) { display:grid; gap:8px; margin-top:5px; padding:12px 16px 10px; border-top:1px solid var(--heph-line); list-style:none; }
 :global(.account-dropdown-menu .currency-picker label) { display:flex; align-items:center; gap:7px; color:var(--heph-muted); font-size:12px; }
 :global(.account-dropdown-menu .currency-picker .el-select) { width:100%; }
 
-@media(max-width:600px) { .jus-apollo-login-settings { gap:.65rem; padding-inline:.5rem; }.account-button { padding-left:8px; } }
+@media(max-width:600px) { .jus-apollo-login-settings { gap:2px; padding-inline:4px; }.account-button { padding-left:8px; } }
 </style>

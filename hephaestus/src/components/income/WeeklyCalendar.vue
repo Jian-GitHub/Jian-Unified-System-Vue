@@ -71,7 +71,7 @@ const shortDate = (iso: string) => new Intl.DateTimeFormat(locale.value, { month
             <em>{{ formatNzd(String(week.total)) }}</em>
           </div>
           <button
-            v-for="day in week.days"
+            v-for="(day, dayIndex) in week.days"
             :key="day.date"
             type="button"
             :class="['day-cell', { active: day.jobs > 0, today: day.date === todayIso }]"
@@ -79,7 +79,7 @@ const shortDate = (iso: string) => new Intl.DateTimeFormat(locale.value, { month
             :style="{ '--row-index': weekIndex }"
             @click="emit('day', day.date)"
           >
-            <span class="day-number">{{ dayNumber(day.date) }}</span>
+            <span class="day-number"><span class="mobile-day-label">{{ dayLabels[dayIndex] }} </span>{{ dayNumber(day.date) }}</span>
             <strong v-if="day.jobs">{{ formatNzd(String(day.gross)) }}</strong>
             <small v-if="day.jobs">{{ day.jobs }} {{ t('ui.jobs') }}</small>
             <i v-if="day.pending" :aria-label="t('aimer.includesEstimate')"></i>
@@ -101,4 +101,15 @@ const shortDate = (iso: string) => new Intl.DateTimeFormat(locale.value, { month
 @keyframes row-enter { from { opacity:0; transform:translateY(8px); } }
 @media(max-width:650px) { .calendar-card { padding:14px 12px; }.calendar-matrix { grid-template-columns:110px repeat(7,minmax(72px,1fr)); }.week-summary,.day-cell { min-height:52px; } }
 @media(prefers-reduced-motion:reduce) { .week-summary,.day-cell { animation:none; transition:none; } }
+.mobile-day-label { display:none; }
+@media(max-width:650px) {
+  .calendar-header { flex-wrap:wrap; }
+  .calendar-matrix { min-width:0; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .matrix-heading { display:none; }
+  .week-summary { grid-column:1 / -1; padding:10px; gap:3px; }
+  .day-cell { min-height:76px; padding-top:26px; }
+  .day-number { left:9px; right:auto; }
+  .mobile-day-label { display:inline; }
+  .calendar-matrix > :nth-last-child(-n + 8) { border-bottom:1px solid var(--heph-line); }
+}
 </style>
