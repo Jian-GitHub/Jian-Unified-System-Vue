@@ -44,6 +44,7 @@ declare module 'vue' {
     LeftSideMenu: typeof import('./src/components/user/basic/LeftSideMenu.vue')['default']
     LoginPage: typeof import('./src/components/login/LoginPage.vue')['default']
     PngIcon: typeof import('./src/components/PngIcon.vue')['default']
+    PolicyPage: typeof import('./src/components/policy/PolicyPage.vue')['default']
     ProfileFields: typeof import('./src/components/user/basic/dialog/editor/ProfileFields.vue')['default']
     RightContent: typeof import('./src/components/user/security/userContainer/rightContent/RightContent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

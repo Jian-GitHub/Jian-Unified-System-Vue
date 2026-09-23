@@ -48,5 +48,74 @@ declare module 'vue-i18n' {
             privacy: string
             terms: string
         }
+
+        // Privacy Policy / Terms of Service (public pages)
+        policy: {
+            brand: {
+                label: string
+            }
+            meta: {
+                effective: string
+                version: string
+            }
+            tocTitle: string
+            footer: {
+                contact: string
+            }
+            footerNote: string
+            seeAlsoTerms: string
+            seeAlsoPrivacy: string
+            personalProject: {
+                title: string
+                body: string
+            }
+            privacy: {
+                eyebrow: string
+                title: string
+                effectiveDate: string
+                version: string
+                backToLogin: string
+                contactLead: string
+                footerNote: string
+                dataRetention: {
+                    caveat: string
+                }
+                sections: Array<{
+                    id: string
+                    heading: string
+                    body?: string
+                    subheading?: string
+                    list?: string[]
+                    orderedList?: string[]
+                    callout?: string
+                    link?: {
+                        label: string
+                        href: string
+                    }
+                }>
+            }
+            terms: {
+                eyebrow: string
+                title: string
+                effectiveDate: string
+                version: string
+                backToPrivacy: string
+                contactLead: string
+                footerNote: string
+                sections: Array<{
+                    id: string
+                    heading: string
+                    body?: string
+                    subheading?: string
+                    list?: string[]
+                    orderedList?: string[]
+                    callout?: string
+                    link?: {
+                        label: string
+                        href: string
+                    }
+                }>
+            }
+        }
     }
 }

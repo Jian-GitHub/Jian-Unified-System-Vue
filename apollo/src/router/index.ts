@@ -25,12 +25,19 @@ const routes: Array<RouteRecordRaw> = [
         component: UserPage
     },
     { path: '/authorize', name: 'Authorize', component: () => import('@/components/authorization/AuthorizationPage.vue') },
+    { path: '/privacy', name: 'Privacy', component: () => import('@/components/policy/PolicyPage.vue') },
+    { path: '/terms', name: 'Terms', component: () => import('@/components/policy/PolicyPage.vue') },
     // default
     {
         path: '/:pathMatch(.*)*',
         redirect: '/'
     }
 ];
+
+// Routes that bypass the auth guard. Privacy & Terms are public documents
+// (required by Google Sign-In and by general transparency), so they must be
+// reachable while signed-out as well as signed-in.
+const PUBLIC_ROUTES = new Set<string>(['Privacy', 'Terms']);
 
 const router = createRouter({
     history: createWebHistory(), // 使用 HTML5 History 模式
@@ -41,6 +48,9 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
     const sessionStore = useSessionStore();
     const localStore = useLocalStore();
+    // Public pages (Privacy / Terms) skip auth entirely so that signed-out
+    // users can read them, e.g. before deciding to register.
+    if (to.name && PUBLIC_ROUTES.has(String(to.name))) return next();
     if (to.name === 'Authorize') rememberAuthorization(to.fullPath);
     if (to.name === 'User' && localStore.token) {
         const pending = pendingAuthorization();
