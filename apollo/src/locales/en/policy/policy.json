@@ -1,0 +1,234 @@
+{
+  "policy": {
+    "brand": {
+      "label": "Apollo"
+    },
+    "meta": {
+      "effective": "Effective date",
+      "version": "Version"
+    },
+    "tocTitle": "Contents",
+    "footer": {
+      "contact": "Contact"
+    },
+    "footerNote": "This document is provided in multiple languages. The English version prevails in case of conflict.",
+    "seeAlsoTerms": "Read the Terms of Service",
+    "seeAlsoPrivacy": "Read the Privacy Policy",
+    "personalProject": {
+      "title": "Personal project, not a commercial product",
+      "body": "Apollo is a small identity service that I (Jian Qi) build and run as a personal project under the Jian Unified System umbrella. It is provided free of charge, with no service-level agreement and no commercial support. Data-retention and deletion timelines below are best-effort targets, not guarantees — please do not store anything in Apollo that you cannot afford to lose or that needs to be deleted on a strict deadline."
+    },
+    "privacy": {
+      "eyebrow": "Privacy Policy",
+      "title": "Apollo Privacy Policy",
+      "effectiveDate": "September 23, 2026",
+      "version": "v1.0",
+      "backToLogin": "Back to sign in",
+      "contactLead": "Maintainer contact",
+      "footerNote": "This Privacy Policy applies to the Apollo service operated within Jian Unified System.",
+      "dataRetention": {
+        "caveat": "Reminder: as noted at the top of this page, the retention windows below are best-effort targets, not commitments. Account and log data may persist longer than stated during incidents, debugging, or while Apollo is between maintainers."
+      },
+      "sections": [
+        {
+          "id": "introduction",
+          "heading": "1. Introduction",
+          "body": "Apollo is a small identity, account, and access-management service that I (Jian Qi) run as part of the Jian Unified System project. This Privacy Policy explains what personal information Apollo collects, how I use it, with whom I share it, and the choices you have. By creating an Apollo account or using any feature that authenticates through Apollo, you agree to this Policy.",
+          "callout": "Apollo is part of the Jian Unified System product family. Other Jian Unified System products and services (for example Hephaestus) have their own notices; this Policy only describes data processed by Apollo itself."
+        },
+        {
+          "id": "information-we-collect",
+          "heading": "2. Information I Collect",
+          "body": "When you sign in with Google or another supported provider, I receive from that provider only the fields needed to create or match an Apollo account: typically your provider user ID, display name, email address, and avatar URL. I do not receive your contacts, calendar, or any other data the provider holds about you.",
+          "subheading": "2.3 Information from third-party identity providers",
+          "list": [
+            "Device and connection metadata: IP address, user agent, browser type, operating system, language, and approximate region derived from the IP (never precise geolocation).",
+            "Security telemetry: sign-in timestamps, failed-attempt counters, Cloudflare Turnstile challenge outcomes, and suspicious-activity signals.",
+            "Service logs: request paths, response codes, and redacted error traces, kept for the purpose of operating and troubleshooting Apollo."
+          ]
+        },
+        {
+          "id": "how-we-use",
+          "heading": "3. How I Use Information",
+          "body": "I use the information I collect for the following purposes:",
+          "list": [
+            "To create and maintain your Apollo account, including authentication, password reset, and account recovery.",
+            "To operate the single sign-on (SSO) flow that lets other Jian Unified System products (such as Hephaestus) act on your behalf with your explicit consent.",
+            "To detect, prevent, and respond to fraud, abuse, security incidents, and violations of these Terms.",
+            "To send you service notifications that are required for the operation of your account (security alerts, sign-in confirmations, material changes to this Policy or the Terms).",
+            "To improve Apollo's reliability and performance through aggregated, non-identifying analytics."
+          ],
+          "callout": "I do not use the contents of your private Apollo data for advertising, and I do not sell personal information."
+        },
+        {
+          "id": "google-services-limited-use",
+          "heading": "4. Google API Services — Limited Use",
+          "body": "Apollo's use of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements. In particular:",
+          "orderedList": [
+            "Apollo uses Google account data only to provide the sign-in feature you triggered and the account-linking feature you asked for.",
+            "Apollo does not transfer Google account data to third parties except as required to provide the feature you requested, as you explicitly direct, or as required by law.",
+            "Apollo does not use Google account data for advertising, and does not allow humans to read that data unless: (a) you give me your specific consent for a clearly disclosed purpose; (b) it is necessary for security purposes such as investigating abuse; or (c) it is required by law.",
+            "Apollo stores the minimum Google account data needed for ongoing operation (typically provider user ID, display name, email, and avatar URL) and deletes it when you unlink the Google account or close your Apollo account."
+          ],
+          "link": {
+            "label": "Google API Services User Data Policy",
+            "href": "https://developers.google.com/terms/api-services-user-data-policy"
+          }
+        },
+        {
+          "id": "sharing",
+          "heading": "5. How I Share Information",
+          "body": "I share personal information only in the limited circumstances described below:",
+          "list": [
+            "With your consent: when you explicitly authorize another Jian Unified System product (for example Hephaestus) to access your Apollo account through the SSO authorization screen.",
+            "With the third-party services Apollo runs on: Cloudflare for traffic protection and Turnstile challenges, and the hosting provider where the Apollo backend lives. These services process data under their own privacy policies; their handling of your data is governed by their terms.",
+            "For legal reasons: when I believe in good faith that disclosure is necessary to comply with a law, regulation, valid court order, or government request.",
+            "To protect rights and safety: to investigate suspected fraud, security incidents, or violations of these Terms, and to protect the rights, property, or safety of Apollo's users or the public."
+          ]
+        },
+        {
+          "id": "data-retention",
+          "heading": "6. Data Retention",
+          "body": "I retain personal information for as long as your Apollo account is active, plus a limited grace period to honour deletion requests, recover from incidents, and meet legal obligations. Specifically:",
+          "list": [
+            "Account profile, credentials, and SSO linkage data: retained while your account is active; targeted for deletion within 30 days of account closure, except where retention is required by law.",
+            "Security and service logs: targeted for retention up to 180 days, then aggregated or deleted.",
+            "Backups: residual data may persist in encrypted backups for up to an additional 90 days before being overwritten."
+          ]
+        },
+        {
+          "id": "your-rights",
+          "heading": "7. Your Rights and Choices",
+          "body": "You can exercise the following rights at any time from Apollo's account settings or by contacting me at the address below:",
+          "list": [
+            "Access and portability: request a copy of the personal data I hold about you in a machine-readable format.",
+            "Correction: update or correct inaccurate profile data yourself through the account settings page.",
+            "Deletion: close your account; I will delete associated personal data as described in Section 6.",
+            "Unlink third-party providers: disconnect your Google or GitHub account from Apollo at any time; the provider linkage is removed immediately.",
+            "Withdraw SSO consent: revoke any third-party application's access to your Apollo account from the security settings page."
+          ],
+          "callout": "Because Apollo is a personal project, I cannot guarantee response times. I will try to reply to privacy requests, but please be patient — if you need a hard deadline, raise it in your message."
+        },
+        {
+          "id": "security",
+          "heading": "8. Security",
+          "body": "I protect your information with safeguards appropriate to the sensitivity of the data, including: encryption in transit (TLS 1.2 or higher) and at rest; salted password hashing with modern algorithms; passkey (WebAuthn) support; rate limiting and bot-traffic filtering through Cloudflare; least-privilege access controls; and continuous monitoring for suspicious activity. No system is perfectly secure; if I ever become aware of a breach affecting your personal data, I will notify you and the relevant authorities as required by law."
+        },
+        {
+          "id": "children",
+          "heading": "9. Children's Privacy",
+          "body": "Apollo is not directed to children under 13 (or the minimum age in your country). I do not knowingly collect personal information from children. If a parent or guardian believes their child has provided me personal information, please contact me so I can delete it."
+        },
+        {
+          "id": "international-transfers",
+          "heading": "10. International Data Transfers",
+          "body": "Apollo's primary database is stored in {serverLocation}. Cloudflare's edge network may route and inspect your traffic closer to your location before it reaches the origin server. When you use Apollo from a country other than where the primary server is located, your information will be transferred across borders; I rely on Cloudflare's and the hosting provider's standard safeguards to protect it during transit."
+        },
+        {
+          "id": "changes",
+          "heading": "11. Changes to This Policy",
+          "body": "I may update this Policy from time to time. When I do, I will revise the effective date at the top of this page and, for material changes, notify you through Apollo (for example by an in-app banner or by email to your registered address). Continued use of Apollo after the effective date constitutes acceptance of the updated Policy."
+        },
+        {
+          "id": "contact",
+          "heading": "12. Contact",
+          "body": "If you have any questions about this Policy, please reach out to me at the address below. Because this is a personal project, I may not be able to respond immediately, but I will do my best."
+        }
+      ]
+    },
+    "terms": {
+      "eyebrow": "Terms of Service",
+      "title": "Apollo Terms of Service",
+      "effectiveDate": "September 23, 2026",
+      "version": "v1.0",
+      "backToPrivacy": "Read the Privacy Policy",
+      "contactLead": "Maintainer contact",
+      "footerNote": "By using Apollo you agree to these Terms.",
+      "sections": [
+        {
+          "id": "agreement",
+          "heading": "1. Acceptance of These Terms",
+          "body": "These Terms of Service (\"Terms\") form a binding agreement between you and Jian Qi, the maintainer of the Apollo identity and access-management service, which is part of the Jian Unified System project. By creating an account, signing in, or otherwise using Apollo, you agree to these Terms and to the Privacy Policy. If you do not agree, do not use Apollo."
+        },
+        {
+          "id": "eligibility",
+          "heading": "2. Eligibility and Accounts",
+          "body": "You may use Apollo only if you are at least 13 years old (or the minimum age in your country) and are not barred from using Apollo under any applicable law. When you create an account you must provide accurate information and keep it up to date. You are responsible for safeguarding your credentials, your passkeys, and any device you use to access Apollo, and for all activity that occurs under your account."
+        },
+        {
+          "id": "acceptable-use",
+          "heading": "3. Acceptable Use",
+          "body": "You agree not to misuse Apollo. In particular, you will not:",
+          "list": [
+            "Use Apollo to violate any law, regulation, or third-party right.",
+            "Attempt to access Apollo by means other than the interface and instructions I provide.",
+            "Probe, scan, or test the vulnerability of Apollo except as expressly authorized by me in writing.",
+            "Bypass, circumvent, or attempt to bypass any security or abuse-prevention measure (including Cloudflare Turnstile challenges).",
+            "Use Apollo to send unsolicited communications, distribute malware, or facilitate phishing or credential stuffing.",
+            "Impersonate any person or entity, or misrepresent your affiliation with any person or entity.",
+            "Reverse engineer, decompile, or attempt to extract the source code of Apollo except as permitted by applicable law."
+          ]
+        },
+        {
+          "id": "third-party-identity",
+          "heading": "4. Third-Party Sign-In Providers",
+          "body": "Apollo may let you sign in or link your account using third-party identity providers such as Google or GitHub. Your use of those providers is governed by their own terms and privacy policies. When you link a third-party account, you authorize Apollo to receive the minimum information needed from that provider to create or match your Apollo account and to authenticate you. You may unlink a third-party account at any time from Apollo's security settings."
+        },
+        {
+          "id": "google-api-compliance",
+          "heading": "5. Google API Compliance",
+          "body": "If you sign in to Apollo with Google, your use of Google's APIs through Apollo is subject to the Google API Services User Data Policy, including the Limited Use requirements. Apollo accesses Google account data only to provide the sign-in and account-linking features you have requested, and does not transfer that data to third parties except as necessary to provide those features, as you explicitly direct, or as required by law.",
+          "link": {
+            "label": "Google API Services User Data Policy",
+            "href": "https://developers.google.com/terms/api-services-user-data-policy"
+          }
+        },
+        {
+          "id": "sso",
+          "heading": "6. Single Sign-On to Other Jian Unified System Products",
+          "body": "Apollo issues short-lived, scoped authorization codes that let other Jian Unified System products (such as Hephaestus) act on your behalf. Before a code is issued, Apollo shows you an authorization screen that identifies the requesting product, the data it will access, and the duration of the consent. You may revoke any granted consent at any time from Apollo's security settings. You are responsible for the actions taken under your authorization in the connected product."
+        },
+        {
+          "id": "ip",
+          "heading": "7. Intellectual Property",
+          "body": "Apollo, its logo, and all related software, designs, and documentation are owned by Jian Qi or the project contributors and are protected by copyright, trademark, and other applicable laws. I grant you a limited, non-exclusive, non-transferable, revocable license to use Apollo in accordance with these Terms. Nothing in these Terms transfers ownership of any intellectual property to you."
+        },
+        {
+          "id": "feedback",
+          "heading": "8. Feedback",
+          "body": "If you send me suggestions, ideas, or feedback about Apollo, you grant me a perpetual, worldwide, royalty-free license to use, modify, and incorporate that feedback into Apollo and other Jian Unified System products without restriction or obligation to you."
+        },
+        {
+          "id": "termination",
+          "heading": "9. Suspension and Termination",
+          "body": "I may suspend or terminate your access to Apollo if I reasonably believe that you have violated these Terms, that continued access poses a security risk, or that I am required to do so by law. You may close your account at any time from Apollo's security settings. Sections of these Terms that, by their nature, should survive termination — including Intellectual Property, Disclaimers, Limitation of Liability, and Governing Law — will survive."
+        },
+        {
+          "id": "disclaimers",
+          "heading": "10. Disclaimers",
+          "body": "Apollo is a personal project provided on an \"as is\" and \"as available\" basis. To the maximum extent permitted by law, I disclaim all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement. I do not warrant that Apollo will be uninterrupted, error-free, or that defects will be corrected, and I do not commit to any service-level agreement. Do not rely on Apollo for anything you cannot afford to lose or that needs to be available on a strict deadline."
+        },
+        {
+          "id": "liability",
+          "heading": "11. Limitation of Liability",
+          "body": "To the maximum extent permitted by law, my total cumulative liability for any claim arising out of or relating to Apollo will not exceed the amount you have paid me for Apollo in the twelve months before the claim (which, because Apollo is free, is likely zero). I will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, revenues, data, use, or goodwill. Nothing in these Terms excludes or limits liability that cannot be excluded or limited under applicable law."
+        },
+        {
+          "id": "governing-law",
+          "heading": "12. Governing Law and Dispute Resolution",
+          "body": "These Terms are governed by the laws of the place where I (Jian Qi) reside, without regard to its conflict-of-laws rules. The parties will first attempt to resolve any dispute informally by contacting me. If a dispute is not resolved within 30 days, the courts of that jurisdiction will have exclusive jurisdiction, except where consumer-protection laws give you the right to bring proceedings in your country of residence."
+        },
+        {
+          "id": "changes",
+          "heading": "13. Changes to These Terms",
+          "body": "I may update these Terms from time to time. The updated Terms will be posted at this URL with a revised effective date. For material changes I will give you reasonable advance notice (for example by an in-app banner or by email). Continued use of Apollo after the effective date constitutes acceptance of the updated Terms."
+        },
+        {
+          "id": "contact",
+          "heading": "14. Contact",
+          "body": "Questions about these Terms can be sent to the address below. Because Apollo is a personal project, please allow reasonable time for a reply."
+        }
+      ]
+    }
+  }
+}

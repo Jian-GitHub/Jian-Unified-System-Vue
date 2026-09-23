@@ -1,0 +1,234 @@
+{
+  "policy": {
+    "brand": {
+      "label": "Apollo"
+    },
+    "meta": {
+      "effective": "生效日期",
+      "version": "版本"
+    },
+    "tocTitle": "目录",
+    "footer": {
+      "contact": "联系"
+    },
+    "footerNote": "本文档提供多语言版本。如发生冲突，以英文版本为准。",
+    "seeAlsoTerms": "阅读服务条款",
+    "seeAlsoPrivacy": "阅读隐私权政策",
+    "personalProject": {
+      "title": "个人项目，非商业产品",
+      "body": "Apollo 是 Jian Qi 个人开发与维护的、作为 Jian Unified System 项目一部分的小型身份服务。本服务免费提供，不附任何服务等级协议（SLA）或商业支持。下方列出的数据保留与删除时限仅为尽力而为的目标，并非承诺——请勿在 Apollo 中存放无法承受丢失、或必须在严格期限内被删除的数据。"
+    },
+    "privacy": {
+      "eyebrow": "隐私权政策",
+      "title": "Apollo 隐私权政策",
+      "effectiveDate": "2026 年 9 月 23 日",
+      "version": "v1.0",
+      "backToLogin": "返回登录",
+      "contactLead": "维护者联系人",
+      "footerNote": "本隐私权政策适用于 Jian Unified System 中的 Apollo 服务。",
+      "dataRetention": {
+        "caveat": "提醒：如本页顶部所述，下文列出的保留时限仅为尽力而为的目标，并非承诺。在故障排查、调试或维护者交接期间，账号与日志数据可能保留超过所述时长。"
+      },
+      "sections": [
+        {
+          "id": "introduction",
+          "heading": "1. 引言",
+          "body": "Apollo 是由 Jian Qi 个人开发并维护的、作为 Jian Unified System 项目一部分的小型身份、账号与访问管理服务。本隐私权政策说明 Apollo 收集哪些个人信息、如何使用、与谁共享，以及您可以做出的选择。创建 Apollo 账号或使用任何通过 Apollo 进行身份验证的功能，即表示您同意本政策。",
+          "callout": "Apollo 隶属于 Jian Unified System 产品家族。Jian Unified System 中的其他产品与服务（例如 Hephaestus）拥有各自的隐私声明；本政策仅描述 Apollo 自身处理的数据。"
+        },
+        {
+          "id": "information-we-collect",
+          "heading": "2. 我收集的信息",
+          "body": "当您选择使用 Google 或其他受支持的提供方登录时，我仅从该提供方获取创建或匹配 Apollo 账号所必需的字段，通常包括：提供方用户 ID、显示名称、电子邮箱以及头像 URL。我不会获取您的联系人、日历或该提供方持有的任何其他数据。",
+          "subheading": "2.3 来自第三方身份提供方的信息",
+          "list": [
+            "设备与连接元数据：IP 地址、User Agent、浏览器类型、操作系统、语言，以及基于 IP 推导出的近似区域（绝不进行精确定位）。",
+            "安全遥测：登录时间戳、失败尝试计数、Cloudflare Turnstile 验证结果，以及可疑活动信号。",
+            "服务日志：请求路径、响应码以及脱敏后的错误链路，用于 Apollo 的运维与故障排查。"
+          ]
+        },
+        {
+          "id": "how-we-use",
+          "heading": "3. 我如何使用信息",
+          "body": "我将收集到的信息用于以下目的：",
+          "list": [
+            "创建并维护您的 Apollo 账号，包括身份验证、密码重置与账号恢复。",
+            "支持单点登录（SSO）流程，以便其他 Jian Unified System 产品（例如 Hephaestus）在您明确同意的情况下代您执行操作。",
+            "检测、防范和应对欺诈、滥用、安全事件以及违反本服务条款的行为。",
+            "向您发送账号运营所必需的服务通知（安全提醒、登录确认、本政策或服务条款的重大变更等）。",
+            "通过汇总的、不可识别的分析数据改进 Apollo 的可靠性与性能。"
+          ],
+          "callout": "我不会将您的 Apollo 私密数据用于广告，也不会出售任何个人信息。"
+        },
+        {
+          "id": "google-services-limited-use",
+          "heading": "4. Google API 服务的有限使用",
+          "body": "Apollo 对从 Google API 获取的信息的使用遵守 Google API Services User Data Policy，包括其中的 Limited Use 要求。具体而言：",
+          "orderedList": [
+            "Apollo 仅将 Google 账号数据用于提供您触发的登录功能以及您请求的账号关联功能。",
+            "除非是为了提供您请求的功能、得到您的明确指示，或法律法规要求，Apollo 不会将 Google 账号数据转让给任何第三方。",
+            "Apollo 不会将 Google 账号数据用于广告，也不会允许人工读取该数据，除非：（a）您就明确披露的目的给予我具体同意；（b）为调查滥用等安全目的所必需；（c）法律法规要求。",
+            "Apollo 仅存储维持正常运行所必需的 Google 账号数据（通常为提供方用户 ID、显示名称、电子邮箱以及头像 URL）；当您解除 Google 账号关联或注销 Apollo 账号时，相关数据将被删除。"
+          ],
+          "link": {
+            "label": "Google API Services User Data Policy",
+            "href": "https://developers.google.com/terms/api-services-user-data-policy"
+          }
+        },
+        {
+          "id": "sharing",
+          "heading": "5. 信息共享",
+          "body": "我仅在以下有限情形下共享个人信息：",
+          "list": [
+            "经您同意：当您通过 SSO 授权页面明确授权其他 Jian Unified System 产品（例如 Hephaestus）访问您的 Apollo 账号时。",
+            "与 Apollo 运行的第三方服务共享：包括用于流量防护和 Turnstile 验证的 Cloudflare，以及承载 Apollo 后端的托管服务商。这些服务依据各自的隐私政策处理数据，您数据的处理受其条款约束。",
+            "出于法律原因：当我真诚地相信披露信息是遵守法律、法规、有效法院命令或政府请求的必要行为时。",
+            "为保护权利与安全：为调查可疑的欺诈、安全事件或违反本服务条款的行为，并保护 Apollo 用户或公众的权利、财产或安全。"
+          ]
+        },
+        {
+          "id": "data-retention",
+          "heading": "6. 数据保留",
+          "body": "我将在您的 Apollo 账号处于活跃状态的期间内保留个人信息，并附加一段有限的宽限期以处理删除请求、应对事件以及履行法律义务。具体而言：",
+          "list": [
+            "账号资料、凭证与 SSO 关联数据：在账号活跃期间保留；目标在账号注销后 30 天内删除，法律法规要求保留的除外。",
+            "安全与服务日志：目标保留最长 180 天，之后进行聚合处理或删除。",
+            "备份：残留数据可能在加密备份中额外保留最多 90 天，随后被覆盖。"
+          ]
+        },
+        {
+          "id": "your-rights",
+          "heading": "7. 您的权利与选择",
+          "body": "您可以随时通过 Apollo 的账号设置或以下方联系方式行使以下权利：",
+          "list": [
+            "访问与可携性：索取我持有的、有关您的个人数据的可机读副本。",
+            "更正：通过账号设置页面自行更新或更正不准确的个人资料。",
+            "删除：注销账号；我将按照第 6 节的约定删除相关个人数据。",
+            "解除第三方关联：随时解除 Apollo 与 Google、GitHub 等账号的关联，关联将立即移除。",
+            "撤回 SSO 授权：在安全设置页面撤销任何第三方应用对您 Apollo 账号的访问权限。"
+          ],
+          "callout": "由于 Apollo 是个人项目，我无法保证回复时效。我会尽力回复隐私请求，但请您保持耐心——如果您有严格期限，请在来信中说明。"
+        },
+        {
+          "id": "security",
+          "heading": "8. 安全保障",
+          "body": "我根据数据的敏感性采取了相应的保护措施，包括：传输加密（TLS 1.2 及以上）与静态加密；使用现代算法的加盐密码散列；支持通行密钥（WebAuthn）；通过 Cloudflare 进行限流与机器人流量过滤；最小权限访问控制；以及对可疑活动的持续监控。没有任何系统是绝对安全的；若发生影响您个人数据的安全事件，我将依照法律要求通知您与相关主管部门。"
+        },
+        {
+          "id": "children",
+          "heading": "9. 儿童隐私",
+          "body": "Apollo 不面向 13 周岁以下（或您所在国家的最低年龄）的儿童。我不会明知地收集儿童的个人信息。如果监护人认为儿童向我提供了个人信息，请与我联系以便删除。"
+        },
+        {
+          "id": "international-transfers",
+          "heading": "10. 跨境数据传输",
+          "body": "Apollo 的主数据库存放在{serverLocation}。Cloudflare 的边缘网络可能在流量抵达源服务器之前，于更靠近您的位置进行路由与检查。当您从与主服务器所在国家不同的地区使用 Apollo 时，您的信息将会跨境传输；我依靠 Cloudflare 与托管服务商的标准保护机制确保传输过程中的信息安全。"
+        },
+        {
+          "id": "changes",
+          "heading": "11. 政策变更",
+          "body": "我可能不时更新本政策。更新时我会修订页面顶部的生效日期；如属于重大变更，我会通过 Apollo（例如应用内横幅或发送到您注册邮箱的邮件）进行通知。在生效日期之后继续使用 Apollo 即视为接受更新后的政策。"
+        },
+        {
+          "id": "contact",
+          "heading": "12. 联系方式",
+          "body": "如对本政策有任何疑问，请通过下方地址与我联系。由于这是个人项目，我可能无法立即回复，但会尽力而为。"
+        }
+      ]
+    },
+    "terms": {
+      "eyebrow": "服务条款",
+      "title": "Apollo 服务条款",
+      "effectiveDate": "2026 年 9 月 23 日",
+      "version": "v1.0",
+      "backToPrivacy": "阅读隐私权政策",
+      "contactLead": "维护者联系人",
+      "footerNote": "使用 Apollo 即表示您同意本服务条款。",
+      "sections": [
+        {
+          "id": "agreement",
+          "heading": "1. 接受本条款",
+          "body": "本服务条款（以下简称“条款”）在您与 Jian Qi（Apollo 身份与访问管理服务的维护者，Apollo 隶属于 Jian Unified System 项目）之间具有法律约束力，规范您对 Apollo 的使用。创建账号、登录或以其他方式使用 Apollo 即表示您同意本条款以及我们的隐私权政策。如您不同意，请勿使用 Apollo。"
+        },
+        {
+          "id": "eligibility",
+          "heading": "2. 资格与账号",
+          "body": "仅当您年满 13 周岁（或您所在国家的最低年龄），且未被任何适用法律禁止使用 Apollo 时，方可使用 Apollo。创建账号时您必须提供真实信息并保持更新。您应妥善保管凭证、通行密钥以及用于访问 Apollo 的任何设备，并对您账号下发生的所有活动负责。"
+        },
+        {
+          "id": "acceptable-use",
+          "heading": "3. 合规使用",
+          "body": "您承诺不会滥用 Apollo。具体而言，您不得：",
+          "list": [
+            "使用 Apollo 违反任何法律法规或第三方权利。",
+            "通过我未提供的方式或指引访问 Apollo。",
+            "探测、扫描或测试 Apollo 的漏洞，除非获得我明确的书面授权。",
+            "绕过、规避或试图绕过任何安全或反滥用措施（包括 Cloudflare Turnstile 验证）。",
+            "使用 Apollo 发送未经请求的通信、传播恶意软件，或协助钓鱼、撞库等行为。",
+            "冒充任何个人或实体，或虚假陈述您与任何个人或实体的关联。",
+            "对 Apollo 进行逆向工程、反编译或试图提取源代码，除非适用法律允许。"
+          ]
+        },
+        {
+          "id": "third-party-identity",
+          "heading": "4. 第三方身份提供方",
+          "body": "Apollo 可能允许您使用 Google 或 GitHub 等第三方身份提供方登录或关联账号。您对这些提供方的使用受其自身条款与隐私政策的约束。当您关联第三方账号时，您授权 Apollo 从该提供方获取创建或匹配 Apollo 账号以及完成身份验证所必需的最小信息。您可随时在 Apollo 的安全设置中解除第三方账号的关联。"
+        },
+        {
+          "id": "google-api-compliance",
+          "heading": "5. Google API 合规",
+          "body": "如果您使用 Google 登录 Apollo，则您通过 Apollo 使用 Google API 的行为须遵守 Google API Services User Data Policy，包括其中的 Limited Use 要求。Apollo 仅在提供您请求的登录与账号关联功能所必需的范围内访问 Google 账号数据，且除非为提供这些功能所必需、经您明确指示或法律要求，否则不会将该数据转让给任何第三方。",
+          "link": {
+            "label": "Google API Services User Data Policy",
+            "href": "https://developers.google.com/terms/api-services-user-data-policy"
+          }
+        },
+        {
+          "id": "sso",
+          "heading": "6. 与其他 Jian Unified System 产品的单点登录",
+          "body": "Apollo 签发短期、有作用域的授权码，以便其他 Jian Unified System 产品（例如 Hephaestus）代您执行操作。在签发授权码之前，Apollo 会向您展示授权页面，告知请求方产品、将要访问的数据以及授权的有效期。您可以随时在 Apollo 的安全设置中撤销已授予的同意。您需对在已连接产品中基于您的授权所执行的操作承担责任。"
+        },
+        {
+          "id": "ip",
+          "heading": "7. 知识产权",
+          "body": "Apollo、其徽标及所有相关软件、设计与文档均由 Jian Qi 或项目贡献者所有，受著作权、商标及其他适用法律的保护。我授予您一项有限的、非独占的、不可转让的、可撤销的使用许可，允许您按照本条款使用 Apollo。本条款中的任何内容均不向您转让任何知识产权。"
+        },
+        {
+          "id": "feedback",
+          "heading": "8. 反馈",
+          "body": "如您向我发送有关 Apollo 的建议、想法或反馈，您授予我一项永久的、全球性的、免许可费的许可，允许我使用、修改并将上述反馈整合到 Apollo 及其他 Jian Unified System 产品中，而无需对您承担任何义务。"
+        },
+        {
+          "id": "termination",
+          "heading": "9. 中止与终止",
+          "body": "若我有合理理由相信您违反了本条款、继续提供访问会带来安全风险，或法律法规要求，我可能会中止或终止您对 Apollo 的访问。您可随时在 Apollo 的安全设置中注销账号。本条款中依其性质理应存续的部分（包括知识产权、免责声明、责任限制与适用法律）将在终止后继续有效。"
+        },
+        {
+          "id": "disclaimers",
+          "heading": "10. 免责声明",
+          "body": "Apollo 是个人项目，按“现状”和“可用”原则提供。在适用法律允许的最大范围内，我不对任何明示或默示的保证承担责任，包括对适销性、特定用途适用性和不侵权的默示保证。我不保证 Apollo 将不中断、无错误，或其缺陷将被修正，亦不承诺任何服务等级协议。请勿将 Apollo 用于任何您无法承受丢失、或必须在严格期限内可用的场景。"
+        },
+        {
+          "id": "liability",
+          "heading": "11. 责任限制",
+          "body": "在适用法律允许的最大范围内，就任何因 Apollo 引起或与之相关的索赔，我所承担的累计责任总额不超过您在过去十二个月中为我支付的 Apollo 相关费用（鉴于 Apollo 免费，该金额通常为零）。我不对任何间接、附带、特殊、衍生性或惩罚性损害，或任何利润、收入、数据、使用权或商誉的损失承担责任。本条款中的任何内容均不排除或限制适用法律不得排除或限制的责任。"
+        },
+        {
+          "id": "governing-law",
+          "heading": "12. 适用法律与争议解决",
+          "body": "本条款受维护者（Jian Qi）居住地所在司法管辖区的法律管辖，不适用其冲突法规则。双方将首先通过联系我的方式尝试以非正式方式解决争议。若争议在 30 天内未能解决，则该司法管辖区的法院具有排他性管辖权，但消费者保护法律赋予您在居住国提起诉讼的权利的情形除外。"
+        },
+        {
+          "id": "changes",
+          "heading": "13. 条款变更",
+          "body": "我可能不时更新本条款。更新后的条款将在本页面公布，并附新的生效日期。对于重大变更，我将通过合理方式（例如应用内横幅或电子邮件）提前通知您。在生效日期之后继续使用 Apollo 即视为接受更新后的条款。"
+        },
+        {
+          "id": "contact",
+          "heading": "14. 联系方式",
+          "body": "如对本条款有任何疑问，请发送至下方地址。由于 Apollo 是个人项目，请允许合理的回复时间。"
+        }
+      ]
+    }
+  }
+}

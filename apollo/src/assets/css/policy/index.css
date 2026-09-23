@@ -1,0 +1,250 @@
+/*
+ * Policy page shared styles for Apollo · Jian Unified System.
+ *
+ * Visual language follows Apollo's existing pages:
+ *   - Icarus gradient backdrop (primary-200 → primary-300)
+ *   - Inset / outset shadows from --jus-color-global-shadow-*
+ *   - Neutral text tokens, PingFang SC system font stack
+ *   - rem-based spacing consistent with login/user pages
+ */
+
+.jus-apollo-policy-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  min-width: 980px;
+  min-height: 100vh;
+  padding: 5rem 1.5rem 4rem;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.jus-apollo-policy-card {
+  width: 100%;
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem 3rem 3rem;
+  border-radius: 1rem;
+  background: linear-gradient(122deg, var(--jus-color-icarus-primary-200, #F9E8E7) 13.11%, var(--jus-color-icarus-primary-300, #F4BEBD) 155.91%);
+  box-shadow: 10px 10px 10px 0 var(--jus-color-global-shadow-bottom-right, #F9F9F9), -10px -10px 10px 0 var(--jus-color-global-shadow-top-left, #D1D9E6);
+  color: var(--jus-color-global-neutrals-text-primary);
+  font-family: "PingFang SC", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.jus-apollo-policy-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 0.0625rem solid var(--jus-color-global-neutrals-text-dividers);
+}
+
+.jus-apollo-policy-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: var(--jus-color-global-neutrals-text-secondary);
+  font-weight: 500;
+}
+
+.jus-apollo-policy-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 2.25rem;
+  margin: 0;
+}
+
+.jus-apollo-policy-meta {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.8125rem;
+  color: var(--jus-color-global-neutrals-text-secondary);
+}
+
+.jus-apollo-policy-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.jus-apollo-policy-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.jus-apollo-policy-section h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--jus-color-global-neutrals-text-primary);
+}
+
+.jus-apollo-policy-section h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+  color: var(--jus-color-global-neutrals-text-primary);
+}
+
+.jus-apollo-policy-section p,
+.jus-apollo-policy-section li {
+  font-size: 0.9375rem;
+  line-height: 1.65rem;
+  color: var(--jus-color-global-neutrals-text-primary);
+  margin: 0;
+}
+
+.jus-apollo-policy-section ul,
+.jus-apollo-policy-section ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.jus-apollo-policy-section a {
+  color: var(--jus-color-global-icon-blue);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  word-break: break-word;
+}
+
+.jus-apollo-policy-callout {
+  padding: 0.875rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 0 0 0.0625rem rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+[data-theme="dark"] .jus-apollo-policy-callout {
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 0 0 0.0625rem rgba(255, 255, 255, 0.08);
+}
+
+/*
+ * Warning variant — used for the personal-project disclaimer shown at
+ * the top of the policy when policyConfig.isFormalProduct is false.
+ * Distinguishes itself from the neutral glass callout with a warmer
+ * accent and an icon glyph, but stays within the existing palette so
+ * the page still reads as one design.
+ */
+.jus-apollo-policy-callout--warning {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: rgba(244, 190, 189, 0.45);
+  box-shadow: inset 0 0 0 0.0625rem rgba(238, 28, 37, 0.35);
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+[data-theme="dark"] .jus-apollo-policy-callout--warning {
+  background: rgba(238, 28, 37, 0.18);
+  box-shadow: inset 0 0 0 0.0625rem rgba(238, 28, 37, 0.5);
+}
+
+.jus-apollo-policy-callout--warning strong {
+  font-size: 0.9375rem;
+  color: var(--jus-color-global-functional-warning, #FFC107);
+}
+
+
+.jus-apollo-policy-toc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 0 0 0.0625rem rgba(255, 255, 255, 0.45);
+}
+
+[data-theme="dark"] .jus-apollo-policy-toc {
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 0 0.0625rem rgba(255, 255, 255, 0.08);
+}
+
+.jus-apollo-policy-toc-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: var(--jus-color-global-neutrals-text-secondary);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.jus-apollo-policy-toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jus-apollo-policy-toc-list a {
+  font-size: 0.875rem;
+  color: var(--jus-color-global-neutrals-text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 0;
+}
+
+.jus-apollo-policy-toc-list a:hover {
+  color: var(--jus-color-global-icon-blue);
+}
+
+.jus-apollo-policy-toc-list a::before {
+  content: '§';
+  font-size: 0.75rem;
+  color: var(--jus-color-global-neutrals-text-secondary);
+}
+
+.jus-apollo-policy-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 0.0625rem solid var(--jus-color-global-neutrals-text-dividers);
+  font-size: 0.8125rem;
+  color: var(--jus-color-global-neutrals-text-secondary);
+}
+
+.jus-apollo-policy-footer-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.jus-apollo-policy-footer-actions a {
+  color: var(--jus-color-global-icon-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.jus-apollo-policy-footer-actions a:hover {
+  text-decoration: underline;
+}
+
+/* Keep page compact for shorter content; let long content scroll naturally. */
+@media (max-width: 1080px) {
+  .jus-apollo-policy-card {
+    padding: 2rem 1.75rem 2.5rem;
+  }
+
+  .jus-apollo-policy-title {
+    font-size: 1.5rem;
+  }
+}
